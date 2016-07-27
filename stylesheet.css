@@ -1,0 +1,170 @@
+@import url(https://fonts.googleapis.com/css?family=Titillium+Web);
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+* {
+    margin: 0;
+	padding: 0;
+	border: none;
+	outline: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+.container-fluid {
+    padding: 0px;       
+}
+/*Nav Styling*/
+nav, .navbar, .navbar-default {
+    margin: 0px;
+    padding-bottom: 14px;
+    border-bottom: solid 1px rgba(0,0,0,0.3);
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.2em;
+}
+.navbar-brand, a.navbar-brand {
+    margin: 0px;
+    padding-top: 4px;
+    padding-left: 20px;
+}
+ul.portfolioperson li:first-child {
+    padding-top: 16px;
+    font-size: 1.5em;
+}
+ul.nav li {
+    padding-top: 16px;
+}
+#overlaycontainer {
+    position: relative;
+    background: rgb(90,90,90);
+    background:  linear-gradient(rgb(90,90,90), rgb(200,200,200));
+    box-shadow: 0 0 5px white;
+    height: 600px;
+    text-align: center;
+    top: 0px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+}
+.centerbannertext p {
+    width: 55%;
+    display: inline-block;
+    position: relative;
+    text-align: left;
+    padding: 10px 15px;
+    top: 100px;
+    font-size: 2em;
+    line-height: 150%;
+    text-indent: 100px;
+    font-family: 'Open Sans', sans-serif;
+    color: rgba(233,233,233,1);
+    text-shadow: 2px 2px 2px #000;  
+}
+.centerbannertext ul {
+    position: relative;
+    top: 150px;
+}
+.centerbannertext ul li {
+    display: inline;
+    padding: 10px;    
+}
+.centerbannertext img {
+    transition: ease-in-out 0.25s;
+}
+.centerbannertext ul li a img:hover {
+    box-shadow: 0 0 10px rgba(255,255,255,1);
+}
+a.worklink:link {
+    color:darkorange;
+}
+a.worklink:visited {
+    color: darkorange;
+}
+/*##############################################*/
+#aboutstyling {
+    background-color: rgba(0,0,0,0.08);
+    position: relative;
+    padding: 50px;
+}
+.aboutpersonimg img{
+    display: block;
+    margin: auto;
+    box-shadow: 0 0 5px black;
+}
+.aboutperson {
+    border-left: solid black 1px;
+}
+.aboutperson h2, .headingtwoformat {
+    text-align: center;
+    font-size: 3em;
+    font-family: 'Roboto', sans-serif;
+}
+.aboutperson p {
+    width: 80%;
+    margin: 0 auto;
+    font-size: 1.3em;
+    font-family: 'Open Sans', sans-serif;
+    line-height: 150%;
+}
+.projectdivider {
+    margin-top: 30px;
+}
+.projectdivider h3 {
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+}
+.projectdivider .col-lg-4: {
+    margin-bottom: 10px;
+}
+.projectdivider .col-lg-4 img {
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+.projectdivider a img {
+    display: block;
+    margin: 0 auto;
+}
+.contactstyling {
+    background-color: rgba(0,0,0,0.08);
+    width: 100%;
+    margin-top: 30px;
+    padding: 40px;
+}
+.contactstyling h2 {
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    font-size: 2.8em;
+}
+.contactstyling p {
+    font-size: 1.6em;
+    margin-left: 50px;
+    margin-top: 16px;
+    font-family: 'Open Sans', sans-serif;
+}
+.contactstyling ul {
+    display: table;
+    margin: 0 auto;
+}
+.contactstyling li {
+    list-style-type: none;
+    padding: 14px;
+}
+@media screen and (max-width: 800px) {
+    .centerbannertext p {
+        width: 80%;
+        font-size: 2em; 
+    }
+    #overlaycontainer {
+        height: 400px;
+    }
+    .aboutperson p {
+        width: 95%;
+        margin: 0 auto;
+        font-size: 1.3em;
+        font-family: 'Open Sans', sans-serif;
+        line-height: 150%;
+    }
+    a.navbar-brand img {
+        height: 55px;
+        width: 55px;
+    }
+}
