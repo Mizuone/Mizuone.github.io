@@ -1,12 +1,142 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Kyle Orlinski</title>
+        <title>Kyle Orlinski - Porfolio</title>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
+        <link href="stylesheet.css" type="text/css" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+        <script src="scripts.js" type="text/javascript"></script>
     </head>
     <body>
-        <h1>Welcome</h1>
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapsemenu"
+                    aria-expanded="false"><span class="sr-only">Toggle Navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#overlaycontainer"><img src="images/Logo.png" width="75" height="75"></a>
+                </div>
+                    <div class="collapse navbar-collapse" id="collapsemenu">
+                        <ul class="portfolioperson nav navbar-nav pull-left">
+                            <li><a href="#overlaycontainer">Kyle Orlinski</a></li>
+                        </ul>
+                        <ul class="nav navbar-nav pull-right">
+                            <li><a href="#overlaycontainer" title="Go to Home">Home</a></li>
+                            <li><a href="#aboutjump" title="Go to About">About</a></li>
+                            <li><a href="#projectsection" title="Go to Work">Work</a></li>
+                            <li><a href="#contactformat" title="Go to Contact">Contact</a></li>
+                        </ul>
+                    </div>
+            </div>
+        </nav>
+        <main>
+            <div class="container-fluid">
+                <div id="overlaycontainer">
+                   <div class="centerbannertext">
+                       <p>Welcome to my portfolio, I am a front-end developer with a back-end understanding. Each day I continue to learn and better my craft in being a developer.
+                           Please feel in looking at some of the <a class="worklink" href="#projectsection">work</a> I've done.</p>
+                        <ul>
+                            <li><a href="https://www.linkedin.com/in/kyleorlinskideveloper"><img src="images/linkedin.png" width="60" height="60"></a></li>
+                            <li><a href="https://github.com/Mizuone"><img src="images/github.png" width="60" height="60"></a></li>
+                            <li><a href="https://www.freecodecamp.com/mizuone"><img src="images/freecodecamplogo.svg" width="60" height="60"></a></li>
+                       </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid" id="aboutjump">
+                <div id="aboutstyling">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="aboutpersonimg">
+                                <img src="http://res.cloudinary.com/dqk4hl3zh/image/upload/v1469634890/20160724_180313_inhpea.jpg" width="350" height="250">
+                            </div>
+                        </div>
+                        <div class="col-lg-8">
+                            <div class="aboutperson">
+                                <h2>About</h2>
+                                <p>
+                                    Hello, my name is Kyle Orlinski and I specialize in front-end development. I created projects that cover data manipulation, 
+                                    algorithm computation, and even game development. When it comes to design and programming, I focus primary on simplicity and usability.
+                                    During the last year I have been a part of a SharePoint program at Gateway Technical College, which was a intense curriculum of courses
+                                    spanning across 15 months. While I was in the program I developed a passion for programming and design. Currently I am developing a mobile
+                                    application using NativeScript, and many other projects that cover web technologies.
+                                </p>
+                                <h2>Skills</h2>
+                                    <div id="testprogress"><div id="testlabel">JavaScript</div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="projectsection" class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h2 class="headingtwoformat">Projects</h2>
+                    </div>
+                </div>
+                <div class="projectdivider">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <h3>Reaver</h3>
+                            <a href="#" target="_blank"><img src="images/reaver.PNG" width="350" height="300"></a>
+                        </div>
+                        <div class="col-lg-4">
+                            <h3>To-Do List</h3>
+                            <a href="#" target="_blank"><img src="images/todolistpic.PNG" width="350" height="300"></a>
+                        </div>
+                        <div class="col-lg-4">
+                            <h3>Caloric Intake App</h3>
+                            <a href="#" target="_blank"><img src="images/caloricintakeapp.PNG" width="350" height="300"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="projectdivider">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <h3>Break Out</h3>
+                            <a href="#" target="_blank"><img src="images/BreakOut.PNG" width="350" height="300"></a>
+                        </div>
+                        <div class="col-lg-4">
+                            <h3>Pong</h3>
+                            <a href="#" target="_blank"><img src="images/Pong.PNG" width="350" height="300"></a>
+                        </div>
+                        <div class="col-lg-4">
+                            <h3>Coming Soon</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid">
+                <div class="contactstyling" id="contactformat">
+                    <div class="row">
+                            <div class="col-lg-7">
+                                    <h2>Contact</h2>
+                                    <p>Connect with Kyle Orlinski</p>
+                                    <p>Email: <b>orlinskikyle@gmail.com</b></p>
+                            </div>
+                            <div class="col-lg-5">
+                                <ul>
+                                    <li><a href="https://www.linkedin.com/in/kyleorlinskideveloper" target="_blank"><img src="images/linkedin.png" width="60" height="60"></a></li>
+                                    <li><a href="https://github.com/Mizuone" target="_blank"><img src="images/github.png" width="60" height="60"></a></li>
+                                    <li><a href="https://www.freecodecamp.com/mizuone" target="_blank"><img src="images/freecodecamplogo.svg" width="60" height="60"></a></li>
+                               </ul>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer>
+            
+        </footer>
     </body>
 </html>
