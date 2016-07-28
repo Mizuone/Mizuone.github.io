@@ -121,7 +121,7 @@ ul.skilllist li{
     
 }
 ul.progress-style li {
-    display: none;
+    display: inline;
     list-style-type: none;
 }
 .progress-style {
@@ -143,9 +143,6 @@ ul.progress-style li {
 /******************************************/
 .projectdivider {
     margin-top: 30px;
-}
-.firstrow, .secondrow, .thirdrow {
-    display: none;
 }
 .projectdivider h3 {
     text-align: center;
@@ -277,6 +274,9 @@ ul.progress-style li {
     .projectdivider .col-lg-4 img {
         max-height: 225px;
         max-width: 275px;
+    }
+    .progress-style .col-xs-10 {
+        width: 100%;
     }
     .contactstyling p {
         font-size: 1.3em;
