@@ -1,37 +1,38 @@
 "use strict";
 $(document).ready(function() {
-    console.log("connected");
     var PortfolioSpace = {};
+    
     PortfolioSpace = function() {
+        var isAnimated = 0;
+        
         $(window).scroll(function() {
-            console.log($(this).scrollTop());
            if($(this).scrollTop() > 80) {
-               $("ul.progress-stlye li").css("display", "inline");
-               $("ul.progress-style li").fadeIn(1000,function(){});
-           } else {
-               $("ul.progress-style li").fadeOut("fast",function(){});
-           }
-           if($(this).scrollTop() > 362) {
-               $(".firstrow").fadeIn(500,function(){});
-           } else {
-               $(".firstrow").fadeOut("fast",function(){});
-           }
-           if($(this).scrollTop() > 762) {
-               $(".secondrow").fadeIn(500,function(){});
-           } else {
-               $(".secondrow").fadeOut("fast",function(){});
-           }
-           if($(this).scrollTop() > 1162) {
-               $(".thirdrow").fadeIn(500,function(){});
-           } else {
-               $(".thirdrow").fadeOut("fast",function(){});
+               animateBar();
            }
         });
-        function fadeobjectin(object) {
-            return $(object).fadeIn("slow",function(){});
-        }
-        function fadeobjectOut(object) {
-            return $(object).fadeOut("slow",function(){});
+        
+        function animateBar() {
+            if (isAnimated === 0) {
+                $(".javascriptbar .novice").animate({ width: "20%" }, 25);
+                $(".javascriptbar .journeyman").animate({ width: "25%" }, 300);
+                $(".javascriptbar .epic").animate({ width: "20%" }, 500);
+                
+                $(".html5bar .novice").animate({ width: "20%" }, 25);
+                $(".html5bar .journeyman").animate({ width: "25%" }, 300);
+                $(".html5bar .epic").animate({ width: "20%" }, 500);
+                $(".html5bar .legendary").animate({ width: "15%" }, 700);
+                
+                $(".jquerybar .novice").animate({ width: "20%" }, 25);
+                $(".jquerybar .journeyman").animate({ width: "25%" }, 300);
+                $(".jquerybar .epic").animate({ width: "5%" }, 500);
+                                
+                $(".phpbar .novice").animate({ width: "20%" }, 25);
+                $(".phpbar .journeyman").animate({ width: "10%" }, 300);
+                                
+                $(".nodejsbar .novice").animate({ width: "15%" }, 300);
+                
+                isAnimated++;
+            }
         }
     };
     PortfolioSpace();
