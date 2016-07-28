@@ -9,6 +9,7 @@
 	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
+    transition: 0.1s ease-in-out;
 }
 .container-fluid {
     padding: 0px;       
@@ -47,7 +48,7 @@ ul.nav li {
     z-index: 999;
 }
 .centerbannertext p {
-    width: 55%;
+    width: 50%;
     display: inline-block;
     position: relative;
     text-align: left;
@@ -71,8 +72,8 @@ ul.nav li {
 .centerbannertext img {
     transition: ease-in-out 0.25s;
 }
-.centerbannertext ul li a img:hover {
-    box-shadow: 0 0 10px rgba(255,255,255,1);
+.centerbannertext ul li a img:hover, .contactstyling ul li img:hover {
+    box-shadow: 0 0 10px rgba(0,0,0,1);
 }
 a.worklink:link {
     color:darkorange;
@@ -100,12 +101,45 @@ a.worklink:visited {
     font-family: 'Roboto', sans-serif;
 }
 .aboutperson p {
-    width: 80%;
+    width: 90%;
+    padding: 0px 20px;
     margin: 0 auto;
     font-size: 1.3em;
     font-family: 'Open Sans', sans-serif;
     line-height: 150%;
 }
+ul.skilllist {
+    text-align: center;
+    width: 78%;
+    margin: 0 auto;
+}
+ul.skilllist li{
+    display: inline;
+    padding: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    
+}
+ul.progress-style li {
+    display: inline;
+}
+.progress-style {
+    width: 100%;
+    margin: 0 auto;
+}
+.novice {
+    background-color: green;
+}
+.journeyman {
+    background-color: deepskyblue;
+}
+.epic {
+    background-color: purple;
+}
+.legendary {
+    background-color: orangered;
+}
+/******************************************/
 .projectdivider {
     margin-top: 30px;
 }
@@ -122,6 +156,9 @@ a.worklink:visited {
 .projectdivider a img {
     display: block;
     margin: 0 auto;
+}
+.projectdivider a img:hover {
+    box-shadow: 0 0 10px aqua;
 }
 .contactstyling {
     background-color: rgba(0,0,0,0.08);
@@ -148,23 +185,83 @@ a.worklink:visited {
     list-style-type: none;
     padding: 14px;
 }
+@media screen and (max-width: 1000px) {
+    .progress-style li p {
+        font-size: 0.9em;
+    }
+}
 @media screen and (max-width: 800px) {
+        .aboutperson p {
+        width: 100%;
+        margin: 0 auto;
+        font-size: 1.4em;
+    }
     .centerbannertext p {
-        width: 80%;
+        width: 90%;
         font-size: 2em; 
+    }
+    .progress-style .col-xs-10 {
+        width: 80%;
+        margin: 0 auto;
+    }
+    ul.skilllist {
+        width: 70%;
+    }
+    .progress-style li p {
+        font-size: 0.8em;
+    }
+}
+@media screen and (max-width: 600px) {
+    .centerbannertext p {
+        font-size: 1.5em; 
     }
     #overlaycontainer {
         height: 400px;
     }
+    .centerbannertext ul {
+        top: 90px;
+    }
     .aboutperson p {
-        width: 95%;
+        width: 100%;
         margin: 0 auto;
-        font-size: 1.3em;
-        font-family: 'Open Sans', sans-serif;
-        line-height: 150%;
+        font-size: 1.4em;
+    }
+    .aboutpersonimg img{
+        max-height: 200px;
+        max-width: 275px;
+    }
+    .progress-style .col-xs-10 {
+        width: 90%;
+        margin: 0 auto;
+    }
+    ul.skilllist {
+        width: 100%;
     }
     a.navbar-brand img {
         height: 55px;
         width: 55px;
+    }
+    .aboutperson {
+        font-size: 0.8em;
+    }
+    .progress-style li p {
+        font-size: 1em;
+    }
+}
+@media screen and (max-width: 350px) {
+    .centerbannertext p {
+        width: 100%;
+        font-size: 1.2em; 
+    }
+    .aboutpersonimg img{
+        max-height: 195px;
+        max-width: 235px;
+    }
+    .projectdivider .col-lg-4 img {
+        max-height: 225px;
+        max-width: 275px;
+    }
+    .contactstyling p {
+        font-size: 1.3em;
     }
 }
