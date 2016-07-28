@@ -143,6 +143,8 @@ ul.progress-style li {
 /******************************************/
 .projectdivider {
     margin-top: 30px;
+}
+.firstrow, .secondrow, .thirdrow {
     display: none;
 }
 .projectdivider h3 {
@@ -250,10 +252,23 @@ ul.progress-style li {
         font-size: 1em;
     }
 }
-@media screen and (max-width: 350px) {
+@media screen and (max-width: 370px) {
     .centerbannertext p {
         width: 100%;
         font-size: 1.2em; 
+    }
+    .centerbannertext img {
+        max-width: 50px;
+        max-height: 50px;
+    }
+    .centerbannertext ul {
+        top: 120px;
+    }
+    #aboutstyling {
+        padding: 15px;
+    }
+    .aboutperson p {
+        width: 100%;
     }
     .aboutpersonimg img{
         max-height: 195px;
