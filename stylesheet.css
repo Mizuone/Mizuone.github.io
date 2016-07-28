@@ -49,7 +49,7 @@ ul.nav li {
 }
 .centerbannertext p {
     width: 50%;
-    display: inline-block;
+    margin: 0 auto;
     position: relative;
     text-align: left;
     padding: 10px 15px;
@@ -59,7 +59,7 @@ ul.nav li {
     text-indent: 100px;
     font-family: 'Open Sans', sans-serif;
     color: rgba(233,233,233,1);
-    text-shadow: 2px 2px 2px #000;  
+    text-shadow: 2px 2px 2px #000;
 }
 .centerbannertext ul {
     position: relative;
@@ -121,7 +121,8 @@ ul.skilllist li{
     
 }
 ul.progress-style li {
-    display: inline;
+    display: none;
+    list-style-type: none;
 }
 .progress-style {
     width: 100%;
@@ -142,6 +143,7 @@ ul.progress-style li {
 /******************************************/
 .projectdivider {
     margin-top: 30px;
+    display: none;
 }
 .projectdivider h3 {
     text-align: center;
