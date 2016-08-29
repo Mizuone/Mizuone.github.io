@@ -1,0 +1,269 @@
+@import url(https://fonts.googleapis.com/css?family=Titillium+Web);
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  transition: 0.1s ease-in-out; }
+
+.container-fluid {
+  padding: 0px; }
+
+/*Nav Styling*/
+nav, .navbar, .navbar-default {
+  margin: 0px;
+  padding-bottom: 14px;
+  border-bottom: solid 1px rgba(0, 0, 0, 0.3);
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.2em; }
+
+.navbar-brand, a.navbar-brand {
+  margin: 0px;
+  padding-top: 4px;
+  padding-left: 20px; }
+
+ul.portfolioperson li:first-child {
+  padding-top: 16px;
+  font-size: 1.5em; }
+
+ul.nav li {
+  padding-top: 16px; }
+
+#overlaycontainer {
+  position: relative;
+  background: #5a5a5a;
+  background: linear-gradient(#5a5a5a, #c8c8c8);
+  box-shadow: 0 0 5px white;
+  height: 600px;
+  text-align: center;
+  top: 0px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 999; }
+
+.centerbannertext p {
+  width: 50%;
+  margin: 0 auto;
+  position: relative;
+  text-align: left;
+  padding: 10px 15px;
+  top: 100px;
+  font-size: 2em;
+  line-height: 150%;
+  text-indent: 100px;
+  font-family: 'Open Sans', sans-serif;
+  color: #e9e9e9;
+  text-shadow: 2px 2px 2px #000; }
+
+.centerbannertext ul {
+  position: relative;
+  top: 150px; }
+
+.centerbannertext ul li {
+  display: inline;
+  padding: 10px; }
+
+.centerbannertext img {
+  transition: ease-in-out 0.25s; }
+
+.centerbannertext ul li a img:hover, .contactstyling ul li img:hover {
+  box-shadow: 0 0 10px black; }
+
+a.worklink:link {
+  color: darkorange; }
+
+a.worklink:visited {
+  color: darkorange; }
+
+/*##############################################*/
+#aboutstyling {
+  background-color: rgba(0, 0, 0, 0.08);
+  position: relative;
+  padding: 50px; }
+
+.aboutpersonimg img {
+  display: block;
+  margin: auto;
+  box-shadow: 0 0 5px black; }
+
+.aboutperson {
+  border-left: solid black 1px; }
+
+.aboutperson h2, .headingtwoformat {
+  text-align: center;
+  font-size: 3em;
+  font-family: 'Roboto', sans-serif; }
+
+.aboutperson p {
+  width: 90%;
+  padding: 0px 20px;
+  margin: 0 auto;
+  font-size: 1.3em;
+  font-family: 'Open Sans', sans-serif;
+  line-height: 150%; }
+
+ul.skilllist {
+  text-align: center;
+  width: 78%;
+  margin: 0 auto; }
+
+ul.skilllist li {
+  display: inline;
+  padding: 10px;
+  margin-left: 10px;
+  margin-right: 10px; }
+
+ul.progress-style li {
+  display: inline;
+  list-style-type: none; }
+
+.progress-style {
+  width: 100%;
+  margin: 0 auto; }
+
+.novice {
+  background-color: green; }
+
+.journeyman {
+  background-color: deepskyblue; }
+
+.epic {
+  background-color: purple; }
+
+.legendary {
+  background-color: orangered; }
+
+/******************************************/
+.projectdivider {
+  margin-top: 30px; }
+
+.projectdivider h3 {
+  text-align: center;
+  font-family: 'Roboto', sans-serif; }
+
+.projectdivider .col-lg-4 {
+  margin-bottom: 10px; }
+
+.projectdivider .col-lg-4 img {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); }
+
+.projectdivider a img {
+  display: block;
+  margin: 0 auto; }
+
+.projectdivider a img:hover {
+  box-shadow: 0 0 10px aqua; }
+
+.contactstyling {
+  background-color: rgba(0, 0, 0, 0.08);
+  width: 100%;
+  margin-top: 30px;
+  padding: 40px; }
+
+.contactstyling h2 {
+  font-family: 'Roboto', sans-serif;
+  text-align: center;
+  font-size: 2.8em; }
+
+.contactstyling p {
+  font-size: 1.6em;
+  margin-left: 50px;
+  margin-top: 16px;
+  font-family: 'Open Sans', sans-serif; }
+
+.contactstyling ul {
+  display: table;
+  margin: 0 auto; }
+
+.contactstyling li {
+  list-style-type: none;
+  padding: 14px; }
+
+@media screen and (max-width: 1200px) {
+  .progress-style li p {
+    font-size: 0.9em; }
+  .centerbannertext p {
+    width: 70%;
+    font-size: 2em; } }
+
+@media screen and (max-width: 800px) {
+  .aboutperson p {
+    width: 100%;
+    margin: 0 auto;
+    font-size: 1.4em; }
+  .progress-style .col-xs-10 {
+    width: 80%;
+    margin: 0 auto; }
+  ul.skilllist {
+    width: 70%; }
+  .progress-style li p {
+    font-size: 0.8em; }
+  a.navbar-brand img {
+    height: 55px;
+    width: 55px; }
+  .contactstyling p {
+    text-align: center; } }
+
+@media screen and (max-width: 700px) {
+  .centerbannertext p {
+    font-size: 1.7em; } }
+
+@media screen and (max-width: 600px) {
+  .centerbannertext p {
+    font-size: 1.5em;
+    width: 80%; }
+  #overlaycontainer {
+    height: 400px; }
+  .centerbannertext ul {
+    top: 90px; }
+  .aboutperson p {
+    width: 100%;
+    margin: 0 auto;
+    font-size: 1.4em; }
+  .aboutpersonimg img {
+    max-height: 200px;
+    max-width: 275px; }
+  .progress-style .col-xs-10 {
+    width: 90%;
+    margin: 0 auto; }
+  ul.skilllist {
+    width: 100%; }
+  .aboutperson {
+    font-size: 0.8em; }
+  .progress-style li p {
+    font-size: 1em; }
+  .centerbannertext img {
+    max-width: 50px;
+    max-height: 50px; }
+  .centerbannertext ul {
+    top: 120px; }
+  #aboutstyling {
+    padding: 15px; }
+  .aboutperson p {
+    width: 100%; }
+  .aboutpersonimg img {
+    max-height: 195px;
+    max-width: 235px; }
+  .projectdivider .col-lg-4 img {
+    max-height: 225px;
+    max-width: 275px; } }
+
+@media screen and (max-width: 500px) {
+  .centerbannertext p {
+    width: 100%;
+    font-size: 1.2em; }
+  .aboutpersonimg img {
+    max-height: 150px;
+    max-width: 200px; } }
+
+@media screen and (max-width: 370px) {
+  .progress-style .col-xs-10 {
+    width: 100%; }
+  .contactstyling p {
+    font-size: 1.3em; } }

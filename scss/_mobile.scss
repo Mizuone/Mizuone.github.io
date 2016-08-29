@@ -1,0 +1,112 @@
+
+@media screen and (max-width: 1200px) {
+    .progress-style li p {
+        font-size: 0.9em;
+    }
+    .centerbannertext p {
+        width: 70%;
+        font-size: 2em; 
+    }
+}
+@media screen and (max-width: 800px) {
+    .aboutperson p {
+        width: 100%;
+        margin: 0 auto;
+        font-size: 1.4em;
+    }
+    .progress-style .col-xs-10 {
+        width: 80%;
+        margin: 0 auto;
+    }
+    ul.skilllist {
+        width: 70%;
+    }
+    .progress-style li p {
+        font-size: 0.8em;
+    }
+    a.navbar-brand img {
+        height: 55px;
+        width: 55px;
+    }
+    .contactstyling p {
+        text-align: center;
+    }
+}
+@media screen and (max-width: 700px) {
+    .centerbannertext p {
+        font-size: 1.7em; 
+    }
+}
+@media screen and (max-width: 600px) {
+    .centerbannertext p {
+        font-size: 1.5em; 
+        width: 80%;
+    }
+    #overlaycontainer {
+        height: 400px;
+    }
+    .centerbannertext ul {
+        top: 90px;
+    }
+    .aboutperson p {
+        width: 100%;
+        margin: 0 auto;
+        font-size: 1.4em;
+    }
+    .aboutpersonimg img{
+        max-height: 200px;
+        max-width: 275px;
+    }
+    .progress-style .col-xs-10 {
+        width: 90%;
+        margin: 0 auto;
+    }
+    ul.skilllist {
+        width: 100%;
+    }
+    .aboutperson {
+        font-size: 0.8em;
+    }
+    .progress-style li p {
+        font-size: 1em;
+    }
+    .centerbannertext img {
+        max-width: 50px;
+        max-height: 50px;
+    }
+    .centerbannertext ul {
+        top: 120px;
+    }
+    #aboutstyling {
+        padding: 15px;
+    }
+    .aboutperson p {
+        width: 100%;
+    }
+    .aboutpersonimg img{
+        max-height: 195px;
+        max-width: 235px;
+    }
+    .projectdivider .col-lg-4 img {
+        max-height: 225px;
+        max-width: 275px;
+    }
+}
+@media screen and (max-width: 500px) {
+    .centerbannertext p {
+        width: 100%;
+        font-size: 1.2em; 
+    }
+    .aboutpersonimg img{
+        max-height: 150px;
+        max-width: 200px;
+    }
+}
+@media screen and (max-width: 370px) {
+    .progress-style .col-xs-10 {
+        width: 100%;
+    }
+    .contactstyling p {
+        font-size: 1.3em;
+    }
+}

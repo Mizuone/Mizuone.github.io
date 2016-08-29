@@ -1,6 +1,8 @@
 "use strict";
 $(document).ready(function() {
-    var PortfolioSpace = {};
+    if (typeof(PortfolioSpace === "undefined")) {
+        var PortfolioSpace = {};
+    }
     
     PortfolioSpace = function() {
         var isAnimated = 0;
