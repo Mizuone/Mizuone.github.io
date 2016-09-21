@@ -198,6 +198,9 @@ a.worklink:visited {
 .aboutperson {
   border-left: solid black 1px; }
 
+.mobileabout {
+  display: none; }
+
 .aboutperson h2, .headingtwoformat {
   text-align: center;
   font-size: 3em;
@@ -316,8 +319,10 @@ ul.progress-style li {
     width: 20%; } }
 
 @media screen and (max-width: 800px) {
-  .aboutperson p:first-child {
+  .aboutperson .non-mobileabout {
     display: none; }
+  .aboutperson .mobileabout {
+    display: block; }
   a.portfoliobutton p, a.portfoliobutton {
     width: 23%; }
   .aboutperson p {

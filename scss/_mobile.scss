@@ -24,8 +24,11 @@
     }
 }
 @media screen and (max-width: 800px) {
-    .aboutperson p:first-child {
+    .aboutperson .non-mobileabout {
         display: none;
+    }
+    .aboutperson .mobileabout {
+        display: block;
     }
     a.portfoliobutton p, a.portfoliobutton {
         width: 23%;
