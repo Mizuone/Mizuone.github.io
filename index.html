@@ -5,7 +5,9 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Kyle Orlinski - Porfolio</title>
+        <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
         <link rel="stylesheet" href="//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
         <link href="css/main.css" type="text/css" rel="stylesheet">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
@@ -16,7 +18,7 @@
     </head>
     <body>
         <nav class="navbar navbar-default navbar-fixed-top">
-            <div class="container-fluid">
+            <div class="container">
                 <div class="navbar-header">
                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapsemenu"
                     aria-expanded="false"><span class="sr-only">Toggle Navigation</span>
@@ -25,31 +27,42 @@
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" href="#overlaycontainer"><img src="images/Logo.PNG" width="75" height="75"></a>
+                    
                 </div>
                     <div class="collapse navbar-collapse" id="collapsemenu">
-                        <ul class="portfolioperson nav navbar-nav pull-left">
-                            <li><a href="#overlaycontainer">Kyle Orlinski</a></li>
-                        </ul>
-                        <ul class="nav navbar-nav pull-right">
-                            <li><a href="#overlaycontainer" title="Go to Home">Home</a></li>
-                            <li><a href="#aboutjump" title="Go to About">About</a></li>
-                            <li><a href="#projectsection" title="Go to Work">Work</a></li>
-                            <li><a href="#contactformat" title="Go to Contact">Contact</a></li>
-                        </ul>
+                        <div class="row">
+                            <div class="col-lg-3 col-xs-3">
+
+                            </div>
+                            <div class="col-lg-3.5 col-xs-3.5 pull-right">
+                                <ul class="socialicons nav navbar-nav ">
+                                    <li><a href="https://twitter.com/KyleOrlinski"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                    <li><a href="https://www.facebook.com/profile.php?id=100012982514973"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                    <li><a href="https://github.com/Mizuone"><i class="fa fa-github" aria-hidden="true"></i></a></li>
+                                    <li><a href="https://www.linkedin.com/"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-4">
+                                <ul class="navlinks nav navbar-nav">
+                                    
+                                    <li><a href="#aboutjump" title="Go to About">About</a></li>
+                                    <li><a href="#projectsection" title="Go to Work">Work</a></li>
+                                    <li><a href="#contactformat" title="Go to Contact">Contact</a></li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
             </div>
         </nav>
         <main>
+            <!--I am a front-end developer with a back-end understanding. Creating and programming is a passion of mine
+                           Please feel free in looking at some of the <a class="worklink" href="#projectsection">work</a> I've done.-->
             <div class="container-fluid">
                 <div id="overlaycontainer">
                    <div class="centerbannertext">
-                       <p>Welcome to my portfolio, I am a front-end developer with a back-end understanding. Each day I continue to learn and better my craft in being a developer.
-                           Please feel in looking at some of the <a class="worklink" href="#projectsection">work</a> I've done.</p>
-                        <ul>
-                            <li><a href="https://www.linkedin.com/in/kyleorlinskideveloper" target="_blank" rel="noopener noreferrer"><img src="images/linkedin.png" width="60" height="60"></a></li>
-                            <li><a href="https://github.com/Mizuone" target="_blank" rel="noopener noreferrer"><img src="images/github.png" width="60" height="60"></a></li>
-                            <li><a href="https://www.freecodecamp.com/mizuone" target="_blank" rel="noopener noreferrer"><img src="images/freecodecamplogo.svg" width="60" height="60"></a></li>
-                       </ul>
+                       <p class="titlestyling">Front-End Developer</p>
+                       <p>With a love for creating and developing!</p>
+                       <a href="#projectsection" class="portfoliobutton"><p>View Portfolio<span class="fa fa-angle-down"></span></p></a>
                     </div>
                 </div>
             </div>
@@ -63,15 +76,20 @@
                         </div>
                         <div class="col-lg-8">
                             <div class="aboutperson">
-                                <h2>About</h2>
-                                <p>
+                                
+                                <p class="non-mobileabout">
                                     Hello, my name is Kyle Orlinski and I specialize in front-end development. I created projects that cover data manipulation, 
                                     algorithm computation, and even game development. When it comes to design and programming, I focus primary on simplicity and usability.
                                     During the last year I have been a part of a SharePoint program at Gateway Technical College, which was a intense curriculum of courses
                                     spanning across 15 months. While I was in the program I developed a passion for programming and design. Currently I am developing a mobile
                                     application using ReactNative, and many other projects that cover web technologies.
                                 </p>
-                                <h2>Skills</h2>
+                                <p class="mobileabout">Hello, my name is Kyle Orlinski and I specialize in front-end development. I created projects that cover data manipulation, 
+                                    algorithm computation, and even game development. When it comes to design and programming, I focus primary on simplicity and usability.<span class="mobilesecondparagraph">During the last year I have been a part of a SharePoint program at Gateway Technical College, which was a intense curriculum of courses
+                                    spanning across 15 months. While I was in the program I developed a passion for programming and design. Currently I am developing a mobile
+                                    application using ReactNative, and many other projects that cover web technologies.</span>
+                                    </p>
+                            <div id="skillspacing">
                                 <ul class="skilllist">
                                     <div class="row">
                                         <div class="col-xs-3">
@@ -152,6 +170,7 @@
                                         </div>
                                     </li>
                                 </ul>
+                            </div>   
                             </div>
                         </div>
                     </div>
@@ -160,7 +179,7 @@
             <div id="projectsection" class="container">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h2 class="headingtwoformat">Projects</h2>
+                        <h2 class="headingtwoformat"></h2>
                     </div>
                 </div>
                 <div class="projectdivider firstrow">

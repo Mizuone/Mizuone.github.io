@@ -2,9 +2,10 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto);
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
 
-$aboutAndContactBackground = rgba(0,0,0,0.08);
-$paragraphFont = 'Open Sans', sans-serif;
-$headingFontAndNav = 'Roboto', sans-serif;
+$aboutAndContactBackground: rgba(0, 0, 0, 0.08);
+$paragraphFont: 'Open Sans', sans-serif;
+$headingFontAndNav: 'Roboto', sans-serif;
+$frontendtitle: 'Raleway', sans-serif;
 
 * {
     margin: 0;
@@ -23,26 +24,98 @@ $headingFontAndNav = 'Roboto', sans-serif;
 nav, .navbar, .navbar-default {
     margin: 0px;
     padding-bottom: 14px;
-    border-bottom: solid 1px rgba(0,0,0,0.3);
+    border-bottom: #2098d1;
     font-family: $headingFontAndNav;
     font-size: 1.2em;
+    /*
+    background: #2c3e50; 
+    background: -webkit-linear-gradient(to left, #2098d1,#2098d1 , #04B0E3);
+    background: linear-gradient(to left, #2098d1 , #2098d1, #04B0E3); */
+    background: rgba(0, 0, 0, 1);
+    color: white;
 }
 .navbar-brand, a.navbar-brand {
     margin: 0px;
-    padding-top: 4px;
+    padding-top: 2px;
     padding-left: 20px;
+}
+.navbar-brand img {
+    border-radius: 10px;
 }
 ul.portfolioperson li:first-child {
     padding-top: 16px;
     font-size: 1.5em;
 }
-ul.nav li {
+ul.nav li, ul.nav li i {
     padding-top: 16px;
+}
+ul.navlinks  {
+    position: relative;
+    text-align: center;
+    margin: 0 auto;
+    left: 50px;
+}
+ul.navlinks li {
+    display: inline-block;
+    font-size: 1.2em;
+}
+
+.navbar-default .navbar-nav > li > a { /*Underline transition effect*/
+    color: white;
+    position: relative;
+    text-decoration: none;
+}
+
+.navbar-default .navlinks > li > a:hover {
+    color: aqua;
+}
+.navbar-default .navlinks > li > a:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #fff;
+    visibility: hidden;
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
+    -webkit-transition: all 0.2s ease-in-out 0s;
+    transition: all 0.2s ease-in-out 0s;
+}
+.navbar-default .navlinks > li > a:hover:before {
+    visibility: visible;
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+}
+ul.nav li i {
+    margin: auto 20px;
+    font-size: 1.7em;
+}
+ul.socialicons {
+    margin-left: 0px;
+}
+ul.socialicons a {
+    color: white;
+    transition: 0.1s linear;
+}
+ul.socialicons li i:hover {
+    color: aqua;
+}
+ul.socialicons li a {
+    padding: 0px;
+    width: 5%;
+}
+ul.socialicons li i {
+    width: 100%;
+    text-align: center;
+    margin: 0 20px;
+}
+.navbar-default .socialicons>li>a:hover {
+    color: white;
 }
 #overlaycontainer {
     position: relative;
-    background: rgb(90,90,90);
-    background:  linear-gradient(rgb(90,90,90), rgb(200,200,200));
     box-shadow: 0 0 5px white;
     height: 600px;
     text-align: center;
@@ -53,18 +126,49 @@ ul.nav li {
     z-index: 999;
 }
 .centerbannertext p {
-    width: 50%;
+    width: 100%;
     margin: 0 auto;
     position: relative;
     text-align: left;
     padding: 10px 15px;
-    top: 100px;
+    top: 150px;
     font-size: 2em;
     line-height: 150%;
-    text-indent: 100px;
+    text-align: center;
+    
+    color: black;
+    font-family: $frontendtitle;
+}
+.centerbannertext p:first-child {
+    padding: 5px;
+    font-size: 3em;
     font-family: $paragraphFont;
-    color: rgba(233,233,233,1);
-    text-shadow: 2px 2px 2px #000;
+}
+.centerbannertext p:nth-of-type(2) span.skillset {
+    display: block;
+    font-size: 0.5em;
+}
+
+.centerbannertext a p:nth-of-type(3) {
+    font-size: 0.5em;
+    
+}
+a.portfoliobutton p, a.portfoliobutton {
+    text-decoration: none;
+    margin-top: 1em;
+    background-color: rgba(0, 0, 0, 0.15);
+    width: 10%;
+    border-radius: 10px;
+    box-shadow: 0 5px 5px black;
+}
+a.portfoliobutton p:first-child {
+    font-size: 1.5em;
+}
+a.portfoliobutton p:hover {
+     background-color: rgba(0, 0, 0, 0.2);
+}
+a.portfoliobutton:hover span.fa-angle-down {
+    color: aqua;
 }
 .centerbannertext ul {
     position: relative;
@@ -80,38 +184,51 @@ ul.nav li {
 .centerbannertext ul li a img:hover, .contactstyling ul li img:hover {
     box-shadow: 0 0 10px rgba(0,0,0,1);
 }
+span.fa-angle-down {
+    display: block;
+}
 a.worklink:link {
-    color:darkorange;
+    color: #006FE3;
 }
 a.worklink:visited {
-    color: darkorange;
+    color: #006FE3;
 }
 /*##############################################*/
 #aboutstyling {
     background-color: $aboutAndContactBackground;
     position: relative;
     padding: 50px;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
 }
 .aboutpersonimg img{
     display: block;
     margin: auto;
-    box-shadow: 0 0 5px black;
+    box-shadow: 0 0 5px black; 
 }
 .aboutperson {
     border-left: solid black 1px;
+    
 }
 .aboutperson h2, .headingtwoformat {
     text-align: center;
     font-size: 3em;
     font-family: $headingFontAndNav;
 }
-.aboutperson p {
+.aboutperson p:first-child, .aboutperson p:nth-of-type(2) {
     width: 90%;
     padding: 0px 20px;
     margin: 0 auto;
     font-size: 1.3em;
     font-family: $paragraphFont;
-    line-height: 150%;
+    line-height: 175%;
+}
+
+span.mobilesecondparagraph {
+    display: block;
+    margin-top: 20px;
+}
+#skillspacing {
+    margin-top: 50px;
 }
 ul.skilllist {
     text-align: center;
@@ -171,6 +288,7 @@ ul.progress-style li {
     width: 100%;
     margin-top: 30px;
     padding: 40px;
+    box-shadow: 0px -2px 1px rgba(0, 0, 0, 0.3);
 }
 .contactstyling h2 {
     font-family: $headingFontAndNav;
