@@ -24,6 +24,12 @@
     }
 }
 @media screen and (max-width: 800px) {
+    ul.socialicons {
+        float: right;
+    }
+    ul.navlinks {
+        float: left;
+    }
     .aboutperson .non-mobileabout {
         display: none;
     }

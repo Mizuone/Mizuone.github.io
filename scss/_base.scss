@@ -94,23 +94,30 @@ ul.nav li i {
 }
 ul.socialicons {
     margin-left: 0px;
+    display: inline;
+    float: right;
+}
+ul.socialicons li {
+    display: inline;
 }
 ul.socialicons a {
     color: white;
     transition: 0.1s linear;
-}
-ul.socialicons li i:hover {
-    color: aqua;
-}
-ul.socialicons li a {
-    padding: 0px;
-    width: 5%;
 }
 ul.socialicons li i {
     width: 100%;
     text-align: center;
     margin: 0 20px;
 }
+ul.socialicons li a {
+    padding: 0px;
+    width: 5%;
+}
+ul.socialicons li i:hover {
+    color: aqua;
+}
+
+
 .navbar-default .socialicons>li>a:hover {
     color: white;
 }
