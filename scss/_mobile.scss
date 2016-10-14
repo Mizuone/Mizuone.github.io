@@ -17,10 +17,19 @@
     .aboutpersonimg img {
         margin-bottom: 30px;
     }
+    .firstrow img, .secondrow img, .thirdrow img, .fourthrow img {
+        height: 300px;
+    }
+    .projectdivider .row {
+        margin-right: 2%;
+    }
 }
 @media screen and (max-width: 980px) {
     a.portfoliobutton p, a.portfoliobutton {
         width: 20%;
+    }
+    .firstrow img, .secondrow img, .thirdrow img, .fourthrow img {
+        height: 250px;
     }
 }
 @media screen and (max-width: 800px) {
@@ -60,6 +69,14 @@
     }
     .contactstyling p {
         text-align: center;
+    }
+}
+@media screen and (max-width:766px) {
+    .firstrow img {
+        height: 360px;
+    }
+    .projectdivider .row {
+        margin-right: 4%;
     }
 }
 @media screen and (max-width: 700px) {
@@ -123,10 +140,6 @@
         max-height: 195px;
         max-width: 235px;
     }
-    .projectdivider .col-lg-4 img {
-        max-height: 225px;
-        max-width: 275px;
-    }
 }
 @media screen and (max-width: 500px) {
     .centerbannertext p.titlestyling {
@@ -143,6 +156,9 @@
     .aboutpersonimg img{
         max-height: 150px;
         max-width: 200px;
+    }
+    .firstrow img {
+        height: 275px;
     }
 }
 @media screen and (max-width: 370px) {

@@ -33,6 +33,9 @@ nav, .navbar, .navbar-default {
     background: linear-gradient(to left, #2098d1 , #2098d1, #04B0E3); */
     background: rgba(0, 0, 0, 1);
     color: white;
+    border: 0px solid transparent;
+    border-radius: 0px;
+    box-shadow: 0 1px 4px #333;
 }
 .navbar-brand, a.navbar-brand {
     margin: 0px;
@@ -194,12 +197,6 @@ a.portfoliobutton:hover span.fa-angle-down {
 span.fa-angle-down {
     display: block;
 }
-a.worklink:link {
-    color: #006FE3;
-}
-a.worklink:visited {
-    color: #006FE3;
-}
 /*##############################################*/
 #aboutstyling {
     background-color: $aboutAndContactBackground;
@@ -261,7 +258,7 @@ ul.progress-style li {
     margin: 0 auto;
 }
 .novice {
-    background-color: green;
+    background-color: rgba(0, 125, 0, 0.8);
 }
 .journeyman {
     background-color: deepskyblue;
@@ -273,30 +270,72 @@ ul.progress-style li {
     background-color: orangered;
 }
 /******************************************/
+.projectdivider .row {
+    box-sizing: border-box;
+    margin-right: 0.999%;
+    margin-left: 0;
+}
+.projectdivider ul {
+    list-style-type: none;
+}
+.projectdivider ul li {
+    display: inline;
+}
+.firstrow li {
+    width: 103.1%;
+    position: relative;
+    overflow: hidden;
+}
+.firstrow img {
+    width: 103.1%;
+    max-height: 360px;
+    height: 360px;
+}
+.projectdivider .col-lg-4 {
+    padding: 0px;
+}
 .projectdivider {
-    margin-top: 30px;
+    margin-top: 0px;
 }
 .projectdivider h3 {
     text-align: center;
     font-family: $headingFontAndNav;
 }
-.projectdivider .col-lg-4 {
-    margin-bottom: 10px;
-}
-.projectdivider .col-lg-4 img {
-    box-shadow: 0 0 10px rgba(0,0,0,0.5);
-}
 .projectdivider a img {
     display: block;
-    margin: 0 auto;
+    margin: 0;
 }
 .projectdivider a img:hover {
-    box-shadow: 0 0 10px aqua;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+.appdescription {
+    position: absolute;
+    top: 400px;
+    left: 0;
+    right: 0;
+    bottom: 0px;
+    width: 103.1%;
+    background-color: rgba(0, 0, 0, 0.3);
+    text-align: center; 
+    color: white;
+    font-size: 1.5em;
+    font-family: $headingFontAndNav;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -ms-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+    opacity: 0;
+}
+.appdescription.heighttransition {
+    position: absolute;
+    opacity: 1;
+    top: 300px !important;
 }
 .contactstyling {
     background-color: $aboutAndContactBackground;
     width: 100%;
-    margin-top: 30px;
+    margin-top: 0;
     padding: 40px;
     box-shadow: 0px -2px 1px rgba(0, 0, 0, 0.3);
 }
