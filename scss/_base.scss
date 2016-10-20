@@ -17,21 +17,24 @@ $frontendtitle: 'Raleway', sans-serif;
 	vertical-align: baseline;
     transition: 0.1s ease-in-out;
 }
+span.breaksection {
+    display: block;
+    margin-bottom: 16px;
+}
 .container-fluid {
     padding: 0px;       
 }
-/*Nav Styling*/
+.col-lg-offset-2 {
+    margin-left: 21%
+}
+/*#####################Nav Styling#########################*/
 nav, .navbar, .navbar-default {
     margin: 0px;
     padding-bottom: 14px;
     border-bottom: #2098d1;
     font-family: $headingFontAndNav;
     font-size: 1.2em;
-    /*
-    background: #2c3e50; 
-    background: -webkit-linear-gradient(to left, #2098d1,#2098d1 , #04B0E3);
-    background: linear-gradient(to left, #2098d1 , #2098d1, #04B0E3); */
-    background: rgba(0, 0, 0, 1);
+    background: #292928;
     color: white;
     border: 0px solid transparent;
     border-radius: 0px;
@@ -124,6 +127,8 @@ ul.socialicons li i:hover {
 .navbar-default .socialicons>li>a:hover {
     color: white;
 }
+/******************************************/
+/*#####################Banner Section#########################*/
 #overlaycontainer {
     position: relative;
     box-shadow: 0 0 5px white;
@@ -197,7 +202,7 @@ a.portfoliobutton:hover span.fa-angle-down {
 span.fa-angle-down {
     display: block;
 }
-/*##############################################*/
+/*#####################About Section#########################*/
 #aboutstyling {
     background-color: $aboutAndContactBackground;
     position: relative;
@@ -332,6 +337,26 @@ ul.progress-style li {
     opacity: 1;
     top: 300px !important;
 }
+/*#####################Footer Section#########################*/
+footer .fa {
+    font-size: 2.5em;
+}
+footer a {
+    color: black;
+}
+footer a:hover {
+    color: aqua;
+}
+.footernavlinks p, .footersociallinks p {
+    font-size: 1.2em;
+    margin-left: 0px;
+    margin-top: 16px;
+    font-family: $paragraphFont;
+    width: 80%;
+}
+.footernavlinks a {
+    font-size: 1.5em;
+}
 .contactstyling {
     background-color: $aboutAndContactBackground;
     width: 100%;
@@ -343,12 +368,6 @@ ul.progress-style li {
     font-family: $headingFontAndNav;
     text-align: center;
     font-size: 2.8em;
-}
-.contactstyling p {
-    font-size: 1.6em;
-    margin-left: 50px;
-    margin-top: 16px;
-    font-family: $paragraphFont;
 }
 .contactstyling ul {
     display: table;

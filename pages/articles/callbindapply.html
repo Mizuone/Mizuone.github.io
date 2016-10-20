@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Kyle Orlinski - Porfolio</title>
+        <link rel='shortcut icon' type='image/x-icon' href='../../images/little-jimmie-32x32.png'/>
+        <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
+        <link href="../../css/main.css" type="text/css" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+        <script src="../../scripts.js" type="text/javascript"></script>
+    </head>
+    <body>
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapsemenu"
+                    aria-expanded="false"><span class="sr-only">Toggle Navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#overlaycontainer"><img src="/images/Logo.PNG" width="75" height="75"></a>
+                    
+                </div>
+                    <div class="collapse navbar-collapse" id="collapsemenu">
+                        <div class="row">
+                            
+                            <div class="col-lg-4 col-lg-offset-2">
+                                <ul class="navlinks nav navbar-nav">
+                                    <li><a href="#aboutjump" title="Go to About">About</a></li>
+                                    <li><a href="#projectsection" title="Go to Work">Work</a></li>
+                                    <li><a href="./pages/blog.html" title="Go to Blog">Blog</a></li>
+                                    <li><a href="#contactformat" title="Go to Contact">Contact</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-3 col-lg-offset-1 col-xs-3">
+                                <ul class="socialicons nav navbar-nav ">
+                                    <li><a href="https://twitter.com/KyleOrlinski"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                    <li><a href="https://github.com/Mizuone"><i class="fa fa-github" aria-hidden="true"></i></a></li>
+                                    <li><a href="https://www.linkedin.com/in/kyleorlinskideveloper"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </nav>
+        <main class="container blogarticle">
+            <h1>
+                What the heck is .call, .bind, and .apply!?
+            </h1>
+            <p>Oct 18 2016</p>
+            <p class="articleparagraph">
+                Something that I came across quite a bit in JavaScript but never really understood how it fully worked, or the usage for each method. Hopefully after my explanation and examples of each method, you and myself will be more confident when facing this beast. Now from the beginning, these three methods are a part of the Function object in JavaScript</p>
+            <pre>
+                Function
+                //returns Function() { [native code] }
+                
+                Function.prototype.bind;
+                //returns bind() { [native code] }
+                
+                Function.prototype.apply
+                //returns apply() { [native code] }
+                
+                Function.prototype.call
+                //returns call() { [native code] }
+                
+                function helloWorld() {
+                    console.log("Hello World!");
+                }
+                
+                helloWorld.bind;
+                //returns function bind() { [native code] }
+            </pre>
+            <p class="articleparagraph">
+                With this example you can see that the Function object has the methods bind, apply, and call. Then I created a function called helloWorld, and checked if the newly created function has the bind method. So let us focus on our .call method. For short helloWorld.call() and helloWorld() will return the same result in calling the function. Why would you use .call then? The main reason is to create a pointer for our this  keyword.
+            </p>
+            <pre>
+                //One example
+                "use strict";
+                function newWorld() {
+                    console.log(this);
+                }
+                newWorld.call();
+                //undefined
+                
+                newWorld.call(20);
+                //20
+                
+                
+                //Second example
+                let Kyle = {
+                   example: function() {
+
+                        function passMeThis() {
+                           console.log(this);
+                        }
+                        passMeThis.call(15);
+                   }
+                }
+                Kyle.example(); //15
+                
+                //Third example
+                function getJiggy(Will, Smith, spaceJam) {
+                    console.log(this);
+                    console.log(Will);
+                    console.log(Smith);
+                    console.log(spaceJam);
+                }
+                getJiggy.call("I am this", "I am Will", "I am Smith", "I am spaceJam");
+                //I am this
+                //I am Will
+                //I am Smith
+                //I am spaceJam
+            </pre>
+                <ul class="articleparagraph">
+                    <li>
+                         Here I have three examples of showing you how you can use call(). You will get two different results in strict, and non strict. The keyword this in strict mode will be undefined, and in non strict it will point to the window object. In the first example, this is pointing to the value of undefined. Then I simply pass a number as a argument, and now this is pointing to 20 in that case.  
+                    </li>
+                    <li>
+                        The second example I explicity tell the value of this to be 15 inside of the passMeThis function. If you wanted to, you could replace the number 15 with the keyword 'this', doing so will log the object itself.
+                    </li>
+                    <li>
+                        In the third example I created another function but this time I gave it 3 parameters. Then I call it using the .call method and pass 4 arguments, the first being a pointer for this. 
+                    </li>
+                </ul>
+            <p class="articleparagraph">
+                Once you understand the call method it's much easier then to understand the apply method. With apply everything is the same compared to call except that when you pass arguments. They must be inside of an array.
+                <pre>
+                "use strict";
+                function getJiggy(Will, Smith, spaceJam) {
+                    console.log(this);
+                    console.log(Will);
+                    console.log(Smith);
+                    console.log(spaceJam);
+                }
+                getJiggy.apply("I am this", ["I am Will", "I am Smith", "I am spaceJam"]);
+                //I am this
+                //I am Will
+                //I am Smith
+                //I am spaceJam
+
+                </pre>
+            </p>
+        <p class="articleparagraph">
+             The use of .apply is when a function takes a variable number of parameters. So instead of hard coding a number of arguments in an array format, you can pass along an array variable. So instead of passing 5+ arguments to a function you can just use the .apply method and pass a variable array for the second argument.
+        </p>
+            <pre>
+                function concatString() {
+                    var combinedString = "";
+                    for (let i = 0; i < arguments.length; i++) {
+                        combinedString += arguments[i];
+                    }
+                    console.log(combinedString);
+                }
+                
+                var letters = ["a", "b", "c", "d", "e"];
+                
+                concatString.apply(null, letters);
+                // abcde
+            
+            </pre>
+        <p class="articleparagraph">
+            Next lets wrap things up with the bind() method. This method is used to lock down the this keyword when defining a function expression.
+            Nothing we do on the outside will change its output, and it can only be used in a function expression. This is because when you bind it, you're binding to the function object that is created.
+            <pre>
+                var lockedForever = function() {
+                    console.log(this);
+                }.bind("This function's this keyword is locked!");
+                
+                lockedForever();
+                
+                // This function's this keyword is locked!
+                
+                lockedForever.call("new");
+                // This function's this keyword is locked!
+            </pre>
+        </p>
+        <p class="articleparagraph">
+            I hoped you enjoyed my brief explaination and examples of using the three methods that allow you to stablize the value of this in JavaScript. Good luck, and happy coding!
+        </p>
+        </main>
+         <footer>
+            <div class="container-fluid">
+                <div class="contactstyling" id="contactformat">
+                    <div class="row">
+                            <div class="col-lg-4 col-lg-offset-2 footernavlinks">
+                                <ul class="">
+                                    <li><a href="../../index.html#aboutjump" title="Go to About">About</a><p>A bit about myself, and my focuses in programming.</p></li>
+                                    <li><a href="../../index.html#projectsection" title="Go to Work">Work</a><p>See the past projects that I worked on.</p></li>
+                                    <li><a href="../pages/blog.html" title="Go to Blog">Blog</a><p>Check out my insight when it comes to topics concerning web development and programming.</p></li>
+                                    <li><a href="../../index.html#contactformat" title="Go to Contact">Contact</a><p>Stay in touch, or follow me on social media.</p></li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-4 col-lg-offset-1 footersociallinks">
+                                <ul>
+<li><a href="https://twitter.com/KyleOrlinski"><i class="fa fa-twitter" aria-hidden="true"></i></a><p>Follow me to see what projects I am creating, and topics on programming</p></li>
+                                    <li><a href="https://github.com/Mizuone"><i class="fa fa-github" aria-hidden="true"></i></a><p>Check out my projects on my github profile and open source contributions.
+                                        </p></li>
+                                    <li><a href="https://www.linkedin.com/in/kyleorlinskideveloper"><i class="fa fa-linkedin" aria-hidden="true"></i></a><p>Connect with me on Linkedin</p></li>
+                                    <li><i class="fa fa-envelope" aria-hidden="true"></i></a><p>Email: orlinskikyle@gmail.com</p></li>
+                               </ul>
+                            </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 copyrightstyling">
+                            <p class="text-center">Copyright &copy; 2016 Kyle Orlinski</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>
