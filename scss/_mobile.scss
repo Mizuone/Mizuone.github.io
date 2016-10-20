@@ -1,3 +1,4 @@
+/*******************Main Page Format SCSS********************/
 @media screen and (max-width: 1500px) {
     a.portfoliobutton p, a.portfoliobutton {
         width: 13%;
@@ -23,6 +24,9 @@
     .projectdivider .row {
         margin-right: 2%;
     }
+    .col-lg-offset-2 {
+        margin-left: 0%;
+    }
 }
 @media screen and (max-width: 980px) {
     a.portfoliobutton p, a.portfoliobutton {
@@ -33,11 +37,11 @@
     }
 }
 @media screen and (max-width: 800px) {
-    ul.socialicons {
-        float: right;
-    }
     ul.navlinks {
         float: left;
+    }
+    ul.socialicons {
+        float: right;
     }
     .aboutperson .non-mobileabout {
         display: none;
@@ -183,5 +187,23 @@
     }
     .contactstyling p {
         font-size: 1.3em;
+    }
+}
+/***************************************************/
+/*******************BLOG MEDIA QUERIES***************/
+@media screen and (max-width: 1000px) {
+    .blogarticle {
+        width: 75%;
+    }
+}
+@media screen and (max-width: 700px) {
+    .blogarticle {
+        width: 100%;
+    }
+    .blogarticle .articleparagraph, .articleparagraph ul li {
+        font-size: 1.1em;
+    }
+    .blogarticle h1 {
+        font-size: 2.5em;
     }
 }
