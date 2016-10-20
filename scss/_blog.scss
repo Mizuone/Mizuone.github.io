@@ -2,7 +2,10 @@
 $aboutAndContactBackground: rgba(0, 0, 0, 0.08);
 $paragraphFont: 'Open Sans', sans-serif;
 $headingFontAndNav: 'Roboto', sans-serif;
-
+.blogformat {
+    margin-top: 1%;
+    margin-bottom: 10%;
+}
 .blogformat h1, .blogarticle h1 {
     position: relative;
     margin-top: 100px;
