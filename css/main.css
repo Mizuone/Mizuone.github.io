@@ -362,6 +362,10 @@ footer a:hover {
   list-style-type: none;
   padding: 14px; }
 
+.blogformat {
+  margin-top: 1%;
+  margin-bottom: 10%; }
+
 .blogformat h1, .blogarticle h1 {
   position: relative;
   margin-top: 100px;
