@@ -11,6 +11,9 @@
   vertical-align: baseline;
   transition: 0.1s ease-in-out; }
 
+.hideme {
+  display: none; }
+
 span.breaksection {
   display: block;
   margin-bottom: 16px; }
@@ -131,7 +134,7 @@ ul.socialicons li i:hover {
   right: 0;
   z-index: 999; }
 
-.centerbannertext p {
+.centerbannertext p, .centerbannertext h1, .centerbannertext h2 {
   width: 100%;
   margin: 0 auto;
   position: relative;
@@ -144,7 +147,7 @@ ul.socialicons li i:hover {
   color: black;
   font-family: "Raleway", sans-serif; }
 
-.centerbannertext p:first-child {
+.centerbannertext h1:first-child {
   padding: 5px;
   font-size: 3em;
   font-family: "Open Sans", sans-serif; }
