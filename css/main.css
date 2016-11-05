@@ -24,6 +24,10 @@ span.breaksection {
 .col-lg-offset-2 {
   margin-left: 21%; }
 
+.navbar-default .navbar-collapse {
+  color: #292928;
+  border-color: #292928; }
+
 /*#####################Nav Styling#########################*/
 nav, .navbar, .navbar-default {
   margin: 0px;
@@ -147,7 +151,7 @@ ul.socialicons li i:hover {
   color: black;
   font-family: "Raleway", sans-serif; }
 
-.centerbannertext h1:first-child {
+.centerbannertext h1 {
   padding: 5px;
   font-size: 3em;
   font-family: "Open Sans", sans-serif; }
@@ -216,13 +220,17 @@ span.fa-angle-down {
   font-size: 3em;
   font-family: "Roboto", sans-serif; }
 
-.aboutperson p:first-child, .aboutperson p:nth-of-type(2) {
+.aboutperson p:first-child, .aboutperson p:nth-of-type(2), #skillspacing p {
   width: 90%;
   padding: 0px 20px;
   margin: 0 auto;
   font-size: 1.3em;
   font-family: "Open Sans", sans-serif;
   line-height: 175%; }
+
+#skillspacing p {
+  font-size: 1.2em;
+  width: 100%; }
 
 span.mobilesecondparagraph {
   display: block;
@@ -233,7 +241,7 @@ span.mobilesecondparagraph {
 
 ul.skilllist {
   text-align: center;
-  width: 78%;
+  width: 100%;
   margin: 0 auto; }
 
 ul.skilllist li {
@@ -402,11 +410,12 @@ footer a:hover {
 /*******************Main Page Format SCSS********************/
 @media screen and (max-width: 1500px) {
   a.portfoliobutton p, a.portfoliobutton {
-    width: 13%; } }
+    width: 13%;
+    font-size: 0.9em; } }
 
 @media screen and (max-width: 1200px) {
   a.portfoliobutton p, a.portfoliobutton {
-    width: 15%; }
+    width: 18%; }
   .progress-style li p {
     font-size: 0.9em; }
   .centerbannertext p {
@@ -419,7 +428,9 @@ footer a:hover {
   .projectdivider .row {
     margin-right: 2%; }
   .col-lg-offset-2 {
-    margin-left: 0%; } }
+    margin-left: 0%; }
+  #skillspacing p {
+    width: 50%; } }
 
 @media screen and (max-width: 980px) {
   a.portfoliobutton p, a.portfoliobutton {
@@ -449,9 +460,6 @@ footer a:hover {
     width: 70%; }
   .progress-style li p {
     font-size: 0.8em; }
-  a.navbar-brand img {
-    height: 55px;
-    width: 55px; }
   .contactstyling p {
     text-align: center; } }
 
@@ -459,18 +467,21 @@ footer a:hover {
   .firstrow img {
     height: 360px; }
   .projectdivider .row {
-    margin-right: 4%; } }
+    margin-right: 4%; }
+  a.navbar-brand img {
+    height: 46px;
+    width: 46px; } }
 
 @media screen and (max-width: 700px) {
   a.portfoliobutton p, a.portfoliobutton {
     width: 26%; }
-  .centerbannertext p {
+  .centerbannertext h2 {
     font-size: 1.7em; } }
 
 @media screen and (max-width: 600px) {
   a.portfoliobutton p, a.portfoliobutton {
     width: 30%; }
-  .centerbannertext p {
+  .centerbannertext h2 {
     font-size: 1.5em;
     width: 85%; }
   #overlaycontainer {
@@ -507,7 +518,7 @@ footer a:hover {
     max-width: 235px; } }
 
 @media screen and (max-width: 500px) {
-  .centerbannertext p.titlestyling {
+  .centerbannertext h1 {
     width: 100%;
     font-size: 2.5em;
     top: 125px; }
@@ -521,19 +532,22 @@ footer a:hover {
   .firstrow img {
     height: 275px; } }
 
-@media screen and (max-width: 370px) {
+@media screen and (max-width: 412px) {
   .aboutperson p:first-child, .aboutperson p:nth-of-type(2) {
     width: 100%;
     padding: 0px 10px;
     font-size: 1.3em; }
-  .centerbannertext p {
+  #skillspacing p {
+    font-size: 1em; }
+  .centerbannertext h1, .centerbannertext h2 {
     top: 100px;
-    font-size: 1.5em; }
-  .centerbannertext p.titlestyling {
-    font-size: 2.1em;
-    margin-bottom: 25px; }
+    width: 100%;
+    font-size: 1.3em; }
+  .centerbannertext h1 {
+    font-size: 2.1em; }
   a.portfoliobutton p, a.portfoliobutton {
-    width: 42%; }
+    width: 42%;
+    top: 100px; }
   .progress-style .col-xs-10 {
     width: 100%; }
   .contactstyling p {

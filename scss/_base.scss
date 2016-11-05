@@ -30,6 +30,11 @@ span.breaksection {
 .col-lg-offset-2 {
     margin-left: 21%
 }
+.navbar-default .navbar-collapse {
+    color: #292928;
+    border-color: #292928;
+}
+
 /*#####################Nav Styling#########################*/
 nav, .navbar, .navbar-default {
     margin: 0px;
@@ -157,7 +162,7 @@ ul.socialicons li i:hover {
     color: black;
     font-family: $frontendtitle;
 }
-.centerbannertext h1:first-child {
+.centerbannertext h1 {
     padding: 5px;
     font-size: 3em;
     font-family: $paragraphFont;
@@ -219,7 +224,6 @@ span.fa-angle-down {
 }
 .aboutperson {
     border-left: solid black 1px;
-    
 }
 .mobileabout {
     display: none;
@@ -229,7 +233,7 @@ span.fa-angle-down {
     font-size: 3em;
     font-family: $headingFontAndNav;
 }
-.aboutperson p:first-child, .aboutperson p:nth-of-type(2) {
+.aboutperson p:first-child, .aboutperson p:nth-of-type(2), #skillspacing p {
     width: 90%;
     padding: 0px 20px;
     margin: 0 auto;
@@ -237,7 +241,10 @@ span.fa-angle-down {
     font-family: $paragraphFont;
     line-height: 175%;
 }
-
+#skillspacing p {
+    font-size: 1.2em;
+    width: 100%;
+}
 span.mobilesecondparagraph {
     display: block;
     margin-top: 20px;
@@ -247,7 +254,7 @@ span.mobilesecondparagraph {
 }
 ul.skilllist {
     text-align: center;
-    width: 78%;
+    width: 100%;
     margin: 0 auto;
 }
 ul.skilllist li{
