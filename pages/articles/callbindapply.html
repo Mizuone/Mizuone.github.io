@@ -86,7 +86,7 @@ Function.prototype.call
 //returns call() { [native code] }
 
 function helloWorld() {
-console.log("Hello World!");
+    console.log("Hello World!");
 }
 
 helloWorld.bind;
@@ -102,7 +102,7 @@ helloWorld.bind;
 //One example
 "use strict";
 function newWorld() {
-console.log(this);
+   console.log(this);
 }
 newWorld.call();
 //undefined
@@ -113,22 +113,22 @@ newWorld.call(20);
 
 //Second example
 let Kyle = {
-example: function() {
+     example: function() {
 
-function passMeThis() {
-console.log(this);
-}
-passMeThis.call(15);
-}
+     function passMeThis() {
+         console.log(this);
+     }
+     passMeThis.call(15);
+   }
 }
 Kyle.example(); //15
 
 //Third example
 function getJiggy(Will, Smith, spaceJam) {
-console.log(this);
-console.log(Will);
-console.log(Smith);
-console.log(spaceJam);
+     console.log(this);
+     console.log(Will);
+     console.log(Smith);
+     console.log(spaceJam);
 }
 getJiggy.call("I am this", "I am Will", "I am Smith", "I am spaceJam");
 //I am this
@@ -156,10 +156,10 @@ getJiggy.call("I am this", "I am Will", "I am Smith", "I am spaceJam");
                             <pre>
 "use strict";
 function getJiggy(Will, Smith, spaceJam) {
-console.log(this);
-console.log(Will);
-console.log(Smith);
-console.log(spaceJam);
+    console.log(this);
+    console.log(Will);
+    console.log(Smith);
+    console.log(spaceJam);
 }
 getJiggy.apply("I am this", ["I am Will", "I am Smith", "I am spaceJam"]);
 //I am this
@@ -172,18 +172,19 @@ getJiggy.apply("I am this", ["I am Will", "I am Smith", "I am spaceJam"]);
                          The use of .apply is when a function takes a variable number of parameters. So instead of hard coding a number of arguments in an array format, you can pass along an array variable. So instead of passing 5+ arguments to a function you can just use the .apply method and pass a variable array for the second argument.
                     </p>
                         <pre>
-                            function concatString() {
-                                var combinedString = "";
-                                for (let i = 0; i &lt; arguments.length; i++) {
-                                    combinedString += arguments[i];
-                                }
-                                console.log(combinedString);
-                            }
+function concatString() {
+    var combinedString = "";
+    
+    for (let i = 0; i &lt; arguments.length; i++) {
+	combinedString += arguments[i];
+    }
+    console.log(combinedString);
+}
 
-                            var letters = ["a", "b", "c", "d", "e"];
+var letters = ["a", "b", "c", "d", "e"];
 
-                            concatString.apply(null, letters);
-                            // abcde
+concatString.apply(null, letters);
+// abcde
 
                         </pre>
                 </section>
@@ -195,7 +196,7 @@ getJiggy.apply("I am this", ["I am Will", "I am Smith", "I am spaceJam"]);
                         <h2>The .bind() Method</h2>
                         <pre>
 var lockedForever = function() {
-console.log(this);
+     console.log(this);
 }.bind("This function's this keyword is locked!");
 
 lockedForever();
