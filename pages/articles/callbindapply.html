@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -37,7 +37,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="../../index.html" title="Go to Home"><img src="/images/Logo.PNG" width="75" height="75"></a>
+                    <a class="navbar-brand" href="../../index.html" title="Go to Home"><img src="/images/Logo.PNG" width="75" height="75" alt="Kyle Orlinski's Brand"></a>
                     
                 </div>
                     <div class="collapse navbar-collapse" id="collapsemenu">
@@ -151,6 +151,7 @@
                 <section>
                         <p class="articleparagraph">
                             Once you understand the call method it's much easier then to understand the apply method. With apply everything is the same compared to call except that when you pass arguments. They must be inside of an array.
+                        </p>
                             <h2>The .apply() Method</h2>
                             <pre>
                             "use strict";
@@ -167,14 +168,13 @@
                             //I am spaceJam
 
                             </pre>
-                        </p>
                     <p class="articleparagraph">
                          The use of .apply is when a function takes a variable number of parameters. So instead of hard coding a number of arguments in an array format, you can pass along an array variable. So instead of passing 5+ arguments to a function you can just use the .apply method and pass a variable array for the second argument.
                     </p>
                         <pre>
                             function concatString() {
                                 var combinedString = "";
-                                for (let i = 0; i < arguments.length; i++) {
+                                for (let i = 0; i &lt; arguments.length; i++) {
                                     combinedString += arguments[i];
                                 }
                                 console.log(combinedString);
@@ -191,6 +191,7 @@
                     <p class="articleparagraph">
                         Next lets wrap things up with the bind() method. This method is used to lock down the this keyword when defining a function expression.
                         Nothing we do on the outside will change its output, and it can only be used in a function expression. This is because when you bind it, you're binding to the function object that is created.
+                    </p>
                         <h2>The .bind() Method</h2>
                         <pre>
                             var lockedForever = function() {
@@ -204,7 +205,6 @@
                             lockedForever.call("new");
                             // This function's this keyword is locked!
                         </pre>
-                    </p>
                     <p class="articleparagraph">
                         I hoped you enjoyed my brief explanation and examples of using the three methods that allow you to stabilize the value of this in JavaScript. Good luck, and happy coding!
                     </p>
@@ -231,7 +231,7 @@
                                     <li><a href="https://github.com/Mizuone" title="My GitHub"><i class="fa fa-github" aria-hidden="true"></i></a><p>Check out my projects on my github profile and open source contributions.
                                         </p></li>
                                     <li><a href="https://www.linkedin.com/in/kyleorlinskideveloper" title="My Linkedin"><i class="fa fa-linkedin" aria-hidden="true"></i></a><p>Connect with me on Linkedin</p></li>
-                                    <li><i class="fa fa-envelope" aria-hidden="true"></i></a><p>Email: orlinskikyle@gmail.com</p></li>
+                                    <li><i class="fa fa-envelope" aria-hidden="true"></i><p>Email: orlinskikyle@gmail.com</p></li>
                                </ul>
                             </div>
                     </div>
