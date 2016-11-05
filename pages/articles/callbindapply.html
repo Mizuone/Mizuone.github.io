@@ -73,24 +73,24 @@
                         <p class="articleparagraph">
                             Something that I came across quite a bit in JavaScript but never really understood how it fully worked, or the usage for each method. Hopefully after my explanation and examples of each method, you and myself will be more confident when facing this beast. Now from the beginning, these three methods are a part of the Function object in JavaScript.</p>
                         <pre>
-                            Function
-                            //returns Function() { [native code] }
+Function
+//returns Function() { [native code] }
 
-                            Function.prototype.bind;
-                            //returns bind() { [native code] }
+Function.prototype.bind;
+//returns bind() { [native code] }
 
-                            Function.prototype.apply
-                            //returns apply() { [native code] }
+Function.prototype.apply
+//returns apply() { [native code] }
 
-                            Function.prototype.call
-                            //returns call() { [native code] }
+Function.prototype.call
+//returns call() { [native code] }
 
-                            function helloWorld() {
-                                console.log("Hello World!");
-                            }
+function helloWorld() {
+console.log("Hello World!");
+}
 
-                            helloWorld.bind;
-                            //returns function bind() { [native code] }
+helloWorld.bind;
+//returns function bind() { [native code] }
                         </pre>
                         <p class="articleparagraph">
                             With this example you can see that the Function object has the methods bind, apply, and call. Then I created a function called helloWorld, and checked if the newly created function has the bind method. So let us focus on our .call method. For short helloWorld.call() and helloWorld() will return the same result in calling the function. Why would you use .call then? The main reason is to create a pointer for our this  keyword.
@@ -99,42 +99,42 @@
                 <section>
                         <h2>The .call() Method</h2>
                         <pre>
-                            //One example
-                            "use strict";
-                            function newWorld() {
-                                console.log(this);
-                            }
-                            newWorld.call();
-                            //undefined
+//One example
+"use strict";
+function newWorld() {
+console.log(this);
+}
+newWorld.call();
+//undefined
 
-                            newWorld.call(20);
-                            //20
+newWorld.call(20);
+//20
 
 
-                            //Second example
-                            let Kyle = {
-                               example: function() {
+//Second example
+let Kyle = {
+example: function() {
 
-                                    function passMeThis() {
-                                       console.log(this);
-                                    }
-                                    passMeThis.call(15);
-                               }
-                            }
-                            Kyle.example(); //15
+function passMeThis() {
+console.log(this);
+}
+passMeThis.call(15);
+}
+}
+Kyle.example(); //15
 
-                            //Third example
-                            function getJiggy(Will, Smith, spaceJam) {
-                                console.log(this);
-                                console.log(Will);
-                                console.log(Smith);
-                                console.log(spaceJam);
-                            }
-                            getJiggy.call("I am this", "I am Will", "I am Smith", "I am spaceJam");
-                            //I am this
-                            //I am Will
-                            //I am Smith
-                            //I am spaceJam
+//Third example
+function getJiggy(Will, Smith, spaceJam) {
+console.log(this);
+console.log(Will);
+console.log(Smith);
+console.log(spaceJam);
+}
+getJiggy.call("I am this", "I am Will", "I am Smith", "I am spaceJam");
+//I am this
+//I am Will
+//I am Smith
+//I am spaceJam
                         </pre>
                             <ul class="articleparagraph">
                                 <li>
@@ -154,18 +154,18 @@
                         </p>
                             <h2>The .apply() Method</h2>
                             <pre>
-                            "use strict";
-                            function getJiggy(Will, Smith, spaceJam) {
-                                console.log(this);
-                                console.log(Will);
-                                console.log(Smith);
-                                console.log(spaceJam);
-                            }
-                            getJiggy.apply("I am this", ["I am Will", "I am Smith", "I am spaceJam"]);
-                            //I am this
-                            //I am Will
-                            //I am Smith
-                            //I am spaceJam
+"use strict";
+function getJiggy(Will, Smith, spaceJam) {
+console.log(this);
+console.log(Will);
+console.log(Smith);
+console.log(spaceJam);
+}
+getJiggy.apply("I am this", ["I am Will", "I am Smith", "I am spaceJam"]);
+//I am this
+//I am Will
+//I am Smith
+//I am spaceJam
 
                             </pre>
                     <p class="articleparagraph">
@@ -194,16 +194,16 @@
                     </p>
                         <h2>The .bind() Method</h2>
                         <pre>
-                            var lockedForever = function() {
-                                console.log(this);
-                            }.bind("This function's this keyword is locked!");
+var lockedForever = function() {
+console.log(this);
+}.bind("This function's this keyword is locked!");
 
-                            lockedForever();
+lockedForever();
 
-                            // This function's this keyword is locked!
+// This function's this keyword is locked!
 
-                            lockedForever.call("new");
-                            // This function's this keyword is locked!
+lockedForever.call("new");
+// This function's this keyword is locked!
                         </pre>
                     <p class="articleparagraph">
                         I hoped you enjoyed my brief explanation and examples of using the three methods that allow you to stabilize the value of this in JavaScript. Good luck, and happy coding!
