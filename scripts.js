@@ -1,30 +1,37 @@
 "use strict";
-$(document).ready(function() {
-    if (typeof(PortfolioSpace === "undefined")) {
-        var PortfolioSpace = {};
-    }
-    
-    PortfolioSpace = function() {
-        var isAnimated = 0;
+$(document).ready(function() {    
+    (function() {
+        var isAnimated = 0,
+            showAdditionProjects = document.querySelector(".viewmore span");
         
+
+        showAdditionProjects.addEventListener("click", function() {
+            var hideSection = document.querySelector(".viewmore");
+            hideSection.style.display = "none";
+            showProjects();
+        });
+        
+        //jquery scroll effect
         $(window).scroll(function() {
            if($(this).scrollTop() > 80) {
                animateBar();
            }
         });
         
-        var displayDescription = document.querySelectorAll(".projectdivider .col-lg-4");
-        var Description = document.querySelectorAll(".appdescription");
-        
-        for (let i = 0; i < displayDescription.length; i++) {
-            displayDescription[i].addEventListener("mouseover", function() {
-                Description[i].classList.add("heighttransition");
-            })
-            displayDescription[i].addEventListener("mouseleave", function() {
-                Description[i].classList.remove("heighttransition");
-            })
-            
+        function attachEvents() {
+            let displayDescription = document.querySelectorAll(".projectdivider .col-lg-4"),
+                Description = document.querySelectorAll(".appdescription");
+            console.log(displayDescription.length);
+            for (let i = 0; i < displayDescription.length; i++) {
+                displayDescription[i].addEventListener("mouseover", function() {
+                    Description[i].classList.add("heighttransition");
+                })
+                displayDescription[i].addEventListener("mouseleave", function() {
+                    Description[i].classList.remove("heighttransition");
+                })
+            }
         }
+
         function animateBar() {
             if (isAnimated === 0) {
                 $(".javascriptbar .novice").animate({ width: "20%" }, 25);
@@ -51,6 +58,15 @@ $(document).ready(function() {
                 isAnimated++;
             }
         }
-    };
-    PortfolioSpace();
+        function showProjects() {
+            var getEndOfList = document.querySelector(".projectdivider li:last-child");
+            
+            $(getEndOfList).load("./ajaxcontent/additionprojects.html").css("opacity", "1");
+            setTimeout(function() {
+                attachEvents();
+            }, 100);
+            
+        }
+        attachEvents();
+    })();
 });
