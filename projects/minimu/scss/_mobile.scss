@@ -1,0 +1,72 @@
+@media screen and (max-width: 1200px) {
+    #portfolio img {
+        margin-bottom: 24px; 
+    }
+    .double-blocks {
+        float: left;
+    }
+    footer .firstsection, footer .secondsection, footer .thirdsection {
+        margin: 50px 0px 50px 0px;
+    }
+    .top-block-description.top-block-transition {
+        bottom: 265px;
+    }
+    .bottom-block-description.bottom-block-transition {
+        bottom: 25px;
+    }
+}
+@media screen and (max-width: 1199px) {
+    .lg-block-description.lg-transition {
+        right: 0px;
+    }
+    .top-block-description.top-block-transition, .bottom-block-description.bottom-block-transition {
+        right: 15px;
+    }
+}
+@media screen and (max-width: 992px) {
+    .col-lg-offset-4 {
+        margin-left: 33%;
+    }
+}
+@media screen and (max-width: 800px) {
+    .openingpageinfo h1 {
+        width: 100%;
+    }
+    .specializepageinfo p {
+        width: 95%;
+    }
+    .lg-block-description.lg-transition {
+        top: 82%;
+    }
+}
+@media screen and (max-width: 768px) {
+    .navbar .row .col-lg-10 {
+        position: relative;
+        top: 0px;   
+    }
+}
+@media screen and (max-width: 566px) {
+    .lg-block-description.lg-transition {
+        top: 75%;
+    }
+}
+@media screen and (max-width: 420px) {
+    .openingpageinfo h1 {
+        font-size: 28px;
+    }
+    #portfolio img {
+        max-width: 300px;
+        max-height: 200px;
+    }
+    .lg-block-description.lg-transition {
+        top: 55%;
+    }
+    .top-block-description.top-block-transition {
+        top: 30%;
+        bottom: 56%;
+    }
+    .bottom-block-description.bottom-block-transition {
+        top: 80%;
+        bottom: 5%;
+    }
+}

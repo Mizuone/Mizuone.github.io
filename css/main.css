@@ -311,7 +311,7 @@ ul.progress-style li {
 
 .appdescription {
   position: absolute;
-  top: 400px;
+  top: 350px;
   left: 0;
   right: 0;
   bottom: 0px;
@@ -331,7 +331,20 @@ ul.progress-style li {
 .appdescription.heighttransition {
   position: absolute;
   opacity: 1;
-  top: 300px !important; }
+  top: 300px; }
+
+.viewmore {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.3em;
+  margin: 3.5em 0 3.5em 0; }
+
+.viewmore span {
+  cursor: pointer;
+  color: #1976D2; }
+
+.projectdivider li:last-child {
+  transition: 0.3s ease-in;
+  opacity: 0; }
 
 /*#####################Footer Section#########################*/
 footer .fa {
