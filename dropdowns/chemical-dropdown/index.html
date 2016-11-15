@@ -1,87 +1,137 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Dropdown test</title>
-        <link href="css/main.css" type="text/css" rel="stylesheet">
-        <script src="js/jquery-3.1.1.slim.min.js"></script>
-        <script src="js/jquery-accessibleMegeMenu.min.js"></script>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="robots" content="all" />
+        <title>jQuery Mega Drop Down Menu Plugin v 1.3.3</title>
+        <link href="css/dcmegamenu.css" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+        <script type='text/javascript' src='js/jquery.hoverIntent.minified.js'></script>
+        <script type='text/javascript' src='js/jquery.dcmegamenu.1.3.3.js'></script>
         <script src="js/app.js"></script>
+        <link href="css/skins/black.css" rel="stylesheet" type="text/css" />
+        <link href="css/skins/red.css" rel="stylesheet" type="text/css" />
+        <link href="css/skins/white.css" rel="stylesheet" type="text/css" />
     </head>
-    <body>
+<body>
+    <div class="wrap">
         <nav>
-            <ul class="nav-menu">
-                <li class="nav-item">
-                    <a href="?movie">Movies</a>
-                    <div class="sub-nav">
-                        <ul class="sub-nav-group">
-                            <li><a href="?movie&genre=0">Action &amp; Adventure</a></li>
-                            <li><a href="?movie&genre=2">Children &amp; Family</a></li>
-                            <li>&#8230;</li>
-                        </ul>
-                        <ul class="sub-nav-group">
-                            <li><a href="?movie&genre=7">Dramas</a></li>
-                            <li><a href="?movie&genre=9">Foreign</a></li>
-                            <li>&#8230;</li>
-                        </ul>
-                        <ul class="sub-nav-group">
-                            <li><a href="?movie&genre=14">Musicals</a></li>
-                            <li><a href="?movie&genre=15">Romance</a></li>
-                            <li>&#8230;</li>
-                        </ul>
-                    </div>
+            <div class="demo-container">
+            <div class="white">  
+            <ul id="mega-menu-1" class="mega-menu">
+                <li><a href="test.html">Home</a></li>
+                <li><a href="test.html">Products</a>
+                    <ul>
+                        <li><a href="#">Mobile Phones &#038; Accessories</a>
+                            <ul>
+                                <li><a href="#">Product 1</a></li>
+                                <li><a href="#">Product 2</a></li>
+                                <li><a href="#">Product 3</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Desktop</a>
+                            <ul>
+                                <li><a href="#">Product 4</a></li>
+                                <li><a href="#">Product 5</a></li>
+                                <li><a href="#">Product 6</a></li>
+                                <li><a href="#">Product 7</a></li>
+                                <li><a href="#">Product 8</a></li>
+                                <li><a href="#">Product 9</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Laptop</a>
+                            <ul>
+                                <li><a href="#">Product 10</a></li>
+                                <li><a href="#">Product 11</a></li>
+                                <li><a href="#">Product 12</a></li>
+                                <li><a href="#">Product 13</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Accessories</a>
+                            <ul>
+                                <li><a href="#">Product 14</a></li>
+                                <li><a href="#">Product 15</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Software</a>
+                          <ul>
+                            <li><a href="#">Product 16</a></li>
+                                <li><a href="#">Product 17</a></li>
+                                <li><a href="#">Product 18</a></li>
+                                <li><a href="#">Product 19</a></li>
+                          </ul>
+                        </li>
+                    </ul>
                 </li>
-                <li class="nav-item">
-                    <a href="?tv">TV Shows</a>
-                    <div class="sub-nav">
-                        <ul class="sub-nav-group">
-                            <li><a href="?tv&genre=20">Classic TV</a></li>
-                            <li><a href="?tv&genre=21">Crime TV</a></li>
-                            <li>&#8230;</li>
-                        </ul>
-                        <ul class="sub-nav-group">
-                            <li><a href="?tv&genre=27">Reality TV</a></li>
-                            <li><a href="?tv&genre=30">TV Action</a></li>
-                            <li>&#8230;</li>
-                        </ul>
-                        <ul class="sub-nav-group">
-                            <li><a href="?tv&genre=33">TV Dramas</a></li>
-                            <li><a href="?tv&genre=34">TV Horror</a></li>
-                            <li>&#8230;</li>
-                        </ul>
-                    </div>
+                <li><a href="#">Sale</a>
+                    <ul>
+                        <li><a href="#">Special Offers</a>
+                <ul>
+                    <li><a href="#">Offer 1</a></li>
+                    <li><a href="#">Offer 2</a></li>
+                    <li><a href="#">Offer 3</a></li>
+                </ul>
+                </li>
+                <li><a href="#">Reduced Price</a>
+                <ul>
+                    <li><a href="#">Offer 4</a></li>
+                    <li><a href="#">Offer 5</a></li>
+                    <li><a href="#">Offer 6</a></li>
+                    <li><a href="#">Offer 7</a></li>
+                </ul>
             </li>
-        </ul>
-    </nav>
-                <script>
-            $("nav:first").accessibleMegaMenu({
-                /* prefix for generated unique id attributes, which are required 
-                   to indicate aria-owns, aria-controls and aria-labelledby */
-                uuidPrefix: "accessible-megamenu",
+                <li><a href="#">Clearance Items</a>
+                <ul>
+                    <li><a href="#">Offer 9</a></li>
 
-                /* css class used to define the megamenu styling */
-                menuClass: "nav-menu",
+                </ul>
+            </li>
+                <li class="menu-item-129"><a href="#">Ex-Stock</a>
+                <ul>
+                    <li><a href="#">Offer 10</a></li>
+                    <li><a href="#">Offer 11</a></li>
+                    <li><a href="#">Offer 12</a></li>
+                    <li><a href="#">Offer 13</a></li>
+                </ul>
+            </li>
+            </ul>
+            </li>
+            <li><a href="#">About Us</a>
+            <ul>
+                <li><a href="#">About Page 1</a></li>
+                <li><a href="#">About Page 2</a></li>
 
-                /* css class for a top-level navigation item in the megamenu */
-                topNavItemClass: "nav-item",
+            </ul>
+            </li>
+            <li><a href="#">Services</a>
+            <ul>
+                <li><a href="#">Service 1</a>
+                <ul>
+                    <li><a href="#">Service Detail A</a></li>
+                    <li><a href="#">Service Detail B</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Service 2</a>
+                <ul>
+                    <li><a href="#">Service Detail C</a></li>
+                </ul>
+            </li>
+                <li><a href="#">Service 3</a>
+                <ul>
+                    <li><a href="#">Service Detail D</a></li>
+                    <li><a href="#">Service Detail E</a></li>
+                    <li><a href="#">Service Detail F</a></li>
+                </ul>
+            </li>
+                <li><a href="#">Service 4</a></li>
+            </ul>
+            </li>
+            <li><a href="#">Contact us</a></li>
+            </ul>
+            </div>
+            </div>
+        </nav>
 
-                /* css class for a megamenu panel */
-                panelClass: "sub-nav",
-
-                /* css class for a group of items within a megamenu panel */
-                panelGroupClass: "sub-nav-group",
-
-                /* css class for the hover state */
-                hoverClass: "hover",
-
-                /* css class for the focus state */
-                focusClass: "focus",
-
-                /* css class for the open state */
-                openClass: "open"
-            });
-        </script>
+        </div>
     </body>
 </html>
