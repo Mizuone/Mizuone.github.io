@@ -71,3 +71,25 @@
         margin: 0;
         padding: 0;
     }
+
+/*************************/
+a.special {
+    margin-top: 25px;
+}
+.breakline {
+    display: block;
+}
+a {
+    text-decoration: none;
+}
+body {
+    line-height: 1.4;
+}
+nav {
+    font-family:  Arial, Verdana, Helvetica, sans-serif;
+    width: 80%;
+    margin: 0 auto;
+    font-size: 14px;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
