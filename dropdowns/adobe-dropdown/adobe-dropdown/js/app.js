@@ -1,15 +1,44 @@
-/*"use strict";
+"use strict";
 
     $(document).ready(function() {
        //when user hovers over nav transition opacity
        
        (function() {
-           $('.nav-menu').on("mouseenter", function() {
-              $(this).find(".sub-nav").css({'opacity':0}).animate({'opacity':1},300);
-            });
-           $('.sub-nav').on("mouseleave", function() {
-               console.log("Hlea");
-               $(this).css({'opacity':1}).animate({'opacity':0},300);
+           var getNavDiv = document.getElementById('catalog-links-'),
+               getAllNavAnchors = document.querySelectorAll('.catalog-links a');
+           
+           //console.log(getAllNavAnchors);
+           console.log(getNavDiv);
+           $("#catalog-links-").wrap("<nav></nav>");
+           $("#catalog-links").addClass("nav-menu");
+           console.log($(".catalog-links").siblings());
+           
+           $("nav:first").accessibleMegaMenu({
+                /* prefix for generated unique id attributes, which are required 
+                   to indicate aria-owns, aria-controls and aria-labelledby */
+                uuidPrefix: "accessible-megamenu",
+
+                /* css class used to define the megamenu styling */
+                menuClass: "nav-menu",
+
+                /* css class for a top-level navigation item in the megamenu */
+                topNavItemClass: "nav-item",
+
+                /* css class for a megamenu panel */
+                panelClass: "sub-nav",
+
+                /* css class for a group of items within a megamenu panel */
+                panelGroupClass: "sub-nav-group",
+
+                /* css class for the hover state */
+                hoverClass: "hover",
+
+                /* css class for the focus state */
+                focusClass: "focus",
+
+                /* css class for the open state */
+                openClass: "open"
             });
        })();
-    });*/
+       
+    });

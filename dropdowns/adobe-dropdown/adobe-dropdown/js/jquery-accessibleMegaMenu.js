@@ -708,8 +708,8 @@ limitations under the License.
             init: function () {
                 var settings = this.settings,
                     nav = $(this.element),
-                    menu = $(this.element),
-                    topnavitems = menu.children();
+                    menu = nav.children().first(),
+                    topnavitems = menu.children(".catalog-links > a"); //find only top nav items that are anchor tags
                 console.log(settings);
                 console.log(nav);
                 console.log(menu);
@@ -727,9 +727,12 @@ limitations under the License.
                 topnavitems.each(function (i, topnavitem) { //nav-item
                     var topnavitemlink, topnavitempanel;
                     topnavitem = $(topnavitem);
+                    console.log(topnavitem);
                     topnavitem.addClass(settings.topNavItemClass);
-                    topnavitemlink = topnavitem.find(":tabbable:first");
-                    topnavitempanel = topnavitem.children(":not(:tabbable):last"); //sub-nav
+                    topnavitemlink = topnavitem;
+                    console.log(topnavitemlink);
+                    topnavitempanel = topnavitem.children("div:first"); //sub-nav
+                    console.log(topnavitempanel);
                     _addUniqueId.call(that, topnavitemlink);
                     if (topnavitempanel.length) {
                         _addUniqueId.call(that, topnavitempanel);
