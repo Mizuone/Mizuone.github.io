@@ -1,5 +1,4 @@
 "use strict";
-
     $(document).ready(function() {
        //when user hovers over nav transition opacity
        

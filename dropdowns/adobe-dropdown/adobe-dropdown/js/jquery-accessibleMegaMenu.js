@@ -184,6 +184,7 @@ limitations under the License.
          */
         _getPlugin = function (element) {
             return $(element).closest(':data(plugin_' + pluginName + ')').data("plugin_" + pluginName);
+            console.log(element + "elem");
         };
 
         /**
@@ -198,6 +199,7 @@ limitations under the License.
          */
         _addUniqueId = function (element) {
             element = $(element);
+            console.log(element + "elem");
             var settings = this.settings;
             if (!element.attr("id")) {
                 element.attr("id", settings.uuidPrefix + "-" + new Date().getTime() + "-" + (++uuid));
@@ -220,7 +222,7 @@ limitations under the License.
                 settings = this.settings,
                 menu = this.menu,
                 topli = target.closest('.' + settings.topNavItemClass),
-                panel = target.hasClass(settings.panelClass) ? target : target.closest('.' + settings.panelClass),
+                panel = target.hasClass(settings.panelClass) ? target : topli.closest('.' + settings.panelClass),
                 newfocus;
                 console.log(target);
                 console.log(that);
@@ -228,21 +230,37 @@ limitations under the License.
                 console.log(this.menu);
                 console.log(topli);
                 console.log(panel);
+                console.log(target.hasClass(settings.panelClass));
             _toggleExpandedEventHandlers.call(this, true);
 
             if (hide) {
-                
                 topli = menu.find('.' + settings.topNavItemClass + ' .' + settings.openClass + ':first').closest('.' + settings.topNavItemClass);
+                
+                console.log(menu + " menu in hide block");
                 if (!(topli.is(event.relatedTarget) || topli.has(event.relatedTarget).length > 0)) {
                     if ((event.type === 'mouseout' || event.type === 'focusout') && topli.has(document.activeElement).length > 0) {
                         return;
                     }
-                    topli.find('[aria-expanded]')
+                    
+                    var getSubNav = document.querySelectorAll(".sub-nav");
+                    for (var i = 0; i < getSubNav.length; i++) {
+                        getSubNav[i].classList.remove("open");
+                        $(getSubNav[i]).attr('aria-expanded', 'false');
+                        $(getSubNav[i]).attr('aria-hidden', 'true');
+                    }
+                    
+                    topli.next()
                         .attr('aria-expanded', 'false')
                         .removeClass(settings.openClass)
                         .filter('.' + settings.panelClass)
                         .attr('aria-hidden', 'true');
+                    console.log(topli.next()
+                        .attr('aria-expanded', 'false')
+                        .removeClass(settings.openClass)
+                        .filter('.' + settings.panelClass)
+                        .attr('aria-hidden', 'true') + " inside hide block");
                     if ((event.type === 'keydown' && event.keyCode === Keyboard.ESCAPE) || event.type === 'DOMAttrModified') {
+                        console.log("modified block");
                         newfocus = topli.find(':tabbable:first');
                         setTimeout(function () {
                             menu.find('[aria-expanded].' + that.settings.panelClass).off('DOMAttrModified.accessible-megamenu');
@@ -259,17 +277,23 @@ limitations under the License.
                 }
             } else {
                 clearTimeout(that.focusTimeoutID);
-                topli.siblings()
-                    .find('[aria-expanded]')
+                topli.next()
                     .attr('aria-expanded', 'false')
                     .removeClass(settings.openClass)
                     .filter('.' + settings.panelClass)
                     .attr('aria-hidden', 'true');
-                topli.find('[aria-expanded]')
+                topli.attr('aria-expanded', 'false')
+                    .removeClass(settings.openClass)
+                    .filter('.' + settings.panelClass)
+                    .attr('aria-hidden', 'true');
+                topli.next()
                     .attr('aria-expanded', 'true')
                     .addClass(settings.openClass)
-                    .filter('.' + settings.panelClass)
                     .attr('aria-hidden', 'false');
+                topli.attr('aria-expanded', 'false')
+                    .removeClass(settings.openClass)
+                    .filter('.' + settings.panelClass)
+                    .attr('aria-hidden', 'true');
                 if (event.type === 'mouseover' && target.is(':tabbable') && topli.length === 1 && panel.length === 0 && menu.has(document.activeElement).length > 0) {
                     target.focus();
                     that.justFocused = false;
@@ -278,7 +302,7 @@ limitations under the License.
                 _toggleExpandedEventHandlers.call(that);
             }
         };
-
+        
         /**
          * @name jQuery.fn.accessibleMegaMenu~_clickHandler
          * @desc Handle click event on mega menu item
@@ -731,7 +755,7 @@ limitations under the License.
                     topnavitem.addClass(settings.topNavItemClass);
                     topnavitemlink = topnavitem;
                     console.log(topnavitemlink);
-                    topnavitempanel = topnavitem.children("div:first"); //sub-nav
+                    topnavitempanel = topnavitem.next(); //sub-nav
                     console.log(topnavitempanel);
                     _addUniqueId.call(that, topnavitemlink);
                     if (topnavitempanel.length) {
