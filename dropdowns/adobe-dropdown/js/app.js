@@ -42,7 +42,20 @@
                 $(this).slideUp(150);
                 
             });*/
-                /*$('.nav-menu > .nav-item').hover(function() {
+          $("#catalog-links-").wrapInner("<ul></ul>");
+    $("#catalog-links- ul").css({
+        display: "flex",
+        listStyleType: "inherit",
+        marginBefore: "inherit",
+        marginAfter: "inheirt",
+        marginStart: "inherit",
+        marginEnd: "inherit",
+        paddingStart: "inherit",
+        justifyContent: "space-around",
+        alignItems: "center",
+        width: "100%"
+    })
+                    /*$('.nav-menu > .nav-item').hover(function() {
                   $(this).find(".sub-nav").css({'opacity':0}).animate({'opacity':1},300);
                 }, function() {
                         $(this).find(".sub-nav").fadeOut('fast');
