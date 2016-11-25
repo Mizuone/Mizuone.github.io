@@ -1,24 +1,22 @@
-/* mega menu list */
-.catalog-links {
-    display: block;
-    position: relative;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    z-index: 15;
+.catalog-links > ul {
+    margin-left: 0;
+    margin-right: 0;
 }
-
+.catalog-links > ul > li > a {
+    padding: 0;
+}
 /* a top level navigation item in the mega menu */
-.nav-item {
+.catalog-links > ul > li > a  {
+    text-transform: lowercase;
+}
+.bt-nav-item {
     list-style: none;
     display: inline-block;
     padding: 0;
     margin: 0;
-    text-transform: lowercase;
 }
-
 /* first descendant link within a top level navigation item */
-.nav-item {
+.bt-nav-item > a {
     position: relative;
     display: inline-block;
     padding: 0.5em 1em;
@@ -28,39 +26,40 @@
 
 /* focus/open states of first descendant link within a top level 
    navigation item */
-.nav-item:focus,
-.nav-item > .subnav.open {
+a.nav-item > a:focus,
+.bt-nav-item > a.open {
     border: 1px solid #dedede;
 }
 
 /* open state of first descendant link within a top level 
    navigation item */
-.nav-item > .subnav.open {
+.bt-nav-item > a.open {
     background-color: #fff;
     border-bottom: none;
     z-index: 1;
 }
 
 /* sub-navigation panel */
-.sub-nav {
+.bt-sub-nav {
     position: absolute;
     visibility: hidden;
-    top: 2.6em;
+    top: 3.5em;
     margin-top: -1px;
     padding: 0.5em 1em;
     border: 1px solid #dedede;
     background-color: #fff;
     opacity: 0;
     transition: all 0.2s ease-in;
+    z-index: 999;
 }
 
 /* sub-navigation panel open state */
-.sub-nav.open {
+.bt-sub-nav.open {
     display: block;
 }
 
 /* list of items within sub-navigation panel */
-.sub-nav ul {
+.bt-sub-nav ul {
     display: inline-block;
     vertical-align: top;
     margin: 0 1em 0 0;
@@ -68,7 +67,7 @@
 }
 
 /* list item within sub-navigation panel */
-.sub-nav li {
+.bt-sub-nav li {
     display: block;
     list-style-type: none;
     margin: 0;
@@ -85,17 +84,13 @@ a.special {
 .breakline {
     display: block;
 }
+.bt-nav-group-topheading {
+    margin: 0;
+    line-height: 20px;
+}
 a {
     text-decoration: none;
 }
 body {
     line-height: 1.4;
-}
-nav {
-    font-family:  Arial, Verdana, Helvetica, sans-serif;
-    width: 80%;
-    margin: 0 auto;
-    font-size: 14px;
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
 }

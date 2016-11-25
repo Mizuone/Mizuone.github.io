@@ -732,7 +732,7 @@ limitations under the License.
             init: function () {
                 var settings = this.settings,
                     nav = $(this.element),
-                    menu = nav.children().first(),
+                    menu = nav,
                     topnavitems = menu.children(".catalog-links > a"); //find only top nav items that are anchor tags
                 console.log(settings);
                 console.log(nav);
