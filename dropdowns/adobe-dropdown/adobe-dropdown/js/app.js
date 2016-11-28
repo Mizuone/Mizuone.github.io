@@ -3,7 +3,8 @@ $(document).ready(function() {
    (function() {
        var getNavDiv = document.getElementById('catalog-links-'),
            getAllNavItems = document.querySelectorAll('.catalog-links > a'),
-           dropDownPosition = 0;
+           dropDownPosition = 0,
+           getHamburgerItems = document.querySelectorAll("ul#hamburgerMenuList > li");
 
         $("#catalog-links-").wrapInner("<ul class=bt-nav-menu></ul>");
         $("#catalog-links- ul").css({
@@ -22,9 +23,42 @@ $(document).ready(function() {
         })
         //create a function for each category that will have a string that contains all the information for each category drop down
         for (var i = 0; i < getAllNavItems.length; i++) {
+            if ($(getAllNavItems[i]).attr('href') === "/sc1/women/") {
+                (function() {
+                    var subNav = $('<div class="bt-sub-nav"></div>').insertAfter($(getAllNavItems[i])),
+                        subNavHeading = $(getHamburgerItems[i]).find("label:first").text().replace(/\s+/g,''), //sub-nav Heading
+                        getWomenList = $(getHamburgerItems[i]).find("ul:first").children(); //Children of Women Listitem 
+                        $(subNav).append('<h2 class="bt-nav-group-topheading">'+ subNavHeading +'</h2>');
+                        
+                        for (var x = 2; x < getWomenList.length; x++) {
+                            //add this last as prepend to ul with class x
+                            //'<li class="bt-nav-group-heading">'+ '<h2>' + $(getWomenList[x]).find("label:first").text().replace(/\s+/g,''); + '</h2>' +'</li>'
+                            
+                            //test
+                            //var getHamburgerItems = document.querySelectorAll("ul#hamburgerMenuList > li");
+                            //var getWomenList = $(getHamburgerItems[1]).find("ul:first").children();
+                            
+                            //$(getWomenList[2]).find('ul:first ul li:first a').attr('href'); gets the anchor of the nested list item under each catagory
+                            
+                            //creates the first column with a title
+                            var classString = x + 'col';
+                            $(subNav).append('<ul class="bt-sub-nav-group '+ classString + '"></ul>');
+                            
+                            //fix this string 
+                            $(getWomenList[x]).find("li").each(function(index, value) {
+                               $(classString).append('<li class="subcata-item"><a href="'+ $(getWomenList[x]).find('ul:first ul li:first a').attr('href'); +'"' + 'onclick="'+ $(getWomenList[x]).find('ul:first ul li:first a').attr('onclick'); +'">'+ $(getWomenList[x]).find("ul li label:first").text().replace(/\s+/g,''); +'</a></li>');
+                            });
+                            $(classString).prepend('<li class="bt-nav-group-heading">'+ '<h2>' + $(getWomenList[x]).find("label:first").text().replace(/\s+/g,''); + '</h2>' +'</li>');
+                            
+                            /*$(getWomenList[x]).find("ul li label:first").text().replace(/\s+/g,'');
+                            
+                            $(classString).prepend('<li class="bt-nav-group-heading">'+ '<h3>' + $(getWomenList[x]).find('ul:first label:first').text().replace(/\s+/g,''); + '</h3>' +'</li>');*/
+
+                        }
+                })();
+            }
             switch($(getAllNavItems[i]).attr('href')) {
                     case "/sc1/brands/": $("<div class='bt-sub-nav'></div>").insertAfter($(getAllNavItems[i])).css("display","none"); break;
-                    case "/sc1/women/": $(womenSubNav()).insertAfter($(getAllNavItems[i])); break;
                     case "/sc1/shoes/": $(shoesSubNav()).insertAfter($(getAllNavItems[i])); break;
                     case "/sc1/handbags-accessories/": $(hbagsAccessoriesSubNav()).insertAfter($(getAllNavItems[i])); break;
                     case "/sc1/jewelry-watches/": $(jewelryWatchesSubNav()).insertAfter($(getAllNavItems[i])); break;
@@ -354,44 +388,44 @@ $(document).ready(function() {
                    '<h2 class="bt-nav-group-topheading">beauty &amp; fragrance</h2>' +
             '<ul class="bt-sub-nav-group">' +
                 '<li class="bt-nav-group-heading"><h2>Spotlight On...</h2></li>' +
-                '<li><a href="#">Beauty Station</a></li>' +
-                '<li><a href="#">Allure Best of Beauty</a></li>' +
+                '<li><a href="/sc1/beauty-fragrance/beauty-station/">Beauty Station</a></li>' +
+                '<li><a href="/sc1/beauty-fragrance/allure-best-of-beauty/">Allure Best of Beauty</a></li>' +
                 '<li class="bt-nav-group-heading"><h2>Specials&rsquo;</h2></li>' +
-                '<li><a href="#">Gifts With Purchase</a></li>' +
-                '<li><a href="#">Fragrance</a></li>' +
+                '<li><a href="/sc1/splash/?campaign=Beauty-And-Fragrance-Promotions">Gifts With Purchase</a></li>' +
+                '<li><a href="/sc1/beauty-fragrance/fragrance/?utm_source=GW&utm_medium=LEFTN&utm_term=161109&utm_content=BTY-FRAGRANCES&utm_campaign=SPOTLIGHTON&ICID=16-11-09-BTY-GW-SPOTLIGHTON-LEFTN-FRAGRANCES-NON-NON">Fragrance</a></li>' +
             '</ul>' +
             '<ul class="bt-sub-nav-group">' +
                 '<li class="bt-nav-group-heading"><h2>Featured Brands</h2></li>' +
-                '<li><a href="#">Clarins</a></li>' +
-                '<li><a href="#">Clarisonic</a></li>' +
-                '<li><a href="#">Clinique</a></li>' +
-                '<li><a href="#">Deborah Lippmann</a></li>' +
-                '<li><a href="#">Dermablend</a></li>' +
-                '<li><a href="#">Dior</a></li>' +
-                '<li><a href="#">Elizabeth Arden</a></li>' +
-                '<li><a href="#">essie</a></li>' +
-                '<li><a href="#">Estee Lauder</a></li>' +
-                '<li><a href="#">Fashion Fair</a></li>' +
-                '<li><a href="#">Lancome</a></li>' +
-                '<li><a href="#">Origins</a></li>' +
-                '<li><a href="#">philosophy</a></li>' +
-                '<li><a href="#">PREVAGE</a></li>' +
-                '<li><a href="#">Re-Nutriv</a></li>' +
-                '<li><a href="#">StriVectin</a></li>' +
-                '<li><a href="#">Studio Gear</a></li>' +
-                '<li><a href="#">theBalm</a></li>' +
-                '<li><a href="#">Viktor &amp Rolf</a></li>' +
+                '<li><a href="/sc1/beauty-fragrance/featured-brands-clarins/">Clarins</a></li>' +
+                '<li><a href="/sc1/beauty-fragrance/featured-brands-clarisonic/">Clarisonic</a></li>' +
+                '<li><a href="/sc1/beauty-fragrance/featured-brands-clinique/">Clinique</a></li>' +
+                '<li><a href="/sc1/beauty-fragrance/featured-brands-deborah-lippmann/">Deborah Lippmann</a></li>' +
+                '<li><a href="/sc1/beauty-fragrance/featured-brands-dermablend/">Dermablend</a></li>' +
+                '<li><a href="/sc1/beauty-fragrance/featured-brands-dior/">Dior</a></li>' +
+                '<li><a href="/sc1/beauty-fragrance/featured-brands-elizabeth-arden/">Elizabeth Arden</a></li>' +
+                '<li><a href="/sc1/beauty-fragrance/featured-brands-essie/">essie</a></li>' +
+                '<li><a href="/sc1/beauty-fragrance/featured-brands-estee-lauder/">Estee Lauder</a></li>' +
+                '<li><a href="/sc1/beauty-fragrance/featured-brands-fashion-fair/">Fashion Fair</a></li>' +
+                '<li><a href="/sc1/beauty-fragrance/featured-brands-lancome/">Lancome</a></li>' +
+                '<li><a href="/sc1/beauty-fragrance/featured-brands-origins/">Origins</a></li>' +
+                '<li><a href="/sc1/beauty-fragrance/featured-brands-philosophy/">philosophy</a></li>' +
+                '<li><a href="/sc1/beauty-fragrance/featured-brands-prevage/">PREVAGE</a></li>' +
+                '<li><a href="/sc1/beauty-fragrance/featured-brands-re-nutriv/">Re-Nutriv</a></li>' +
+                '<li><a href="/sc1/beauty-fragrance/featured-brands-strivectin/">StriVectin</a></li>' +
+                '<li><a href="/sc1/beauty-fragrance/featured-brands-studio-gear/">Studio Gear</a></li>' +
+                '<li><a href="/sc1/beauty-fragrance/featured-brands-thebalm/">theBalm</a></li>' +
+                '<li><a href="/sc1/beauty-fragrance/featured-brands-viktor-rolf/">Viktor &amp Rolf</a></li>' +
             '</ul>' +
             '<ul class="bt-sub-nav-group">' +
                 '<li class="bt-nav-group-heading"><h2>Shop by Department</h2></li>' +
-                '<li><a href="#">Gifts &amp; Value Sets</a></li>' +
-                '<li><a href="#">Travel Size</a></li>' +
-                '<li><a href="#">Fragrance</a></li>' +
-                '<li><a href="#">Skincare</a></li>' +
-                '<li><a href="#">Makeup</a></li>' +
-                '<li><a href="#">Bath &amp; Body</a></li>' +
-                '<li><a href="#">Hair Care</a></li>' +
-                '<li><a href="#">Men&rsquo;s Grooming</a></li>' +
+                '<li><a href="/sc1/beauty-fragrance/gifts-value-sets/">Gifts &amp; Value Sets</a></li>' +
+                '<li><a href="/sc1/beauty-fragrance/travel-size/">Travel Size</a></li>' +
+                '<li><a href="/sc1/beauty-fragrance/fragrance/">Fragrance</a></li>' +
+                '<li><a href="/sc1/beauty-fragrance/skincare/">Skincare</a></li>' +
+                '<li><a href="/sc1/beauty-fragrance/makeup/">Makeup</a></li>' +
+                '<li><a href="/sc1/beauty-fragrance/bath-body/">Bath &amp; Body</a></li>' +
+                '<li><a href="/sc1/beauty-fragrance/hair-care/">Hair Care</a></li>' +
+                '<li><a href="/sc1/beauty-fragrance/mens-grooming/">Men&rsquo;s Grooming</a></li>' +
             '</ul>' +
             '<ul class="bt-sub-nav-group-promo">' +
                    
@@ -403,39 +437,39 @@ $(document).ready(function() {
                    '<h2 class="bt-nav-group-topheading">juniors</h2>' +
             '<ul class="bt-sub-nav-group">' +
                 '<li class="bt-nav-group-heading"><h2>Spotlight On...</h2></li>' +
-                '<li><a href="#">Juniors&rsquo; Plus</a></li>' +
+                '<li><a href="/sc1/juniors/juniors-plus/">Juniors&rsquo; Plus</a></li>' +
                 '<li class="bt-nav-group-heading"><h2>Specials&rsquo;</h2></li>' +
-                '<li><a href="#">Clearance</a></li>' +
-                '<li><a href="#">Gifts Under $25</a></li>' +
+                '<li><a href="/sc1/juniors/?facet=ads_prodprom_ntk_cs%253A%2522Clearance%2522&facet=ads_prodprom_ntk_cs%253A%2522Yellow_Dot%2522&utm_source=GW&utm_medium=LEFTN&utm_term=161115&utm_content=JRS-JUNIORSCLEARANCE&utm_campaign=BOLDREDLINK&ICID=16-11-15-JRS-GW-BOLDREDLINK-LEFTN-JUNIORSCLEARANCE-NOP-CLR">Clearance</a></li>' +
+                '<li><a href="/sc1/juniors/query/jrs25/?facet=price_USD%253A%2528%257B*%2B24.99%257D%2B24.99%2529/?orderBy=4">Gifts Under $25</a></li>' +
             '</ul>' +
             '<ul class="bt-sub-nav-group">' +
                 '<li class="bt-nav-group-heading"><h2>Apparel</h2></li>' +
-                '<li><a href="#">Activewear</a></li>' +
-                '<li><a href="#">Coats</a></li>' +
-                '<li><a href="#">Dresses</a></li>' +
-                '<li><a href="#">Bras &amp; Panties</a></li>' +
-                '<li><a href="#">Jackets &amp; Vests</a></li>' +
-                '<li><a href="#">Jeans</a></li>' +
-                '<li><a href="#">Jumpsuits &amp Rompers</a></li>' +
-                '<li><a href="#">Leggings</a></li>' +
-                '<li><a href="#">Pajamas</a></li>' +
-                '<li><a href="#">Pants</a></li>' +
-                '<li><a href="#">Shorts &amp Crops</a></li>' +
-                '<li><a href="#">Skirts</a></li>' +
-                '<li><a href="#">Wear to Work</a></li>' +
-                '<li><a href="#">Sweaters</a></li>' +
-                '<li><a href="#">Swimwear</a></li>' +
-                '<li><a href="#">Tops</a></li>' +
-                '<li><a href="#">Tunics</a></li>' +
+                '<li><a href="/sc1/juniors/apparel-activewear/">Activewear</a></li>' +
+                '<li><a href="/sc1/juniors/apparel-coats/">Coats</a></li>' +
+                '<li><a href="/sc1/juniors/apparel-dresses/">Dresses</a></li>' +
+                '<li><a href="/sc1/juniors/apparel-bras-panties/">Bras &amp; Panties</a></li>' +
+                '<li><a href="/sc1/juniors/apparel-jackets-vests/">Jackets &amp; Vests</a></li>' +
+                '<li><a href="/sc1/juniors/apparel-jeans/">Jeans</a></li>' +
+                '<li><a href="/sc1/juniors/apparel-jumpsuits-rompers/">Jumpsuits &amp Rompers</a></li>' +
+                '<li><a href="/sc1/juniors/apparel-leggings/">Leggings</a></li>' +
+                '<li><a href="/sc1/juniors/apparel-pajamas/">Pajamas</a></li>' +
+                '<li><a href="/sc1/juniors/apparel-pants/">Pants</a></li>' +
+                '<li><a href="/sc1/juniors/apparel-shorts-crops/">Shorts &amp Crops</a></li>' +
+                '<li><a href="/sc1/juniors/apparel-skirts/">Skirts</a></li>' +
+                '<li><a href="/sc1/juniors/wear-to-work/">Wear to Work</a></li>' +
+                '<li><a href="/sc1/juniors/apparel-sweaters/">Sweaters</a></li>' +
+                '<li><a href="/sc1/juniors/apparel-swimwear/">Swimwear</a></li>' +
+                '<li><a href="/sc1/juniors/apparel-tops/">Tops</a></li>' +
+                '<li><a href="/sc1/juniors/apparel-tunics/">Tunics</a></li>' +
             '</ul>' +
             '<ul class="bt-sub-nav-group">' +
                 '<li class="bt-nav-group-heading"><h2>Featured Brands</h2></li>' +
-                '<li><a href="#">Silver Jeans Co.</a></li>' +
-                '<li><a href="#">Jessica Simpson</a></li>' +
-                '<li><a href="#">Hippie Laundry</a></li>' +
-                '<li><a href="#">Kensie</a></li>' +
-                '<li><a href="#">Levi&rsquo;s</a></li>' +
-                '<li><a href="#">Skylar &amp; Jade</a></li>' +
+                '<li><a href="/sc1/juniors/?facet=ads_brand_ntk_cs%253A%2522Silver%2bJeans%2bCo.%2522">Silver Jeans Co.</a></li>' +
+                '<li><a href="/sc1/juniors/?facet=ads_brand_ntk_cs%253A%2522Jessica%2bSimpson%2522">Jessica Simpson</a></li>' +
+                '<li><a href="/sc1/juniors/?facet=ads_brand_ntk_cs%253A%2522Hippie%2bLaundry%2522">Hippie Laundry</a></li>' +
+                '<li><a href="/sc1/juniors/?facet=ads_brand_ntk_cs%253A%2522Kensie%2522">Kensie</a></li>' +
+                '<li><a href="/sc1/juniors/?facet=ads_brand_ntk_cs%253A%2522Levi%2527s%2522">Levi&rsquo;s</a></li>' +
+                '<li><a href="/sc1/brands/skylar-jade-81491/juniors">Skylar &amp; Jade</a></li>' +
                 '<li>' +
                 '<div class="applyFilters row">' +
                     '<input class="appliedFilters" type="hidden" id="appliedFilters" name="appliedFilters" value=""/>' +
@@ -462,49 +496,65 @@ $(document).ready(function() {
                    '<h2 class="bt-nav-group-topheading">men</h2>' +
             '<ul class="bt-sub-nav-group">' +
                 '<li class="bt-nav-group-heading"><h2>Spotlight On...</h2></li>' +
-                '<li><a href="#">Big &amp; Tall</a></li>' +
-                '<li><a href="#">Guys</a></li>' +
-                '<li><a href="#">Slim Fit Shop</a></li>' +
-                '<li><a href="#">Designer Brands</a></li>' +
-                '<li><a href="#">Sports Fan Shop</a></li>' +
+                '<li><a href="/sc1/men/big-tall/">Big &amp; Tall</a></li>' +
+                '<li><a href="/sc1/men/guys/">Guys</a></li>' +
+                '<li><a href="/sc1/men/slim-fit-shop/">Slim Fit Shop</a></li>' +
+                '<li><a href="/sc1/men/mens-designer-brands/">Designer Brands</a></li>' +
+                '<li><a href="/sc1/men/mens-sports-fan-shop/">Sports Fan Shop</a></li>' +
+                '<li><a href="/sc1/splash/?campaign=How-To-Wear-Flannel-Shirts&utm_source=GW&utm_medium=LEFTN&utm_term=161123&utm_content=MEN-HOWTOWEAR-FLANNEL&utm_campaign=SPOTLIGHTON&ICID=16-11-23-MEN-GW-SPOTLIGHTON-LEFTN-HOWTOWEAR-FLANNEL-NON-NON/">How to Wear It</a></li>' +
+                '<li><a href="/sc1/splash/?campaign=Holiday-Dresswear-Essentials-Men&utm_source=GW&utm_medium=LEFTN&utm_term=161123&utm_content=MEN-HOLDRESSWRESSNTLS&utm_campaign=SPOTLIGHTON&ICID=16-11-23-MEN-GW-SPOTLIGHTON-LEFTN-HOLDRESSWRESSNTLS-NON-NON">Holiday Dresswear Essentials</a></li>' +
                 '<li class="bt-nav-group-heading"><h2>Specials&rsquo;</h2></li>' +
-                '<li><a href="#">Gifts Under $25</a></li>' +
-                '<li><a href="#">Up to 25% off Under Armour</a></li>' +
-                '<li><a href="#">Sweaters $30 &amp; Under</a></li>' +
-                '<li><a href="#">Clearance</a></li>' +
+                '<li><a href="/sc1/men/accessories-shoes-gifts/?facet=price_USD%253A%2528%257B*%2b25.00%257D%2b25.00%2529&utm_source=GW&utm_medium=LEFTN&utm_term=161101&utm_content=MEN-GIFTSUNDER25&utm_campaign=BOLDREDLINK&ICID=16-11-01-MEN-GW-BOLDREDLINK-LEFTN-GIFTSUNDER25-PR-ALST">Gifts Under $25</a></li>' +
+                '<li><a href="/sc1/brands/under-armour-63533/men/query/ua1123fleece?utm_source=GW&utm_medium=LEFTN&utm_term=161120&utm_content=MEN-UNDERARMOURFLEECE&utm_campaign=BOLDREDLINK&ICID=16-11-20-MEN-GW-BOLDREDLINK-LEFTN-UNDERARMOURFLEECE-PC-OS">Up to 25% off Under Armour</a></li>' +
+                '<li><a href="/sc1/men/mens-sweaters/?facet=price_USD%253A%2528%257B*%2b30.00%257D%2b30.00%2529?orderBy=2&utm_source=GW&utm_medium=LEFTN&utm_term=161101&utm_content=MEN-SWEATERS30UNDER&utm_campaign=BOLDREDLINK&ICID=16-11-01-MEN-GW-BOLDREDLINK-LEFTN-SWEATERS30UNDER-PR-ALST">Sweaters $30 &amp; Under</a></li>' +
+                '<li><a href="/sc1/men/?facet=ads_prodprom_ntk_cs%253A%2522Clearance%2522&facet=ads_prodprom_ntk_cs%253A%2522Yellow_Dot%2522&utm_source=GW&utm_medium=LEFTN&utm_term=161115&utm_content=MEN-MENSCLEARANCE&utm_campaign=BOLDREDLINK&ICID=16-11-15-MEN-GW-BOLDREDLINK-LEFTN-MENSCLEARANCE-NOP-CLR">Clearance</a></li>' +
             '</ul>' +
             '<ul class="bt-sub-nav-group">' +
                 '<li class="bt-nav-group-heading"><h2>Apparel</h2></li>' +
-                '<li><a href="#">Athletic</a></li>' +
-                '<li><a href="#">Blazers & Sportscoats</a></li>' +
-                '<li><a href="#">Casual Shirts</a></li>' +
-                '<li><a href="#">Coats &amp; Jackets</a></li>' +
-                '<li><a href="#">Dress Shirts</a></li>' +
-                '<li><a href="#">Hoodies &amp; Fleece</a></li>' +
-                '<li><a href="#">Jeans</a></li>' +
-                '<li><a href="#">Pants</a></li>' +
-                '<li><a href="#">Polos</a></li>' +
-                '<li><a href="#">Shorts</a></li>' +
-                '<li><a href="#">Sleepwear &amp; Loungewear</a></li>' +
-                '<li><a href="#">Socks</a></li>' +
-                '<li><a href="#">Suits & Suit Separates</a></li>' +
-                '<li><a href="#">Sweaters</a></li>' +
-                '<li><a href="#">Swimwear &amp; Accessories</a></li>' +
-                '<li><a href="#">Ties</a></li>' +
-                '<li><a href="#">Underwear</a></li>' +
+                '<li><a href="/sc1/men/apparel-athletic/">Athletic</a></li>' +
+                '<li><a href="/sc1/men/apparel-blazers-sportcoats/">Blazers & Sportscoats</a></li>' +
+                '<li><a href="/sc1/men/apparel-casual-shirts/">Casual Shirts</a></li>' +
+                '<li><a href="/sc1/men/apparel-coats-jackets/">Coats &amp; Jackets</a></li>' +
+                '<li><a href="/sc1/men/apparel-dress-shirts/">Dress Shirts</a></li>' +
+                '<li><a href="/sc1/men/apparel-hoodies-fleece/">Hoodies &amp; Fleece</a></li>' +
+                '<li><a href="/sc1/men/mens-jeans/">Jeans</a></li>' +
+                '<li><a href="/sc1/men/mens-pants/">Pants</a></li>' +
+                '<li><a href="/sc1/men/apparel-polos/">Polos</a></li>' +
+                '<li><a href="/sc1/men/mens-shorts/">Shorts</a></li>' +
+                '<li><a href="/sc1/men/apparel-sleepwear-loungewear/">Sleepwear &amp; Loungewear</a></li>' +
+                '<li><a href="/sc1/men/apparel-socks/">Socks</a></li>' +
+                '<li><a href="/sc1/men/mens-suits-suit-separates/">Suits & Suit Separates</a></li>' +
+                '<li><a href="/sc1/men/mens-sweaters/">Sweaters</a></li>' +
+                '<li><a href="/sc1/men/apparel-swimwear-accessories/">Swimwear &amp; Accessories</a></li>' +
+                '<li><a href="/sc1/men/apparel-ties/">Ties</a></li>' +
+                '<li><a href="/sc1/men/apparel-underwear/">Underwear</a></li>' +
+            '</ul>' +
+            '<ul class="bt-sub-nav-group">' +
+                '<li class="bt-nav-group-heading"><h2>Accessories &amp; Shoes</h2></li>' +
+                '<li><a href="/sc1/men/accessories-shoes-accessories/">Accessories</a></li>' +
+                '<li><a href="/sc1/men/accessories-shoes-bags/">Bags</a></li>' +
+                '<li><a href="/sc1/men/accessories-shoes-belts/">Belts</a></li>' +
+                '<li><a href="/sc1/men/accessories-shoes-gifts/">Gifts</a></li>' +
+                '<li><a href="/sc1/men/accessories-shoes-grooming/">Grooming</a></li>' +
+                '<li><a href="/sc1/men/accessories-shoes-hats-gloves-scarves/">Hats, Gloves &amp; Scarves</a></li>' +
+                '<li><a href="/sc1/men/accessories-shoes-jewelry-cufflinks/">Jewelry &amp; Cufflinks</a></li>' +
+                '<li><a href="/sc1/men/accessories-shoes-slippers/">Slippers</a></li>' +
+                '<li><a href="/sc1/men/accessories-shoes-shoes/">Shoes</a></li>' +
+                '<li><a href="/sc1/men/accessories-shoes-sunglasses/">Sunglasses</a></li>' +
+                '<li><a href="/sc1/men/accessories-shoes-wallets/">Wallets</a></li>' +
             '</ul>' +
             '<ul class="bt-sub-nav-group">' +
                 '<li class="bt-nav-group-heading"><h2>Featured Brands</h2></li>' +
-                '<li><a href="#">Polo Ralph Lauren</a></li>' +
-                '<li><a href="#">Calvin Klein</a></li>' +
-                '<li><a href="#">Nautica</a></li>' +
-                '<li><a href="#">Under Armour</a></li>' +
-                '<li><a href="#">Tommy Hilfiger</a></li>' +
-                '<li><a href="#">Kenneth Cole REACTION</a></li>' +
-                '<li><a href="#">Michael Kors</a></li>' +
-                '<li><a href="#">Chaps</a></li>' +
-                '<li><a href="#">Levi&rsquo;s</a></li>' +
-                '<li><a href="#">Hart Schaffner Marx</a></li>' +
+                '<li><a href="/sc1/brands/ralph-lauren-46019/men/?orderBy=2">Polo Ralph Lauren</a></li>' +
+                '<li><a href="/sc1/brands/calvin-klein-46013/men/">Calvin Klein</a></li>' +
+                '<li><a href="/sc1/brands/nautica-46022/men/">Nautica</a></li>' +
+                '<li><a href="/sc1/brands/under-armour-63533/men/">Under Armour</a></li>' +
+                '<li><a href="/sc1/brands/tommy-hilfiger-45785/men/">Tommy Hilfiger</a></li>' +
+                '<li><a href="/sc1/brands/kenneth-cole-reaction-46043/men/">Kenneth Cole REACTION</a></li>' +
+                '<li><a href="/sc1/brands/michael-kors-46021/men/">Michael Kors</a></li>' +
+                '<li><a href="/sc1/brands/chaps-46100/men/">Chaps</a></li>' +
+                '<li><a href="/sc1/brands/levi-s-44637/men/">Levi&rsquo;s</a></li>' +
+                '<li><a href="/sc1/brands/hart-schaffner-marx-44340/men/?orderBy=1">Hart Schaffner Marx</a></li>' +
                 '<li>' +
                 '<div class="applyFilters row">' +
                     '<input class="appliedFilters" type="hidden" id="appliedFilters" name="appliedFilters" value=""/>' +
@@ -531,63 +581,73 @@ $(document).ready(function() {
                    '<h2 class="bt-nav-group-topheading">baby &amp; kids</h2>' +
             '<ul class="bt-sub-nav-group">' +
                 '<li class="bt-nav-group-heading"><h2>Spotlight On...</h2></li>' +
-                '<li><a href="#">Dresswear Shop</a></li>' +
-                '<li><a href="#">Outerwear Shop</a></li>' +
-                '<li><a href="#">Pajama Shop</a></li>' +
-                '<li><a href="#">Mix &amp; Match</a></li>' +
-                '<li><a href="#">Carter&rsquo;s	&reg; Little Baby Basics</a></li>' +
-                '<li><a href="#">Sports Fan</a></li>' +
+                '<li><a href="/sc1/baby-kids/dresswear-shop/">Dresswear Shop</a></li>' +
+                '<li><a href="/sc1/baby-kids/outerwear-shop/">Outerwear Shop</a></li>' +
+                '<li><a href="/sc1/baby-kids/slumber-party/">Pajama Shop</a></li>' +
+                '<li><a href="/sc1/baby-kids/mix-match/">Mix &amp; Match</a></li>' +
+                '<li><a href="/sc1/baby-kids/carters-little-baby-basics/">Carter&rsquo;s	&reg; Little Baby Basics</a></li>' +
+                '<li><a href="/sc1/baby-kids/sports-fan/">Sports Fan</a></li>' +
                 '<li class="bt-nav-group-heading"><h2>Specials&rsquo;</h2></li>' +
-                '<li><a href="#">Toys</a></li>' +
-                '<li><a href="#">Up to 25% off Under Armour</a></li>' +
-                '<li><a href="#">Clearance</a></li>' +
-                '<li><a href="#">Gifts under $20</a></li>' +
+                '<li><a href="/sc1/baby-kids/toys-games-toys/?utm_source=GW&utm_medium=LEFTN&utm_term=161107&utm_content=KIDS-TOYS&utm_campaign=BOLDREDLINK&ICID=16-11-07-KIDS-GW-BOLDREDLINK-LEFTN-TOYS-NON-NON">Toys</a></li>' +
+                '<li><a href="/sc1/baby-kids/query/ua1123fleece%201119k16ua/?searchType=1000&utm_source=GW&utm_medium=LEFTN&utm_term=161120&utm_content=KIDS-UNDERARMOURFLEECE&utm_campaign=BOLDREDLINK&ICID=16-11-20-KIDS-GW-BOLDREDLINK-LEFTN-UNDERARMOURFLEECE-PC-OS">Up to 25% off Under Armour</a></li>' +
+                '<li><a href="/sc1/baby-kids/?facet=ads_prodprom_ntk_cs%253A%2522Clearance%2522&facet=ads_prodprom_ntk_cs%253A%2522Yellow_Dot%2522&utm_source=GW&utm_medium=LEFTN&utm_term=161115&utm_content=KIDS-KIDSCLEARANCE&utm_campaign=BOLDREDLINK&ICID=16-11-15-KIDS-GW-BOLDREDLINK-LEFTN-KIDSCLEARANCE-NOP-CLR">Clearance</a></li>' +
+                '<li><a href="/sc1/query/KGU2016?facet=price_USD%253A%2528%257B*%2b19.99%257D%2b19.99%2529&utm_source=GW&utm_medium=LEFTN&utm_term=161103&utm_content=KIDS-GIFTSUNDER20&utm_campaign=BOLDREDLINK&ICID=16-11-03-KIDS-GW-BOLDREDLINK-LEFTN-GIFTSUNDER20-PR-ALST">Gifts under $20</a></li>' +
             '</ul>' +
             '<ul class="bt-sub-nav-group">' +
                 '<li class="bt-nav-group-heading"><h2>Baby</h2></li>' +
-                '<li><a href="#">Baby Boys&rsquo; Apparel</a></li>' +
-                '<li><a href="#">Baby Girls&rsquo; Apparel</a></li>' +
-                '<li><a href="#">Neutral Baby Apparel</a></li>' +
-                '<li><a href="#">Baby Gear</a></li>' +
-                '<li><a href="#">Baby Gifts &amp; Essentials</a></li>' +
-                '<li><a href="#">Christening</a></li>' +
-                '<li><a href="#">Holiday Apparel</a></li>' +
-                '<li><a href="#">Baby Costumes</a></li>' +
-                '<li><a href="#">Nursery Furniture &amp; Accessories</a></li>' +
+                '<li><a href="/sc1/baby-kids/baby-baby-boys-apparel/">Baby Boys&rsquo; Apparel</a></li>' +
+                '<li><a href="/sc1/baby-kids/baby-baby-girls-apparel/">Baby Girls&rsquo; Apparel</a></li>' +
+                '<li><a href="/sc1/baby-kids/baby-neutral-baby-apparel/">Neutral Baby Apparel</a></li>' +
+                '<li><a href="/sc1/baby-kids/baby-baby-gear/">Baby Gear</a></li>' +
+                '<li><a href="/sc1/baby-kids/baby-baby-gifts-essentials/">Baby Gifts &amp; Essentials</a></li>' +
+                '<li><a href="/sc1/baby-kids/baby-christening/">Christening</a></li>' +
+                '<li><a href="/sc1/baby-kids/baby-holiday-apparel/">Holiday Apparel</a></li>' +
+                '<li><a href="/sc1/baby-kids/baby-baby-costumes/">Baby Costumes</a></li>' +
+                '<li><a href="/sc1/baby-kids/baby-nursery-furniture-accessories/">Nursery Furniture &amp; Accessories</a></li>' +
                 '<li class="bt-nav-group-heading"><h2>Girls</h2></li>' +
-                '<li><a href="#">Girls&rsquo; Sizes 2-6X</a></li>' +
-                '<li><a href="#">Girls&rsquo; Sizes 7-16</a></li>' +
-                '<li><a href="#">Girls&rsquo; Basics</a></li>' +
-                '<li><a href="#">First Communion</a></li>' +
+                '<li><a href="/sc1/baby-kids/girls-girls-sizes-2-6x/">Girls&rsquo; Sizes 2-6X</a></li>' +
+                '<li><a href="/sc1/baby-kids/girls-girls-sizes-7-16/">Girls&rsquo; Sizes 7-16</a></li>' +
+                '<li><a href="/sc1/baby-kids/girls-girls-basics/">Girls&rsquo; Basics</a></li>' +
+                '<li><a href="/sc1/baby-kids/girls-first-communion/">First Communion</a></li>' +
             '</ul>' +
             '<ul class="bt-sub-nav-group">' +
                 '<li class="bt-nav-group-heading"><h2>Shoes &amp; Accessories</h2></li>' +
-                '<li><a href="#">Shoes</a></li>' +
-                '<li><a href="#">Backpacks</a></li>' +
-                '<li><a href="#">Cold Weather Accessories</a></li>' +
-                '<li><a href="#">Headwear and Scarves</a></li>' +
+                '<li><a href="/sc1/baby-kids/baby-kids-shoes/">Shoes</a></li>' +
+                '<li><a href="/sc1/baby-kids/baby-kids-backpacks/">Backpacks</a></li>' +
+                '<li><a href="/sc1/baby-kids/baby-kids-cold-weather-accessories/">Cold Weather Accessories</a></li>' +
+                '<li><a href="/sc1/baby-kids/baby-kids-hats-and-scarves/">Headwear and Scarves</a></li>' +
                 '<li class="bt-nav-group-heading"><h2>Toys &amp Games</h2></li>' +
-                '<li><a href="#">Toys</a></li>' +
-                '<li><a href="#">Playroom Storage &amp; Accessories</a></li>' +
-                '<li><a href="#">Michael Kors</a></li>' +
+                '<li><a href="/sc1/baby-kids/toys-games-toys/">Toys</a></li>' +
+                '<li><a href="/sc1/baby-kids/toys-games-playroom-storage-accessories/">Playroom Storage &amp; Accessories</a></li>' +
                 '<li class="bt-nav-group-heading"><h2>Boys</h2></li>' +
-                '<li><a href="#">Boys&rsquo; Sizes 2-7</a></li>' +
-                '<li><a href="#">Boys&rsquo; Sizes 8-20</a></li>' +
-                '<li><a href="#">Boys&rsquo; Basics</a></li>' +
+                '<li><a href="/sc1/baby-kids/boys-boys-sizes-2-7/">Boys&rsquo; Sizes 2-7</a></li>' +
+                '<li><a href="/sc1/baby-kids/boys-boys-sizes-8-20/">Boys&rsquo; Sizes 8-20</a></li>' +
+                '<li><a href="/sc1/baby-kids/boys-boys-basics/">Boys&rsquo; Basics</a></li>' +
             '</ul>' +
             '<ul class="bt-sub-nav-group">' +
                 '<li class="bt-nav-group-heading"><h2>Featured Brands</h2></li>' +
-                '<li><a href="#">Ralph Lauren Childrenswear</a></li>' +
-                '<li><a href="#">Carter&rsquo;s</a></li>' +
-                '<li><a href="#">Oshkosh B&rsquo;Gosh</a></li>' +
-                '<li><a href="#">mix&amp;Match</a></li>' +
-                '<li><a href="#">Adidas</a></li>' +
-                '<li><a href="#">Levi&rsquo;s</a></li>' +
-                '<li><a href="#">Puma</a></li>' +
-                '<li><a href="#">Under Armour</a></li>' +
-                '<li><a href="#">Chaps</a></li>' +
-                '<li><a href="#">Melissa and Doug</a></li>' +
-                '<li><a href="#">Columbia</a></li>' +
+                '<li><a href="/sc1/baby-kids/?facet=ads_brand_ntk_cs%253A%2522Ralph%2bLauren%2bChildrenswear%2522" onclick="s_objectID="http://www.stage.bonton.com/sc1/baby-kids/_facet=ads_brand_ntk_cs%253A%2522Ralph%2bLauren%2bChild_2";return this.s_oc?this.s_oc(e):true">Ralph Lauren Childrenswear</a></li>' +
+                   
+                '<li><a href="/sc1/baby-kids/?facet=ads_brand_ntk_cs%253A%2522Carter%2527s%2522" onclick="s_objectID="http://www.stage.bonton.com/sc1/baby-kids/_facet=ads_brand_ntk_cs%253A%2522Carter%2527s%2522_2";return this.s_oc?this.s_oc(e):true">Carter&rsquo;s</a></li>' +
+                   
+                '<li><a href="/sc1/baby-kids/?facet=ads_brand_ntk_cs%253A%2522OshKosh%2bB%2527Gosh%2522" onclick="s_objectID="http://www.stage.bonton.com/sc1/baby-kids/_facet=ads_brand_ntk_cs%253A%2522OshKosh%2bB%2527Gosh%2_2";return this.s_oc?this.s_oc(e):true">Oshkosh B&rsquo;Gosh</a></li>' +
+                   
+                '<li><a href="/sc1/brands/mix-match-77917" onclick="s_objectID="http://www.stage.bonton.com/sc1/brands/mix-match-77917_2";return this.s_oc?this.s_oc(e):true">mix&amp;Match</a></li>' +
+                   
+                '<li><a href="/sc1/baby-kids/?facet=ads_brand_ntk_cs%253A%2522adidas%2522" onclick="s_objectID="http://www.stage.bonton.com/sc1/baby-kids/_facet=ads_brand_ntk_cs%253A%2522adidas%2522_2";return this.s_oc?this.s_oc(e):true">Adidas</a></li>' +
+                   
+                '<li><a href="/sc1/baby-kids/?facet=ads_brand_ntk_cs%253A%2522Levi%2527s%2522" onclick="s_objectID="http://www.stage.bonton.com/sc1/baby-kids/_facet=ads_brand_ntk_cs%253A%2522Levi%2527s%2522_2";return this.s_oc?this.s_oc(e):true">Levi&rsquo;s</a></li>' +
+                   
+                '<li><a href="/sc1/baby-kids/?facet=ads_brand_ntk_cs%253A%2522PUMA%2522" onclick="s_objectID="http://www.stage.bonton.com/sc1/baby-kids/_facet=ads_brand_ntk_cs%253A%2522PUMA%2522_2";return this.s_oc?this.s_oc(e):true">Puma</a></li>' +
+                   
+                '<li><a href="/sc1/baby-kids/?facet=ads_brand_ntk_cs%253A%2522Under%2bArmour%2522" onclick="s_objectID="http://www.stage.bonton.com/sc1/baby-kids/_facet=ads_brand_ntk_cs%253A%2522Under%2bArmour%2522_2";return this.s_oc?this.s_oc(e):true">Under Armour</a></li>' +
+                   
+                '<li><a href="/sc1/baby-kids/?facet=ads_brand_ntk_cs%253A%2522Chaps%2522" onclick="s_objectID="http://www.stage.bonton.com/sc1/baby-kids/_facet=ads_brand_ntk_cs%253A%2522Chaps%2522_2";return this.s_oc?this.s_oc(e):true">Chaps</a></li>' +
+                   
+                '<li><a href="/sc1/baby-kids/?facet=ads_brand_ntk_cs%253A%2522Melissa%2b%2526%2bDoug%2522" onclick="s_objectID="http://www.stage.bonton.com/sc1/baby-kids/_facet=ads_brand_ntk_cs%253A%2522Melissa%2b%2526%2bDoug_2";return this.s_oc?this.s_oc(e):true">Melissa and Doug</a></li>' +
+                   
+                '<li><a href="/sc1/baby-kids/?facet=ads_brand_ntk_cs%253A%2522Columbia%2522" onclick="s_objectID="http://www.stage.bonton.com/sc1/baby-kids/_facet=ads_brand_ntk_cs%253A%2522Columbia%2522_2";return this.s_oc?this.s_oc(e):true">Columbia</a></li>' +
+                   
                  '<li>' +
                 '<div class="applyFilters row">' +
                     '<input class="appliedFilters" type="hidden" id="appliedFilters" name="appliedFilters" value=""/>' +
@@ -614,58 +674,59 @@ $(document).ready(function() {
                    '<h2 class="bt-nav-group-topheading">bed &amp; bath</h2>' +
             '<ul class="bt-sub-nav-group">' +
                 '<li class="bt-nav-group-heading"><h2>Spotlight On...</h2></li>' +
-                '<li><a href="#">Cold-weather Bedding</a></li>' +
-                '<li><a href="#">Sports Fan Shop</a></li>' +
+                '<li><a href="/sc1/bed-bath/special-shops-cold-weather-bedding/">Cold-weather Bedding</a></li>' +
+                '<li><a href="/sc1/bed-bath/bed-bath-sports-fan-shop/">Sports Fan Shop</a></li>' +
+                '<li><a href="/sc1/home/holidays-seasons-holiday-shop/?utm_source=GW&utm_medium=LEFTN&utm_term=161123&utm_content=BB-HOLIDAYSHOP&utm_campaign=SPOTLIGHTON&ICID=16-11-23-BB-GW-SPOTLIGHTON-LEFTN-HOLIDAYSHOP-NON-NON">Holiday Shop</a></li>' +
                 '<li class="bt-nav-group-heading"><h2>Specials&rsquo;</h2></li>' +
-                '<li><a href="#">Clearance</a></li>' +
-                '<li><a href="#">Gifts under $25</a></li>' +
+                '<li><a href="/sc1/bed-bath/?facet=ads_prodprom_ntk_cs%253A%2522Clearance%2522&facet=ads_prodprom_ntk_cs%253A%2522Yellow_Dot%2522&utm_source=GW&utm_medium=LEFTN&utm_term=161115&utm_content=BB-BEDBATHCLEARANCE&utm_campaign=BOLDREDLINK&ICID=16-11-15-BB-GW-BOLDREDLINK-LEFTN-BEDBATHCLEARANCE-NOP-CLR">Clearance</a></li>' +
+                '<li><a href="/sc1/query/gift25hm#ctx=facet%3Aprice_USD%25253A%252528%25257B*%252b24.99%25257D%252b24.99%252529%26pageSize%3A60%26orderBy%3A1&pos=0">Gifts under $25</a></li>' +
                 '<li class="bt-nav-group-heading"><h2>Bath</h2></li>' +
-                '<li><a href="#">Bathroom Accessories</a></li>' +
-                '<li><a href="#">Bathroom Storage</a></li>' +
-                '<li><a href="#">Bathroom Hardware</a></li>' +
-                '<li><a href="#">Bathroom Rugs &amp; Mats</a></li>' +
-                '<li><a href="#">Bath Towels</a></li>' +
-                '<li><a href="#">Beach Towels</a></li>' +
-                '<li><a href="#">Shower Curtains</a></li>' +
-                '<li><a href="#">Kids Bathroom</a></li>' +
-                '<li><a href="#">Personal Care</a></li>' +
+                '<li><a href="/sc1/bed-bath/bathroom-accessories/">Bathroom Accessories</a></li>' +
+                '<li><a href="/sc1/bed-bath/bathroom-storage/">Bathroom Storage</a></li>' +
+                '<li><a href="/sc1/bed-bath/bathroom-hardware/">Bathroom Hardware</a></li>' +
+                '<li><a href="/sc1/bed-bath/bathroom-rugs-mats/">Bathroom Rugs &amp; Mats</a></li>' +
+                '<li><a href="/sc1/bed-bath/bath-towels/">Bath Towels</a></li>' +
+                '<li><a href="/sc1/bed-bath/beach-towels/">Beach Towels</a></li>' +
+                '<li><a href="/sc1/bed-bath/shower-curtains/">Shower Curtains</a></li>' +
+                '<li><a href="/sc1/bed-bath/kids-bathroom/">Kids Bathroom</a></li>' +
+                '<li><a href="/sc1/bed-bath/personal-care/">Personal Care</a></li>' +
             '</ul>' +
             '<ul class="bt-sub-nav-group">' +
                 '<li class="bt-nav-group-heading"><h2>Bed</h2></li>' +
-                '<li><a href="#">Air Mattresses</a></li>' +
-                '<li><a href="#">Baby Bedding</a></li>' +
-                '<li><a href="#">Bedding Collections</a></li>' +
-                '<li><a href="#">Bedspreads</a></li>' +
-                '<li><a href="#">Bed Skirts &amp; Shams</a></li>' +
-                '<li><a href="#">Blankets</a></li>' +
-                '<li><a href="#">Comforter Sets</a></li>' +
-                '<li><a href="#">Down-Alternative Comforters</a></li>' +
-                '<li><a href="#">Down Comforters</a></li>' +
-                '<li><a href="#">Duvets</a></li>' +
-                '<li><a href="#">Featherbeds &amp; Fiberbeds</a></li>' +
-                '<li><a href="#">Flannel &amp; Fleece Sheets</a></li>' +
-                '<li><a href="#">Heated Bedding</a></li>' +
-                '<li><a href="#">Kids &amp; Teen Bedding</a></li>' +
-                '<li><a href="#">Kids Sleeping Bags</a></li>' +
-                '<li><a href="#">Mattresses</a></li>' +
-                '<li><a href="#">Mattresses Pads</a></li>' +
-                '<li><a href="#">Mattresses Toppers</a></li>' +
-                '<li><a href="#">Pillows</a></li>' +
-                '<li><a href="#">Quilts</a></li>' +
-                '<li><a href="#">Sheets</a></li>' +
-                '<li><a href="#">Throws</a></li>' +
+                '<li><a href="/sc1/bed-bath/air-mattresses/">Air Mattresses</a></li>' +
+                '<li><a href="/sc1/bed-bath/baby-bedding/">Baby Bedding</a></li>' +
+                '<li><a href="/sc1/bed-bath/bedding-collections/">Bedding Collections</a></li>' +
+                '<li><a href="/sc1/bed-bath/bedspreads/">Bedspreads</a></li>' +
+                '<li><a href="/sc1/bed-bath/bed-skirts-shams/">Bed Skirts &amp; Shams</a></li>' +
+                '<li><a href="/sc1/bed-bath/blankets/">Blankets</a></li>' +
+                '<li><a href="/sc1/bed-bath/comforter-sets/">Comforter Sets</a></li>' +
+                '<li><a href="/sc1/bed-bath/down-alternative-comforters/">Down-Alternative Comforters</a></li>' +
+                '<li><a href="/sc1/bed-bath/down-comforters/">Down Comforters</a></li>' +
+                '<li><a href="/sc1/bed-bath/duvets/">Duvets</a></li>' +
+                '<li><a href="/sc1/bed-bath/featherbeds-fiberbeds/">Featherbeds &amp; Fiberbeds</a></li>' +
+                '<li><a href="/sc1/bed-bath/flannel-fleece-sheets/">Flannel &amp; Fleece Sheets</a></li>' +
+                '<li><a href="/sc1/bed-bath/heated-bedding/">Heated Bedding</a></li>' +
+                '<li><a href="/sc1/bed-bath/kids-teen-bedding/">Kids &amp; Teen Bedding</a></li>' +
+                '<li><a href="/sc1/bed-bath/kids-sleeping-bags/">Kids Sleeping Bags</a></li>' +
+                '<li><a href="/sc1/bed-bath/mattresses/">Mattresses</a></li>' +
+                '<li><a href="/sc1/bed-bath/mattress-pads/">Mattresses Pads</a></li>' +
+                '<li><a href="/sc1/bed-bath/mattress-toppers/">Mattresses Toppers</a></li>' +
+                '<li><a href="/sc1/bed-bath/pillows/">Pillows</a></li>' +
+                '<li><a href="/sc1/bed-bath/quilts/">Quilts</a></li>' +
+                '<li><a href="/sc1/bed-bath/sheets/">Sheets</a></li>' +
+                '<li><a href="/sc1/bed-bath/throws/">Throws</a></li>' +
             '</ul>' +
             '<ul class="bt-sub-nav-group">' +
                 '<li class="bt-nav-group-heading"><h2>Featured Brands</h2></li>' +
-                '<li><a href="#">Ralph Lauren</a></li>' +
-                '<li><a href="#">kate spade new york</a></li>' +
-                '<li><a href="#">Waverly</a></li>' +
-                '<li><a href="#">Tommy Hilfiger</a></li>' +
-                '<li><a href="#">Calvin Klein</a></li>' +
-                '<li><a href="#">Croscill</a></li>' +
-                '<li><a href="#">CASA by Victor Alfaro</a></li>' +
-                '<li><a href="#">Jessica Simpson</a></li>' +
-                '<li><a href="#">LivingQuarters</a></li>' +
+                '<li><a href="/sc1/bed-bath/?facet=ads_brand_ntk_cs%253A%2522Ralph%2bLauren%2522">Ralph Lauren</a></li>' +
+                '<li><a href="/sc1/bed-bath/?facet=ads_brand_ntk_cs%253A%2522Kate%2bSpade%2bNew%2bYork%2522">kate spade new york</a></li>' +
+                '<li><a href="/sc1/bed-bath/?facet=ads_brand_ntk_cs%253A%2522Waverly%2522">Waverly</a></li>' +
+                '<li><a href="/sc1/bed-bath/?facet=ads_brand_ntk_cs%253A%2522Tommy%2BHilfiger%2522">Tommy Hilfiger</a></li>' +
+                '<li><a href="/sc1/bed-bath/?facet=ads_brand_ntk_cs%253A%2522Calvin%2bKlein%2522">Calvin Klein</a></li>' +
+                '<li><a href="/sc1/bed-bath/?facet=ads_brand_ntk_cs%253A%2522Croscill%2522">Croscill</a></li>' +
+                '<li><a href="/sc1/bed-bath/?facet=ads_brand_ntk_cs%253A%2522CASA%2bby%2bVictor%2bAlfaro%2522">CASA by Victor Alfaro</a></li>' +
+                '<li><a href="/sc1/bed-bath/?facet=ads_brand_ntk_cs%253A%2522Jessica%2bSimpson%2522">Jessica Simpson</a></li>' +
+                '<li><a href="/sc1/bed-bath/?facet=ads_brand_ntk_cs%253A%2522LivingQuarters%2522">LivingQuarters</a></li>' +
                 '<li>' +
                 '<div class="applyFilters row">' +
                     '<input class="appliedFilters" type="hidden" id="appliedFilters" name="appliedFilters" value=""/>' +
