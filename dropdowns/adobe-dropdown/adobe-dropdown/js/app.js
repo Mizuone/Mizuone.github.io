@@ -74,32 +74,33 @@ $(document).ready(function() {
        }, 200);
        function createSubNav(currentIndex) {
             //After the 6th listitem a style is applied to each item, to move its subNav, to avoid compression
-            if (currentIndex >= 7) {
+            /*if (currentIndex >= 7) {
                 var createSpace = 20;
 
                 for (var q = currentIndex; q > 7; q--) {
                     createSpace -= 4;
                 }
                 var subNav = $('<div class="bt-sub-nav"></div>').insertAfter($(getAllNavItems[currentIndex])).css('right', createSpace+'%');
-            } else {
-                var subNav = $('<div class="bt-sub-nav"></div>').insertAfter($(getAllNavItems[currentIndex]));
-            }
-
+            }*/
+            var subNav = $('<div class="bt-sub-nav"></div>').insertAfter($(getAllNavItems[currentIndex]));
+            
     //---After the sub-nav div is created, everything within it is created underneath this comment.--------
             var subNavHeading = $(getHamburgerItems[currentIndex]).find("label:first").text().trim(),//sub-nav Heading
             getWomenList = $(getHamburgerItems[currentIndex]).find("ul:first").children();//Children of Women Listitem 
             $(subNav).append('<h2 class="bt-nav-group-topheading">'+subNavHeading +'</h2>');
-    console.log(currentIndex);
-    console.log(getWomenList.length);
+           
+            console.log(currentIndex + " currentIndex");
+            console.log(getWomenList.length + " All subCategories");
            
             for (var x = 2; x < getWomenList.length; x++) {
                 //creates the first column with a title
+                console.log(x + " inner forloop incrementor");
                 try {
                     var classString = x + 'col',
                         colIn = currentIndex - 1;//This variable is the current sub-nav with columns
                                       //Ex: colIn 0 will be women subnav, because that's the very first subnav with columns
 
-                    $(subNav).append('<ul class="bt-sub-nav-group '+ classString +'"></ul>'); //Column Container
+                    $(subNav).append('<ul class="bt-sub-nav-group '+classString+'"></ul>'); //Column Container
                     $(getWomenList[x]).find('ul:first').children().each(function(index, value) { //All top level items for each sub category
                            if ($(this).children('ul').length) { //checks if a top level item has another list, if it does
                                                                 //it will get the first listitem anchor of that second list
