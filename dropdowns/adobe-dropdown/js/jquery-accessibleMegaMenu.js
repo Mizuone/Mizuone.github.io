@@ -627,6 +627,7 @@ limitations under the License.
          * @private
          */
         _mouseDownHandler = function (event) {
+            _togglePanel.call(this, event);
             if ($(event.target).is(this.settings.panelClass) || $(event.target).closest(":focusable").length) {
                 this.mouseFocused = true;
             }
@@ -647,7 +648,7 @@ limitations under the License.
             clearTimeout(this.mouseTimeoutID);
             $(event.target)
                 .addClass(this.settings.hoverClass);
-            _togglePanel.call(this, event);
+            //Add if view port here for _togglePanel.call(this, event);
             if ($(event.target).is(':tabbable')) {
                 $('html').on('keydown.accessible-megamenu', $.proxy(_keyDownHandler, event.target));
             }

@@ -7,135 +7,67 @@
         <title>Dropdown test</title>
         <link href="css/main.css" type="text/css" rel="stylesheet">
         <script src="js/jquery-3.1.1.min.js"></script>
-        <script src="js/jquery-accessibleMegeMenu.min.js"></script>
+        <script src="js/jquery-accessibleMegaMenu.js"></script>
         <script src="js/app.js"></script>
     </head>
     <body>
 <div id="catalog-links-" class="catalog-links">
-	
-
-		<a class="nav-item" href="/sc1/brands/">
+    
+		<a href="/sc1/brands/">
 			Brands
 		</a>
-	
 
-		<a class="nav-item" href="/sc1/women/">
+		<a href="/sc1/women/">
 			Women
 		</a>
-	
-
-		<a class="nav-item" href="/sc1/shoes/">
+                
+		<a href="/sc1/shoes/">
 			Shoes
 		</a>
-	
 
-		<a class="nav-item" href="/sc1/handbags-accessories/">
-			
-					<span class="catalogLinks-doubleLine">
-						Handbags &<br />Accessories
-					</span>
-					<span class="catalogLinks-singleLine">
-						Handbags &amp; Accessories
-					</span>
+		<a href="/sc1/handbags-accessories/">
+            <!--<span class="catalogLinks-singleLine">-->Handbags &amp; Accessories
 				
 		</a>
-	
 
-		<a class="nav-item" href="/sc1/jewelry-watches/">
-			
-					<span class="catalogLinks-doubleLine">
-						Jewelry &<br />Watches
-					</span>
-					<span class="catalogLinks-singleLine">
-						Jewelry &amp; Watches
-					</span>
+		<a href="/sc1/jewelry-watches/">
+			<!--<span class="catalogLinks-singleLine"></span>-->Jewelry &amp; Watches
+		</a>
+
+		<a href="/sc1/beauty-fragrance/">
+           <!--<span class="catalogLinks-singleLine">-->Beauty &amp; Fragrance
 				
 		</a>
-	
 
-		<a class="nav-item" href="/sc1/beauty-fragrance/">
-			
-					<span class="catalogLinks-doubleLine">
-						Beauty &<br />Fragrance
-					</span>
-					<span class="catalogLinks-singleLine">
-						Beauty &amp; Fragrance
-					</span>
-				
-		</a>
-	
-
-		<a class="nav-item" href="/sc1/juniors/">
+		<a href="/sc1/juniors/">
 			Juniors
 		</a>
-	
-
-		<a class="nav-item" href="/sc1/men/">
+    
+		<a href="/sc1/men/">
 			Men
 		</a>
-	
 
-		<a class="nav-item" href="/sc1/baby-kids/">
-			
-					<span class="catalogLinks-doubleLine">
-						Baby &<br />Kids
-					</span>
-					<span class="catalogLinks-singleLine">
-						Baby &amp; Kids
-					</span>
+		<a href="/sc1/baby-kids/">
+			<!--<span class="catalogLinks-singleLine">--> Baby &amp; Kids
 				
 		</a>
-	
 
-		<a class="nav-item" href="/sc1/bed-bath/">
-			
-					<span class="catalogLinks-doubleLine">
-						Bed &<br />Bath
-					</span>
-					<span class="catalogLinks-singleLine">
-						Bed &amp; Bath
-					</span>
+		<a href="/sc1/bed-bath/">
+			<!--<span class="catalogLinks-singleLine">--> Bed &amp; Bath
 				
 		</a>
-	
+    
+        <a href="/sc1/home/furniture-24382/">
+			furniture
+		</a>
 
-		<a class="nav-item" href="/sc1/home/">
+		<a href="/sc1/home/">
 			Home
 		</a>
-	
-	<a class="nav-item" href="/clearance">
-		Clearance
-	</a>
-
+    
+        <a href="/clearance">
+            Clearance
+        </a>
 </div>
-        <script>
-            
-            $("#catalog-links-").accessibleMegaMenu({
-                /* prefix for generated unique id attributes, which are required 
-                   to indicate aria-owns, aria-controls and aria-labelledby */
-                uuidPrefix: "accessible-megamenu",
-
-                /* css class used to define the megamenu styling */
-                menuClass: "catalog-links",
-
-                /* css class for a top-level navigation item in the megamenu */
-                topNavItemClass: "nav-item",
-
-                /* css class for a megamenu panel */
-                panelClass: "sub-nav",
-
-                /* css class for a group of items within a megamenu panel */
-                panelGroupClass: "sub-nav-group",
-
-                /* css class for the hover state */
-                hoverClass: "hover",
-
-                /* css class for the focus state */
-                focusClass: "focus",
-
-                /* css class for the open state */
-                openClass: "open"
-            });
-        </script>
     </body>
 </html>
