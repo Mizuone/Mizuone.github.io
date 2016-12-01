@@ -304,7 +304,6 @@ limitations under the License.
                         if (screen.width < 1025 && screen.width > 767) {
                                var tapedTwice = false;
                                     $('.catalog-links > ul > li > a').each(function(index, value) {
-                                       saveHrefAttr[index] = $(value).attr('href');
                                        $(value).on("touchstart", function(e) {
                                             if(!tapedTwice) {
                                                 _togglePanel.call(this, event, target.hasClass(this.settings.openClass));
@@ -315,6 +314,7 @@ limitations under the License.
                                             //action on double tap goes below
                                             //e.stopPropagation();
                                             $(value).attr('href', saveHrefAttr[index]);
+                                           alert('double tap');
                                        });
                                     });
 
