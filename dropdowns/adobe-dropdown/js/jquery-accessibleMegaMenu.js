@@ -288,17 +288,7 @@ limitations under the License.
             if (topli.length === 1
                     && panel.length === 0
                     && topli.find('.' + this.settings.panelClass).length === 1) {
-                if (!target.hasClass(this.settings.openClass)) {
-                    event.preventDefault();
-                    event.stopPropagation();
-                    _togglePanel.call(this, event);
-                    this.justFocused = false;
-                } else {
-                    if (this.justFocused) {
-                        event.preventDefault();
-                        event.stopPropagation();
-                        this.justFocused = false;
-                    } else if (isTouch) {
+                if (isTouch) {
                                                 alert('tapped outter 1');
                         event.preventDefault();
                         event.stopPropagation();
@@ -323,6 +313,17 @@ limitations under the License.
                                     });
 
                            }
+                    }
+                if (!target.hasClass(this.settings.openClass)) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    _togglePanel.call(this, event);
+                    this.justFocused = false;
+                } else {
+                    if (this.justFocused) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                        this.justFocused = false;
                     }
                 }
             }
