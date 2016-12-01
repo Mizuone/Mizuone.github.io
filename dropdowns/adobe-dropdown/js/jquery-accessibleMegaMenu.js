@@ -309,7 +309,7 @@ limitations under the License.
                                        $(value).on("touchstart", function(e) {
                                             if(!tapedTwice) {
                                                 alert('tapped');
-                                                _togglePanel.call(this, event, target.hasClass(this.settings.openClass));
+                                                //_togglePanel.call(this, event, target.hasClass(this.settings.openClass));
                                                 tapedTwice = true;
                                                 setTimeout( function() { tapedTwice = false; }, 500 );
                                                 return false;
@@ -772,10 +772,8 @@ limitations under the License.
                     .on("mousedown.accessible-megamenu", $.proxy(_mouseDownHandler, this));
 
                 if (isTouch) {
-                    alert('touch event');
                     $('.catalog-links > ul > li > a').each(function(index, value) {
                        saveHrefAttr[index] = $(value).attr('href');
-                        alert(saveHrefAttr);
                        $(value).attr('href', '#');
                     });
                     menu.on("touchstart.accessible-megamenu",  $.proxy(_clickHandler, this));
