@@ -301,7 +301,9 @@ limitations under the License.
                     } else if (isTouch) {
                         //event.preventDefault();
                         //event.stopPropagation();
+                        alert('tapped outter');
                         if (screen.width < 1025 && screen.width > 767) {
+                            alert('tapped inner');
                                var tapedTwice = false;
                                     $('.catalog-links > ul > li > a').each(function(index, value) {
                                        $(value).on("touchstart", function(e) {
