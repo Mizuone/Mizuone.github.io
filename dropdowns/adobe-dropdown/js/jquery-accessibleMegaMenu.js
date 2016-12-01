@@ -775,6 +775,7 @@ limitations under the License.
                     alert('touch event');
                     $('.catalog-links > ul > li > a').each(function(index, value) {
                        saveHrefAttr[index] = $(value).attr('href');
+                        alert(saveHrefAttr);
                        $(value).attr('href', '#');
                     });
                     menu.on("touchstart.accessible-megamenu",  $.proxy(_clickHandler, this));
