@@ -299,8 +299,8 @@ limitations under the License.
                         event.stopPropagation();
                         this.justFocused = false;
                     } else if (isTouch) {
-                        //event.preventDefault();
-                        //event.stopPropagation();
+                        event.preventDefault();
+                        event.stopPropagation();
                         alert('tapped outter');
                         if (screen.width < 1025 && screen.width > 767) {
                             alert('tapped inner');
