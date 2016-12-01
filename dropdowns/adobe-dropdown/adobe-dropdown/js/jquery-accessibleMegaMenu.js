@@ -184,7 +184,6 @@ limitations under the License.
          */
         _getPlugin = function (element) {
             return $(element).closest(':data(plugin_' + pluginName + ')').data("plugin_" + pluginName);
-            console.log(element + "elem");
         };
 
         /**
@@ -199,7 +198,6 @@ limitations under the License.
          */
         _addUniqueId = function (element) {
             element = $(element);
-            console.log(element + "elem");
             var settings = this.settings;
             if (!element.attr("id")) {
                 element.attr("id", settings.uuidPrefix + "-" + new Date().getTime() + "-" + (++uuid));
@@ -222,45 +220,23 @@ limitations under the License.
                 settings = this.settings,
                 menu = this.menu,
                 topli = target.closest('.' + settings.topNavItemClass),
-                panel = target.hasClass(settings.panelClass) ? target : topli.closest('.' + settings.panelClass),
+                panel = target.hasClass(settings.panelClass) ? target : target.closest('.' + settings.panelClass),
                 newfocus;
-                console.log(target);
-                console.log(that);
-                console.log(this.settings);
-                console.log(this.menu);
-                console.log(topli);
-                console.log(panel);
-                console.log(target.hasClass(settings.panelClass));
+
             _toggleExpandedEventHandlers.call(this, true);
 
             if (hide) {
                 topli = menu.find('.' + settings.topNavItemClass + ' .' + settings.openClass + ':first').closest('.' + settings.topNavItemClass);
-                
-                console.log(menu + " menu in hide block");
                 if (!(topli.is(event.relatedTarget) || topli.has(event.relatedTarget).length > 0)) {
                     if ((event.type === 'mouseout' || event.type === 'focusout') && topli.has(document.activeElement).length > 0) {
                         return;
                     }
-                    
-                    var getSubNav = document.querySelectorAll(".sub-nav");
-                    for (var i = 0; i < getSubNav.length; i++) {
-                        getSubNav[i].classList.remove("open");
-                        $(getSubNav[i]).attr('aria-expanded', 'false');
-                        $(getSubNav[i]).attr('aria-hidden', 'true');
-                    }
-                    
-                    topli.next()
+                    topli.find('[aria-expanded]')
                         .attr('aria-expanded', 'false')
                         .removeClass(settings.openClass)
                         .filter('.' + settings.panelClass)
                         .attr('aria-hidden', 'true');
-                    console.log(topli.next()
-                        .attr('aria-expanded', 'false')
-                        .removeClass(settings.openClass)
-                        .filter('.' + settings.panelClass)
-                        .attr('aria-hidden', 'true') + " inside hide block");
                     if ((event.type === 'keydown' && event.keyCode === Keyboard.ESCAPE) || event.type === 'DOMAttrModified') {
-                        console.log("modified block");
                         newfocus = topli.find(':tabbable:first');
                         setTimeout(function () {
                             menu.find('[aria-expanded].' + that.settings.panelClass).off('DOMAttrModified.accessible-megamenu');
@@ -277,23 +253,17 @@ limitations under the License.
                 }
             } else {
                 clearTimeout(that.focusTimeoutID);
-                topli.next()
+                topli.siblings()
+                    .find('[aria-expanded]')
                     .attr('aria-expanded', 'false')
                     .removeClass(settings.openClass)
                     .filter('.' + settings.panelClass)
                     .attr('aria-hidden', 'true');
-                topli.attr('aria-expanded', 'false')
-                    .removeClass(settings.openClass)
-                    .filter('.' + settings.panelClass)
-                    .attr('aria-hidden', 'true');
-                topli.next()
+                topli.find('[aria-expanded]')
                     .attr('aria-expanded', 'true')
                     .addClass(settings.openClass)
-                    .attr('aria-hidden', 'false');
-                topli.attr('aria-expanded', 'false')
-                    .removeClass(settings.openClass)
                     .filter('.' + settings.panelClass)
-                    .attr('aria-hidden', 'true');
+                    .attr('aria-hidden', 'false');
                 if (event.type === 'mouseover' && target.is(':tabbable') && topli.length === 1 && panel.length === 0 && menu.has(document.activeElement).length > 0) {
                     target.focus();
                     that.justFocused = false;
@@ -302,7 +272,7 @@ limitations under the License.
                 _toggleExpandedEventHandlers.call(that);
             }
         };
-        
+
         /**
          * @name jQuery.fn.accessibleMegaMenu~_clickHandler
          * @desc Handle click event on mega menu item
@@ -329,8 +299,9 @@ limitations under the License.
                         event.stopPropagation();
                         this.justFocused = false;
                     } else if (isTouch) {
-                        event.preventDefault();
-                        event.stopPropagation();
+                        //event.preventDefault();
+                        //event.stopPropagation();
+                        
                         _togglePanel.call(this, event, target.hasClass(this.settings.openClass));
                     }
                 }
@@ -657,6 +628,7 @@ limitations under the License.
          * @private
          */
         _mouseDownHandler = function (event) {
+            _togglePanel.call(this, event);
             if ($(event.target).is(this.settings.panelClass) || $(event.target).closest(":focusable").length) {
                 this.mouseFocused = true;
             }
@@ -732,12 +704,8 @@ limitations under the License.
             init: function () {
                 var settings = this.settings,
                     nav = $(this.element),
-                    menu = nav,
-                    topnavitems = menu.children(".catalog-links > a"); //find only top nav items that are anchor tags
-                console.log(settings);
-                console.log(nav);
-                console.log(menu);
-                console.log(topnavitems);
+                    menu = nav.children().first(),
+                    topnavitems = menu.children();
                 this.start(settings, nav, menu, topnavitems);
             },
 
@@ -746,17 +714,15 @@ limitations under the License.
                 this.settings = settings;
                 this.menu = menu;
                 this.topnavitems = topnavitems;
-                nav.attr("role", "navigation"); //#catalog-links-
-                menu.addClass(settings.menuClass); //catalog-links
-                topnavitems.each(function (i, topnavitem) { //nav-item
+
+                nav.attr("role", "navigation");
+                menu.addClass(settings.menuClass);
+                topnavitems.each(function (i, topnavitem) {
                     var topnavitemlink, topnavitempanel;
                     topnavitem = $(topnavitem);
-                    console.log(topnavitem);
                     topnavitem.addClass(settings.topNavItemClass);
-                    topnavitemlink = topnavitem;
-                    console.log(topnavitemlink);
-                    topnavitempanel = topnavitem.next(); //sub-nav
-                    console.log(topnavitempanel);
+                    topnavitemlink = topnavitem.find(":tabbable:first");
+                    topnavitempanel = topnavitem.children(":not(:tabbable):last");
                     _addUniqueId.call(that, topnavitemlink);
                     if (topnavitempanel.length) {
                         _addUniqueId.call(that, topnavitempanel);
@@ -787,6 +753,7 @@ limitations under the License.
                     .on("mousedown.accessible-megamenu", $.proxy(_mouseDownHandler, this));
 
                 if (isTouch) {
+                    alert("Touch Event");
                     menu.on("touchstart.accessible-megamenu",  $.proxy(_clickHandler, this));
                 }
 

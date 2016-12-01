@@ -41,7 +41,6 @@ $(document).ready(function() {
                 $(subNav).append('<h2 class="bt-nav-group-topheading">'+subNavHeading +'</h2>');
 
                     for (var x = 2; x < getWomenList.length; x++) {
-                        console.log(getWomenList[x]);
                         //creates the first column with a title
 
                         var classString = x + 'col';
@@ -49,47 +48,76 @@ $(document).ready(function() {
                         $(getWomenList[x]).find('ul:first').children().each(function(index, value) { //All top level items for each sub category
                                if ($(this).children('ul').length) { //checks if a top level item has another list, if it does
                                                                     //it will get the first listitem anchor of that second list
-                                   console.log($('.sub-nav-'+colIn+' .'+classString+''));
                                  $('.sub-nav-'+colIn+' .'+classString+'').append('<li class="subcata-item"><a class="subcata-item-link" href="'+$(value).children('ul:first').find('li:first a').attr('href')+'" onclick="'+$(value).children('ul:first').find('li:first a').attr('onclick')+'">'+ $(value).find('label:first').text().trim() +'</a></li>');
                                } 
 
                                if ($(this).children('a').length) {//checks if a top level item doesn't have a inner list
-                                   console.log($('.sub-nav-'+colIn+' .'+classString+''));
                                  $('.sub-nav-'+colIn+' .'+classString+'').append('<li class="subcata-item"><a class="subcata-item-link" href="'+$(value).children('a').attr('href')+'" onclick="'+$(value).children('a').attr('onclick')+'">'+$(value).children('a').text().trim()+'</a></li>');
                                }
                         });
                         //Adds the title of the category that was newly created
-                        $('.sub-nav-'+colIn+' .'+classString+'').prepend('<li class="bt-nav-group-heading">'+'<h2>'+$(getWomenList[x]).find("label:first").text().trim()+'</h2>'+'</li>');
-
+                        $('.sub-nav-'+colIn+' .'+classString+'').each(function(index, subNavCol) {
+                            if ($(subNavCol).children().length > 12) {
+                                var currentCol = index + 2;
+                                $(subNavCol).wrap('<div class="sub-nav-large-group '+x+'group"></div>');
+                                $('<ul class="bt-sub-nav-group '+currentCol+'col split"></ul>').insertAfter(subNavCol);
+                                $(subNavCol).children().each(function(currentInd, child) {
+                                    if (currentInd > 12) {
+                                        $(child).clone().appendTo('.sub-nav-'+colIn+' .'+currentCol+'col.split');
+                                        $(child).remove();
+                                    }
+                                });
+                                $('.sub-nav-'+colIn+' .'+x+'group').prepend('<li class="bt-nav-group-heading">'+'<h2>'+$(getWomenList[x]).find("label:first").text().trim()+'</h2>'+'</li>');
+                            } else {
+                                $('.sub-nav-'+colIn+' .'+classString+'').prepend('<li class="bt-nav-group-heading">'+'<h2>'+$(getWomenList[x]).find("label:first").text().trim()+'</h2>'+'</li>');
+                            }
+                        });
                         //Adds a promo container to the end of column list
-                        console.log(x + 'block right before I create promo div');
                         if (x + 1 >= getWomenList.length) {
-                            console.log(x + "promo div created I am x");
                             $('<ul class="bt-sub-nav-group-promo"></ul>').insertAfter('.sub-nav-'+colIn+' .'+classString+'');
                         }
                     }
-
+                    //go through each ul compare if it has less then 5 items
+                    // if it does clone its list items and append to a super ul that will contain all the listitems with their header
+                    //fix and refactor, its broken
+                    var isMerge = false;
+                    var mergedCol;
+                    $('.sub-nav-'+colIn+' > ul').each(function(index, subNavCol) {
+                       var currentCol = index + 2;
+                       if (!isMerge) {
+                            $('<ul class="bt-sub-nav-group '+currentCol+'col merge"></ul>').insertAfter(subNavCol);
+                           mergedCol = currentCol;
+                           isMerge = true;
+                       }
+                       if ($(subNavCol).children().length < 5) {
+                           $(subNavCol).children().each(function(currentInd, child) {
+                                $(child).clone().appendTo('.sub-nav-'+colIn+' .'+mergedCol+'col.merge');
+                           });
+                           $(subNavCol).remove();
+                       } 
+                    });
            }
        //settimeout is added because featured brands loads after the DOM
        setTimeout(function() {
             for (var i = 0; i < getAllNavItems.length; i++) {
                 switch($(getAllNavItems[i]).attr('href')) {
                         case "/sc1/brands/": $("<div class='bt-sub-nav sub-nav0'></div>").insertAfter($(getAllNavItems[i])).css("display","none"); break;
-                        case "/sc1/women/": $(createSubNav(i)).insertAfter($(getAllNavItems[i])).css("display","none"); break;
-                        case "/sc1/shoes/": $(createSubNav(i)).insertAfter($(getAllNavItems[i])).css("display","none"); break;
-                        case "/sc1/handbags-accessories/": $(createSubNav(i)).insertAfter($(getAllNavItems[i])).css("display","none"); break;
-                        case "/sc1/jewelry-watches/": $(createSubNav(i)).insertAfter($(getAllNavItems[i])).css("display","none"); break;
-                        case "/sc1/beauty-fragrance/": $(createSubNav(i)).insertAfter($(getAllNavItems[i])).css("display","none"); break;
-                        case "/sc1/juniors/": $(createSubNav(i)).insertAfter($(getAllNavItems[i])).css("display","none"); break;
-                        case "/sc1/men/": $(createSubNav(i)).insertAfter($(getAllNavItems[i])).css("display","none"); break;
-                        case "/sc1/baby-kids/": $(createSubNav(i)).insertAfter($(getAllNavItems[i])).css("display","none"); break;
-                        case "/sc1/bed-bath/": $(createSubNav(i)).insertAfter($(getAllNavItems[i])).css("display","none"); break;
+                        case "/sc1/women/": createSubNav(i); break;
+                        case "/sc1/shoes/": createSubNav(i); break;
+                        case "/sc1/handbags-accessories/": createSubNav(i); break;
+                        case "/sc1/jewelry-watches/": createSubNav(i); break;
+                        case "/sc1/beauty-fragrance/": createSubNav(i); break;
+                        case "/sc1/juniors/": createSubNav(i); break;
+                        case "/sc1/men/": createSubNav(i); break;
+                        case "/sc1/baby-kids/": createSubNav(i); break;
+                        case "/sc1/bed-bath/": createSubNav(i); break;
                         case "/sc1/home/furniture-24382/": $("<div class='bt-sub-nav sub-nav10'></div>").insertAfter($(getAllNavItems[i])).css("display","none"); break;
-                        case "/sc1/home/": $(createSubNav(i)).insertAfter($(getAllNavItems[i])).css("display","none"); break;
+                        case "/sc1/home/": createSubNav(i); break;
                         case "/sc1/clearance/": $("<div class='bt-sub-nav sub-nav12'></div>").insertAfter($(getAllNavItems[i])).css("display","none"); break;
                         default: break;
                 }
             }
+           
            //Wraps every pair of elements within the first ul of catalog-links in a li
            var $set = $('.catalog-links > ul').children();    
               for(var z = 0, len = $set.length; z < len; z +=2){
@@ -133,7 +161,7 @@ test -------------------
 var getHamburgerItems = document.querySelectorAll("ul#hamburgerMenuList > li");
 var getWomenList = $(getHamburgerItems[2]).find("ul:first").children();
 var getAllNavItems = document.querySelectorAll('.catalog-links > a');
-var colIn = 1;
+var colIn = 3;
 var subNav = $('<div class="bt-sub-nav sub-nav-'+colIn+'"></div>').insertAfter($(getAllNavItems[2]));
 $(getWomenList[2]).find('ul:first ul li:first a').attr('href'); gets the anchor of the nested list item under each catagory
 */

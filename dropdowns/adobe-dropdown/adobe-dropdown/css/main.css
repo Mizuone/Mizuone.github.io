@@ -88,6 +88,17 @@ a.special {
     margin: 0;
     line-height: 20px;
 }
+.bt-nav-group-heading h2{
+    line-height: 20px;
+    font-size: 14px;
+    padding: 0;
+}
+.sub-nav-large-group {
+    display: inline-block;
+}
+.sub-nav-large-group h2 {
+    text-align: center;
+}
 a {
     text-decoration: none;
 }
