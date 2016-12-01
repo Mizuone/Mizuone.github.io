@@ -48,8 +48,17 @@ $(document).ready(function() {
            var saveHrefAttr = [];
            var tapedTwice = false;
                 $('.catalog-links > ul > li > a').each(function(index, value) {
+                   saveHrefAttr[index] = $(value).attr('href');
+                   $(value).on("touchstart", function(e) {
+                        if(!tapedTwice) {
+                            tapedTwice = true;
+                            setTimeout( function() { tapedTwice = false; }, 500 );
+                            return false;
+                        }
+                        //action on double tap goes below
+                        $(value).attr('href', saveHrefAttr[index]);
+                   });
                    $(value).attr('href', '#');
-                    console.log($(value).attr('href'));
                 });
          
        }
