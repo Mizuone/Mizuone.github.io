@@ -121,7 +121,8 @@ limitations under the License.
                 105: "9",
                 190: "."
             }
-        };
+        },
+        saveHrefAttr = [];
     /**
      * @desc Creates a new accessible mega menu instance.
      * @param {jquery} element
@@ -301,7 +302,6 @@ limitations under the License.
                         //event.preventDefault();
                         //event.stopPropagation();
                         if (screen.width < 1025 && screen.width > 767) {
-                               var saveHrefAttr = [];
                                var tapedTwice = false;
                                     $('.catalog-links > ul > li > a').each(function(index, value) {
                                        saveHrefAttr[index] = $(value).attr('href');
@@ -316,7 +316,6 @@ limitations under the License.
                                             //e.stopPropagation();
                                             $(value).attr('href', saveHrefAttr[index]);
                                        });
-                                       $(value).attr('href', '#');
                                     });
 
                            }
