@@ -173,7 +173,6 @@ limitations under the License.
             _mouseOverHandler,
             _mouseOutHandler,
             _toggleExpandedEventHandlers;
-
         /**
          * @name jQuery.fn.accessibleMegaMenu~_getPlugin
          * @desc Returns the parent accessibleMegaMenu instance for a given element
@@ -299,8 +298,8 @@ limitations under the License.
                         event.stopPropagation();
                         this.justFocused = false;
                     } else if (isTouch) {
-                        event.preventDefault();
-                        event.stopPropagation();
+                        //event.preventDefault();
+                        //event.stopPropagation();
                         _togglePanel.call(this, event, target.hasClass(this.settings.openClass));
                     }
                 }
@@ -648,7 +647,7 @@ limitations under the License.
             clearTimeout(this.mouseTimeoutID);
             $(event.target)
                 .addClass(this.settings.hoverClass);
-            //Add if view port here for _togglePanel.call(this, event);
+            _togglePanel.call(this, event);
             if ($(event.target).is(':tabbable')) {
                 $('html').on('keydown.accessible-megamenu', $.proxy(_keyDownHandler, event.target));
             }
