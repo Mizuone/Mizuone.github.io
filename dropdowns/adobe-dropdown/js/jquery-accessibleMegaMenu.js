@@ -300,7 +300,26 @@ limitations under the License.
                     } else if (isTouch) {
                         //event.preventDefault();
                         //event.stopPropagation();
-                        _togglePanel.call(this, event, target.hasClass(this.settings.openClass));
+                        if (screen.width < 1025 && screen.width > 767) {
+                               var saveHrefAttr = [];
+                               var tapedTwice = false;
+                                    $('.catalog-links > ul > li > a').each(function(index, value) {
+                                       saveHrefAttr[index] = $(value).attr('href');
+                                       $(value).on("touchstart", function(e) {
+                                            if(!tapedTwice) {
+                                                _togglePanel.call(this, event, target.hasClass(this.settings.openClass));
+                                                tapedTwice = true;
+                                                setTimeout( function() { tapedTwice = false; }, 500 );
+                                                return false;
+                                            }
+                                            //action on double tap goes below
+                                            e.stopPropagation();
+                                            $(value).attr('href', saveHrefAttr[index]);
+                                       });
+                                       $(value).attr('href', '#');
+                                    });
+
+                           }
                     }
                 }
             }

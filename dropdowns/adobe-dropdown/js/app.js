@@ -44,25 +44,6 @@ $(document).ready(function() {
           for(var i = 0, len = $set.length; i < len; i +=2){
               $set.slice(i, i+2).wrapAll('<li class="bt-nav-item"></li>');
           }
-   if (screen.width < 1025 && screen.width > 767) {
-           var saveHrefAttr = [];
-           var tapedTwice = false;
-                $('.catalog-links > ul > li > a').each(function(index, value) {
-                   saveHrefAttr[index] = $(value).attr('href');
-                   $(value).on("touchstart", function(e) {
-                        if(!tapedTwice) {
-                            tapedTwice = true;
-                            setTimeout( function() { tapedTwice = false; }, 500 );
-                            return false;
-                        }
-                        //action on double tap goes below
-                        e.stopPropagation();
-                        $(value).attr('href', saveHrefAttr[index]);
-                   });
-                   $(value).attr('href', '#');
-                });
-         
-       }
        /*$('.catalog-links > ul > li > a').attr('href', '#');
  
 (function($){
