@@ -313,7 +313,7 @@ limitations under the License.
                                                 return false;
                                             }
                                             //action on double tap goes below
-                                            e.stopPropagation();
+                                            //e.stopPropagation();
                                             $(value).attr('href', saveHrefAttr[index]);
                                        });
                                        $(value).attr('href', '#');
