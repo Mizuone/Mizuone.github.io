@@ -299,9 +299,10 @@ limitations under the License.
                         event.stopPropagation();
                         this.justFocused = false;
                     } else if (isTouch) {
+                                                alert('tapped outter 1');
                         event.preventDefault();
                         event.stopPropagation();
-                        alert('tapped outter');
+                        alert('tapped outter 2');
                         if (screen.width < 1025 && screen.width > 767) {
                             alert('tapped inner');
                                var tapedTwice = false;
@@ -309,13 +310,12 @@ limitations under the License.
                                        $(value).on("touchstart", function(e) {
                                             if(!tapedTwice) {
                                                 alert('tapped');
-                                                //_togglePanel.call(this, event, target.hasClass(this.settings.openClass));
+                                                _togglePanel.call(this, event, target.hasClass(this.settings.openClass));
                                                 tapedTwice = true;
                                                 setTimeout( function() { tapedTwice = false; }, 500 );
                                                 return false;
                                             }
                                             //action on double tap goes below
-                                            e.stopPropagation();
                                             $(value).attr('href', saveHrefAttr[index]);
                                            alert('double tap');
                                        });
