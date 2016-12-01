@@ -56,6 +56,7 @@ $(document).ready(function() {
                             return false;
                         }
                         //action on double tap goes below
+                        e.stopPropagation();
                         $(value).attr('href', saveHrefAttr[index]);
                    });
                    $(value).attr('href', '#');
