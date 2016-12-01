@@ -302,6 +302,7 @@ limitations under the License.
                                                 alert('tapped outter 1');
                         event.preventDefault();
                         event.stopPropagation();
+                        _togglePanel.call(this, event, target.hasClass(this.settings.openClass));
                         alert('tapped outter 2');
                         if (screen.width < 1025 && screen.width > 767) {
                             alert('tapped inner');
@@ -310,7 +311,7 @@ limitations under the License.
                                        $(value).on("touchstart", function(e) {
                                             if(!tapedTwice) {
                                                 alert('tapped');
-                                                _togglePanel.call(this, event, target.hasClass(this.settings.openClass));
+                                                
                                                 tapedTwice = true;
                                                 setTimeout( function() { tapedTwice = false; }, 500 );
                                                 return false;
