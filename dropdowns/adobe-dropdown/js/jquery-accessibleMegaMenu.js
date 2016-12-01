@@ -770,6 +770,7 @@ limitations under the License.
                     .on("mousedown.accessible-megamenu", $.proxy(_mouseDownHandler, this));
 
                 if (isTouch) {
+                    alert('touch event');
                     $('.catalog-links > ul > li > a').each(function(index, value) {
                        saveHrefAttr[index] = $(value).attr('href');
                        $(value).attr('href', '#');
