@@ -297,8 +297,9 @@ limitations under the License.
                 if (isTouch) {
                         event.preventDefault();
                         event.stopPropagation();
-                        _togglePanel.call(this, event, target.hasClass(this.settings.openClass));
                         bounceTouchEvent();
+                        _togglePanel.call(this, event, target.hasClass(this.settings.openClass));
+                        
                     }
                 if (!target.hasClass(this.settings.openClass)) {
                     event.preventDefault();
