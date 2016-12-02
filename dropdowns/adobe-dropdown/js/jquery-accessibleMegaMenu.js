@@ -752,7 +752,8 @@ limitations under the License.
                     .on("keydown.accessible-megamenu", $.proxy(_keyDownHandler, this))
                     .on("mouseover.accessible-megamenu", $.proxy(_mouseOverHandler, this))
                     .on("mouseout.accessible-megamenu", $.proxy(_mouseOutHandler, this))
-                    .on("mousedown.accessible-megamenu", $.proxy(_mouseDownHandler, this));
+                    .on("mousedown.accessible-megamenu", $.proxy(_mouseDownHandler, this))
+                    .on("touchstart.accessible-megamenu",  $.proxy(_clickHandler, this));
 
                 if (screen.width < 1000 && screen.width > 436) {
                     var saveHrefAttr = [];
@@ -826,7 +827,6 @@ limitations under the License.
                             removeAndApply = true;
                             }
                          }
-                    menu.on("touchstart.accessible-megamenu",  $.proxy(_clickHandler, this));
                 }
 
                 menu.find("hr").attr("role", "separator");
