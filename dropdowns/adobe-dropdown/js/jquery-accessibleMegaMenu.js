@@ -289,8 +289,8 @@ limitations under the License.
                     && panel.length === 0
                     && topli.find('.' + this.settings.panelClass).length === 1) {
                 if (isTouch) {
-                        //event.preventDefault();
-                        //event.stopPropagation();
+                        event.preventDefault();
+                        event.stopPropagation();
                         _togglePanel.call(this, event, target.hasClass(this.settings.openClass));
                     }
                 if (!target.hasClass(this.settings.openClass)) {
@@ -765,6 +765,7 @@ limitations under the License.
                             $('.catalog-links > ul > li > a').each(function(index, value) {
                                $(value).on("touchstart", function(e) {
                                     if(!tapedTwice) {
+                                        _togglePanel.call(this, event, target.hasClass(this.settings.openClass));
                                         tapedTwice = true;
                                         setTimeout( function() { tapedTwice = false; }, 500 );
                                         return false;
