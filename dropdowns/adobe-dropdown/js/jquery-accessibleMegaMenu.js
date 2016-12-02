@@ -285,11 +285,11 @@ limitations under the License.
             var target = $(event.currentTarget),
                 topli = target.closest('.' + this.settings.topNavItemClass),
                 panel = target.closest('.' + this.settings.panelClass);
-             alert('tap city');
+             
             if (topli.length === 1
                     && panel.length === 0
                     && topli.find('.' + this.settings.panelClass).length === 1) {
-
+                alert('tap city');
                 if (!target.hasClass(this.settings.openClass)) {
                     event.preventDefault();
                     //event.stopPropagation();
