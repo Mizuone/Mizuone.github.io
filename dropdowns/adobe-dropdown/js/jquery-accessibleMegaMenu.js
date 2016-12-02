@@ -290,12 +290,13 @@ limitations under the License.
             if (topli.length === 1
                     && panel.length === 0
                     && topli.find('.' + this.settings.panelClass).length === 1) {
-                if (isTouch) {
-                        event.preventDefault();
-                        event.stopPropagation();
-                        _togglePanel.call(this, event, target.hasClass(this.settings.openClass));
-                    }
+
                 if (!target.hasClass(this.settings.openClass)) {
+                    if (isTouch) {
+                            event.preventDefault();
+                            //event.stopPropagation();
+                            _togglePanel.call(this, event, target.hasClass(this.settings.openClass));
+                        }
                     event.preventDefault();
                     //event.stopPropagation();
                     _togglePanel.call(this, event);
