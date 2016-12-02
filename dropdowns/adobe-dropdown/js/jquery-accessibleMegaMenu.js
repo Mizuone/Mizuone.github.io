@@ -810,7 +810,7 @@ limitations under the License.
                                         //_togglePanel.call(this, event, target.hasClass(this.settings.openClass));
                                         tapedTwice = true;
                                         
-                                        setTimeout( function() { tapedTwice = false;  $(value).attr('href', '#');}, 500 );
+                                        setTimeout( function() { tapedTwice = false;  $(value).attr('href', '#');}.bind(this), 500 );
                                         return false;
                                     }
 
