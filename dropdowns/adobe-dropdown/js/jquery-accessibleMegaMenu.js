@@ -762,7 +762,6 @@ limitations under the License.
                         
                         $('.catalog-links > ul > li > a').each(function(index, value) {
                                saveHrefAttr[index] = $(value).attr('href');
-
                                $(value).attr('href', '#');
                         });
                         $('.catalog-links > ul > li > a').each(function(index, value) {
@@ -774,7 +773,7 @@ limitations under the License.
                                     //_togglePanel.call(this, event, target.hasClass(this.settings.openClass));
                                     tapedTwice = true;
 
-                                    setTimeout( function() { tapedTwice = false;  console.log('event should be canceled');}, 500 );
+                                    setTimeout( function() { tapedTwice = false;  $(value).attr('href', '#');}, 500 );
                                     return false;
                                 }
 
@@ -810,8 +809,8 @@ limitations under the License.
                                     if(!tapedTwice) {
                                         //_togglePanel.call(this, event, target.hasClass(this.settings.openClass));
                                         tapedTwice = true;
-
-                                        setTimeout( function() { tapedTwice = false;  console.log('event should be canceled');}, 500 );
+                                        
+                                        setTimeout( function() { tapedTwice = false;  $(value).attr('href', '#');}, 500 );
                                         return false;
                                     }
 
