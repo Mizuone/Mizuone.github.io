@@ -794,6 +794,9 @@ limitations under the License.
                 }
 
                 if (isTouch) {
+                    var saveHrefAttr = [];
+                    var removeAndApply = false;
+                    var tapedTwice = false;
                     if (screen.width < 1367 && screen.width > 436) {
                         var removeAndApply = false;
                         if (!removeAndApply) {
@@ -815,7 +818,6 @@ limitations under the License.
                                     }
 
                                     //action on double tap goes below
-                                   console.log('it should get here');
                                    e.stopPropagation();
                                    e.preventDefault();
                                    $(value).attr('href', saveHrefAttr[index]);
