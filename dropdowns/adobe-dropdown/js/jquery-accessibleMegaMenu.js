@@ -289,30 +289,9 @@ limitations under the License.
                     && panel.length === 0
                     && topli.find('.' + this.settings.panelClass).length === 1) {
                 if (isTouch) {
-                                                alert('tapped outter 1');
                         event.preventDefault();
                         event.stopPropagation();
                         _togglePanel.call(this, event, target.hasClass(this.settings.openClass));
-                        alert('tapped outter 2');
-                        if (screen.width < 1025 && screen.width > 767) {
-                            alert('tapped inner');
-                               var tapedTwice = false;
-                                    $('.catalog-links > ul > li > a').each(function(index, value) {
-                                       $(value).on("touchstart", function(e) {
-                                            if(!tapedTwice) {
-                                                alert('tapped');
-                                                
-                                                tapedTwice = true;
-                                                setTimeout( function() { tapedTwice = false; }, 500 );
-                                                return false;
-                                            }
-                                            //action on double tap goes below
-                                            $(value).attr('href', saveHrefAttr[index]);
-                                           alert('double tap');
-                                       });
-                                    });
-
-                           }
                     }
                 if (!target.hasClass(this.settings.openClass)) {
                     event.preventDefault();
@@ -774,10 +753,29 @@ limitations under the License.
                     .on("mousedown.accessible-megamenu", $.proxy(_mouseDownHandler, this));
 
                 if (isTouch) {
-                    $('.catalog-links > ul > li > a').each(function(index, value) {
-                       saveHrefAttr[index] = $(value).attr('href');
-                       $(value).attr('href', '#');
-                    });
+                    if (screen.width < 1025 && screen.width > 767) {
+                            $('.catalog-links > ul > li > a').each(function(index, value) {
+                               saveHrefAttr[index] = $(value).attr('href');
+
+                               alert('tapped inner');
+                               var tapedTwice = false;
+                                    $('.catalog-links > ul > li > a').each(function(index, value) {
+                                       $(value).on("touchstart", function(e) {
+                                            if(!tapedTwice) {
+                                                alert('tapped');
+                                                tapedTwice = true;
+                                                setTimeout( function() { tapedTwice = false; }, 500 );
+                                                return false;
+                                            }
+                                            //action on double tap goes below
+                                            $(value).attr('href', saveHrefAttr[index]);
+                                           alert('double tap');
+                                       });
+                                    });
+                                
+                               $(value).attr('href', '#');
+                            });
+                         }
                     menu.on("touchstart.accessible-megamenu",  $.proxy(_clickHandler, this));
                 }
 
