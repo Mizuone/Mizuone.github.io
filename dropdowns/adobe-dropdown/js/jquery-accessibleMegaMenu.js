@@ -292,11 +292,6 @@ limitations under the License.
                     && topli.find('.' + this.settings.panelClass).length === 1) {
 
                 if (!target.hasClass(this.settings.openClass)) {
-                    if (isTouch) {
-                            event.preventDefault();
-                            //event.stopPropagation();
-                            _togglePanel.call(this, event, target.hasClass(this.settings.openClass));
-                        }
                     event.preventDefault();
                     //event.stopPropagation();
                     _togglePanel.call(this, event);
@@ -306,6 +301,11 @@ limitations under the License.
                         event.preventDefault();
                         event.stopPropagation();
                         this.justFocused = false;
+                    }  else if (isTouch) {
+                        alert('tap city');
+                        event.preventDefault();
+                        event.stopPropagation();
+                        _togglePanel.call(this, event, target.hasClass(this.settings.openClass));
                     }
                 }
             }
