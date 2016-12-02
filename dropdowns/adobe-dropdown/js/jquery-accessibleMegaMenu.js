@@ -214,7 +214,6 @@ limitations under the License.
          * @private
          */
         _togglePanel = function (event, hide) {
-            alert('I am called');
             var target = $(event.target),
                 that = this,
                 settings = this.settings,
