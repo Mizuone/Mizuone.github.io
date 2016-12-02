@@ -303,8 +303,8 @@ limitations under the License.
                         this.justFocused = false;
                     }  else if (isTouch) {
                         alert('tap city');
-                        event.preventDefault();
-                        event.stopPropagation();
+                        //event.preventDefault();
+                        //event.stopPropagation();
                         _togglePanel.call(this, event, target.hasClass(this.settings.openClass));
                     }
                 }
