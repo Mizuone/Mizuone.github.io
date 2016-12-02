@@ -754,27 +754,29 @@ limitations under the License.
 
                 if (isTouch) {
                     if (screen.width < 1025 && screen.width > 767) {
+                        var removeAndApply = false;
+                        var tapedTwice = false;
+                        if (!removeAndApply) {
                             $('.catalog-links > ul > li > a').each(function(index, value) {
-                               saveHrefAttr[index] = $(value).attr('href');
-
-                               alert('tapped inner');
-                               var tapedTwice = false;
-                                    $('.catalog-links > ul > li > a').each(function(index, value) {
-                                       $(value).on("touchstart", function(e) {
-                                            if(!tapedTwice) {
-                                                alert('tapped');
-                                                tapedTwice = true;
-                                                setTimeout( function() { tapedTwice = false; }, 500 );
-                                                return false;
-                                            }
-                                            //action on double tap goes below
-                                            $(value).attr('href', saveHrefAttr[index]);
-                                           alert('double tap');
-                                       });
-                                    });
-                                
-                               $(value).attr('href', '#');
+                                   saveHrefAttr[index] = $(value).attr('href');
+                                   $(value).attr('href', '#');
                             });
+
+                            $('.catalog-links > ul > li > a').each(function(index, value) {
+                               $(value).on("touchstart", function(e) {
+                                    if(!tapedTwice) {
+                                        alert('tapped');
+                                        tapedTwice = true;
+                                        setTimeout( function() { tapedTwice = false; }, 500 );
+                                        return false;
+                                    }
+                                    //action on double tap goes below
+                                    $(value).attr('href', saveHrefAttr[index]);
+                                   alert('double tap');
+                               });
+                            });
+                            removeAndApply = true;
+                            }
                          }
                     menu.on("touchstart.accessible-megamenu",  $.proxy(_clickHandler, this));
                 }
