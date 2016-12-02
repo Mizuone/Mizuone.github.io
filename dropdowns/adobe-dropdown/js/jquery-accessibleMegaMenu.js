@@ -285,7 +285,12 @@ limitations under the License.
             var target = $(event.currentTarget),
                 topli = target.closest('.' + this.settings.topNavItemClass),
                 panel = target.closest('.' + this.settings.panelClass);
-             
+             if (isTouch) {
+                       
+                        event.preventDefault();
+                        //event.stopPropagation();
+                        _togglePanel.call(this, event, target.hasClass(this.settings.openClass));
+                    }
             if (topli.length === 1
                     && panel.length === 0
                     && topli.find('.' + this.settings.panelClass).length === 1) {
@@ -300,11 +305,6 @@ limitations under the License.
                         event.preventDefault();
                         event.stopPropagation();
                         this.justFocused = false;
-                    }  else if (isTouch) {
-                       
-                        //event.preventDefault();
-                        //event.stopPropagation();
-                        _togglePanel.call(this, event, target.hasClass(this.settings.openClass));
                     }
                 }
             }
