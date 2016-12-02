@@ -289,9 +289,9 @@ limitations under the License.
                     && panel.length === 0
                     && topli.find('.' + this.settings.panelClass).length === 1) {
                 if (isTouch) {
-                        event.preventDefault();
-                        event.stopPropagation();
-                        _togglePanel.call(this, event, target.hasClass(this.settings.openClass));
+                        //event.preventDefault();
+                        //event.stopPropagation();
+                        //_togglePanel.call(this, event, target.hasClass(this.settings.openClass));
                     }
                 if (!target.hasClass(this.settings.openClass)) {
                     event.preventDefault();
@@ -756,6 +756,9 @@ limitations under the License.
                     if (screen.width < 1025 && screen.width > 767) {
                         var removeAndApply = false;
                         var tapedTwice = false;
+                        function bounceTouchEvent() {
+
+                        }
                         if (!removeAndApply) {
                             $('.catalog-links > ul > li > a').each(function(index, value) {
                                    saveHrefAttr[index] = $(value).attr('href');
@@ -767,7 +770,7 @@ limitations under the License.
                                     if(!tapedTwice) {
                                         _togglePanel.call(this, event, target.hasClass(this.settings.openClass));
                                         tapedTwice = true;
-                                        setTimeout( function() { tapedTwice = false; }, 500 );
+                                        setTimeout( function() { tapedTwice = false;  }, 500 );
                                         return false;
                                     }
                                     //action on double tap goes below
