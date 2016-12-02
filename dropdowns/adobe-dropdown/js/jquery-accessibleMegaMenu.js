@@ -765,14 +765,12 @@ limitations under the License.
                             $('.catalog-links > ul > li > a').each(function(index, value) {
                                $(value).on("touchstart", function(e) {
                                     if(!tapedTwice) {
-                                        alert('tapped');
                                         tapedTwice = true;
                                         setTimeout( function() { tapedTwice = false; }, 500 );
                                         return false;
                                     }
                                     //action on double tap goes below
                                     $(value).attr('href', saveHrefAttr[index]);
-                                   alert('double tap');
                                });
                             });
                             removeAndApply = true;
