@@ -762,6 +762,7 @@ limitations under the License.
                         if (!removeAndApply) {
                             $('.catalog-links > ul > li > a').each(function(index, value) {
                                    saveHrefAttr[index] = $(value).attr('href');
+                                    alert('removeal');
                                    $(value).attr('href', '#');
                             });
 
@@ -769,6 +770,7 @@ limitations under the License.
                                $(value).on("touchstart", function(e) {
                                     if(!tapedTwice) {
                                         _togglePanel.call(this, event, target.hasClass(this.settings.openClass));
+                                        alert('something is happening');
                                         tapedTwice = true;
                                         setTimeout( function() { tapedTwice = false;  }, 500 );
                                         return false;
