@@ -122,7 +122,13 @@ limitations under the License.
                 190: "."
             }
         },
-        saveHrefAttr = [];
+        saveHrefAttr = [],
+        tapedTwice = false;
+        function bounceTouchEvent() {
+            tapedTwice = true;
+            setTimeout( function() { tapedTwice = false;  }, 500 );
+            return false;
+        }
     /**
      * @desc Creates a new accessible mega menu instance.
      * @param {jquery} element
@@ -289,9 +295,10 @@ limitations under the License.
                     && panel.length === 0
                     && topli.find('.' + this.settings.panelClass).length === 1) {
                 if (isTouch) {
-                        //event.preventDefault();
-                        //event.stopPropagation();
-                        //_togglePanel.call(this, event, target.hasClass(this.settings.openClass));
+                        event.preventDefault();
+                        event.stopPropagation();
+                        _togglePanel.call(this, event, target.hasClass(this.settings.openClass));
+                        
                     }
                 if (!target.hasClass(this.settings.openClass)) {
                     event.preventDefault();
@@ -755,14 +762,9 @@ limitations under the License.
                 if (isTouch) {
                     if (screen.width < 1025 && screen.width > 767) {
                         var removeAndApply = false;
-                        var tapedTwice = false;
-                        function bounceTouchEvent() {
-
-                        }
                         if (!removeAndApply) {
                             $('.catalog-links > ul > li > a').each(function(index, value) {
                                    saveHrefAttr[index] = $(value).attr('href');
-                                    alert('removeal');
                                    $(value).attr('href', '#');
                             });
 
@@ -770,10 +772,7 @@ limitations under the License.
                                $(value).on("touchstart", function(e) {
                                     if(!tapedTwice) {
                                         _togglePanel.call(this, event, target.hasClass(this.settings.openClass));
-                                        alert('something is happening');
-                                        tapedTwice = true;
-                                        setTimeout( function() { tapedTwice = false;  }, 500 );
-                                        return false;
+
                                     }
                                     //action on double tap goes below
                                     $(value).attr('href', saveHrefAttr[index]);
