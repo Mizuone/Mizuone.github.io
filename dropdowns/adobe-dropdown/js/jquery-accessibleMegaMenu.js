@@ -286,7 +286,7 @@ limitations under the License.
                 panel = target.closest('.' + this.settings.panelClass);
              if (isTouch) {
                         event.preventDefault();
-                        //event.stopPropagation();
+                        event.stopPropagation();
                         _togglePanel.call(this, event, target.hasClass(this.settings.openClass));
                     }
             if (topli.length === 1
