@@ -821,14 +821,15 @@ limitations under the License.
                             $('.catalog-links > ul > li > a').each(function(index, value) {
                                $(value).on("touchstart", function(e) {
                                 $(value).on('touchend', function(ev) {
-                                       ev.preventDefault();
+                                       e.preventDefault();
                                     if(!tapedTwice) {
                                         tapedTwice = true;
                                         setTimeout( function() { tapedTwice = false; alert($(value).attr('href') + '1'); $(value).attr('href', '#'); alert($(value).attr('href') + '2');}, 500, true);
                                         return false;
                                     }
                                     //action on double tap goes below
-                                       ev.stopPropagation();
+                                       e.stopPropagation();
+                                       ev.preventDefault();
                                          alert($(value).attr('href') + '3');
                                        $(value).attr('href', saveHrefAttr[index]);
                                         location.href = $(value).attr('href');
