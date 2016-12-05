@@ -822,7 +822,7 @@ limitations under the License.
                                        e.preventDefault();
                                     if(!tapedTwice) {
                                         tapedTwice = true;
-                                        setTimeout( function() { tapedTwice = false; $(value).attr('href', '#'); result = true;}, 300, true);
+                                        setTimeout( function() { tapedTwice = false; $(value).attr('href', '#'); result = true;}, 200, true);
                                         return false;
                                     }
                                     //action on double tap goes below
