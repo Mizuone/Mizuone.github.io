@@ -752,52 +752,32 @@ limitations under the License.
                     .on("mousedown.accessible-megamenu", $.proxy(_mouseDownHandler, this))
                     .on("touchstart.accessible-megamenu",  $.proxy(_clickHandler, this));
                 
-                if (screen.width < 1000 && screen.width > 436) {
+                if (!isTouch && screen.width < 1367 && screen.width > 436) {
                     
                     var saveHrefAttr = [];
                     var removeAndApply = false;
                     var tapedTwice = false;
                     if (!removeAndApply) {
                         
-                        $('.catalog-links > ul > li > a').each(function(index, value) {
+                        $('.catalog-links > ul > li > a:first').each(function(index, value) {
                                saveHrefAttr[index] = $(value).attr('href');
                                $(value).attr('href', '#');
                         });
-                        $('.catalog-links > ul > li > a').each(function(index, value) {
-
+                        $('.catalog-links > ul > li > a:first').each(function(index, value) {
                            $(value).on("click", function(e) {
+                               e.preventDefault();
                                 if(!tapedTwice) {
                                     //_togglePanel.call(this, event, target.hasClass(this.settings.openClass));
                                     tapedTwice = true;
-
-                                    setTimeout( function() { tapedTwice = false; console.log('reset'); $(value).attr('href', '#');}, 500 );
+                                    setTimeout( function() { tapedTwice = false; $(value).attr('href', '#');}, 250);
                                     return false;
                                 }
 
                                 //action on double tap goes below
-                               console.log('it should get here');
                                e.stopPropagation();
                                e.preventDefault();
                                $(value).attr('href', saveHrefAttr[index]);
                                 location.href = $(value).attr('href');
-                               $(value).on('touchend', function() {
-                                   console.log('reset');
-                                   e.preventDefault();
-                                if(!tapedTwice) {
-                                    //_togglePanel.call(this, event, target.hasClass(this.settings.openClass));
-                                    tapedTwice = true;
-
-                                    setTimeout( function() { tapedTwice = false;  $(value).attr('href', '#');}, 500 );
-                                    return false;
-                                }
-
-                                //action on double tap goes below
-                               console.log('it should get here');
-                               e.stopPropagation();
-                               e.preventDefault();
-                               $(value).attr('href', saveHrefAttr[index]);
-                                location.href = $(value).attr('href');
-                               });
                            });
                         });
                         removeAndApply = true;
@@ -805,30 +785,27 @@ limitations under the License.
                 }
 
                 if (isTouch) {
-                    var saveHrefAttr = [];
-                    var removeAndApply = false;
-                    var tapedTwice = false;
-                    var result = false;
+                    var saveHrefAttr = [],
+                        removeAndApply = false,
+                        tapedTwice = false;
                     if (screen.width < 1367 && screen.width > 436) {
-                        var removeAndApply = false;
                         if (!removeAndApply) {
-                            $('.catalog-links > ul > li > a').each(function(index, value) {
+                            $('.catalog-links > ul > li > a:first').each(function(index, value) {
                                    saveHrefAttr[index] = $(value).attr('href');
                                    $(value).attr('href', '#');
                             });
 
-                            $('.catalog-links > ul > li > a').each(function(index, value) {
+                            $('.catalog-links > ul > li > a:first').each(function(index, value) {
                                 $(value).on('touchend', function(e) {
                                        e.preventDefault();
                                     if(!tapedTwice) {
                                         tapedTwice = true;
-                                        setTimeout( function() { tapedTwice = false; $(value).attr('href', '#'); result = true;}, 200, true);
+                                        setTimeout( function() { tapedTwice = false; $(value).attr('href', '#');}, 250, true);
                                         return false;
                                     }
                                     //action on double tap goes below
                                        e.stopPropagation();
                                        e.preventDefault();
-                                         alert($(value).attr('href') + '3');
                                        $(value).attr('href', saveHrefAttr[index]);
                                         location.href = $(value).attr('href');
                                  });
