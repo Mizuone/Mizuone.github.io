@@ -808,6 +808,7 @@ limitations under the License.
                     var saveHrefAttr = [];
                     var removeAndApply = false;
                     var tapedTwice = false;
+                    var result = false;
                     if (screen.width < 1367 && screen.width > 436) {
                         var removeAndApply = false;
                         if (!removeAndApply) {
@@ -818,11 +819,15 @@ limitations under the License.
 
                             $('.catalog-links > ul > li > a').each(function(index, value) {
                                $(value).on("touchstart", function(e) {
+                                   if (result) {
+                                       result = false;
+                                       return false;
+                                   }
                                 $(value).on('touchend', function(ev) {
                                        e.preventDefault();
                                     if(!tapedTwice) {
                                         tapedTwice = true;
-                                        setTimeout( function() { tapedTwice = false; alert($(value).attr('href') + '1'); $(value).attr('href', '#'); alert($(value).attr('href') + '2');}, 500, true);
+                                        setTimeout( function() { tapedTwice = false; $(value).attr('href', '#'); result = true;}, 500, true);
                                         return false;
                                     }
                                     //action on double tap goes below
