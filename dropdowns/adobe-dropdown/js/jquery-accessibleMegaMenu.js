@@ -285,7 +285,6 @@ limitations under the License.
                 topli = target.closest('.' + this.settings.topNavItemClass),
                 panel = target.closest('.' + this.settings.panelClass);
              if (isTouch) {
-                       
                         event.preventDefault();
                         //event.stopPropagation();
                         _togglePanel.call(this, event, target.hasClass(this.settings.openClass));
@@ -293,7 +292,6 @@ limitations under the License.
             if (topli.length === 1
                     && panel.length === 0
                     && topli.find('.' + this.settings.panelClass).length === 1) {
-                alert('tap city');
                 if (!target.hasClass(this.settings.openClass)) {
                     event.preventDefault();
                     //event.stopPropagation();
@@ -753,8 +751,8 @@ limitations under the License.
                     .on("mouseout.accessible-megamenu", $.proxy(_mouseOutHandler, this))
                     .on("mousedown.accessible-megamenu", $.proxy(_mouseDownHandler, this))
                     .on("touchstart.accessible-megamenu",  $.proxy(_clickHandler, this));
-
                 if (screen.width < 1000 && screen.width > 436) {
+                    
                     var saveHrefAttr = [];
                     var removeAndApply = false;
                     var tapedTwice = false;
@@ -767,7 +765,22 @@ limitations under the License.
                         $('.catalog-links > ul > li > a').each(function(index, value) {
 
                            $(value).on("click", function(e) {
+                                if(!tapedTwice) {
+                                    //_togglePanel.call(this, event, target.hasClass(this.settings.openClass));
+                                    tapedTwice = true;
+
+                                    setTimeout( function() { tapedTwice = false; console.log('reset'); $(value).attr('href', '#');}, 500 );
+                                    return false;
+                                }
+
+                                //action on double tap goes below
+                               console.log('it should get here');
+                               e.stopPropagation();
+                               e.preventDefault();
+                               $(value).attr('href', saveHrefAttr[index]);
+                                location.href = $(value).attr('href');
                                $(value).on('touchend', function() {
+                                   console.log('reset');
                                    e.preventDefault();
                                 if(!tapedTwice) {
                                     //_togglePanel.call(this, event, target.hasClass(this.settings.openClass));
@@ -810,7 +823,7 @@ limitations under the License.
                                         //_togglePanel.call(this, event, target.hasClass(this.settings.openClass));
                                         tapedTwice = true;
                                         
-                                        setTimeout( function() { tapedTwice = false;  $(value).attr('href', '#'); saveHrefAttr[index] = $(value).attr('href'); alert('gone')}, 500, true);
+                                        setTimeout( function() { tapedTwice = false;$(value).attr('href', '#');}, 500, true);
                                         return false;
                                     }
 
