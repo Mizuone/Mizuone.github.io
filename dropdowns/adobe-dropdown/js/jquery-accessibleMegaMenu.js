@@ -786,7 +786,7 @@ limitations under the License.
                                 if(!tapedTwice) {
                                     //_togglePanel.call(this, event, target.hasClass(this.settings.openClass));
                                     tapedTwice = true;
-                                    menu.on("touchstart.accessible-megamenu",  $.proxy(_clickHandler, this));
+
                                     setTimeout( function() { tapedTwice = false;  $(value).attr('href', '#');}, 500 );
                                     return false;
                                 }
@@ -824,7 +824,7 @@ limitations under the License.
                                     if(!tapedTwice) {
                                         //_togglePanel.call(this, event, target.hasClass(this.settings.openClass));
                                         tapedTwice = true;
-                                        
+                                        menu.on("touchstart.accessible-megamenu",  $.proxy(_clickHandler, this));
                                         setTimeout( function() { tapedTwice = false; alert($(value).attr('href') + '1'); $(value).attr('href', '#'); alert($(value).attr('href') + '2');}, 500, true);
                                         return false;
                                     }
