@@ -759,11 +759,11 @@ limitations under the License.
                     var tapedTwice = false;
                     if (!removeAndApply) {
                         
-                        $('.catalog-links > ul > li > a:first').each(function(index, value) {
+                        $('.catalog-links > ul > li > a').each(function(index, value) {
                                saveHrefAttr[index] = $(value).attr('href');
                                $(value).attr('href', '#');
                         });
-                        $('.catalog-links > ul > li > a:first').each(function(index, value) {
+                        $('.catalog-links > ul > li > a').each(function(index, value) {
                            $(value).on("click", function(e) {
                                e.preventDefault();
                                 if(!tapedTwice) {
@@ -790,12 +790,12 @@ limitations under the License.
                         tapedTwice = false;
                     if (screen.width < 1367 && screen.width > 436) {
                         if (!removeAndApply) {
-                            $('.catalog-links > ul > li > a:first').each(function(index, value) {
+                            $('.catalog-links > ul > li > a').each(function(index, value) {
                                    saveHrefAttr[index] = $(value).attr('href');
                                    $(value).attr('href', '#');
                             });
 
-                            $('.catalog-links > ul > li > a:first').each(function(index, value) {
+                            $('.catalog-links > ul > li > a').each(function(index, value) {
                                 $(value).on('touchend', function(e) {
                                        e.preventDefault();
                                     if(!tapedTwice) {
