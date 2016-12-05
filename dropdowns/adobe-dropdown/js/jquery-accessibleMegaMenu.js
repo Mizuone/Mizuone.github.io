@@ -817,8 +817,6 @@ limitations under the License.
 
                             $('.catalog-links > ul > li > a').each(function(index, value) {
                                $(value).on("touchstart", function(e) {
-                                 $(value).on('touchend', function(ev) {
-                                       ev.preventDefault();
                                     if(!tapedTwice) {
                                         //_togglePanel.call(this, event, target.hasClass(this.settings.openClass));
                                         tapedTwice = true;
@@ -826,14 +824,18 @@ limitations under the License.
                                         setTimeout( function() { tapedTwice = false; alert($(value).attr('href') + '1'); $(value).attr('href', '#'); alert($(value).attr('href') + '2');}, 500, true);
                                         return false;
                                     }
+                                 $(value).on('touchend', function(ev) {
+                                       ev.preventDefault();
 
                                     //action on double tap goes below
-                                   e.stopPropagation();
-                                   e.preventDefault();
-                                     alert($(value).attr('href') + '3');
-                                   $(value).attr('href', saveHrefAttr[index]);
-                                    location.href = $(value).attr('href');
-                                   });
+                                     if (tapedTwice) {
+                                       e.stopPropagation();
+                                       e.preventDefault();
+                                         alert($(value).attr('href') + '3');
+                                       $(value).attr('href', saveHrefAttr[index]);
+                                        location.href = $(value).attr('href');
+                                       });   
+                                     }
                                });
                             });
                             removeAndApply = true;
