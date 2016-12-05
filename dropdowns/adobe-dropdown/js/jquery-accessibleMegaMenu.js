@@ -818,12 +818,7 @@ limitations under the License.
                             });
 
                             $('.catalog-links > ul > li > a').each(function(index, value) {
-                               $(value).on("touchstart", function(e) {
-                                   if (result) {
-                                       result = false;
-                                       return false;
-                                   }
-                                $(value).on('touchend', function(ev) {
+                                $(value).on('touchend', function(e) {
                                        e.preventDefault();
                                     if(!tapedTwice) {
                                         tapedTwice = true;
@@ -832,11 +827,10 @@ limitations under the License.
                                     }
                                     //action on double tap goes below
                                        e.stopPropagation();
-                                       ev.preventDefault();
+                                       e.preventDefault();
                                          alert($(value).attr('href') + '3');
                                        $(value).attr('href', saveHrefAttr[index]);
                                         location.href = $(value).attr('href');
-                                       });
                                  });
                             });
                             removeAndApply = true;
