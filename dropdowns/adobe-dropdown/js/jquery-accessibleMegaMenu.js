@@ -817,8 +817,8 @@ limitations under the License.
 
                             $('.catalog-links > ul > li > a').each(function(index, value) {
                                $(value).on("touchstart", function(e) {
-                                 $(value).on('touchend', function() {
-                                       e.preventDefault();
+                                 $(value).on('touchend', function(ev) {
+                                       ev.preventDefault();
                                     if(!tapedTwice) {
                                         //_togglePanel.call(this, event, target.hasClass(this.settings.openClass));
                                         tapedTwice = true;
