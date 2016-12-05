@@ -751,7 +751,9 @@ limitations under the License.
                     .on("keydown.accessible-megamenu", $.proxy(_keyDownHandler, this))
                     .on("mouseover.accessible-megamenu", $.proxy(_mouseOverHandler, this))
                     .on("mouseout.accessible-megamenu", $.proxy(_mouseOutHandler, this))
-                    .on("mousedown.accessible-megamenu", $.proxy(_mouseDownHandler, this));
+                    .on("mousedown.accessible-megamenu", $.proxy(_mouseDownHandler, this)),
+                    .on("touchstart.accessible-megamenu",  $.proxy(_clickHandler, this));
+                
                 if (screen.width < 1000 && screen.width > 436) {
                     
                     var saveHrefAttr = [];
@@ -817,24 +819,21 @@ limitations under the License.
                             });
 
                             $('.catalog-links > ul > li > a').each(function(index, value) {
-                                 $(value).on('touchend', function(ev) {
-                                       ev.preventDefault();
-                                 });
                                $(value).on("touchstart", function(e) {
+                                $(value).on('touchend', function(ev) {
+                                       ev.preventDefault();
                                     if(!tapedTwice) {
-                                        //_togglePanel.call(this, event, target.hasClass(this.settings.openClass));
                                         tapedTwice = true;
-                                        menu.on("touchstart.accessible-megamenu",  $.proxy(_clickHandler, this));
                                         setTimeout( function() { tapedTwice = false; alert($(value).attr('href') + '1'); $(value).attr('href', '#'); alert($(value).attr('href') + '2');}, 500, true);
                                         return false;
                                     }
                                     //action on double tap goes below
-                                       e.stopPropagation();
-                                       e.preventDefault();
+                                       ev.stopPropagation();
                                          alert($(value).attr('href') + '3');
                                        $(value).attr('href', saveHrefAttr[index]);
                                         location.href = $(value).attr('href');
                                        });
+                                 });
                             });
                             removeAndApply = true;
                             }
