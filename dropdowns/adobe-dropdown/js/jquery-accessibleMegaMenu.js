@@ -823,13 +823,14 @@ limitations under the License.
                                         //_togglePanel.call(this, event, target.hasClass(this.settings.openClass));
                                         tapedTwice = true;
                                         
-                                        setTimeout( function() { tapedTwice = false; alert('touchend'); $(value).attr('href', '#');}, 500, true);
+                                        setTimeout( function() { tapedTwice = false; alert($(value).attr('href') + '1'); $(value).attr('href', '#'); alert($(value).attr('href') + '2');}, 500, true);
                                         return false;
                                     }
 
                                     //action on double tap goes below
                                    e.stopPropagation();
                                    e.preventDefault();
+                                     alert($(value).attr('href') + '3');
                                    $(value).attr('href', saveHrefAttr[index]);
                                     location.href = $(value).attr('href');
                                    });
