@@ -284,9 +284,7 @@ limitations under the License.
             var target = $(event.currentTarget),
                 topli = target.closest('.' + this.settings.topNavItemClass),
                 panel = target.closest('.' + this.settings.panelClass);
-            alert('In click handler');
              if (isTouch) {
-                 alert('touch handled');
                         event.preventDefault();
                         //event.stopPropagation();
                         _togglePanel.call(this, event, target.hasClass(this.settings.openClass));
