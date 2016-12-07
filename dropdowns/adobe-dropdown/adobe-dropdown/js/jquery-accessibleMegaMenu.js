@@ -285,12 +285,17 @@ limitations under the License.
             var target = $(event.currentTarget),
                 topli = target.closest('.' + this.settings.topNavItemClass),
                 panel = target.closest('.' + this.settings.panelClass);
+             if (isTouch) {
+                        event.preventDefault();
+                        //event.stopPropagation();
+                        _togglePanel.call(this, event, target.hasClass(this.settings.openClass));
+                    }
             if (topli.length === 1
                     && panel.length === 0
                     && topli.find('.' + this.settings.panelClass).length === 1) {
                 if (!target.hasClass(this.settings.openClass)) {
                     event.preventDefault();
-                    event.stopPropagation();
+                    //event.stopPropagation();
                     _togglePanel.call(this, event);
                     this.justFocused = false;
                 } else {
@@ -298,11 +303,6 @@ limitations under the License.
                         event.preventDefault();
                         event.stopPropagation();
                         this.justFocused = false;
-                    } else if (isTouch) {
-                        //event.preventDefault();
-                        //event.stopPropagation();
-                        
-                        _togglePanel.call(this, event, target.hasClass(this.settings.openClass));
                     }
                 }
             }
@@ -628,7 +628,6 @@ limitations under the License.
          * @private
          */
         _mouseDownHandler = function (event) {
-            _togglePanel.call(this, event);
             if ($(event.target).is(this.settings.panelClass) || $(event.target).closest(":focusable").length) {
                 this.mouseFocused = true;
             }
@@ -649,7 +648,9 @@ limitations under the License.
             clearTimeout(this.mouseTimeoutID);
             $(event.target)
                 .addClass(this.settings.hoverClass);
-            _togglePanel.call(this, event);
+            if (screen.width > 1000 && !isTouch) {
+                _togglePanel.call(this, event);
+            }
             if ($(event.target).is(':tabbable')) {
                 $('html').on('keydown.accessible-megamenu', $.proxy(_keyDownHandler, event.target));
             }
@@ -750,11 +751,74 @@ limitations under the License.
                     .on("keydown.accessible-megamenu", $.proxy(_keyDownHandler, this))
                     .on("mouseover.accessible-megamenu", $.proxy(_mouseOverHandler, this))
                     .on("mouseout.accessible-megamenu", $.proxy(_mouseOutHandler, this))
-                    .on("mousedown.accessible-megamenu", $.proxy(_mouseDownHandler, this));
+                    .on("mousedown.accessible-megamenu", $.proxy(_mouseDownHandler, this))
+                    .on("touchstart.accessible-megamenu",  $.proxy(_clickHandler, this));
+                if (!isTouch && screen.width < 1367 && screen.width > 436) {
+                    var saveHrefAttr = [],
+                        removeAndApply = false,
+                        tapedTwice = false;
+                    if (!removeAndApply) {
+                        
+                        $('.catalog-links > ul > li > a').each(function(index, value) {
+                               saveHrefAttr[index] = $(value).attr('href');
+                               $(value).attr('href', '#');
+                        });
+                        $('.catalog-links > ul > li > a').each(function(index, value) {
+                           $(value).on("click", function(e) {
+                               e.preventDefault();
+                                if(!tapedTwice) {
+                                    //_togglePanel.call(this, event, target.hasClass(this.settings.openClass));
+                                    tapedTwice = true;
+                                    setTimeout( function() { tapedTwice = false; $(value).attr('href', '#');}, 250);
+                                    return false;
+                                }
+
+                                //action on double tap goes below
+                               e.stopPropagation();
+                               e.preventDefault();
+                               $(value).attr('href', saveHrefAttr[index]);
+                                location.href = $(value).attr('href');
+                           });
+                        });
+                        removeAndApply = true;
+                        }
+                }
 
                 if (isTouch) {
-                    alert("Touch Event");
-                    menu.on("touchstart.accessible-megamenu",  $.proxy(_clickHandler, this));
+                    var saveHrefAttr = [],
+                        removeAndApply = false,
+                        tapedTwice = false;
+                    if (screen.width < 1367 && screen.width > 436) {
+                        if (!removeAndApply) {
+                            $('.catalog-links .bt-sub-nav > ul > li > a').on('touchstart', function() {
+                                location.href = $(this).attr('href');
+                            });
+                            $('.catalog-links .bt-sub-nav > div > ul > li > a').on('touchstart', function() {
+                                location.href = $(this).attr('href');
+                            });
+                            $('.catalog-links > ul > li > a').each(function(index, value) {
+                                   saveHrefAttr[index] = $(value).attr('href');
+                                   $(value).attr('href', '#');
+                            });
+
+                            $('.catalog-links > ul > li > a').each(function(index, value) {
+                                $(value).on('touchend', function(e) {
+                                       e.preventDefault();
+                                    if(!tapedTwice) {
+                                        tapedTwice = true;
+                                        setTimeout( function() { tapedTwice = false; $(value).attr('href', '#');}, 250, true);
+                                        return false;
+                                    }
+                                    //action on double tap goes below
+                                       e.stopPropagation();
+                                       e.preventDefault();
+                                       $(value).attr('href', saveHrefAttr[index]);
+                                        location.href = $(value).attr('href');
+                                 });
+                            });
+                            removeAndApply = true;
+                            }
+                         }
                 }
 
                 menu.find("hr").attr("role", "separator");
