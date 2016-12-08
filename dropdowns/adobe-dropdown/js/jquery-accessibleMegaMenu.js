@@ -907,8 +907,7 @@ limitations under the License.
                                         
                                         $(value).removeClass('target');
                                     }
-                                    $(value).hasClass('open') ? $(value).next().removeClass('open') : false;
-                                    $(value).hasClass('open') ? $(value).removeClass('open') : false;
+                                    
                                    
                                    $('.catalog-links > ul > li > a').each(function(currentPos, link) {
                                       $(link).hasClass('tapped') ? $(link).removeClass('tapped') : false;
