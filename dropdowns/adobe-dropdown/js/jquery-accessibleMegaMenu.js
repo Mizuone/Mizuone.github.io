@@ -866,8 +866,11 @@ limitations under the License.
                                 $(value).on('touchend', function(e) {
                                     e.preventDefault();
                                     alert('tap');
-                                    $('.bt-sub-nav').next().removeClass('open');
-                                    $('.bt-nav-item').removeClass('open');
+                                   $('.catalog-links > ul > li > a').each(function(currentPos, link) {
+                                       $(link).hasClass('open') ? $(link).next().removeClass('open') : false;
+                                       $(link).hasClass('open') ? $(link).removeClass('open') : false;
+                                       !$(link).hasClass('open') ? $(link).removeClass('tapped') : false;
+                                   });
                                     tapCounter = 0;
                                 })
                             })
