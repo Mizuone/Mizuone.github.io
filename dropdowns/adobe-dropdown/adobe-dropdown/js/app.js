@@ -95,7 +95,7 @@ $(document).ready(function() {
             }
             if ($('.sub-nav-'+colIn+'').children('ul').length < 4) {
                 $('.sub-nav-'+colIn+'').css('width', '80%');
-                $('.sub-nav-'+colIn+' >').css('width', '15%');
+                $('.sub-nav-'+colIn+' > ul').css('width', '15%');
             }
            }
        function Splitter(colIn, classString, getWomenList, x) {
