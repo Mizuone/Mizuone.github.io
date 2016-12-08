@@ -899,6 +899,7 @@ limitations under the License.
                                         alert(tapCounter);
                                         return false;
                                     } 
+                                                                      alert($(value).attr('class'));
                                     if ($(value).hasClass('target')) {
                                         
                                         $(value).next().removeClass('open');
@@ -913,7 +914,7 @@ limitations under the License.
                                       $(link).hasClass('tapped') ? $(link).removeClass('tapped') : false;
                                    });
                                    $(value).addClass('tapped');
-                                   alert($(value).attr('class'));
+
                                    tapCounter = 0;
                                }
                                     
