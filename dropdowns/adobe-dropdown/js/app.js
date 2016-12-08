@@ -44,6 +44,8 @@ $(document).ready(function() {
           for(var i = 0, len = $set.length; i < len; i +=2){
               $set.slice(i, i+2).wrapAll('<li class="bt-nav-item"></li>');
           }
+                $('.bt-sub-nav').append('<img alt="Close Button" src="js/ic_clear_black_48dp.png" class="bt-close-menu" width="64" height="64">');
+                $('.bt-close-menu').css({position: 'absolute', right: 0, left: '94%', top: 0});
        /*$('.catalog-links > ul > li > a').attr('href', '#');
  
 (function($){

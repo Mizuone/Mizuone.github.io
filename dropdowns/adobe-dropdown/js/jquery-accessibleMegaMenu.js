@@ -762,7 +762,6 @@ limitations under the License.
                         previousValue,
                         tapedTwice = false;
                     if (!removeAndApply) {
-                        
                         $('.catalog-links > .bt-sub-nav > a').on('touchstart', function() {
                             location.href = $(this).attr('href');
                         })
@@ -770,6 +769,11 @@ limitations under the License.
                                saveHrefAttr[index] = $(value).attr('href');
                                $(value).attr('href', '#');
                         });
+                       $('.bt-close-menu').on('click', function() {
+                           $('.bt-sub-nav').next().removeClass('open');
+                           $('.bt-nav-item').removeClass('open');
+                           tapCounter = 0;
+                       })
                         $('.catalog-links > ul > li > a').each(function(index, value) {
                            $(value).on("click", function(e) {
                                e.preventDefault();
@@ -858,11 +862,15 @@ limitations under the License.
                                    saveHrefAttr[index] = $(value).attr('href');
                                    $(value).attr('href', '#');
                             });
-
+                               $('.bt-close-menu').on('touchstart', function() {
+                                   $('.bt-sub-nav').next().removeClass('open');
+                                   $('.bt-nav-item').removeClass('open');
+                                   tapCounter = 0;
+                               })
                             $('.catalog-links > ul > li > a').each(function(index, value) {
                                 $(value).on('touchend', function(e) {
                                        e.preventDefault();
-                                    
+                                
                                if (!$(value).hasClass('tapped') && !$(value).hasClass('open')) {
                                    $(value).addClass('tapped');
                                    currentValue = $(value);
