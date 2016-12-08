@@ -862,12 +862,15 @@ limitations under the License.
                                    saveHrefAttr[index] = $(value).attr('href');
                                    $(value).attr('href', '#');
                             });
-                               $('.bt-close-menu').on('touchend', function() {
-                                   alert('tap');
-                                   $('.bt-sub-nav').next().removeClass('open');
-                                   $('.bt-nav-item').removeClass('open');
-                                   tapCounter = 0;
-                               })
+                            $('.bt-close-menu').each(function(index, value) {
+                                $(value).on('touchend', function(e) {
+                                    e.preventDefault();
+                                    alert('tap');
+                                    $('.bt-sub-nav').next().removeClass('open');
+                                    $('.bt-nav-item').removeClass('open');
+                                    tapCounter = 0;
+                                })
+                            })
                             $('.catalog-links > ul > li > a').each(function(index, value) {
                                 $(value).on('touchend', function(e) {
                                        e.preventDefault();
