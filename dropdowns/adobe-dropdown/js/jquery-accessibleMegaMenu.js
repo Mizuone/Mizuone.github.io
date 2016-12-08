@@ -913,6 +913,7 @@ limitations under the License.
                                       $(link).hasClass('tapped') ? $(link).removeClass('tapped') : false;
                                    });
                                    $(value).addClass('tapped');
+                                   alert($(value).attr('class'));
                                    tapCounter = 0;
                                }
                                     
