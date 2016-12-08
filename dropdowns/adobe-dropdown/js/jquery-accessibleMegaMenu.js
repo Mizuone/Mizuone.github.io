@@ -882,9 +882,9 @@ limitations under the License.
                                         return false;
                                     } else {
                                        $('.catalog-links > ul > li > a').each(function(currentPos, link) {
-                                           $(link).hasClass('open') ? setTimeout(function() {$(link).next().removeClass('open')}, 100, true) : false;
-                                           $(link).hasClass('open') ? setTimeout(function() {$(link).removeClass('open')}, 100, true) : false;
-                                           setTimeout(function() {!$(link).hasClass('open') ? $(link).removeClass('tapped') : false;}, 100, true);
+                                           $(link).hasClass('open') ? $(link).next().removeClass('open') : false;
+                                           $(link).hasClass('open') ? $(link).removeClass('open') : false;
+                                           !$(link).hasClass('open') ? $(link).removeClass('tapped') : false;
                                        });
                                         alert('inside');
                                     }
@@ -900,12 +900,14 @@ limitations under the License.
                                         return false;
                                     } 
                                     if ($(value).hasClass('target')) {
-                                        setTimeout(function() {$(value).next().removeClass('open')}, 100, true);
-                                        setTimeout(function() {$(value).removeClass('open')}, 100, true);
+                                        
+                                        $(value).next().removeClass('open');
+                                        $(value).removeClass('open');
+                                        
                                         $(value).removeClass('target');
                                     }
-                                    $(value).hasClass('open') ? setTimeout(function() {$(value).next().removeClass('open')}, 100, true) : false;
-                                    $(value).hasClass('open') ? setTimeout(function() {$(value).removeClass('open')}, 100, true) : false;
+                                    $(value).hasClass('open') ? $(value).next().removeClass('open') : false;
+                                    $(value).hasClass('open') ? $(value).removeClass('open') : false;
                                    
                                    $('.catalog-links > ul > li > a').each(function(currentPos, link) {
                                       $(link).hasClass('tapped') ? $(link).removeClass('tapped') : false;
