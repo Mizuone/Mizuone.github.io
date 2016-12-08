@@ -863,6 +863,7 @@ limitations under the License.
                                    $(value).attr('href', '#');
                             });
                                $('.bt-close-menu').on('touchend', function() {
+                                   alert('tap');
                                    $('.bt-sub-nav').next().removeClass('open');
                                    $('.bt-nav-item').removeClass('open');
                                    tapCounter = 0;
