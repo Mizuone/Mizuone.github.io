@@ -753,9 +753,6 @@ limitations under the License.
                     .on("mouseout.accessible-megamenu", $.proxy(_mouseOutHandler, this))
                     .on("mousedown.accessible-megamenu", $.proxy(_mouseDownHandler, this))
                     .on("touchstart.accessible-megamenu",  $.proxy(_clickHandler, this));
-                if (isTouch) {
-                    alert('touch is on');
-                }
                 if (!isTouch && screen.width < 1367 && screen.width > 436) {
                     console.log('hello');   
                     var saveHrefAttr = [],
@@ -866,6 +863,7 @@ limitations under the License.
                             $('.catalog-links > ul > li > a').each(function(index, value) {
                                 $(value).on('touchend', function(e) {
                                        e.preventDefault();
+                                    
                                if (!$(value).hasClass('tapped') && !$(value).hasClass('open')) {
                                    $(value).addClass('tapped');
                                    currentValue = $(value);
@@ -886,7 +884,7 @@ limitations under the License.
                                        $('.catalog-links > ul > li > a').each(function(currentPos, link) {
                                            $(link).hasClass('open') ? setTimeout(function() {$(link).next().removeClass('open')}, 100, true) : false;
                                            $(link).hasClass('open') ? setTimeout(function() {$(link).removeClass('open')}, 100, true) : false;
-                                           setTimeout(function() {!$(link).hasClass('open') ? $(link).removeClass('tapped') : false;}, 100, true)
+                                           setTimeout(function() {!$(link).hasClass('open') ? $(link).removeClass('tapped') : false;}, 100, true);
                                        });
                                         alert('inside');
                                     }
@@ -894,7 +892,6 @@ limitations under the License.
                                     
                                 }
                                if (tapCounter === 2 && $(value).hasClass('tapped')) {
-                                   console.log(previousValue);
                                     if (previousValue !== undefined && $(previousValue).text() !== currentValue.text()) {
                                         $(previousValue).removeClass('tapped');
                                         previousValue = currentValue;
@@ -909,6 +906,7 @@ limitations under the License.
                                     }
                                     $(value).hasClass('open') ? setTimeout(function() {$(value).next().removeClass('open')}, 100, true) : false;
                                     $(value).hasClass('open') ? setTimeout(function() {$(value).removeClass('open')}, 100, true) : false;
+                                   
                                    $('.catalog-links > ul > li > a').each(function(currentPos, link) {
                                       $(link).hasClass('tapped') ? $(link).removeClass('tapped') : false;
                                    });
