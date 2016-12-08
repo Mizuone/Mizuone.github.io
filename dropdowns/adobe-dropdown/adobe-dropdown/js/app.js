@@ -38,7 +38,7 @@ $(document).ready(function() {
         //---After the sub-nav div is created, everything within it is created underneath this comment.--------
                 var subNavHeading = $(getHamburgerItems[currentIndex]).find("label:first").text().trim(),//sub-nav Heading
                 getWomenList = $(getHamburgerItems[currentIndex]).find("ul:first").children();//Children of Women Listitem 
-                $(subNav).append('<h2 class="bt-nav-group-topheading">'+subNavHeading +'</h2>');
+                $(subNav).append('<h2 class="bt-nav-group-topheading"><a href="'+$(getWomenList[0]).children().attr('href')+'" onclick="'+$(getWomenList[0]).children().attr('onclick')+'">'+subNavHeading+'</a></h2>');
 
                     for (var x = 2; x < getWomenList.length; x++) {
                         //creates the first column with a title
@@ -61,13 +61,21 @@ $(document).ready(function() {
                         //Adds a promo container to the end of column list
                         Splitter(colIn, classString, getWomenList, x);
                         if (x + 1 >= getWomenList.length) {
-                            $('<ul class="bt-sub-nav-group-promo">' +
+                            /*$('<ul class="bt-sub-nav-group-promo">' +
    ' <picture class="gw_card_4up">' +
 		'<a href="/sc1/query/gift50rtw/&facet=price_USD%253A%2528%257B*%2b49.99%257D%2b49.99%2529&orderBy=7">' +
 			'<img alt="Gifts Under $50" src="/wcsstore/BonTon/images/categories/women/2016/11/gateway/11_13_gw_women_16-09.jpg">' +
 		'</a>' +
 	'</picture>' +
                               '</ul>').insertAfter('.sub-nav-'+colIn+' .bt-nav-group-topheading');
+                            $('.sub-nav-'+colIn+' .bt-sub-nav-group-promo').prepend('<li class="bt-nav-group-heading">'+'<h2>Special Sales</h2>'+'</li>');*/
+                            $('.sub-nav-'+colIn+'').append('<ul class="bt-sub-nav-group-promo">' +
+   ' <picture class="gw_card_4up">' +
+		'<a href="/sc1/query/gift50rtw/&facet=price_USD%253A%2528%257B*%2b49.99%257D%2b49.99%2529&orderBy=7">' +
+			'<img alt="Gifts Under $50" src="/wcsstore/BonTon/images/categories/women/2016/11/gateway/11_13_gw_women_16-09.jpg">' +
+		'</a>' +
+	'</picture>' +
+                              '</ul>');
                             $('.sub-nav-'+colIn+' .bt-sub-nav-group-promo').prepend('<li class="bt-nav-group-heading">'+'<h2>Special Sales</h2>'+'</li>');
                         }
                     }
@@ -77,7 +85,18 @@ $(document).ready(function() {
                     MergeSplitter(colIn);
                     //check if col has more then two heading classes if so remove every heading class that is after the second.                 
                     //Merger Splitter
-
+           if (screen.width < 1367 && screen.width > 436) {
+                $('.sub-nav-'+colIn+'').append('<img alt="Close Button" src="/wcsstore/BonTon/images/categories/_shared/2016/10/ic_clear_black_48dp.png" class="bt-close-menu" width="64" height="64">');
+                $('.sub-nav-'+colIn+'').css({position: 'absolute', right: 0, left: '94%', top: 0});
+            }
+            if ($('.sub-nav-'+colIn+'').children('ul').length < 5) {
+                $('.sub-nav-'+colIn+'').css('width', '85%');
+                $('.sub-nav-'+colIn+' > ul').css('width', '13%');
+            }
+            if ($('.sub-nav-'+colIn+'').children('ul').length < 4) {
+                $('.sub-nav-'+colIn+'').css('width', '80%');
+                $('.sub-nav-'+colIn+' >').css('width', '15%');
+            }
            }
        function Splitter(colIn, classString, getWomenList, x) {
             $('.sub-nav-'+colIn+' .'+classString+'').each(function(index, subNavCol) {

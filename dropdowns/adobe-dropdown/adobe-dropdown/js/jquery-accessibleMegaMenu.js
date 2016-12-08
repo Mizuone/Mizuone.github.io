@@ -754,25 +754,90 @@ limitations under the License.
                     .on("mousedown.accessible-megamenu", $.proxy(_mouseDownHandler, this))
                     .on("touchstart.accessible-megamenu",  $.proxy(_clickHandler, this));
                 if (!isTouch && screen.width < 1367 && screen.width > 436) {
+                    console.log('hello');   
                     var saveHrefAttr = [],
                         removeAndApply = false,
+                        tapCounter = 0,
+                        currentValue,
+                        previousValue,
                         tapedTwice = false;
                     if (!removeAndApply) {
-                        
+                        $('.catalog-links > .bt-sub-nav > a').on('touchstart', function() {
+                            location.href = $(this).attr('href');
+                        })
                         $('.catalog-links > ul > li > a').each(function(index, value) {
                                saveHrefAttr[index] = $(value).attr('href');
                                $(value).attr('href', '#');
                         });
+                       $('.bt-close-menu').on('click', function() {
+                           $('.bt-sub-nav').next().removeClass('open');
+                           $('.bt-nav-item').removeClass('open');
+                           tapCounter = 0;
+                       })
                         $('.catalog-links > ul > li > a').each(function(index, value) {
                            $(value).on("click", function(e) {
                                e.preventDefault();
+                               //apply class to object on very first tap
+                               //if class is present on second tap tap counter = 1, remove it on tap counter 2
+                               if (!$(value).hasClass('tapped') && !$(value).hasClass('open')) {
+                                   $(value).addClass('tapped');
+                                   currentValue = $(value);
+                               }
+                               if (!$(value).hasClass('tapped') && $(value).hasClass('open')) {
+                                   $(value).addClass('tapped');
+                                   currentValue = $(value);
+                               }
+                                if (tapCounter === 1 && $(value).hasClass('tapped') && $(value).hasClass('open')) {
+                                    if (previousValue !== undefined && $(previousValue).text() !== currentValue.text()) {
+                                        $(previousValue).removeClass('tapped');
+                                        tapCounter = 2;
+                                        $(currentValue).addClass('target');
+
+                                        previousValue = $(value);
+                                        return false;
+                                    } else {
+                                       $('.catalog-links > ul > li > a').each(function(currentPos, link) {
+                                           $(link).hasClass('open') ? setTimeout(function() {$(link).next().removeClass('open')}, 100) : false;
+                                           $(link).hasClass('open') ? setTimeout(function() {$(link).removeClass('open')}, 100) : false;
+                                           setTimeout(function() {!$(link).hasClass('open') ? $(link).removeClass('tapped') : false;}, 100)
+                                       });
+
+                                    }
+
+                                    
+                                }
+                               if (tapCounter === 2 && $(value).hasClass('tapped')) {
+                                   console.log(previousValue);
+                                    if (previousValue !== undefined && $(previousValue).text() !== currentValue.text()) {
+                                        $(previousValue).removeClass('tapped');
+                                        previousValue = currentValue;
+                                        tapCounter = 1;
+                                        return false;
+                                    } 
+                                    if ($(value).hasClass('target')) {
+                                        setTimeout(function() {$(value).next().removeClass('open')}, 100);
+                                        setTimeout(function() {$(value).removeClass('open')}, 100);
+                                        $(value).removeClass('target');
+                                    }
+                                    $(value).hasClass('open') ? setTimeout(function() {$(value).next().removeClass('open')}, 100) : false;
+                                    $(value).hasClass('open') ? setTimeout(function() {$(value).removeClass('open')}, 100) : false;
+                                   $('.catalog-links > ul > li > a').each(function(currentPos, link) {
+                                      $(link).hasClass('tapped') ? $(link).removeClass('tapped') : false;
+                                   });
+                                   $(value).addClass('tapped');
+                                   tapCounter = 0;
+                               }
+                               
+
                                 if(!tapedTwice) {
                                     //_togglePanel.call(this, event, target.hasClass(this.settings.openClass));
                                     tapedTwice = true;
-                                    setTimeout( function() { tapedTwice = false; $(value).attr('href', '#');}, 250);
+                                    tapCounter++;
+                                    previousValue = $(value);
+                                    console.log(tapCounter);
+                                    setTimeout( function() { tapedTwice = false; $(value).attr('href', '#');}, 300);
                                     return false;
                                 }
-
                                 //action on double tap goes below
                                e.stopPropagation();
                                e.preventDefault();
@@ -787,25 +852,93 @@ limitations under the License.
                 if (isTouch) {
                     var saveHrefAttr = [],
                         removeAndApply = false,
+                        tapCounter = 0,
+                        currentValue,
+                        previousValue,
                         tapedTwice = false;
                     if (screen.width < 1367 && screen.width > 436) {
                         if (!removeAndApply) {
+                            $('.catalog-links > ul > li > a').each(function(index, value) {
+                                   saveHrefAttr[index] = $(value).attr('href');
+                                   $(value).attr('href', '#');
+                            });
                             $('.catalog-links .bt-sub-nav > ul > li > a').on('touchstart', function() {
+                                location.href = $(this).attr('href');
+                            });
+                            $('.catalog-links .bt-sub-nav > h2 > a').on('touchstart', function() {
                                 location.href = $(this).attr('href');
                             });
                             $('.catalog-links .bt-sub-nav > div > ul > li > a').on('touchstart', function() {
                                 location.href = $(this).attr('href');
                             });
-                            $('.catalog-links > ul > li > a').each(function(index, value) {
-                                   saveHrefAttr[index] = $(value).attr('href');
-                                   $(value).attr('href', '#');
+                            $('.bt-close-menu').each(function(index, value) {
+                                $(value).on('touchend', function(e) {
+                                    e.preventDefault();
+                                   $('.catalog-links > ul > li > a').each(function(currentPos, link) {
+                                       $(link).hasClass('open') ? $(link).next().removeClass('open') : false;
+                                       $(link).hasClass('open') ? $(link).removeClass('open') : false;
+                                       !$(link).hasClass('open') ? $(link).removeClass('tapped') : false;
+                                   });
+                                    tapCounter = 0;
+                                })
                             });
-
                             $('.catalog-links > ul > li > a').each(function(index, value) {
                                 $(value).on('touchend', function(e) {
                                        e.preventDefault();
+                                
+                               if (!$(value).hasClass('tapped') && !$(value).hasClass('open')) {
+                                   $(value).addClass('tapped');
+                                   currentValue = $(value);
+                               }
+                               if (!$(value).hasClass('tapped') && $(value).hasClass('open')) {
+                                   $(value).addClass('tapped');
+                                   currentValue = $(value);
+                               }
+                                if (tapCounter === 1 && $(value).hasClass('tapped') && $(value).hasClass('open')) {
+                                    if (previousValue !== undefined && $(previousValue).text() !== currentValue.text()) {
+                                        $(previousValue).removeClass('tapped');
+                                        tapCounter = 2;
+                                        $(currentValue).addClass('target');
+                                        previousValue = $(value);
+                                        return false;
+                                    } else {
+                                       $('.catalog-links > ul > li > a').each(function(currentPos, link) {
+                                           $(link).hasClass('open') ? $(link).next().removeClass('open') : false;
+                                           $(link).hasClass('open') ? $(link).removeClass('open') : false;
+                                           !$(link).hasClass('open') ? $(link).removeClass('tapped') : false;
+                                       });
+                                    }
+
+                                    
+                                }
+                               if (tapCounter === 2 && $(value).hasClass('tapped')) {
+                                    if (previousValue !== undefined && $(previousValue).text() !== currentValue.text()) {
+                                        $(previousValue).removeClass('tapped');
+                                        previousValue = currentValue;
+                                        tapCounter = 1;
+                                        return false;
+                                    } 
+                                    if ($(value).hasClass('target')) {
+                                        
+                                        $(value).next().removeClass('open');
+                                        $(value).removeClass('open');
+                                        
+                                        $(value).removeClass('target');
+                                    }
+                                    
+                                   
+                                   $('.catalog-links > ul > li > a').each(function(currentPos, link) {
+                                      $(link).hasClass('tapped') ? $(link).removeClass('tapped') : false;
+                                   });
+                                   $(value).addClass('tapped');
+
+                                   tapCounter = 0;
+                               }
+                                    
                                     if(!tapedTwice) {
                                         tapedTwice = true;
+                                        tapCounter++;
+                                        previousValue = $(value);
                                         setTimeout( function() { tapedTwice = false; $(value).attr('href', '#');}, 250, true);
                                         return false;
                                     }

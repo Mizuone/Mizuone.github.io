@@ -3,7 +3,7 @@
     margin-right: 0;
 }
 .catalog-links > ul > li > a {
-    padding: 0;
+    padding: 10px 0 10px 0;
 }
 /* a top level navigation item in the mega menu */
 .catalog-links > ul > li > a  {
@@ -89,17 +89,17 @@ a.special {
     display: block;
 }
 .bt-sub-nav > ul:not(.bt-sub-nav-group-promo) {
-    width: 13%;
+    width: 11%;
 }
 .bt-sub-nav > div {
     margin: 0 1.5em 0 0;
 }
-.bt-nav-group-topheading {
+.bt-nav-group-topheading, #header-widget .catalog-links .bt-sub-nav > h2 a {
     margin: 0;
     line-height: 20px;
     color: #cc0000;
 }
-.bt-nav-group-heading h2{
+.bt-nav-group-heading h2 {
     line-height: 20px;
     font-size: 14px;
     padding: 0;
@@ -115,14 +115,17 @@ a.special {
 .sub-nav-large-group h2, .bt-sub-nav-group-promo h2 {
     text-align: center;
 }
-#header-widget .catalog-links a.subcata-item-link {
+#header-widget .catalog-links a.subcata-item-link, #header-widget .catalog-links .bt-sub-nav > h2 a  {
     text-align: left;
     text-transform: capitalize;
     border-bottom: 1px solid white;
     transition: 0.2s ease-in-out;
 }
-#header-widget .catalog-links a.subcata-item-link:hover {
+#header-widget .catalog-links a.subcata-item-link:hover, #header-widget .catalog-links .bt-sub-nav > h2 a:hover {
     border-bottom-color: grey;
+}
+ul.bt-sub-nav-group-promo {
+    
 }
 a {
     text-decoration: none;
@@ -131,7 +134,7 @@ body {
     line-height: 1.4;
     background-color: white;
 }
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1300px) {
     #header-widget .catalog-links a.subcata-item-link {
         padding: .3em 0 .3em 0;
     }
