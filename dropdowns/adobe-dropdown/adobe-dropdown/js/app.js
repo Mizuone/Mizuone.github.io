@@ -19,21 +19,15 @@ $(document).ready(function() {
             marginLeft: "0",
             marginRight: "0"
         });
+       /* Creates each SubNav for the Menu
+       * @param currentIndex, Nav Item Number
+       */
        function createSubNav(currentIndex) {
                 var subNav,
                     colIn = currentIndex - 1;//This variable is the current sub-nav with columns
                                   //Ex: colIn 0 will be women subnav, because that's the very first subnav with columns
                 //After the 6th listitem a style is applied to each item, to move its subNav, to avoid compression
-                if (currentIndex >= 4) {
-                    var createSpace = 20;
-
-                    for (var q = currentIndex; q > 7; q--) {
-                        createSpace -= 4;
-                    }
-                    subNav = $('<div class="bt-sub-nav sub-nav-'+colIn+'"></div>').insertAfter($(getAllNavItems[currentIndex])).css('right', createSpace+'%');
-                } else {
                     subNav = $('<div class="bt-sub-nav sub-nav-'+colIn+'"></div>').insertAfter($(getAllNavItems[currentIndex]));
-                }
 
         //---After the sub-nav div is created, everything within it is created underneath this comment.--------
                 var subNavHeading = $(getHamburgerItems[currentIndex]).find("label:first").text().trim(),//sub-nav Heading
@@ -70,34 +64,37 @@ $(document).ready(function() {
                               '</ul>').insertAfter('.sub-nav-'+colIn+' .bt-nav-group-topheading');
                             $('.sub-nav-'+colIn+' .bt-sub-nav-group-promo').prepend('<li class="bt-nav-group-heading">'+'<h2>Special Sales</h2>'+'</li>');*/
                             $('.sub-nav-'+colIn+'').append('<ul class="bt-sub-nav-group-promo">' +
-   ' <picture class="gw_card_4up">' +
+   ' <li><picture class="gw_card_4up">' +
 		'<a href="/sc1/query/gift50rtw/&facet=price_USD%253A%2528%257B*%2b49.99%257D%2b49.99%2529&orderBy=7">' +
 			'<img alt="Gifts Under $50" src="/wcsstore/BonTon/images/categories/women/2016/11/gateway/11_13_gw_women_16-09.jpg">' +
 		'</a>' +
-	'</picture>' +
+	'</picture></li>' +
                               '</ul>');
-                            $('.sub-nav-'+colIn+' .bt-sub-nav-group-promo').prepend('<li class="bt-nav-group-heading">'+'<h2>Special Sales</h2>'+'</li>');
+                            $('.sub-nav-'+colIn+' .bt-sub-nav-group-promo').prepend('<li class="bt-nav-group-heading"><h2>Special Sales</h2></li>');
                         }
                     }
                     
                     //Merger
                     Merger(colIn);
-                    MergeSplitter(colIn);
+           
                     //check if col has more then two heading classes if so remove every heading class that is after the second.                 
                     //Merger Splitter
+                    MergeSplitter(colIn);
+           
+                    Compressor(colIn);
+                    
            if (screen.width < 1367 && screen.width > 436) {
                 $('.sub-nav-'+colIn+'').append('<img alt="Close Button" src="/wcsstore/BonTon/images/categories/_shared/2016/10/ic_clear_black_48dp.png" class="bt-close-menu" width="64" height="64">');
-                $('.sub-nav-'+colIn+'').css({position: 'absolute', right: 0, left: '94%', top: 0});
+                $('.sub-nav-'+colIn+' .bt-close-menu').css({position: 'absolute', right: 0, left: '94%', top: 0});
             }
-            if ($('.sub-nav-'+colIn+'').children('ul').length < 5) {
-                $('.sub-nav-'+colIn+'').css('width', '85%');
-                $('.sub-nav-'+colIn+' > ul').css('width', '13%');
-            }
-            if ($('.sub-nav-'+colIn+'').children('ul').length < 4) {
-                $('.sub-nav-'+colIn+'').css('width', '80%');
-                $('.sub-nav-'+colIn+' > ul').css('width', '15%');
-            }
+
            }
+       /* Splits a Column in two, depending on if there are more then 13 items in a column
+       * @param ColIn - Current Column Index
+       * @param classString - Current Sub Category Column
+       * @param getWomenList - Array of Sub Categories
+       * @param x - An integer for retrieving an index from getWomenList
+       */
        function Splitter(colIn, classString, getWomenList, x) {
             $('.sub-nav-'+colIn+' .'+classString+'').each(function(index, subNavCol) {
                 if ($(subNavCol).children().length > 13) {
@@ -116,6 +113,9 @@ $(document).ready(function() {
                 }
             });
        }
+      /* Creates a Column and merges each column that has less then 6 items in them
+       * @param ColIn - Current Column Index
+       */
        function Merger(colIn) {
                     var isMerge = false;
                     var mergedCol;
@@ -141,6 +141,9 @@ $(document).ready(function() {
                         }
                     });
        }
+      /* After Merge has happened, if there are more then two headings in a column it will split them in another.
+       * @param ColIn - Current Column Index
+       */
        function MergeSplitter(colIn) {
                     var mergeSplitter = false;
                     $('.sub-nav-'+colIn+' ul.merge').each(function(index, subNavCol) {
@@ -181,6 +184,272 @@ $(document).ready(function() {
                            });
                        }
                     });
+       }
+      /* Compresses Sub-Nav Width based on the amount of columns, and containers. It will also resize the unordered lists
+       * @param ColIn - Current Column Index
+       */
+       function Compressor(colIn) {
+            if (screen.width < 1067 && screen.width > 436) {
+                if ($('.sub-nav-'+colIn+'').children('ul, div').length > 6) {
+                    $('.sub-nav-'+colIn+'').css('width', '100%');
+                    $('.sub-nav-'+colIn+' > ul:not(ul.bt-sub-nav-group-promo)').css('width', '23%');
+                }
+                if ($('.sub-nav-'+colIn+'').children('ul, div').length <= 6) {
+                    $('.sub-nav-'+colIn+'').css('width', '100%');
+                    $('.sub-nav-'+colIn+' > ul:not(ul.bt-sub-nav-group-promo)').css('width', '17%');
+                }
+                if ($('.sub-nav-'+colIn+'').children('ul, div').length < 5) {
+                    $('.sub-nav-'+colIn+'').css('width', '100%');
+                    $('.sub-nav-'+colIn+' > ul:not(ul.bt-sub-nav-group-promo)').css('width', '17%');
+                }
+                if ($('.sub-nav-'+colIn+'').children('ul, div').length < 3) {
+                    $('.sub-nav-'+colIn+'').css('width', '100%');
+                    $('.sub-nav-'+colIn+' > ul:not(ul.bt-sub-nav-group-promo)').css('width', '17%');
+                }
+                return false;
+            } else {
+                if ($('.sub-nav-'+colIn+'').children('ul, div').length < 7) {
+                    $('.sub-nav-'+colIn+'').css('width', '100%');
+                    $('.sub-nav-'+colIn+' > ul:not(ul.bt-sub-nav-group-promo)').css('width', '17%');
+                }
+                if ($('.sub-nav-'+colIn+'').children('ul, div').length < 6) {
+                    $('.sub-nav-'+colIn+'').css('width', '85%');
+                    $('.sub-nav-'+colIn+' > ul:not(ul.bt-sub-nav-group-promo)').css('width', '15%');
+                }
+                if ($('.sub-nav-'+colIn+'').children('ul, div').length < 5) {
+                    $('.sub-nav-'+colIn+'').css('width', '75%');
+                    $('.sub-nav-'+colIn+' > ul:not(ul.bt-sub-nav-group-promo)').css('width', '17%');
+                }
+                if ($('.sub-nav-'+colIn+'').children('ul, div').length < 3) {
+                    $('.sub-nav-'+colIn+'').css('width', '50%');
+                    $('.sub-nav-'+colIn+' > ul:not(ul.bt-sub-nav-group-promo)').css('width', '17%');
+                }   
+            }
+       }
+      /* Adds Support for Touch Events and click events to simulate touch screens accessability.
+       * This allows the dropdown to adept to each enviornment, if stetched to different viewports as well.
+       */
+       function Adept() {
+           getAllNavItems = document.querySelectorAll('.catalog-links > ul > li > a');
+           var isTouch = typeof window.hasOwnProperty === "function" && !!window.hasOwnProperty("ontouchstart");
+            $(window).resize(function() {
+               if ($('.bt-sub-nav').children('img').length > 1 && screen.width < 1367) {
+                   $('.bt-sub-nav').children('img').each(function(index, value) {
+                       if (index > 0) {
+                           $(value).remove();
+                       }
+                   });
+               } 
+              for (var i = 0; i < getAllNavItems.length; i++) {
+                   Compressor(i);
+                  console.log('working for loop')
+                   if (screen.width < 1367 && screen.width > 436) {
+                        $('.sub-nav-'+i+'').append('<img alt="Close Button" src="/wcsstore/BonTon/images/categories/_shared/2016/10/ic_clear_black_48dp.png" class="bt-close-menu" width="64" height="64">');
+                        $('.sub-nav-'+i+' .bt-close-menu').css({position: 'absolute', right: 0, left: '94%', top: 0});
+                    }
+                   if ($('.sub-nav-'+i+'').children('img').length > 0 && screen.width > 1367) {
+                       $('.sub-nav-'+i+'').children('img').remove();
+                   } 
+              }
+                    var removeAndApply = false,
+                        saveHrefAttr = [],
+                        tapCounter = 0,
+                        currentValue = "empty",
+                        previousValue = "empty",
+                        tapedTwice = false;
+                    if (!isTouch && screen.width < 1367 && screen.width > 436) {
+                    if (!removeAndApply) {
+                        $('.catalog-links > .bt-sub-nav > a').on('touchstart', function() {
+                            location.href = $(this).attr('href');
+                        });
+                        $('.catalog-links > ul > li > a').each(function(index, value) {
+                               saveHrefAttr[index] = $(value).attr('href');
+                        });
+                       $('.bt-close-menu').on('click', function() {
+                           $('.bt-sub-nav').next().removeClass('open');
+                           $('.bt-nav-item').removeClass('open');
+                           tapCounter = 0;
+                       });
+                        $('.catalog-links > ul > li > a').each(function(index, value) {
+                           $(value).on("click", function(e) {
+                               e.preventDefault();
+                               //apply class to object on very first tap
+                               //if class is present on second tap tap counter = 1, remove it on tap counter 2
+                               currentValue = $(value);
+                               if (!$(value).hasClass('tapped') && !$(value).hasClass('open')) {
+                                   $(value).addClass('tapped');
+                               }
+                               if (!$(value).hasClass('tapped') && $(value).hasClass('open')) {
+                                   $(value).addClass('tapped');
+                               }
+                                if (tapCounter === 1 && $(value).hasClass('tapped') && $(value).hasClass('open')) {
+                                    if (previousValue !== undefined && $(previousValue).text() !== currentValue.text()) {
+                                        $(previousValue).removeClass('tapped');
+                                        tapCounter = 2;
+                                        $(currentValue).addClass('target');
+
+                                        previousValue = $(value);
+                                        return false;
+                                    } else {
+                                       $('.catalog-links > ul > li > a').each(function(currentPos, link) {
+                                           $(link).hasClass('open') ? setTimeout(function() {$(link).next().removeClass('open')}, 100) : false;
+                                           $(link).hasClass('open') ? setTimeout(function() {$(link).removeClass('open')}, 100) : false;
+                                           setTimeout(function() {!$(link).hasClass('open') ? $(link).removeClass('tapped') : false;}, 100);
+                                       });
+
+                                    }
+
+                                    
+                                }
+                               if (tapCounter === 2 && $(value).hasClass('tapped')) {
+                                    if (previousValue !== undefined && $(previousValue).text() !== currentValue.text()) {
+                                        $(previousValue).removeClass('tapped');
+                                        previousValue = currentValue;
+                                        tapCounter = 1;
+                                        return false;
+                                    } 
+                                    if ($(value).hasClass('target')) {
+                                        setTimeout(function() {$(value).next().removeClass('open')}, 100);
+                                        setTimeout(function() {$(value).removeClass('open')}, 100);
+                                        $(value).removeClass('target');
+                                    }
+                                    $(value).hasClass('open') ? setTimeout(function() {$(value).next().removeClass('open')}, 100) : false;
+                                    $(value).hasClass('open') ? setTimeout(function() {$(value).removeClass('open')}, 100) : false;
+                                   $('.catalog-links > ul > li > a').each(function(currentPos, link) {
+                                      $(link).hasClass('tapped') ? $(link).removeClass('tapped') : false;
+                                   });
+                                   $(value).addClass('tapped');
+                                   tapCounter = 0;
+                               }
+                               
+
+                                if(!tapedTwice) {
+                                    //_togglePanel.call(this, event, target.hasClass(this.settings.openClass));
+                                    tapedTwice = true;
+                                    tapCounter++;
+                                    previousValue = $(value);
+                                    setTimeout( function() { tapedTwice = false;}, 300);
+                                    return false;
+                                }
+                                //action on double tap goes below
+                               e.stopPropagation();
+                               e.preventDefault();
+                               $(value).attr('href', saveHrefAttr[index]);
+                                location.href = $(value).attr('href');
+                           });
+                        });
+                        removeAndApply = true;
+                        }
+                }
+                if (isTouch) {
+                    if (screen.width < 1367 && screen.width > 436) {
+                        if (!removeAndApply) {
+                            $('.catalog-links > ul > li > a').each(function(index, value) {
+                                   saveHrefAttr[index] = $(value).attr('href');
+                            });
+                            $('.catalog-links .bt-sub-nav > ul > li > a').on('touchstart', function() {
+                                location.href = $(this).attr('href');
+                            });
+                            $('.catalog-links .bt-sub-nav > h2 > a').on('touchstart', function() {
+                                location.href = $(this).attr('href');
+                            });
+                            $('.catalog-links .bt-sub-nav > div > ul > li > a').on('touchstart', function() {
+                                location.href = $(this).attr('href');
+                            });
+                            $('.bt-close-menu').each(function(index, value) {
+                                $(value).on('touchend', function(e) {
+                                    e.preventDefault();
+                                   $('.catalog-links > ul > li > a').each(function(currentPos, link) {
+                                       $(link).hasClass('open') ? $(link).next().removeClass('open') : false;
+                                       $(link).hasClass('open') ? $(link).removeClass('open') : false;
+                                       !$(link).hasClass('open') ? $(link).removeClass('tapped') : false;
+                                   });
+                                    tapCounter = 0;
+                                })
+                            });
+                            $('.catalog-links > ul > li > a').each(function(index, value) {
+                                $(value).on('touchend', function(e) {
+                                       e.preventDefault();
+                                
+                               if (!$(value).hasClass('tapped') && !$(value).hasClass('open')) {
+                                   $(value).addClass('tapped');
+                                   currentValue = $(value);
+                               }
+                               if (!$(value).hasClass('tapped') && $(value).hasClass('open')) {
+                                   $(value).addClass('tapped');
+                                   currentValue = $(value);
+                               }
+                                if (tapCounter === 1 && $(value).hasClass('tapped') && $(value).hasClass('open')) {
+                                    if (previousValue !== undefined && $(previousValue).text() !== currentValue.text()) {
+                                        $(previousValue).removeClass('tapped');
+                                        tapCounter = 2;
+                                        $(currentValue).addClass('target');
+                                        previousValue = $(value);
+                                        return false;
+                                    } else {
+                                       $('.catalog-links > ul > li > a').each(function(currentPos, link) {
+                                           $(link).hasClass('open') ? $(link).next().removeClass('open') : false;
+                                           $(link).hasClass('open') ? $(link).removeClass('open') : false;
+                                           !$(link).hasClass('open') ? $(link).removeClass('tapped') : false;
+                                       });
+                                    }
+
+                                    
+                                }
+                               if (tapCounter === 2 && $(value).hasClass('tapped')) {
+                                    if (previousValue !== undefined && $(previousValue).text() !== currentValue.text()) {
+                                        $(previousValue).removeClass('tapped');
+                                        previousValue = currentValue;
+                                        tapCounter = 1;
+                                        return false;
+                                    } 
+                                    if ($(value).hasClass('target')) {
+                                        
+                                        $(value).next().removeClass('open');
+                                        $(value).removeClass('open');
+                                        
+                                        $(value).removeClass('target');
+                                    }
+                                    
+                                   
+                                   $('.catalog-links > ul > li > a').each(function(currentPos, link) {
+                                      $(link).hasClass('tapped') ? $(link).removeClass('tapped') : false;
+                                   });
+                                   $(value).addClass('tapped');
+
+                                   tapCounter = 0;
+                               }
+                                    
+                                    if(!tapedTwice) {
+                                        tapedTwice = true;
+                                        tapCounter++;
+                                        previousValue = $(value);
+                                        setTimeout( function() { tapedTwice = false;}, 250, true);
+                                        return false;
+                                    }
+                                    //action on double tap goes below
+                                       e.stopPropagation();
+                                       e.preventDefault();
+                                       $(value).attr('href', saveHrefAttr[index]);
+                                        location.href = $(value).attr('href');
+                                 });
+                            });
+                            removeAndApply = true;
+                            }
+                         }
+                    }
+                    removeAndApply = false;
+                if (screen.width > 1367) {
+                    $('.catalog-links .bt-sub-nav > ul > li > a').off('touchstart');
+                    $('.catalog-links .bt-sub-nav > h2 > a').off('touchstart');
+                    $('.catalog-links .bt-sub-nav > div > ul > li > a').off('touchstart');
+                    $('.catalog-links > ul > li > a').off('touchend');
+                    $('.bt-close-menu').off('click');
+                    $('.catalog-links > ul > li > a').off('click');
+                    $('.catalog-links > .bt-sub-nav > a').on('touchstart');
+                }
+           });
+           $(window).resize();
        }
        //settimeout is added because featured brands loads after the DOM
        setTimeout(function() {
@@ -235,6 +504,7 @@ $(document).ready(function() {
                 /* css class for the open state */
                 openClass: "open"
             });
+           Adept();
        }, 200);
    })();
 });

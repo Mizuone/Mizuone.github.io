@@ -108,6 +108,7 @@ a.special {
 .bt-sub-nav-group-promo img {
     margin: 0 1em 0 0;
     box-shadow: 0 1px 3px 0 rgba(0,0,0,.2),0 1px 1px 0 rgba(0,0,0,.14),0 2px 1px -1px rgba(0,0,0,.12);
+    max-width: 220px;
 }
 .sub-nav-large-group {
     display: inline-block;
@@ -124,8 +125,11 @@ a.special {
 #header-widget .catalog-links a.subcata-item-link:hover, #header-widget .catalog-links .bt-sub-nav > h2 a:hover {
     border-bottom-color: grey;
 }
+#header-widget .catalog-links a:focus {
+    outline: 1px solid #FF5B56 !important; /*For accessability reasons*/
+}
 ul.bt-sub-nav-group-promo {
-    
+    width: 22.5%;
 }
 a {
     text-decoration: none;
