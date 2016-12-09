@@ -753,13 +753,13 @@ limitations under the License.
                     .on("mouseout.accessible-megamenu", $.proxy(_mouseOutHandler, this))
                     .on("mousedown.accessible-megamenu", $.proxy(_mouseDownHandler, this))
                     .on("touchstart.accessible-megamenu",  $.proxy(_clickHandler, this));
-                if (!isTouch && screen.width < 1367 && screen.width > 436) {
-                    console.log('hello');   
+                $(window).resize(function() {
+                    var removeAndApply = false;
+                    if (!isTouch && screen.width < 1367 && screen.width > 436) {
                     var saveHrefAttr = [],
-                        removeAndApply = false,
                         tapCounter = 0,
-                        currentValue,
-                        previousValue,
+                        currentValue = "empty",
+                        previousValue = "empty",
                         tapedTwice = false;
                     if (!removeAndApply) {
                         $('.catalog-links > .bt-sub-nav > a').on('touchstart', function() {
@@ -767,7 +767,7 @@ limitations under the License.
                         })
                         $('.catalog-links > ul > li > a').each(function(index, value) {
                                saveHrefAttr[index] = $(value).attr('href');
-                               $(value).attr('href', '#');
+                               
                         });
                        $('.bt-close-menu').on('click', function() {
                            $('.bt-sub-nav').next().removeClass('open');
@@ -779,13 +779,12 @@ limitations under the License.
                                e.preventDefault();
                                //apply class to object on very first tap
                                //if class is present on second tap tap counter = 1, remove it on tap counter 2
+                               currentValue = $(value);
                                if (!$(value).hasClass('tapped') && !$(value).hasClass('open')) {
                                    $(value).addClass('tapped');
-                                   currentValue = $(value);
                                }
                                if (!$(value).hasClass('tapped') && $(value).hasClass('open')) {
                                    $(value).addClass('tapped');
-                                   currentValue = $(value);
                                }
                                 if (tapCounter === 1 && $(value).hasClass('tapped') && $(value).hasClass('open')) {
                                     if (previousValue !== undefined && $(previousValue).text() !== currentValue.text()) {
@@ -835,7 +834,7 @@ limitations under the License.
                                     tapCounter++;
                                     previousValue = $(value);
                                     console.log(tapCounter);
-                                    setTimeout( function() { tapedTwice = false; $(value).attr('href', '#');}, 300);
+                                    setTimeout( function() { tapedTwice = false;}, 300);
                                     return false;
                                 }
                                 //action on double tap goes below
@@ -845,13 +844,13 @@ limitations under the License.
                                 location.href = $(value).attr('href');
                            });
                         });
+                        console.log('happening');
                         removeAndApply = true;
                         }
                 }
-
+                    removeAndApply = false;
                 if (isTouch) {
                     var saveHrefAttr = [],
-                        removeAndApply = false,
                         tapCounter = 0,
                         currentValue,
                         previousValue,
@@ -860,12 +859,10 @@ limitations under the License.
                         if (!removeAndApply) {
                             $('.catalog-links > ul > li > a').each(function(index, value) {
                                    saveHrefAttr[index] = $(value).attr('href');
-                                   $(value).attr('href', '#');
                             });
                             $('.bt-close-menu').each(function(index, value) {
                                 $(value).on('touchend', function(e) {
                                     e.preventDefault();
-                                    alert('tap');
                                    $('.catalog-links > ul > li > a').each(function(currentPos, link) {
                                        $(link).hasClass('open') ? $(link).next().removeClass('open') : false;
                                        $(link).hasClass('open') ? $(link).removeClass('open') : false;
@@ -873,7 +870,7 @@ limitations under the License.
                                    });
                                     tapCounter = 0;
                                 })
-                            })
+                            });
                             $('.catalog-links > ul > li > a').each(function(index, value) {
                                 $(value).on('touchend', function(e) {
                                        e.preventDefault();
@@ -931,7 +928,7 @@ limitations under the License.
                                         tapedTwice = true;
                                         tapCounter++;
                                         previousValue = $(value);
-                                        setTimeout( function() { tapedTwice = false; $(value).attr('href', '#');}, 250, true);
+                                        setTimeout( function() { tapedTwice = false;}, 250, true);
                                         return false;
                                     }
                                     //action on double tap goes below
@@ -944,7 +941,9 @@ limitations under the License.
                             removeAndApply = true;
                             }
                          }
-                }
+                    }
+                });
+                $(window).resize();
 
                 menu.find("hr").attr("role", "separator");
 
