@@ -767,7 +767,6 @@ limitations under the License.
                         })
                         $('.catalog-links > ul > li > a').each(function(index, value) {
                                saveHrefAttr[index] = $(value).attr('href');
-                               
                         });
                        $('.bt-close-menu').on('click', function() {
                            $('.bt-sub-nav').next().removeClass('open');
@@ -859,6 +858,15 @@ limitations under the License.
                         if (!removeAndApply) {
                             $('.catalog-links > ul > li > a').each(function(index, value) {
                                    saveHrefAttr[index] = $(value).attr('href');
+                            });
+                            $('.catalog-links .bt-sub-nav > ul > li > a').on('touchstart', function() {
+                                location.href = $(this).attr('href');
+                            });
+                            $('.catalog-links .bt-sub-nav > h2 > a').on('touchstart', function() {
+                                location.href = $(this).attr('href');
+                            });
+                            $('.catalog-links .bt-sub-nav > div > ul > li > a').on('touchstart', function() {
+                                location.href = $(this).attr('href');
                             });
                             $('.bt-close-menu').each(function(index, value) {
                                 $(value).on('touchend', function(e) {
