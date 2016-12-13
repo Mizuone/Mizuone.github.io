@@ -645,11 +645,16 @@ limitations under the License.
          * @private
          */
         _mouseOverHandler = function (event) {
+            var that = this;
+            
             clearTimeout(this.mouseTimeoutID);
+            
             $(event.target)
                 .addClass(this.settings.hoverClass);
             if (screen.width > 1000 && !isTouch) {
-                _togglePanel.call(this, event);
+                that.mouseTimeoutID = setTimeout(function () {
+                    _togglePanel.call(that, event);
+                }, 500);
             }
             if ($(event.target).is(':tabbable')) {
                 $('html').on('keydown.accessible-megamenu', $.proxy(_keyDownHandler, event.target));
@@ -666,12 +671,13 @@ limitations under the License.
          */
         _mouseOutHandler = function (event) {
             var that = this;
+            clearTimeout(this.mouseTimeoutID);
             $(event.target)
                 .removeClass(that.settings.hoverClass);
-
+            
             that.mouseTimeoutID = setTimeout(function () {
                 _togglePanel.call(that, event, true);
-            }, 250);
+            }, 150);
             if ($(event.target).is(':tabbable')) {
                 $('html').off('keydown.accessible-megamenu');
             }
@@ -805,7 +811,6 @@ limitations under the License.
                                     
                                 }
                                if (tapCounter === 2 && $(value).hasClass('tapped')) {
-                                   console.log(previousValue);
                                     if (previousValue !== undefined && $(previousValue).text() !== currentValue.text()) {
                                         $(previousValue).removeClass('tapped');
                                         previousValue = currentValue;
@@ -832,7 +837,6 @@ limitations under the License.
                                     tapedTwice = true;
                                     tapCounter++;
                                     previousValue = $(value);
-                                    console.log(tapCounter);
                                     setTimeout( function() { tapedTwice = false;}, 300);
                                     return false;
                                 }
@@ -843,11 +847,9 @@ limitations under the License.
                                 location.href = $(value).attr('href');
                            });
                         });
-                        console.log('happening');
                         removeAndApply = true;
                         }
                 }
-                    removeAndApply = false;
                 if (isTouch) {
                     var saveHrefAttr = [],
                         tapCounter = 0,
@@ -936,7 +938,7 @@ limitations under the License.
                                         tapedTwice = true;
                                         tapCounter++;
                                         previousValue = $(value);
-                                        setTimeout( function() { tapedTwice = false;}, 250, true);
+                                        setTimeout( function() { tapedTwice = false;}, 300, true);
                                         return false;
                                     }
                                     //action on double tap goes below
@@ -950,6 +952,7 @@ limitations under the License.
                             }
                          }
                     }
+                    removeAndApply = false;
                 });
                 $(window).resize();
 

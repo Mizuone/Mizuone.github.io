@@ -46,66 +46,51 @@ $(document).ready(function() {
           }
                 $('.bt-sub-nav').append('<img alt="Close Button" src="js/ic_clear_black_48dp.png" class="bt-close-menu" width="64" height="64">');
                 $('.bt-close-menu').css({position: 'absolute', right: 0, left: '94%', top: 0});
-       var maxHeight = 400;
+       
+       $('.bt-nav-item > a').each(function(index, value) {
+           
+          $(value).on('mouseover', function() {
+              setTimeout(function() {
+                  if ($(value).hasClass('open')) {
+                    $('body').append('<div id="nav-overlay"></div>');
+                    $('#nav-overlay').css({
+                        position: 'absolute',
+                        top: '5.5%',
+                        left: 0,
+                        width: '100%',
+                        height: '100%',
+                        display: 'block',
+                        backgroundColor: 'black',
+                        opacity: '.5',
+                        zIndex: 0
+                    });
+                      
+                     $('#nav-overlay').on('mouseenter', function() {
+                          setTimeout(function() {
+                            checkForOverlay(value);
+                          }, 260);
+                       })
+                  }
+              }, 502);
 
-$(function(){
-
-    $(".bt-sub-nav > li").hover(function() {
-    
-         var $container = $(this),
-             $list = $container.find("ul"),
-             $anchor = $container.find("a"),
-             height = $list.height() * 1.1,       // make sure there is enough room at the bottom
-             multiplier = height / maxHeight;     // needs to move faster if list is taller
-        
-        // need to save height here so it can revert on mouseout            
-        $container.data("origHeight", $container.height());
-        
-        // so it can retain it's rollover color all the while the dropdown is open
-        $anchor.addClass("hover");
-        
-        // make sure dropdown appears directly below parent list item    
-        $list
-            .show()
-            .css({
-                paddingTop: $container.data("origHeight")
             });
-        
-        // don't do any animation if list shorter than max
-        if (multiplier > 1) {
-            $container
-                .css({
-                    height: maxHeight,
-                    overflow: "hidden"
-                })
-                .mousemove(function(e) {
-                    var offset = $container.offset();
-                    var relativeY = ((e.pageY - offset.top) * multiplier) - ($container.data("origHeight") * multiplier);
-                    if (relativeY > $container.data("origHeight")) {
-                        $list.css("top", -relativeY + $container.data("origHeight"));
-                    };
-                });
-        }
-        
-    }, function() {
-    
-        var $el = $(this);
-        
-        // put things back to normal
-        $el
-            .height($(this).data("origHeight"))
-            .find("ul")
-            .css({ top: 0 })
-            .hide()
-            .end()
-            .find("a")
-            .removeClass("hover");
-    
-    });
-    
-    // Add down arrow only to menu items with submenus
-    
-});
+          $(value).on('mouseleave', function() {
+              setTimeout(function() {
+                 checkForOverlay(value);
+              }, 260);
+          });
+           $(value).siblings('div').on('mouseleave', function() {
+              setTimeout(function() {
+                  checkForOverlay(value);
+              }, 260);
+          });
+  
+       });
+       function checkForOverlay(listItem) {
+              if (!$(listItem).hasClass('open') && !$(listItem).siblings('div').hasClass('open')) {
+                  $('#nav-overlay').remove();
+              }
+       }
        /*$('.catalog-links > ul > li > a').attr('href', '#');
  
 (function($){
