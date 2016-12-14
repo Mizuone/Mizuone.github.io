@@ -91,12 +91,20 @@ $(document).ready(function() {
                   $('#nav-overlay').remove();
               }
        }
-      document.addEventListener('scroll', function() {
-         alert.log(this.scrollTop);
-      });
+      document.addEventListener("touchmove", ScrollStart, false);
+      document.addEventListener("scroll", Scroll, false);
 
-      // This is the magic, this gives me "live" scroll events
-      document.addEventListener('gesturechange', function() {});
+      function ScrollStart() {
+          //start of scroll event for iOS
+         alert('scroll started');
+      }
+
+      function Scroll() {
+          //end of scroll event for iOS
+          //and
+          //start/end of scroll event for other browsers
+         alert('ended');
+      }
        /*$('.catalog-links > ul > li > a').attr('href', '#');
  
 (function($){
