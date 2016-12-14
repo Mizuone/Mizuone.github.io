@@ -91,20 +91,6 @@ $(document).ready(function() {
                   $('#nav-overlay').remove();
               }
        }
-      document.addEventListener("touchmove", ScrollStart, false);
-      document.addEventListener("scroll", Scroll, false);
-
-      function ScrollStart() {
-          //start of scroll event for iOS
-         alert('scroll started');
-      }
-
-      function Scroll() {
-          //end of scroll event for iOS
-          //and
-          //start/end of scroll event for other browsers
-         alert('ended');
-      }
        /*$('.catalog-links > ul > li > a').attr('href', '#');
  
 (function($){
