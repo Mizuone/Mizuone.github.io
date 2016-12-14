@@ -91,6 +91,12 @@ $(document).ready(function() {
                   $('#nav-overlay').remove();
               }
        }
+      document.addEventListener('scroll', function() {
+         alert.log(this.scrollTop);
+      });
+
+      // This is the magic, this gives me "live" scroll events
+      document.addEventListener('gesturechange', function() {});
        /*$('.catalog-links > ul > li > a').attr('href', '#');
  
 (function($){
