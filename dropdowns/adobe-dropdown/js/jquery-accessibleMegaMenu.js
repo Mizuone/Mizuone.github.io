@@ -877,7 +877,6 @@ limitations under the License.
                             });
                             $('.bt-close-menu').each(function(index, value) {
                                 $(value).on('touchend', function(e) {
-                                    e.preventDefault();
                                    $('.catalog-links > ul > li > a').each(function(currentPos, link) {
                                        $(link).hasClass('open') ? $(link).next().removeClass('open') : false;
                                        $(link).hasClass('open') ? $(link).removeClass('open') : false;
@@ -948,7 +947,6 @@ limitations under the License.
                                     }
                                     //action on double tap goes below
                                        e.stopPropagation();
-                                       e.preventDefault();
                                        $(value).attr('href', saveHrefAttr[index]);
                                         location.href = $(value).attr('href');
                                  });
