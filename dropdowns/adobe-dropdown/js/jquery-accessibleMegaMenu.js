@@ -652,9 +652,14 @@ limitations under the License.
             $(event.target)
                 .addClass(this.settings.hoverClass);
             if (screen.width > 1000 && !isTouch) {
-                that.mouseTimeoutID = setTimeout(function () {
+                if ($('#nav-overlay').length && $('.bt-nav-item > a').hasClass('open') || 
+                   $('.bt-nav-item > a:last').hasClass('hover')) {
                     _togglePanel.call(that, event);
-                }, 500);
+                } else {
+                    that.mouseTimeoutID = setTimeout(function () {
+                        _togglePanel.call(that, event);
+                    }, 500);
+                }
             }
             if ($(event.target).is(':tabbable')) {
                 $('html').on('keydown.accessible-megamenu', $.proxy(_keyDownHandler, event.target));
@@ -883,7 +888,7 @@ limitations under the License.
                             });
                             $('.catalog-links > ul > li > a').each(function(index, value) {
                                 $(value).on('touchend', function(e) {
-                                       e.preventDefault();
+                                       
                                 
                                if (!$(value).hasClass('tapped') && !$(value).hasClass('open')) {
                                    $(value).addClass('tapped');
