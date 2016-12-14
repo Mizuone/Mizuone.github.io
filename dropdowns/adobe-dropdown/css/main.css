@@ -43,16 +43,20 @@ a.nav-item > a:focus,
 /* sub-navigation panel */
 .bt-sub-nav {
     position: absolute;
-    visibility: hidden;
     width: 50%;
-    top: 3.3em;
+    visibility: hidden;
+    top: 3.25em;
     margin-top: -1px;
     padding: 0.5em 1em;
     border: 1px solid #dedede;
     background-color: #fff;
     opacity: 0;
+    display: block;
+    max-height: 300px;
+    overflow-y: scroll;
     transition: all 0.2s ease-in;
     z-index: 999;
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,.2),0 1px 1px 0 rgba(0,0,0,.14),0 2px 1px -1px rgba(0,0,0,.12);
 }
 
 /* sub-navigation panel open state */
@@ -98,10 +102,7 @@ body {
 }
 @media screen and (max-width: 1000px) {
    .bt-sub-nav {
-      height: 200px;
-      max-height: 200px;
-      width: 100%;
-      overflow-y: scroll;
-      -webkit-overflow-scrolling:touch; // mobile safari
+       overflow: auto; 
+       height: 250px;
     }
 }
