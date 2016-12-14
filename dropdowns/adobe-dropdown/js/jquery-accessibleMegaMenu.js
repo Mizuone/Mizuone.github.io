@@ -286,7 +286,7 @@ limitations under the License.
                 topli = target.closest('.' + this.settings.topNavItemClass),
                 panel = target.closest('.' + this.settings.panelClass);
              if (isTouch) {
-                        event.preventDefault();
+                        //event.preventDefault();
                         //event.stopPropagation();
                         _togglePanel.call(this, event, target.hasClass(this.settings.openClass));
                     }
