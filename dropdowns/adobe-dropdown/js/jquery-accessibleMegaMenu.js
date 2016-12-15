@@ -813,11 +813,6 @@ limitations under the License.
                                //if class is present on second tap tap counter = 1, remove it on tap counter 2
                                currentValue = $(value);
                                alert('0');
-                                if ($('#nav-overlay').length && $(value).siblings('div').hasClass('open')) {
-                                    alert('here0');
-                                    $(value).addClass('tapped');
-                                    applyOverlay();
-                                }
                                if (!$(value).hasClass('tapped') && !$(value).hasClass('open')) {
                                    $(value).addClass('tapped');
                                    alert('here1');
@@ -915,7 +910,7 @@ limitations under the License.
                                    saveHrefAttr[index] = $(value).attr('href');
                                     $(value).attr('href', "#");
                             });
-                            $('body:not(.catalog-links, .bt-sub-nav)').on('touchstart', function() {
+                            $('#nav-overlay').on('touchstart', function() {
                                 $('#nav-overlay').fadeOut(300);
                                 tapCounter = 0;
                             });
