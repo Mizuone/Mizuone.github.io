@@ -778,6 +778,11 @@ limitations under the License.
                                 opacity: '.5',
                                 zIndex: 1
                             }).fadeIn(150);
+                            $('#nav-overlay').on('touchstart', function() {
+                                alert('hello')
+                                $(this).fadeOut(300);
+                                tapCounter = 0;
+                            });
                         } else {
                             $('#nav-overlay').fadeIn(150);
                         }
@@ -910,7 +915,7 @@ limitations under the License.
                                    saveHrefAttr[index] = $(value).attr('href');
                                     $(value).attr('href', "#");
                             });
-                            $('#nav-overlay').on('touchstart', function(e) {
+                            $('#nav-overlay').on('touchstart', function() {
                                 alert('hello')
                                 $(this).fadeOut(300);
                                 tapCounter = 0;
