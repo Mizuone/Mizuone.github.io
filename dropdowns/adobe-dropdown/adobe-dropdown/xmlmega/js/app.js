@@ -49,7 +49,11 @@ $(document).ready(function() {
                                  $('.sub-nav-'+colIn+' .'+classString+'').append('<li class="subcata-item"><a class="subcata-item-link" href="'+$(value).children('a').attr('href')+'" onclick="'+$(value).children('a').attr('onclick')+'">'+$(value).children('a').text().trim()+'</a></li>');
                                }
                         });
-                        
+                           $('.sub-nav-'+colIn+').css({
+                                maxHeight: '350px',
+                                overflowY: 'scroll',
+                                overflowX: 'hidden'
+                           });
                         //Splitter
                         //Adds the title of the category that was newly created
                         //Adds a promo container to the end of column list
@@ -231,10 +235,19 @@ $(document).ready(function() {
        */
        function Adept() {
            getAllNavItems = document.querySelectorAll('.catalog-links > ul > li > a');
-           var isTouch = typeof window.hasOwnProperty === "function" && !!window.hasOwnProperty("ontouchstart");
+           var isTouch = typeof window.hasOwnProperty === "function" && !!window.hasOwnProperty("ontouchstart"),
+               removeAndApply = false,
+               tapCounter = 0;
+           if (isTouch) {
+               $('.bt-sub-nav').css({
+                    maxHeight: '350px',
+                    overflowY: 'scroll',
+                    overflowX: 'hidden'
+               });
+           }
             function applyOverlay() {
-                if (!$('#nav-overlay').length) {        
-                    $('<div id="nav-overlay"></div>').insertAfter('.catalog-links');
+                if (!$('#nav-overlay').length) {
+                   $('body').prepend('<div id="nav-overlay"></div>');
                     $('#nav-overlay').css({
                         position: 'absolute',
                         left: 0,
@@ -244,9 +257,14 @@ $(document).ready(function() {
                         backgroundColor: 'black',
                         opacity: '.5',
                         zIndex: 1
-                    }).fadeIn(250);
+                    }).fadeIn(150);
+                    $('#nav-overlay').on('touchstart', function() {
+                        $(this).fadeOut(300);
+                        tapCounter = 0;
+                    });
+                } else {
+                    $('#nav-overlay').fadeIn(150);
                 }
-
             }
             $(window).resize(function() {
                if ($('.bt-sub-nav').children('img').length > 1 && screen.width < 1367) {
@@ -267,23 +285,15 @@ $(document).ready(function() {
                        $('.sub-nav-'+i+'').children('img').remove();
                    } 
               }
-                    var removeAndApply = false,
-                        saveHrefAttr = [],
-                        tapCounter = 0,
+                if (!isTouch && screen.width < 1367 && screen.width > 436) {
+                    var saveHrefAttr = [],
                         currentValue = "empty",
                         previousValue = "empty",
                         tapedTwice = false;
-                    if (!isTouch && screen.width < 1367 && screen.width > 436) {
-                    $('.bt-sub-nav').css({
-                           display: 'block',
-                           maxHeight: '350px',
-                           overflowY: 'scroll',
-                           overflowX: 'hidden' 
-                    });
                     if (!removeAndApply) {
                         $('.catalog-links > .bt-sub-nav > a').on('touchstart', function() {
                             location.href = $(this).attr('href');
-                        });
+                        })
                         $('.catalog-links > ul > li > a').each(function(index, value) {
                                saveHrefAttr[index] = $(value).attr('href');
                                 $(value).attr('href', "#");
@@ -292,37 +302,42 @@ $(document).ready(function() {
                            $('.bt-sub-nav').next().removeClass('open');
                            $('.bt-nav-item').removeClass('open');
                            tapCounter = 0;
-                       });
+                       })
                         $('.catalog-links > ul > li > a').each(function(index, value) {
                            $(value).on("click", function(e) {
+                               e.preventDefault();
                                //apply class to object on very first tap
                                //if class is present on second tap tap counter = 1, remove it on tap counter 2
                                currentValue = $(value);
                                if (!$(value).hasClass('tapped') && !$(value).hasClass('open')) {
                                    $(value).addClass('tapped');
                                    
-                                   applyOverlay();
+                                   if (!$('#nav-overlay').length) {
+                                       applyOverlay();
+                                   }
+
                                }
                                if (!$(value).hasClass('tapped') && $(value).hasClass('open')) {
                                    $(value).addClass('tapped');
                                    
-                                   applyOverlay();
+                                   if (!$('#nav-overlay').length) {
+                                       applyOverlay();
+                                   }
                                }
                                 if (tapCounter === 1 && $(value).hasClass('tapped') && $(value).hasClass('open')) {
                                     if (previousValue !== undefined && $(previousValue).text() !== currentValue.text()) {
                                         $(previousValue).removeClass('tapped');
                                         tapCounter = 2;
                                         $(currentValue).addClass('target');
-
                                         previousValue = $(value);
                                         return false;
                                     } else {
                                        $('.catalog-links > ul > li > a').each(function(currentPos, link) {
                                            $(link).hasClass('open') ? setTimeout(function() {$(link).next().removeClass('open')}, 100) : false;
                                            $(link).hasClass('open') ? setTimeout(function() {$(link).removeClass('open')}, 100) : false;
-                                           setTimeout(function() {!$(link).hasClass('open') ? ($(link).removeClass('tapped'), $('#nav-overlay').fadeOut(250)) : false;}, 100);
+                                           setTimeout(function() {!$(link).hasClass('open') ? ($(link).removeClass('tapped'), $('#nav-overlay').fadeOut(250)) : false;}, 100)
+                                           
                                        });
-
                                     }
 
                                     
@@ -347,12 +362,14 @@ $(document).ready(function() {
                                    });
                                    $(value).addClass('tapped');
                                    
-                                  if (!$(value).hasClass('open') && !$(value).siblings('div').hasClass('open')) {
+                                 /* if (!$(value).hasClass('open') && !$(value).siblings('div').hasClass('open')) {
                                       $('#nav-overlay').fadeOut(500);
+                                      alert('2 if');
                                   } else {
-                                      $('#nav-overlay').fadeIn(250);
-                                  }
-                                   
+                                     
+                                      alert('2 else');
+                                  }*/
+                                    $('#nav-overlay').fadeIn(250);
                                    tapCounter = 0;
                                }
                                
@@ -362,13 +379,14 @@ $(document).ready(function() {
                                     tapedTwice = true;
                                     tapCounter++;
                                     previousValue = $(value);
-                                    setTimeout( function() { tapedTwice = false;  $(value).attr('href', "#");}, 300);
+                                    setTimeout( function() { tapedTwice = false; $(value).attr('href', "#");}, 300);
                                     return false;
                                 }
                                 //action on double tap goes below
                                e.stopPropagation();
                                e.preventDefault();
                                $(value).attr('href', saveHrefAttr[index]);
+                               tapCounter = 0;
                                 location.href = $(value).attr('href');
                            });
                         });
@@ -376,17 +394,15 @@ $(document).ready(function() {
                         }
                 }
                 if (isTouch) {
+                    var saveHrefAttr = [],
+                        currentValue,
+                        previousValue,
+                        tapedTwice = false;
                     if (screen.width < 1367 && screen.width > 436) {
                         if (!removeAndApply) {
-                        $('.bt-sub-nav').css({
-                               display: 'block',
-                               maxHeight: '350px',
-                               overflowY: 'scroll',
-                               overflowX: 'hidden' 
-                        });
                             $('.catalog-links > ul > li > a').each(function(index, value) {
                                    saveHrefAttr[index] = $(value).attr('href');
-                                  $(value).attr('href', "#");
+                                    $(value).attr('href', "#");
                             });
                             $('.catalog-links .bt-sub-nav > ul > li > a').on('touchstart', function() {
                                 location.href = $(this).attr('href');
@@ -409,18 +425,21 @@ $(document).ready(function() {
                             });
                             $('.catalog-links > ul > li > a').each(function(index, value) {
                                 $(value).on('touchend', function(e) {
-                                
+                                    e.preventDefault();
+                                currentValue = $(value);
+                                    setTimeout(function() {
+                                        if ($('#nav-overlay').length && $(value).siblings('div').hasClass('open')) {
+                                            $(value).addClass('tapped');
+                                            applyOverlay();
+                                        }
+                                    }, 500, true);
                                if (!$(value).hasClass('tapped') && !$(value).hasClass('open')) {
                                    $(value).addClass('tapped');
-                                   currentValue = $(value);
-                                   
-                                   applyOverlay();
+                                    applyOverlay();
                                }
                                if (!$(value).hasClass('tapped') && $(value).hasClass('open')) {
                                    $(value).addClass('tapped');
-                                   currentValue = $(value);
-                                   
-                                   applyOverlay();
+                                    applyOverlay();
                                }
                                 if (tapCounter === 1 && $(value).hasClass('tapped') && $(value).hasClass('open')) {
                                     if (previousValue !== undefined && $(previousValue).text() !== currentValue.text()) {
@@ -451,22 +470,26 @@ $(document).ready(function() {
                                         
                                         $(value).next().removeClass('open');
                                         $(value).removeClass('open');
-                                        
                                         $(value).removeClass('target');
+                                        $('#nav-overlay').fadeOut(250);
+                                        tapCounter = 0;
+                                        return false;
                                     }
                                     
                                    
                                    $('.catalog-links > ul > li > a').each(function(currentPos, link) {
                                       $(link).hasClass('tapped') ? $(link).removeClass('tapped') : false;
                                    });
+                                 /* if (!$(value).hasClass('open') && !$(value).siblings('div').hasClass('open')) {
+                                      $('#nav-overlay').fadeOut(500);
+                                      alert('2 if');
+                                  } else {
+                                     
+                                      alert('2 else');
+                                  }*/
+                                    $('#nav-overlay').fadeIn(250);
                                    $(value).addClass('tapped');
 
-                                  if (!$(value).hasClass('open') && !$(value).siblings('div').hasClass('open')) {
-                                      $('#nav-overlay').fadeOut(500);
-                                  } else {
-                                      $('#nav-overlay').fadeIn(250);
-                                  }
-                                   
                                    tapCounter = 0;
                                }
                                     
@@ -474,13 +497,14 @@ $(document).ready(function() {
                                         tapedTwice = true;
                                         tapCounter++;
                                         previousValue = $(value);
-                                        setTimeout( function() { tapedTwice = false;  $(value).attr('href', "#");}, 250, true);
+                                        setTimeout( function() { tapedTwice = false; $(value).attr('href', "#");}, 300, true);
                                         return false;
                                     }
                                     //action on double tap goes below
+                                        e.preventDefault();
                                        e.stopPropagation();
-                                       e.preventDefault();
                                        $(value).attr('href', saveHrefAttr[index]);
+                                        tapCounter = 0;
                                         location.href = $(value).attr('href');
                                  });
                             });
