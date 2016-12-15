@@ -51,9 +51,6 @@ a.nav-item > a:focus,
     border: 1px solid #dedede;
     background-color: #fff;
     opacity: 0;
-    display: block;
-    max-height: 300px;
-    overflow-y: scroll;
     transition: all 0.2s ease-in;
     z-index: 999;
     box-shadow: 0 1px 3px 0 rgba(0,0,0,.2),0 1px 1px 0 rgba(0,0,0,.14),0 2px 1px -1px rgba(0,0,0,.12);
@@ -100,9 +97,10 @@ a {
 body {
     line-height: 1.4;
 }
-@media screen and (max-width: 1000px) {
-   .bt-sub-nav {
-       overflow: auto; 
-       height: 250px;
+@media (pointer:coarse) {
+    .bt-sub-nav {
+        display: block;
+        max-height: 300px;
+        overflow-y: scroll;
     }
 }
