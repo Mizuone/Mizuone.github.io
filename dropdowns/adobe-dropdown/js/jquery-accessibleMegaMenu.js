@@ -779,7 +779,6 @@ limitations under the License.
                                 zIndex: 1
                             }).fadeIn(150);
                             $('#nav-overlay').on('touchstart', function() {
-                                alert('hello')
                                 $(this).fadeOut(300);
                                 tapCounter = 0;
                             });
@@ -817,25 +816,20 @@ limitations under the License.
                                //apply class to object on very first tap
                                //if class is present on second tap tap counter = 1, remove it on tap counter 2
                                currentValue = $(value);
-                               alert('0');
                                if (!$(value).hasClass('tapped') && !$(value).hasClass('open')) {
                                    $(value).addClass('tapped');
-                                   alert('here1');
                                     applyOverlay();
 
                                }
                                if (!$(value).hasClass('tapped') && $(value).hasClass('open')) {
                                    $(value).addClass('tapped');
-                                   alert('here2');
                                     applyOverlay();
                                }
                                 if (tapCounter === 1 && $(value).hasClass('tapped') && $(value).hasClass('open')) {
-                                    alert('1');
                                     if (previousValue !== undefined && $(previousValue).text() !== currentValue.text()) {
                                         $(previousValue).removeClass('tapped');
                                         tapCounter = 2;
                                         $(currentValue).addClass('target');
-                                        alert('1 undefined');
                                         previousValue = $(value);
                                         return false;
                                     } else {
@@ -845,15 +839,12 @@ limitations under the License.
                                            setTimeout(function() {!$(link).hasClass('open') ? ($(link).removeClass('tapped'), $('#nav-overlay').fadeOut(250)) : false;}, 100)
                                            
                                        });
-                                        alert('1 else');
                                     }
 
                                     
                                 }
                                if (tapCounter === 2 && $(value).hasClass('tapped')) {
-                                   alert('2');
                                     if (previousValue !== undefined && $(previousValue).text() !== currentValue.text()) {
-                                        alert('2 undefined');
                                         $(previousValue).removeClass('tapped');
                                         $('#nav-overlay').fadeIn(250);
                                         previousValue = currentValue;
@@ -916,7 +907,6 @@ limitations under the License.
                                     $(value).attr('href', "#");
                             });
                             $('#nav-overlay').on('touchstart', function() {
-                                alert('hello')
                                 $(this).fadeOut(300);
                                 tapCounter = 0;
                             });
@@ -952,20 +942,16 @@ limitations under the License.
                                if (!$(value).hasClass('tapped') && !$(value).hasClass('open')) {
                                    $(value).addClass('tapped');
                                     applyOverlay();
-                                   alert('here1');
                                }
                                if (!$(value).hasClass('tapped') && $(value).hasClass('open')) {
                                    $(value).addClass('tapped');
                                     applyOverlay();
-                                   alert('here2');
                                }
                                 if (tapCounter === 1 && $(value).hasClass('tapped') && $(value).hasClass('open')) {
-                                    alert('1');
                                     if (previousValue !== undefined && $(previousValue).text() !== currentValue.text()) {
                                         $(previousValue).removeClass('tapped');
                                         tapCounter = 2;
                                         $(currentValue).addClass('target');
-                                        alert('1 undefined');
                                         previousValue = $(value);
                                         return false;
                                     } else {
@@ -974,15 +960,12 @@ limitations under the License.
                                            $(link).hasClass('open') ? $(link).removeClass('open') : false;
                                            !$(link).hasClass('open') ? ($(link).removeClass('tapped'), $('#nav-overlay').fadeOut(250)) : false;
                                        });
-                                        alert('1 else');
                                     }
 
                                     
                                 }
                                if (tapCounter === 2 && $(value).hasClass('tapped')) {
-                                    alert('2');
                                     if (previousValue !== undefined && $(previousValue).text() !== currentValue.text()) {
-                                        alert('2 undefined');
                                         $(previousValue).removeClass('tapped');
                                         $('#nav-overlay').fadeIn(250);
                                         previousValue = currentValue;
@@ -1020,6 +1003,7 @@ limitations under the License.
                                         return false;
                                     }
                                     //action on double tap goes below
+                                        e.preventDefault();
                                        e.stopPropagation();
                                        $(value).attr('href', saveHrefAttr[index]);
                                         tapCounter = 0;
