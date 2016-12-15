@@ -766,17 +766,19 @@ limitations under the License.
                     .on("touchstart.accessible-megamenu",  $.proxy(_clickHandler, this));
                 $(window).resize(function() {
                     function applyOverlay() {
-                      $('<div id="nav-overlay"></div>').insertAfter('.catalog-links');
-                        $('#nav-overlay').css({
-                            position: 'absolute',
-                            left: 0,
-                            width: '100%',
-                            height: '100%',
-                            display: 'none',
-                            backgroundColor: 'black',
-                            opacity: '.5',
-                            zIndex: 1
-                        }).fadeIn(250);
+                        if (!$('#nav-overlay').length) {
+                          $('<div id="nav-overlay"></div>').insertAfter('.catalog-links');
+                            $('#nav-overlay').css({
+                                position: 'absolute',
+                                left: 0,
+                                width: '100%',
+                                height: '100%',
+                                display: 'none',
+                                backgroundColor: 'black',
+                                opacity: '.5',
+                                zIndex: 1
+                            }).fadeIn(150);
+                        }
                     }
                     var removeAndApply = false;
                     if (!isTouch && screen.width < 1367 && screen.width > 436) {
@@ -789,6 +791,10 @@ limitations under the License.
                         $('.catalog-links > .bt-sub-nav > a').on('touchstart', function() {
                             location.href = $(this).attr('href');
                         })
+                        $('body:not(.catalog-links)').on('click', function() {
+                            $('#nav-overlay').fadeOut(300);
+                            tapCounter = 0;
+                        });
                         $('.catalog-links > ul > li > a').each(function(index, value) {
                                saveHrefAttr[index] = $(value).attr('href');
                                 $(value).attr('href', "#");
@@ -807,18 +813,12 @@ limitations under the License.
                                alert('0');
                                if (!$(value).hasClass('tapped') && !$(value).hasClass('open')) {
                                    $(value).addClass('tapped');
-                                   
-                                   if (!$('#nav-overlay').length) {
-                                       applyOverlay();
-                                   }
+                                    applyOverlay();
 
                                }
                                if (!$(value).hasClass('tapped') && $(value).hasClass('open')) {
                                    $(value).addClass('tapped');
-                                   
-                                   if (!$('#nav-overlay').length) {
-                                       applyOverlay();
-                                   }
+                                    applyOverlay();
                                }
                                 if (tapCounter === 1 && $(value).hasClass('tapped') && $(value).hasClass('open')) {
                                     alert('1');
@@ -906,6 +906,10 @@ limitations under the License.
                                    saveHrefAttr[index] = $(value).attr('href');
                                     $(value).attr('href', "#");
                             });
+                            $('body:not(.catalog-links)').on('touchstart', function() {
+                                $('#nav-overlay').fadeOut(300);
+                                tapCounter = 0;
+                            });
                             $('.catalog-links .bt-sub-nav > ul > li > a').on('touchstart', function() {
                                 location.href = $(this).attr('href');
                             });
@@ -914,6 +918,10 @@ limitations under the License.
                             });
                             $('.catalog-links .bt-sub-nav > div > ul > li > a').on('touchstart', function() {
                                 location.href = $(this).attr('href');
+                            });
+                            $('body:not(.catalog-links)').on('touchstart', function() {
+                                $('#nav-overlay').fadeOut(300);
+                                tapCounter = 0;
                             });
                             $('.bt-close-menu').each(function(index, value) {
                                 $(value).on('touchend', function(e) {
@@ -927,21 +935,17 @@ limitations under the License.
                             });
                             $('.catalog-links > ul > li > a').each(function(index, value) {
                                 $(value).on('touchend', function(e) {
-                                
+                                    e.preventDefault();
                                 alert('0');
                                if (!$(value).hasClass('tapped') && !$(value).hasClass('open')) {
                                    $(value).addClass('tapped');
                                    currentValue = $(value);
-                                   if (!$('#nav-overlay').length) {
-                                       applyOverlay();
-                                   }
+                                    applyOverlay();
                                }
                                if (!$(value).hasClass('tapped') && $(value).hasClass('open')) {
                                    $(value).addClass('tapped');
                                    currentValue = $(value);
-                                   if (!$('#nav-overlay').length) {
-                                       applyOverlay();
-                                   }
+                                    applyOverlay();
                                }
                                 if (tapCounter === 1 && $(value).hasClass('tapped') && $(value).hasClass('open')) {
                                     alert('1');
