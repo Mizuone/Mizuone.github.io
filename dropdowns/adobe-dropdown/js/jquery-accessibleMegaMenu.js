@@ -778,6 +778,8 @@ limitations under the License.
                                 opacity: '.5',
                                 zIndex: 1
                             }).fadeIn(150);
+                        } else {
+                            $('#nav-overlay').fadeIn(150);
                         }
                     }
                     var removeAndApply = false;
