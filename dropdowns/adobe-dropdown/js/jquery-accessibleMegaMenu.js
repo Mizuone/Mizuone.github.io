@@ -767,7 +767,7 @@ limitations under the License.
                 $(window).resize(function() {
                     function applyOverlay() {
                         if (!$('#nav-overlay').length) {
-                          $('<div id="nav-overlay"></div>').insertAfter('.catalog-links');
+                           $('body').prepend('<div id="nav-overlay"></div>');
                             $('#nav-overlay').css({
                                 position: 'absolute',
                                 left: 0,
@@ -835,7 +835,6 @@ limitations under the License.
                                            setTimeout(function() {!$(link).hasClass('open') ? ($(link).removeClass('tapped'), $('#nav-overlay').fadeOut(250)) : false;}, 100)
                                            
                                        });
-                                        alert('something went wrong');
                                     }
 
                                     
@@ -926,27 +925,22 @@ limitations under the License.
                                 $(value).on('touchend', function(e) {
                                     e.preventDefault();
                                 currentValue = $(value);
-                                    alert('tapped');
                                     setTimeout(function() {
                                         if ($('#nav-overlay').length && $(value).siblings('div').hasClass('open')) {
-                                            alert('here0');
                                             $(value).addClass('tapped');
                                             applyOverlay();
                                         }
                                     }, 500, true);
                                if (!$(value).hasClass('tapped') && !$(value).hasClass('open')) {
-                                   alert('here1');
                                    $(value).addClass('tapped');
                                     applyOverlay();
                                }
                                if (!$(value).hasClass('tapped') && $(value).hasClass('open')) {
-                                   alert('here2');
                                    $(value).addClass('tapped');
                                     applyOverlay();
                                }
                                 if (tapCounter === 1 && $(value).hasClass('tapped') && $(value).hasClass('open')) {
                                     if (previousValue !== undefined && $(previousValue).text() !== currentValue.text()) {
-                                        alert('tapped 1 undefined');
                                         $(previousValue).removeClass('tapped');
                                         tapCounter = 2;
                                         $(currentValue).addClass('target');
@@ -958,7 +952,6 @@ limitations under the License.
                                            $(link).hasClass('open') ? $(link).removeClass('open') : false;
                                            !$(link).hasClass('open') ? ($(link).removeClass('tapped'), $('#nav-overlay').fadeOut(250)) : false;
                                        });
-                                        alert('tapped 1 else');
                                     }
 
                                     
@@ -968,7 +961,6 @@ limitations under the License.
                                         $(previousValue).removeClass('tapped');
                                         $('#nav-overlay').fadeIn(250);
                                         previousValue = currentValue;
-                                        alert('tapped 2');
                                         tapCounter = 1;
                                         return false;
                                     } 
@@ -976,7 +968,6 @@ limitations under the License.
                                         
                                         $(value).next().removeClass('open');
                                         $(value).removeClass('open');
-                                        alert('tapped 2 target');
                                         $(value).removeClass('target');
                                         $('#nav-overlay').fadeOut(250);
                                         tapCounter = 0;
