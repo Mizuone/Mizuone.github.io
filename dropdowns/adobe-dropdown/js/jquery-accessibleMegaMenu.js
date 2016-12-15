@@ -791,6 +791,7 @@ limitations under the License.
                         })
                         $('.catalog-links > ul > li > a').each(function(index, value) {
                                saveHrefAttr[index] = $(value).attr('href');
+                                $(value).attr('href', "#");
                         });
                        $('.bt-close-menu').on('click', function() {
                            $('.bt-sub-nav').next().removeClass('open');
@@ -872,13 +873,14 @@ limitations under the License.
                                     tapedTwice = true;
                                     tapCounter++;
                                     previousValue = $(value);
-                                    setTimeout( function() { tapedTwice = false;}, 300);
+                                    setTimeout( function() { tapedTwice = false; $(value).attr('href', "#");}, 300);
                                     return false;
                                 }
                                 //action on double tap goes below
                                e.stopPropagation();
                                e.preventDefault();
                                $(value).attr('href', saveHrefAttr[index]);
+                               tapCounter = 0;
                                 location.href = $(value).attr('href');
                            });
                         });
@@ -895,6 +897,7 @@ limitations under the License.
                         if (!removeAndApply) {
                             $('.catalog-links > ul > li > a').each(function(index, value) {
                                    saveHrefAttr[index] = $(value).attr('href');
+                                    $(value).attr('href', "#");
                             });
                             $('.catalog-links .bt-sub-nav > ul > li > a').on('touchstart', function() {
                                 location.href = $(this).attr('href');
@@ -985,12 +988,13 @@ limitations under the License.
                                         tapedTwice = true;
                                         tapCounter++;
                                         previousValue = $(value);
-                                        setTimeout( function() { tapedTwice = false;}, 300, true);
+                                        setTimeout( function() { tapedTwice = false; $(value).attr('href', "#");}, 300, true);
                                         return false;
                                     }
                                     //action on double tap goes below
                                        e.stopPropagation();
                                        $(value).attr('href', saveHrefAttr[index]);
+                                        tapCounter = 0;
                                         location.href = $(value).attr('href');
                                  });
                             });
