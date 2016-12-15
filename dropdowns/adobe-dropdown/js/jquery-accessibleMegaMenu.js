@@ -978,6 +978,9 @@ limitations under the License.
                                         $(value).removeClass('open');
                                         alert('tapped 2 target');
                                         $(value).removeClass('target');
+                                        $('#nav-overlay').fadeOut(250);
+                                        tapCounter = 0;
+                                        return false;
                                     }
                                     
                                    
