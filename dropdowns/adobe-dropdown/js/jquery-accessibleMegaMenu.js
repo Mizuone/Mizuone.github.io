@@ -928,7 +928,7 @@ limitations under the License.
                             $('.catalog-links > ul > li > a').each(function(index, value) {
                                 $(value).on('touchend', function(e) {
                                 
-                                
+                                alert('0');
                                if (!$(value).hasClass('tapped') && !$(value).hasClass('open')) {
                                    $(value).addClass('tapped');
                                    currentValue = $(value);
@@ -944,9 +944,11 @@ limitations under the License.
                                    }
                                }
                                 if (tapCounter === 1 && $(value).hasClass('tapped') && $(value).hasClass('open')) {
+                                    alert('1');
                                     if (previousValue !== undefined && $(previousValue).text() !== currentValue.text()) {
                                         $(previousValue).removeClass('tapped');
                                         tapCounter = 2;
+                                        alert('1 undefined');
                                         $(currentValue).addClass('target');
                                         previousValue = $(value);
                                         return false;
@@ -956,15 +958,18 @@ limitations under the License.
                                            $(link).hasClass('open') ? $(link).removeClass('open') : false;
                                            !$(link).hasClass('open') ? ($(link).removeClass('tapped'), $('#nav-overlay').fadeOut(250)) : false;
                                        });
+                                        alert('1 else');
                                     }
 
                                     
                                 }
                                if (tapCounter === 2 && $(value).hasClass('tapped')) {
+                                   alert('2');
                                     if (previousValue !== undefined && $(previousValue).text() !== currentValue.text()) {
                                         $(previousValue).removeClass('tapped');
                                         $('#nav-overlay').fadeIn(250);
                                         previousValue = currentValue;
+                                        alert('2 undefined');
                                         tapCounter = 1;
                                         return false;
                                     } 
@@ -989,6 +994,7 @@ limitations under the License.
                                       alert('2 else');
                                   }*/
                                     $('#nav-overlay').fadeIn(250);
+                                   alert('2 else');
 
                                    tapCounter = 0;
                                }
