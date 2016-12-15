@@ -795,7 +795,7 @@ limitations under the License.
                         })
                         $('body:not(.catalog-links)').on('click', function() {
                             $('#nav-overlay').fadeOut(300);
-                            return false;
+                            tapCounter = 0;
                         });
                         $('.catalog-links > ul > li > a').each(function(index, value) {
                                saveHrefAttr[index] = $(value).attr('href');
@@ -917,7 +917,7 @@ limitations under the License.
                             });
                             $('body:not(.catalog-links)').on('touchstart', function() {
                                 $('#nav-overlay').fadeOut(300);
-                                return false;
+                                tapCounter = 0;
                             });
                             $('.catalog-links .bt-sub-nav > ul > li > a').on('touchstart', function() {
                                 location.href = $(this).attr('href');
@@ -942,13 +942,22 @@ limitations under the License.
                                 $(value).on('touchend', function(e) {
                                     e.preventDefault();
                                 currentValue = $(value);
+                                    setTimeout(function() {
+                                        if ($('#nav-overlay').length && $(value).siblings('div').hasClass('open')) {
+                                            alert('here0');
+                                            $(value).addClass('tapped');
+                                            applyOverlay();
+                                        }
+                                    }, 500, true);
                                if (!$(value).hasClass('tapped') && !$(value).hasClass('open')) {
                                    $(value).addClass('tapped');
                                     applyOverlay();
+                                   alert('here1');
                                }
                                if (!$(value).hasClass('tapped') && $(value).hasClass('open')) {
                                    $(value).addClass('tapped');
                                     applyOverlay();
+                                   alert('here2');
                                }
                                 if (tapCounter === 1 && $(value).hasClass('tapped') && $(value).hasClass('open')) {
                                     alert('1');
