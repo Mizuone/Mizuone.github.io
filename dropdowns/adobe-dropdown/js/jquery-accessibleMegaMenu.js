@@ -963,23 +963,22 @@ limitations under the License.
                                     if (previousValue !== undefined && $(previousValue).text() !== currentValue.text()) {
                                         $(previousValue).removeClass('tapped');
                                         $('#nav-overlay').fadeIn(250);
-                                        alert('2 undefined')
                                         previousValue = currentValue;
                                         tapCounter = 1;
                                         return false;
                                     } 
                                     if ($(value).hasClass('target')) {
-                                        setTimeout(function() {$(value).next().removeClass('open')}, 100, true);
-                                        setTimeout(function() {$(value).removeClass('open')}, 100, true);
+                                        
+                                        $(value).next().removeClass('open');
+                                        $(value).removeClass('open');
+                                        
                                         $(value).removeClass('target');
                                     }
-                                    $(value).hasClass('open') ? setTimeout(function() {$(value).next().removeClass('open')}, 100, true) : false;
-                                    $(value).hasClass('open') ? setTimeout(function() {$(value).removeClass('open')}, 100, true) : false;
+                                    
+                                   
                                    $('.catalog-links > ul > li > a').each(function(currentPos, link) {
                                       $(link).hasClass('tapped') ? $(link).removeClass('tapped') : false;
                                    });
-                                   $(value).addClass('tapped');
-                                   
                                  /* if (!$(value).hasClass('open') && !$(value).siblings('div').hasClass('open')) {
                                       $('#nav-overlay').fadeOut(500);
                                       alert('2 if');
@@ -987,8 +986,9 @@ limitations under the License.
                                      
                                       alert('2 else');
                                   }*/
-                                   alert('2 else');
                                     $('#nav-overlay').fadeIn(250);
+                                   $(value).addClass('tapped');
+
                                    tapCounter = 0;
                                }
                                     
