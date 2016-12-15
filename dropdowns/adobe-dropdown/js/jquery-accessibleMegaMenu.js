@@ -941,7 +941,6 @@ limitations under the License.
                                 currentValue = $(value);
                                     setTimeout(function() {
                                         if ($('#nav-overlay').length && $(value).siblings('div').hasClass('open')) {
-                                            alert('here0');
                                             $(value).addClass('tapped');
                                             applyOverlay();
                                         }
@@ -961,8 +960,8 @@ limitations under the License.
                                     if (previousValue !== undefined && $(previousValue).text() !== currentValue.text()) {
                                         $(previousValue).removeClass('tapped');
                                         tapCounter = 2;
-                                        alert('1 undefined');
                                         $(currentValue).addClass('target');
+                                        alert('1 undefined');
                                         previousValue = $(value);
                                         return false;
                                     } else {
@@ -977,27 +976,26 @@ limitations under the License.
                                     
                                 }
                                if (tapCounter === 2 && $(value).hasClass('tapped')) {
-                                   alert('2');
+                                    alert('2');
                                     if (previousValue !== undefined && $(previousValue).text() !== currentValue.text()) {
+                                        alert('2 undefined');
                                         $(previousValue).removeClass('tapped');
                                         $('#nav-overlay').fadeIn(250);
                                         previousValue = currentValue;
-                                        alert('2 undefined');
                                         tapCounter = 1;
                                         return false;
                                     } 
                                     if ($(value).hasClass('target')) {
-                                        
-                                        $(value).next().removeClass('open');
-                                        $(value).removeClass('open');
-                                        
+                                        setTimeout(function() {$(value).next().removeClass('open')}, 100);
+                                        setTimeout(function() {$(value).removeClass('open')}, 100);
                                         $(value).removeClass('target');
                                     }
-                                    
-                                   
+                                    $(value).hasClass('open') ? setTimeout(function() {$(value).next().removeClass('open')}, 100, true) : false;
+                                    $(value).hasClass('open') ? setTimeout(function() {$(value).removeClass('open')}, 100, true) : false;
                                    $('.catalog-links > ul > li > a').each(function(currentPos, link) {
                                       $(link).hasClass('tapped') ? $(link).removeClass('tapped') : false;
                                    });
+                                   $(value).addClass('tapped');
                                    
                                  /* if (!$(value).hasClass('open') && !$(value).siblings('div').hasClass('open')) {
                                       $('#nav-overlay').fadeOut(500);
@@ -1007,8 +1005,6 @@ limitations under the License.
                                       alert('2 else');
                                   }*/
                                     $('#nav-overlay').fadeIn(250);
-                                   alert('2 else');
-
                                    tapCounter = 0;
                                }
                                     
