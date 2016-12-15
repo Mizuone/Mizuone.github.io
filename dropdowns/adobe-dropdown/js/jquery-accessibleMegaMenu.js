@@ -941,6 +941,7 @@ limitations under the License.
                                }
                                 if (tapCounter === 1 && $(value).hasClass('tapped') && $(value).hasClass('open')) {
                                     if (previousValue !== undefined && $(previousValue).text() !== currentValue.text()) {
+                                        alert('1 undefined')
                                         $(previousValue).removeClass('tapped');
                                         tapCounter = 2;
                                         $(currentValue).addClass('target');
@@ -953,6 +954,7 @@ limitations under the License.
                                            setTimeout(function() {!$(link).hasClass('open') ? ($(link).removeClass('tapped'), $('#nav-overlay').fadeOut(250)) : false;}, 100, true);
                                            
                                        });
+                                        alert('1 else');
                                     }
 
                                     
