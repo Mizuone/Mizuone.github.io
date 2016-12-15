@@ -955,7 +955,7 @@ limitations under the License.
                                            setTimeout(function() {!$(link).hasClass('open') ? ($(link).removeClass('tapped'), $('#nav-overlay').fadeOut(250)) : false;}, 100, true);
                                            
                                        });
-                                        
+                                        alert('something went wrong');
                                     }
 
                                     
