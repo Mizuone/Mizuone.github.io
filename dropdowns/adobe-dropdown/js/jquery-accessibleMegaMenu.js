@@ -938,16 +938,14 @@ limitations under the License.
                             $('.catalog-links > ul > li > a').each(function(index, value) {
                                 $(value).on('touchend', function(e) {
                                     e.preventDefault();
-                                
+                                currentValue = $(value);
                                if (!$(value).hasClass('tapped') && !$(value).hasClass('open')) {
                                    $(value).addClass('tapped');
-                                   currentValue = $(value);
                                     applyOverlay();
                                    alert('here1');
                                }
                                if (!$(value).hasClass('tapped') && $(value).hasClass('open')) {
                                    $(value).addClass('tapped');
-                                   currentValue = $(value);
                                     applyOverlay();
                                    alert('here2');
                                }
