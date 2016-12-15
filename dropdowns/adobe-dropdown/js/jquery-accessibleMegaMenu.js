@@ -797,10 +797,6 @@ limitations under the License.
                         $('.catalog-links > .bt-sub-nav > a').on('touchstart', function() {
                             location.href = $(this).attr('href');
                         })
-                        $('body:not(.catalog-links, .bt-sub-nav)').on('click', function() {
-                            $('#nav-overlay').fadeOut(300);
-                            tapCounter = 0;
-                        });
                         $('.catalog-links > ul > li > a').each(function(index, value) {
                                saveHrefAttr[index] = $(value).attr('href');
                                 $(value).attr('href', "#");
@@ -906,10 +902,6 @@ limitations under the License.
                                    saveHrefAttr[index] = $(value).attr('href');
                                     $(value).attr('href', "#");
                             });
-                            $('#nav-overlay').on('touchstart', function() {
-                                $(this).fadeOut(300);
-                                tapCounter = 0;
-                            });
                             $('.catalog-links .bt-sub-nav > ul > li > a').on('touchstart', function() {
                                 location.href = $(this).attr('href');
                             });
@@ -956,9 +948,10 @@ limitations under the License.
                                         return false;
                                     } else {
                                        $('.catalog-links > ul > li > a').each(function(currentPos, link) {
-                                           $(link).hasClass('open') ? $(link).next().removeClass('open') : false;
-                                           $(link).hasClass('open') ? $(link).removeClass('open') : false;
-                                           !$(link).hasClass('open') ? ($(link).removeClass('tapped'), $('#nav-overlay').fadeOut(250)) : false;
+                                           $(link).hasClass('open') ? setTimeout(function() {$(link).next().removeClass('open')}, 100, true) : false;
+                                           $(link).hasClass('open') ? setTimeout(function() {$(link).removeClass('open')}, 100, true) : false;
+                                           setTimeout(function() {!$(link).hasClass('open') ? ($(link).removeClass('tapped'), $('#nav-overlay').fadeOut(250)) : false;}, 100, true);
+                                           
                                        });
                                     }
 
