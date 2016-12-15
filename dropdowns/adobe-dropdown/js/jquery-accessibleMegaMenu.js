@@ -793,7 +793,7 @@ limitations under the License.
                         $('.catalog-links > .bt-sub-nav > a').on('touchstart', function() {
                             location.href = $(this).attr('href');
                         })
-                        $('body:not(.catalog-links)').on('click', function() {
+                        $('body:not(.catalog-links, .bt-sub-nav)').on('click', function() {
                             $('#nav-overlay').fadeOut(300);
                             tapCounter = 0;
                         });
@@ -915,7 +915,7 @@ limitations under the License.
                                    saveHrefAttr[index] = $(value).attr('href');
                                     $(value).attr('href', "#");
                             });
-                            $('body:not(.catalog-links)').on('touchstart', function() {
+                            $('body:not(.catalog-links, .bt-sub-nav)').on('touchstart', function() {
                                 $('#nav-overlay').fadeOut(300);
                                 tapCounter = 0;
                             });
