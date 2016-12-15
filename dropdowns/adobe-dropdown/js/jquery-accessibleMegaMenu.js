@@ -976,7 +976,7 @@ limitations under the License.
                                         
                                         $(value).next().removeClass('open');
                                         $(value).removeClass('open');
-                                        
+                                        alert('tapped 2 target');
                                         $(value).removeClass('target');
                                     }
                                     
