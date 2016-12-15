@@ -911,7 +911,8 @@ limitations under the License.
                                     $(value).attr('href', "#");
                             });
                             $('#nav-overlay').on('touchstart', function() {
-                                $('#nav-overlay').fadeOut(300);
+                                alert('hello')
+                                $(this).fadeOut(300);
                                 tapCounter = 0;
                             });
                             $('.catalog-links .bt-sub-nav > ul > li > a').on('touchstart', function() {
