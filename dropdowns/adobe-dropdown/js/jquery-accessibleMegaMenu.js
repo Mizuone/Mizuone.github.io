@@ -941,7 +941,7 @@ limitations under the License.
                                }
                                 if (tapCounter === 1 && $(value).hasClass('tapped') && $(value).hasClass('open')) {
                                     if (previousValue !== undefined && $(previousValue).text() !== currentValue.text()) {
-                                        alert('1 undefined')
+                                        
                                         $(previousValue).removeClass('tapped');
                                         tapCounter = 2;
                                         $(currentValue).addClass('target');
@@ -954,7 +954,7 @@ limitations under the License.
                                            setTimeout(function() {!$(link).hasClass('open') ? ($(link).removeClass('tapped'), $('#nav-overlay').fadeOut(250)) : false;}, 100, true);
                                            
                                        });
-                                        alert('1 else');
+                                        
                                     }
 
                                     
@@ -963,13 +963,14 @@ limitations under the License.
                                     if (previousValue !== undefined && $(previousValue).text() !== currentValue.text()) {
                                         $(previousValue).removeClass('tapped');
                                         $('#nav-overlay').fadeIn(250);
+                                        alert('2 undefined')
                                         previousValue = currentValue;
                                         tapCounter = 1;
                                         return false;
                                     } 
                                     if ($(value).hasClass('target')) {
-                                        setTimeout(function() {$(value).next().removeClass('open')}, 100);
-                                        setTimeout(function() {$(value).removeClass('open')}, 100);
+                                        setTimeout(function() {$(value).next().removeClass('open')}, 100, true);
+                                        setTimeout(function() {$(value).removeClass('open')}, 100, true);
                                         $(value).removeClass('target');
                                     }
                                     $(value).hasClass('open') ? setTimeout(function() {$(value).next().removeClass('open')}, 100, true) : false;
@@ -986,6 +987,7 @@ limitations under the License.
                                      
                                       alert('2 else');
                                   }*/
+                                   alert('2 else');
                                     $('#nav-overlay').fadeIn(250);
                                    tapCounter = 0;
                                }
