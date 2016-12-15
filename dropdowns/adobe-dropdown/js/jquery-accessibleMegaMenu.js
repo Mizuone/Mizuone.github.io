@@ -765,6 +765,19 @@ limitations under the License.
                     .on("mousedown.accessible-megamenu", $.proxy(_mouseDownHandler, this))
                     .on("touchstart.accessible-megamenu",  $.proxy(_clickHandler, this));
                 $(window).resize(function() {
+                    function applyOverlay() {
+                      $('<div id="nav-overlay"></div>').insertAfter('.catalog-links');
+                        $('#nav-overlay').css({
+                            position: 'absolute',
+                            left: 0,
+                            width: '100%',
+                            height: '100%',
+                            display: 'none',
+                            backgroundColor: 'black',
+                            opacity: '.5',
+                            zIndex: 1
+                        }).fadeIn(250);
+                    }
                     var removeAndApply = false;
                     if (!isTouch && screen.width < 1367 && screen.width > 436) {
                     var saveHrefAttr = [],
@@ -792,9 +805,18 @@ limitations under the License.
                                currentValue = $(value);
                                if (!$(value).hasClass('tapped') && !$(value).hasClass('open')) {
                                    $(value).addClass('tapped');
+                                   
+                                   if (!$('#nav-overlay').length) {
+                                       applyOverlay();
+                                   }
+
                                }
                                if (!$(value).hasClass('tapped') && $(value).hasClass('open')) {
                                    $(value).addClass('tapped');
+                                   
+                                   if (!$('#nav-overlay').length) {
+                                       applyOverlay();
+                                   }
                                }
                                 if (tapCounter === 1 && $(value).hasClass('tapped') && $(value).hasClass('open')) {
                                     if (previousValue !== undefined && $(previousValue).text() !== currentValue.text()) {
@@ -808,9 +830,9 @@ limitations under the License.
                                        $('.catalog-links > ul > li > a').each(function(currentPos, link) {
                                            $(link).hasClass('open') ? setTimeout(function() {$(link).next().removeClass('open')}, 100) : false;
                                            $(link).hasClass('open') ? setTimeout(function() {$(link).removeClass('open')}, 100) : false;
-                                           setTimeout(function() {!$(link).hasClass('open') ? $(link).removeClass('tapped') : false;}, 100)
+                                           setTimeout(function() {!$(link).hasClass('open') ? ($(link).removeClass('tapped'), $('#nav-overlay').fadeOut(250)) : false;}, 100)
+                                           
                                        });
-
                                     }
 
                                     
@@ -818,6 +840,7 @@ limitations under the License.
                                if (tapCounter === 2 && $(value).hasClass('tapped')) {
                                     if (previousValue !== undefined && $(previousValue).text() !== currentValue.text()) {
                                         $(previousValue).removeClass('tapped');
+                                        $('#nav-overlay').fadeIn(250);
                                         previousValue = currentValue;
                                         tapCounter = 1;
                                         return false;
@@ -833,6 +856,13 @@ limitations under the License.
                                       $(link).hasClass('tapped') ? $(link).removeClass('tapped') : false;
                                    });
                                    $(value).addClass('tapped');
+                                   
+                                  if (!$(value).hasClass('open') && !$(value).siblings('div').hasClass('open')) {
+                                      $('#nav-overlay').fadeOut(500);
+                                  } else {
+                                      $('#nav-overlay').fadeIn(250);
+                                  }
+                                   
                                    tapCounter = 0;
                                }
                                
@@ -892,10 +922,16 @@ limitations under the License.
                                if (!$(value).hasClass('tapped') && !$(value).hasClass('open')) {
                                    $(value).addClass('tapped');
                                    currentValue = $(value);
+                                   if (!$('#nav-overlay').length) {
+                                       applyOverlay();
+                                   }
                                }
                                if (!$(value).hasClass('tapped') && $(value).hasClass('open')) {
                                    $(value).addClass('tapped');
                                    currentValue = $(value);
+                                   if (!$('#nav-overlay').length) {
+                                       applyOverlay();
+                                   }
                                }
                                 if (tapCounter === 1 && $(value).hasClass('tapped') && $(value).hasClass('open')) {
                                     if (previousValue !== undefined && $(previousValue).text() !== currentValue.text()) {
@@ -908,7 +944,7 @@ limitations under the License.
                                        $('.catalog-links > ul > li > a').each(function(currentPos, link) {
                                            $(link).hasClass('open') ? $(link).next().removeClass('open') : false;
                                            $(link).hasClass('open') ? $(link).removeClass('open') : false;
-                                           !$(link).hasClass('open') ? $(link).removeClass('tapped') : false;
+                                           !$(link).hasClass('open') ? ($(link).removeClass('tapped'), $('#nav-overlay').fadeOut(250)) : false;
                                        });
                                     }
 
@@ -917,6 +953,7 @@ limitations under the License.
                                if (tapCounter === 2 && $(value).hasClass('tapped')) {
                                     if (previousValue !== undefined && $(previousValue).text() !== currentValue.text()) {
                                         $(previousValue).removeClass('tapped');
+                                        $('#nav-overlay').fadeIn(250);
                                         previousValue = currentValue;
                                         tapCounter = 1;
                                         return false;
@@ -933,6 +970,12 @@ limitations under the License.
                                    $('.catalog-links > ul > li > a').each(function(currentPos, link) {
                                       $(link).hasClass('tapped') ? $(link).removeClass('tapped') : false;
                                    });
+                                   
+                                  if (!$(value).hasClass('open') && !$(value).siblings('div').hasClass('open')) {
+                                      $('#nav-overlay').fadeOut(500);
+                                  } else {
+                                      $('#nav-overlay').fadeIn(250);
+                                  }
                                    $(value).addClass('tapped');
 
                                    tapCounter = 0;
