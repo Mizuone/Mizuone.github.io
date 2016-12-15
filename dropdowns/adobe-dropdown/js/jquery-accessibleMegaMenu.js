@@ -981,12 +981,14 @@ limitations under the License.
                                       $(link).hasClass('tapped') ? $(link).removeClass('tapped') : false;
                                    });
                                    
-                                  if (!$(value).hasClass('open') && !$(value).siblings('div').hasClass('open')) {
+                                 /* if (!$(value).hasClass('open') && !$(value).siblings('div').hasClass('open')) {
                                       $('#nav-overlay').fadeOut(500);
+                                      alert('2 if');
                                   } else {
-                                      $('#nav-overlay').fadeIn(250);
-                                  }
-                                   $(value).addClass('tapped');
+                                     
+                                      alert('2 else');
+                                  }*/
+                                    $('#nav-overlay').fadeIn(250);
 
                                    tapCounter = 0;
                                }

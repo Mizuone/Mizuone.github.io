@@ -22,6 +22,7 @@ $(document).ready(function() {
         })
         //create a function for each category that will have a string that contains all the information for each category drop down
         for (var i = 0; i < getAllNavItems.length; i++) {
+            console.log($(getAllNavItems[i]).attr('href'));
             switch($(getAllNavItems[i]).attr('href')) {
                     case "/sc1/brands/": $("<div class='bt-sub-nav'></div>").insertAfter($(getAllNavItems[i])).css("display","none"); break;
                     case "/sc1/women/": $(womenSubNav()).insertAfter($(getAllNavItems[i])); break;
@@ -35,7 +36,7 @@ $(document).ready(function() {
                     case "/sc1/bed-bath/": $(bedandbathSubNav()).insertAfter($(getAllNavItems[i])).css('right', '0%'); break;
                     case "/sc1/home/furniture-24382/": $(furnitureSubNav()).insertAfter($(getAllNavItems[i])).css('right', '0%'); break;
                     case "/sc1/home/": $(homeSubNav()).insertAfter($(getAllNavItems[i])).css('right', '0%'); break;
-                    case "/sc1/clearance/": $("<div class='bt-sub-nav'></div>").insertAfter($(getAllNavItems[i])).css("display","none"); break;
+                    case "/clearance": $("<div class='bt-sub-nav'></div>").insertAfter($(getAllNavItems[i])).css("display","none"); break;
                     default: break;
             }
         }
@@ -47,50 +48,55 @@ $(document).ready(function() {
                 $('.bt-sub-nav').append('<img alt="Close Button" src="js/ic_clear_black_48dp.png" class="bt-close-menu" width="64" height="64">');
                 $('.bt-close-menu').css({position: 'absolute', right: 0, left: '94%', top: 0});
        
-       $('.bt-nav-item > a').each(function(index, value) {
-           
-          $(value).on('mouseover', function() {
-              setTimeout(function() {
-                  if ($(value).hasClass('open')) {
-                    $('body').append('<div id="nav-overlay"></div>');
-                    $('#nav-overlay').css({
-                        position: 'absolute',
-                        top: '5.5%',
-                        left: 0,
-                        width: '100%',
-                        height: '100%',
-                        display: 'block',
-                        backgroundColor: 'black',
-                        opacity: '.5',
-                        zIndex: 0
-                    });
-                      
-                     $('#nav-overlay').on('mouseenter', function() {
-                          setTimeout(function() {
-                            checkForOverlay(value);
-                          }, 260);
-                       })
-                  }
-              }, 502);
+       function addOverlayToMouseEvents() {
+            $('.bt-nav-item > a').each(function(index, value) {
 
-            });
-          $(value).on('mouseleave', function() {
-              setTimeout(function() {
-                 checkForOverlay(value);
-              }, 260);
-          });
-           $(value).siblings('div').on('mouseleave', function() {
-              setTimeout(function() {
-                  checkForOverlay(value);
-              }, 260);
-          });
-  
-       });
-       function checkForOverlay(listItem) {
-              if (!$(listItem).hasClass('open') && !$(listItem).siblings('div').hasClass('open')) {
-                  $('#nav-overlay').remove();
-              }
+                      $(value).on('mouseover', function() {
+                          setTimeout(function() {
+                              if ($(value).siblings('div').hasClass('open') && !$('#nav-overlay').length) {
+                                $('<div id="nav-overlay"></div>').insertAfter('.catalog-links');
+                                $('#nav-overlay').css({
+                                    position: 'absolute',
+                                    left: 0,
+                                    width: '100%',
+                                    height: '100%',
+                                    display: 'none',
+                                    backgroundColor: 'black',
+                                    opacity: '.5',
+                                    zIndex: 1
+                                }).fadeIn(500);
+                                 $('#nav-overlay').on('mouseenter', function() {
+                                      setTimeout(function() {
+                                        checkForOverlay(value);
+                                      }, 260);
+                                   })
+                              }
+                            if ($('#nav-overlay').length && $(value).siblings('div').hasClass('open')) {
+                                $('#nav-overlay').fadeIn(500);
+                            }
+                          }, 600);
+
+                        });
+                      $('.bt-nav-menu').on('mouseleave', function() {
+                          setTimeout(function() {
+                             checkForOverlay(value);
+                          }, 260);
+                      });
+                       $(value).siblings('div').on('mouseleave', function() {
+                          setTimeout(function() {
+                              checkForOverlay(value);
+                          }, 260);
+                      });
+
+                   });
+                   function checkForOverlay(listItem) {
+                          if (!$(listItem).hasClass('open') && !$(listItem).siblings('div').hasClass('open')) {
+                              $('#nav-overlay').fadeOut(500);
+                          }
+                   }
        }
+       addOverlayToMouseEvents();
+       
        /*$('.catalog-links > ul > li > a').attr('href', '#');
  
 (function($){
