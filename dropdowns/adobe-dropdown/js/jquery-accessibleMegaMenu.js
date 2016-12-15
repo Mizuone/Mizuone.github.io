@@ -652,7 +652,6 @@ limitations under the License.
             $(event.target)
                 .addClass(this.settings.hoverClass);
             if (screen.width > 1000 && !isTouch) {
-                
                 if ($('#nav-overlay').length && $('.bt-nav-item > a').hasClass('open') || 
                    $('.bt-nav-item > a:last').hasClass('hover')) {
                     _togglePanel.call(that, event);
@@ -688,7 +687,6 @@ limitations under the License.
                 $('html').off('keydown.accessible-megamenu');
             }
         };
-
 
         _toggleExpandedEventHandlers = function (hide) {
             var menu = this.menu;
@@ -766,6 +764,254 @@ limitations under the License.
                     .on("mouseout.accessible-megamenu", $.proxy(_mouseOutHandler, this))
                     .on("mousedown.accessible-megamenu", $.proxy(_mouseDownHandler, this))
                     .on("touchstart.accessible-megamenu",  $.proxy(_clickHandler, this));
+                $(window).resize(function() {
+                    function applyOverlay() {
+                      $('<div id="nav-overlay"></div>').insertAfter('.catalog-links');
+                        $('#nav-overlay').css({
+                            position: 'absolute',
+                            left: 0,
+                            width: '100%',
+                            height: '100%',
+                            display: 'none',
+                            backgroundColor: 'black',
+                            opacity: '.5',
+                            zIndex: 1
+                        }).fadeIn(250);
+                    }
+                    var removeAndApply = false;
+                    if (!isTouch && screen.width < 1367 && screen.width > 436) {
+                    var saveHrefAttr = [],
+                        tapCounter = 0,
+                        currentValue = "empty",
+                        previousValue = "empty",
+                        tapedTwice = false;
+                    if (!removeAndApply) {
+                        $('.catalog-links > .bt-sub-nav > a').on('touchstart', function() {
+                            location.href = $(this).attr('href');
+                        })
+                        $('.catalog-links > ul > li > a').each(function(index, value) {
+                               saveHrefAttr[index] = $(value).attr('href');
+                                $(value).attr('href', "#");
+                        });
+                       $('.bt-close-menu').on('click', function() {
+                           $('.bt-sub-nav').next().removeClass('open');
+                           $('.bt-nav-item').removeClass('open');
+                           tapCounter = 0;
+                       })
+                        $('.catalog-links > ul > li > a').each(function(index, value) {
+                           $(value).on("click", function(e) {
+                               e.preventDefault();
+                               //apply class to object on very first tap
+                               //if class is present on second tap tap counter = 1, remove it on tap counter 2
+                               currentValue = $(value);
+                               alert('0');
+                               if (!$(value).hasClass('tapped') && !$(value).hasClass('open')) {
+                                   $(value).addClass('tapped');
+                                   
+                                   if (!$('#nav-overlay').length) {
+                                       applyOverlay();
+                                   }
+
+                               }
+                               if (!$(value).hasClass('tapped') && $(value).hasClass('open')) {
+                                   $(value).addClass('tapped');
+                                   
+                                   if (!$('#nav-overlay').length) {
+                                       applyOverlay();
+                                   }
+                               }
+                                if (tapCounter === 1 && $(value).hasClass('tapped') && $(value).hasClass('open')) {
+                                    alert('1');
+                                    if (previousValue !== undefined && $(previousValue).text() !== currentValue.text()) {
+                                        $(previousValue).removeClass('tapped');
+                                        tapCounter = 2;
+                                        $(currentValue).addClass('target');
+                                        alert('1 undefined');
+                                        previousValue = $(value);
+                                        return false;
+                                    } else {
+                                       $('.catalog-links > ul > li > a').each(function(currentPos, link) {
+                                           $(link).hasClass('open') ? setTimeout(function() {$(link).next().removeClass('open')}, 100) : false;
+                                           $(link).hasClass('open') ? setTimeout(function() {$(link).removeClass('open')}, 100) : false;
+                                           setTimeout(function() {!$(link).hasClass('open') ? ($(link).removeClass('tapped'), $('#nav-overlay').fadeOut(250)) : false;}, 100)
+                                           
+                                       });
+                                        alert('1 else');
+                                    }
+
+                                    
+                                }
+                               if (tapCounter === 2 && $(value).hasClass('tapped')) {
+                                   alert('2');
+                                    if (previousValue !== undefined && $(previousValue).text() !== currentValue.text()) {
+                                        alert('2 undefined');
+                                        $(previousValue).removeClass('tapped');
+                                        $('#nav-overlay').fadeIn(250);
+                                        previousValue = currentValue;
+                                        tapCounter = 1;
+                                        return false;
+                                    } 
+                                    if ($(value).hasClass('target')) {
+                                        setTimeout(function() {$(value).next().removeClass('open')}, 100);
+                                        setTimeout(function() {$(value).removeClass('open')}, 100);
+                                        $(value).removeClass('target');
+                                    }
+                                    $(value).hasClass('open') ? setTimeout(function() {$(value).next().removeClass('open')}, 100) : false;
+                                    $(value).hasClass('open') ? setTimeout(function() {$(value).removeClass('open')}, 100) : false;
+                                   $('.catalog-links > ul > li > a').each(function(currentPos, link) {
+                                      $(link).hasClass('tapped') ? $(link).removeClass('tapped') : false;
+                                   });
+                                   $(value).addClass('tapped');
+                                   
+                                 /* if (!$(value).hasClass('open') && !$(value).siblings('div').hasClass('open')) {
+                                      $('#nav-overlay').fadeOut(500);
+                                      alert('2 if');
+                                  } else {
+                                     
+                                      alert('2 else');
+                                  }*/
+                                    $('#nav-overlay').fadeIn(250);
+                                   tapCounter = 0;
+                               }
+                               
+
+                                if(!tapedTwice) {
+                                    //_togglePanel.call(this, event, target.hasClass(this.settings.openClass));
+                                    tapedTwice = true;
+                                    tapCounter++;
+                                    previousValue = $(value);
+                                    setTimeout( function() { tapedTwice = false; $(value).attr('href', "#");}, 300);
+                                    return false;
+                                }
+                                //action on double tap goes below
+                               e.stopPropagation();
+                               e.preventDefault();
+                               $(value).attr('href', saveHrefAttr[index]);
+                               tapCounter = 0;
+                                location.href = $(value).attr('href');
+                           });
+                        });
+                        removeAndApply = true;
+                        }
+                }
+                if (isTouch) {
+                    var saveHrefAttr = [],
+                        tapCounter = 0,
+                        currentValue,
+                        previousValue,
+                        tapedTwice = false;
+                    if (screen.width < 1367 && screen.width > 436) {
+                        if (!removeAndApply) {
+                            $('.catalog-links > ul > li > a').each(function(index, value) {
+                                   saveHrefAttr[index] = $(value).attr('href');
+                                    $(value).attr('href', "#");
+                            });
+                            $('.catalog-links .bt-sub-nav > ul > li > a').on('touchstart', function() {
+                                location.href = $(this).attr('href');
+                            });
+                            $('.catalog-links .bt-sub-nav > h2 > a').on('touchstart', function() {
+                                location.href = $(this).attr('href');
+                            });
+                            $('.catalog-links .bt-sub-nav > div > ul > li > a').on('touchstart', function() {
+                                location.href = $(this).attr('href');
+                            });
+                            $('.bt-close-menu').each(function(index, value) {
+                                $(value).on('touchend', function(e) {
+                                   $('.catalog-links > ul > li > a').each(function(currentPos, link) {
+                                       $(link).hasClass('open') ? $(link).next().removeClass('open') : false;
+                                       $(link).hasClass('open') ? $(link).removeClass('open') : false;
+                                       !$(link).hasClass('open') ? $(link).removeClass('tapped') : false;
+                                   });
+                                    tapCounter = 0;
+                                })
+                            });
+                            $('.catalog-links > ul > li > a').each(function(index, value) {
+                                $(value).on('touchend', function(e) {
+                                
+                                
+                               if (!$(value).hasClass('tapped') && !$(value).hasClass('open')) {
+                                   $(value).addClass('tapped');
+                                   currentValue = $(value);
+                                   if (!$('#nav-overlay').length) {
+                                       applyOverlay();
+                                   }
+                               }
+                               if (!$(value).hasClass('tapped') && $(value).hasClass('open')) {
+                                   $(value).addClass('tapped');
+                                   currentValue = $(value);
+                                   if (!$('#nav-overlay').length) {
+                                       applyOverlay();
+                                   }
+                               }
+                                if (tapCounter === 1 && $(value).hasClass('tapped') && $(value).hasClass('open')) {
+                                    if (previousValue !== undefined && $(previousValue).text() !== currentValue.text()) {
+                                        $(previousValue).removeClass('tapped');
+                                        tapCounter = 2;
+                                        $(currentValue).addClass('target');
+                                        previousValue = $(value);
+                                        return false;
+                                    } else {
+                                       $('.catalog-links > ul > li > a').each(function(currentPos, link) {
+                                           $(link).hasClass('open') ? $(link).next().removeClass('open') : false;
+                                           $(link).hasClass('open') ? $(link).removeClass('open') : false;
+                                           !$(link).hasClass('open') ? ($(link).removeClass('tapped'), $('#nav-overlay').fadeOut(250)) : false;
+                                       });
+                                    }
+
+                                    
+                                }
+                               if (tapCounter === 2 && $(value).hasClass('tapped')) {
+                                    if (previousValue !== undefined && $(previousValue).text() !== currentValue.text()) {
+                                        $(previousValue).removeClass('tapped');
+                                        $('#nav-overlay').fadeIn(250);
+                                        previousValue = currentValue;
+                                        tapCounter = 1;
+                                        return false;
+                                    } 
+                                    if ($(value).hasClass('target')) {
+                                        
+                                        $(value).next().removeClass('open');
+                                        $(value).removeClass('open');
+                                        
+                                        $(value).removeClass('target');
+                                    }
+                                    
+                                   
+                                   $('.catalog-links > ul > li > a').each(function(currentPos, link) {
+                                      $(link).hasClass('tapped') ? $(link).removeClass('tapped') : false;
+                                   });
+                                   
+                                  if (!$(value).hasClass('open') && !$(value).siblings('div').hasClass('open')) {
+                                      $('#nav-overlay').fadeOut(500);
+                                  } else {
+                                      $('#nav-overlay').fadeIn(250);
+                                  }
+                                   $(value).addClass('tapped');
+
+                                   tapCounter = 0;
+                               }
+                                    
+                                    if(!tapedTwice) {
+                                        tapedTwice = true;
+                                        tapCounter++;
+                                        previousValue = $(value);
+                                        setTimeout( function() { tapedTwice = false; $(value).attr('href', "#");}, 300, true);
+                                        return false;
+                                    }
+                                    //action on double tap goes below
+                                       e.stopPropagation();
+                                       $(value).attr('href', saveHrefAttr[index]);
+                                        tapCounter = 0;
+                                        location.href = $(value).attr('href');
+                                 });
+                            });
+                            removeAndApply = true;
+                            }
+                         }
+                    }
+                    removeAndApply = false;
+                });
+                $(window).resize();
 
                 menu.find("hr").attr("role", "separator");
 
