@@ -910,8 +910,7 @@ limitations under the License.
                                    saveHrefAttr[index] = $(value).attr('href');
                                     $(value).attr('href', "#");
                             });
-                            $('#nav-overlay').on('touchend', function(e) {
-                                e.preventDefault();
+                            $('#nav-overlay').on('touchstart', function(e) {
                                 alert('hello')
                                 $(this).fadeOut(300);
                                 tapCounter = 0;
