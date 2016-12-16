@@ -982,7 +982,6 @@ limitations under the License.
                                    $('.catalog-links > ul > li > a').each(function(currentPos, link) {
                                       $(link).hasClass('tapped') ? $(link).removeClass('tapped') : false;
                                    });
-                                   alert('tapped 2 else');
                                  /* if (!$(value).hasClass('open') && !$(value).siblings('div').hasClass('open')) {
                                       $('#nav-overlay').fadeOut(500);
                                       alert('2 if');
