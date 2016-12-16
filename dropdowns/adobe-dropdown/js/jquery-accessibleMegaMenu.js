@@ -764,7 +764,7 @@ limitations under the License.
                     .on("mouseout.accessible-megamenu", $.proxy(_mouseOutHandler, this))
                     .on("mousedown.accessible-megamenu", $.proxy(_mouseDownHandler, this))
                     .on("touchstart.accessible-megamenu",  $.proxy(_clickHandler, this));
-                $(window).resize(function() {
+                function adept() {
                         var removeAndApply = false,
                             saveHrefAttr = [],
                             tapCounter = 0,
@@ -796,6 +796,8 @@ limitations under the License.
                             $('#nav-overlay').fadeIn(150);
                         }
                     }
+                $(window).resize(function() {
+
                     if (!isTouch && screen.width < 1367 && screen.width > 436) {
 
                     if (!removeAndApply) {
@@ -896,11 +898,6 @@ limitations under the License.
                         }
                 }
                 if (isTouch) {
-                    var saveHrefAttr = [],
-                        tapCounter = 0,
-                        currentValue,
-                        previousValue,
-                        tapedTwice = false;
                     if (screen.width < 1367 && screen.width > 436) {
                         if (!removeAndApply) {
                             $('.catalog-links > ul > li > a').each(function(index, value) {
@@ -1030,8 +1027,17 @@ limitations under the License.
                            $(value).removeClass('open'); $(value).removeClass('tapped'); $(value).removeClass('target');
                         console.log('reset');
                     });
+                    $('.catalog-links .bt-sub-nav > ul > li > a').off('touchstart');
+                    $('.catalog-links .bt-sub-nav > h2 > a').off('touchstart');
+                    $('.catalog-links .bt-sub-nav > div > ul > li > a').off('touchstart');
+                    $('.catalog-links > ul > li > a').off('touchend');
+                    $('.bt-close-menu').off('click');
+                    $('.catalog-links > ul > li > a').off('click');
+                    $('.catalog-links > .bt-sub-nav > a').on('touchstart');
                 });
                 $(window).resize();
+                }
+                adept();
 
                 menu.find("hr").attr("role", "separator");
 
