@@ -804,6 +804,7 @@ limitations under the License.
                     $('.bt-close-menu').off('click');
                     $('.catalog-links > ul > li > a').off('click');
                     $('.catalog-links > .bt-sub-nav > a').on('touchstart');
+                    
                     if (!isTouch && screen.width < 1367 && screen.width > 436) {
 
                     if (!removeAndApply) {
@@ -932,23 +933,23 @@ limitations under the License.
                             $('.catalog-links > ul > li > a').each(function(index, value) {
                                 $(value).on('touchend', function(e) {
                                     e.preventDefault();
-                                    alert('touch');
+                                    //alert('touch');
                                 currentValue = $(value);
                                     setTimeout(function() {
                                         if ($('#nav-overlay').length && $(value).siblings('div').hasClass('open')) {
                                             $(value).addClass('tapped');
-                                            alert('touch 1 overlay');
+                                            //alert('touch 1 overlay');
                                             applyOverlay();
                                         }
                                     }, 500, true);
                                if (!$(value).hasClass('tapped') && !$(value).hasClass('open')) {
                                    $(value).addClass('tapped');
-                                   alert('touch 2 overlay');
+                                   //alert('touch 2 overlay');
                                     applyOverlay();
                                }
                                if (!$(value).hasClass('tapped') && $(value).hasClass('open')) {
                                    $(value).addClass('tapped');
-                                   alert('touch 3 overlay');
+                                   //alert('touch 3 overlay');
                                     applyOverlay();
                                }
                                 if (tapCounter === 1 && $(value).hasClass('tapped') && $(value).hasClass('open')) {
@@ -957,7 +958,7 @@ limitations under the License.
                                         tapCounter = 2;
                                         $(currentValue).addClass('target');
                                         previousValue = $(value);
-                                        alert('tap 1 undefined');
+                                        //alert('tap 1 undefined');
                                         return false;
                                     } else {
                                        $('.catalog-links > ul > li > a').each(function(currentPos, link) {
@@ -965,7 +966,7 @@ limitations under the License.
                                            $(link).hasClass('open') ? $(link).removeClass('open') : false;
                                            !$(link).hasClass('open') ? ($(link).removeClass('tapped'), $('#nav-overlay').fadeOut(250)) : false;
                                        });
-                                        alert('tap 1 else');
+                                       // alert('tap 1 else');
                                     }
 
                                     
@@ -976,7 +977,7 @@ limitations under the License.
                                         $('#nav-overlay').fadeIn(250);
                                         previousValue = currentValue;
                                         tapCounter = 1;
-                                        alert('tap 2 undefined');
+                                        //alert('tap 2 undefined');
                                         return false;
                                     } 
                                     if ($(value).hasClass('target')) {
@@ -986,7 +987,7 @@ limitations under the License.
                                         $(value).removeClass('target');
                                         $('#nav-overlay').fadeOut(250);
                                         tapCounter = 0;
-                                        alert('tap 2 target');
+                                        //alert('tap 2 target');
                                         return false;
                                     }
                                     
@@ -1003,7 +1004,7 @@ limitations under the License.
                                   }*/
                                     $('#nav-overlay').fadeIn(250);
                                    $(value).addClass('tapped');
-                                   alert('tap 2 end');
+                                   //alert('tap 2 end');
 
                                    tapCounter = 0;
                                }
