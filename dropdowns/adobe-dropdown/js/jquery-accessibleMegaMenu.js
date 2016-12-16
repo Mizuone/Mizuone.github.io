@@ -764,7 +764,6 @@ limitations under the License.
                     .on("mouseout.accessible-megamenu", $.proxy(_mouseOutHandler, this))
                     .on("mousedown.accessible-megamenu", $.proxy(_mouseDownHandler, this))
                     .on("touchstart.accessible-megamenu",  $.proxy(_clickHandler, this));
-                $(window).resize(function() {
                     function applyOverlay() {
                         if (!$('#nav-overlay').length) {
                            $('body').prepend('<div id="nav-overlay"></div>');
@@ -790,6 +789,7 @@ limitations under the License.
                             $('#nav-overlay').fadeIn(150);
                         }
                     }
+                $(window).resize(function() {
                     var removeAndApply = false;
                     if (!isTouch && screen.width < 1367 && screen.width > 436) {
                     var saveHrefAttr = [],
@@ -1014,7 +1014,11 @@ limitations under the License.
                             }
                          }
                     }
+                    
                     removeAndApply = false;
+                    $('.catalog-links > ul > li > a').each(function(index, value) {
+                           $(value).removeClass('open'); $(value).removeClass('tapped'); $(value).removeClass('target');
+                    });
                 });
                 $(window).resize();
 
