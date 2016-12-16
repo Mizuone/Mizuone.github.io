@@ -78,9 +78,12 @@ $(document).ready(function() {
 
                         });
                       $('.bt-nav-menu').on('mouseleave', function() {
-                          setTimeout(function() {
-                             checkForOverlay(value);
-                          }, 260);
+                          if ($(value).hasClass('open')) {
+                              setTimeout(function() {
+                                 checkForOverlay(value);
+                                  console.log('it happens');
+                              }, 260);   
+                          }
                       });
                        $(value).siblings('div').on('mouseleave', function() {
                           setTimeout(function() {

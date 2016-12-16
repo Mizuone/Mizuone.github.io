@@ -782,6 +782,10 @@ limitations under the License.
                                 $(this).fadeOut(300);
                                 tapCounter = 0;
                             });
+                            $('#nav-overlay').on('touchmove', function() {
+                                $(this).fadeOut(300);
+                                tapCounter = 0;
+                            });
                         } else {
                             $('#nav-overlay').fadeIn(150);
                         }
