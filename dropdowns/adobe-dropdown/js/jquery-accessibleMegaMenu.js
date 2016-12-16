@@ -764,9 +764,16 @@ limitations under the License.
                     .on("mouseout.accessible-megamenu", $.proxy(_mouseOutHandler, this))
                     .on("mousedown.accessible-megamenu", $.proxy(_mouseDownHandler, this))
                     .on("touchstart.accessible-megamenu",  $.proxy(_clickHandler, this));
+                $(window).resize(function() {
+                        var removeAndApply = false,
+                            saveHrefAttr = [],
+                            tapCounter = 0,
+                            currentValue = "empty",
+                            previousValue = "empty",
+                            tapedTwice = false;
                     function applyOverlay() {
                         if (!$('#nav-overlay').length) {
-                           $('body').prepend('<div id="nav-overlay"></div>');
+                           $('<div id="nav-overlay"></div>').insertAfter('.catalog-links');
                             $('#nav-overlay').css({
                                 position: 'absolute',
                                 left: 0,
@@ -789,14 +796,8 @@ limitations under the License.
                             $('#nav-overlay').fadeIn(150);
                         }
                     }
-                $(window).resize(function() {
-                    var removeAndApply = false;
                     if (!isTouch && screen.width < 1367 && screen.width > 436) {
-                    var saveHrefAttr = [],
-                        tapCounter = 0,
-                        currentValue = "empty",
-                        previousValue = "empty",
-                        tapedTwice = false;
+
                     if (!removeAndApply) {
                         $('.catalog-links > .bt-sub-nav > a').on('touchstart', function() {
                             location.href = $(this).attr('href');

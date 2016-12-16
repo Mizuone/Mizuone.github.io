@@ -86,9 +86,11 @@ $(document).ready(function() {
                           }
                       });
                        $(value).siblings('div').on('mouseleave', function() {
-                          setTimeout(function() {
-                              checkForOverlay(value);
-                          }, 260);
+                           if (!$(value).hasClass('open')) {
+                              setTimeout(function() {
+                                  checkForOverlay(value);
+                              }, 260);   
+                           }
                       });
 
                    });
