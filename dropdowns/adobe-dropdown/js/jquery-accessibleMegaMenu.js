@@ -651,7 +651,7 @@ limitations under the License.
             
             $(event.target)
                 .addClass(this.settings.hoverClass);
-            if (screen.width > 1000 && !isTouch) {
+            if (screen.width > 1367 && !isTouch) {
                 if ($('#nav-overlay').length && $('.bt-nav-item > a').hasClass('open') || 
                    $('.bt-nav-item > a:last').hasClass('hover')) {
                     _togglePanel.call(that, event);
@@ -765,12 +765,13 @@ limitations under the License.
                     .on("mousedown.accessible-megamenu", $.proxy(_mouseDownHandler, this))
                     .on("touchstart.accessible-megamenu",  $.proxy(_clickHandler, this));
                 function adept() {
-                        var removeAndApply = false,
-                            saveHrefAttr = [],
+                        var saveHrefAttr = [],
                             tapCounter = 0,
                             currentValue = "empty",
                             previousValue = "empty",
-                            tapedTwice = false;
+                            tapedTwice = false,
+                            inAreaNonTouch = true,
+                            inAreaTouch = true
                     function applyOverlay() {
                         if (!$('#nav-overlay').length) {
                            $('<div id="nav-overlay"></div>').insertAfter('.catalog-links');
@@ -800,114 +801,114 @@ limitations under the License.
                     $('.catalog-links .bt-sub-nav > ul > li > a').off('touchstart');
                     $('.catalog-links .bt-sub-nav > h2 > a').off('touchstart');
                     $('.catalog-links .bt-sub-nav > div > ul > li > a').off('touchstart');
-                    $('.catalog-links > ul > li > a').off('touchend');
+                    
                     $('.bt-close-menu').off('click');
                     $('.catalog-links > ul > li > a').off('click');
-                    $('.catalog-links > .bt-sub-nav > a').on('touchstart');
-                    
                     if (!isTouch && screen.width < 1367 && screen.width > 436) {
-
-                    if (!removeAndApply) {
-                        $('.catalog-links > .bt-sub-nav > a').on('touchstart', function() {
-                            location.href = $(this).attr('href');
-                        })
-                        $('.catalog-links > ul > li > a').each(function(index, value) {
-                               saveHrefAttr[index] = $(value).attr('href');
-                                $(value).attr('href', "#");
-                        });
-                       $('.bt-close-menu').on('click', function() {
-                           $('.bt-sub-nav').next().removeClass('open');
-                           $('.bt-nav-item').removeClass('open');
-                           tapCounter = 0;
-                       });
-                        $('.catalog-links > ul > li > a').each(function(index, value) {
-                           $(value).on("click", function(e) {
-                               e.preventDefault();
-                               //apply class to object on very first tap
-                               //if class is present on second tap tap counter = 1, remove it on tap counter 2
-                               currentValue = $(value);
-                               if (!$(value).hasClass('tapped') && !$(value).hasClass('open')) {
-                                   $(value).addClass('tapped');
-                                    applyOverlay();
-
-                               }
-                               if (!$(value).hasClass('tapped') && $(value).hasClass('open')) {
-                                   $(value).addClass('tapped');
-                                    applyOverlay();
-                               }
-                                if (tapCounter === 1 && $(value).hasClass('tapped') && $(value).hasClass('open')) {
-                                    if (previousValue !== undefined && $(previousValue).text() !== currentValue.text()) {
-                                        $(previousValue).removeClass('tapped');
-                                        tapCounter = 2;
-                                        $(currentValue).addClass('target');
-                                        previousValue = $(value);
-                                        return false;
-                                    } else {
-                                       $('.catalog-links > ul > li > a').each(function(currentPos, link) {
-                                           $(link).hasClass('open') ? setTimeout(function() {$(link).next().removeClass('open')}, 100) : false;
-                                           $(link).hasClass('open') ? setTimeout(function() {$(link).removeClass('open')}, 100) : false;
-                                           setTimeout(function() {!$(link).hasClass('open') ? ($(link).removeClass('tapped'), $('#nav-overlay').fadeOut(250)) : false;}, 100)
-                                           
-                                       });
-                                    }
-
-                                    
-                                }
-                               if (tapCounter === 2 && $(value).hasClass('tapped')) {
-                                    if (previousValue !== undefined && $(previousValue).text() !== currentValue.text()) {
-                                        $(previousValue).removeClass('tapped');
-                                        $('#nav-overlay').fadeIn(250);
-                                        previousValue = currentValue;
-                                        tapCounter = 1;
-                                        return false;
-                                    } 
-                                    if ($(value).hasClass('target')) {
-                                        setTimeout(function() {$(value).next().removeClass('open')}, 100);
-                                        setTimeout(function() {$(value).removeClass('open')}, 100);
-                                        $(value).removeClass('target');
-                                    }
-                                    $(value).hasClass('open') ? setTimeout(function() {$(value).next().removeClass('open')}, 100) : false;
-                                    $(value).hasClass('open') ? setTimeout(function() {$(value).removeClass('open')}, 100) : false;
-                                   $('.catalog-links > ul > li > a').each(function(currentPos, link) {
-                                      $(link).hasClass('tapped') ? $(link).removeClass('tapped') : false;
-                                   });
-                                   $(value).addClass('tapped');
-                                   
-                                 /* if (!$(value).hasClass('open') && !$(value).siblings('div').hasClass('open')) {
-                                      $('#nav-overlay').fadeOut(500);
-                                      alert('2 if');
-                                  } else {
-                                     
-                                      alert('2 else');
-                                  }*/
-                                    $('#nav-overlay').fadeIn(250);
-                                   tapCounter = 0;
-                               }
-                               
-
-                                if(!tapedTwice) {
-                                    //_togglePanel.call(this, event, target.hasClass(this.settings.openClass));
-                                    tapedTwice = true;
-                                    tapCounter++;
-                                    previousValue = $(value);
-                                    setTimeout( function() { tapedTwice = false; $(value).attr('href', "#");}, 300);
-                                    return false;
-                                }
-                                //action on double tap goes below
-                               e.stopPropagation();
-                               e.preventDefault();
-                               $(value).attr('href', saveHrefAttr[index]);
-                               tapCounter = 0;
-                                location.href = $(value).attr('href');
-                           });
-                        });
-                        removeAndApply = true;
-                        }
-                }
-                if (isTouch) {
-                    if (screen.width < 1367 && screen.width > 436) {
-                        if (!removeAndApply) {
+                        //add a toggle instead of remove and Apply, if its within these conditions add a inArea
+                        if (inAreaNonTouch) {
+                            console.log('inside');
                             $('.catalog-links > ul > li > a').each(function(index, value) {
+                                   saveHrefAttr[index] = $(value).attr('href');
+                                    $(value).attr('href', "#");
+                            });
+                           $('.bt-close-menu').on('click', function() {
+                               $('.bt-sub-nav').next().removeClass('open');
+                               $('.bt-nav-item').removeClass('open');
+                               tapCounter = 0;
+                           });
+                            $('.catalog-links > ul > li > a').each(function(index, value) {
+                               $(value).on("click", function(e) {
+                                   console.log(e);
+                                   e.preventDefault();
+                                   //apply class to object on very first tap
+                                   //if class is present on second tap tap counter = 1, remove it on tap counter 2
+                                   currentValue = $(value);
+                                   if (!$(value).hasClass('tapped') && !$(value).hasClass('open')) {
+                                       $(value).addClass('tapped');
+                                        applyOverlay();
+
+                                   }
+                                   if (!$(value).hasClass('tapped') && $(value).hasClass('open')) {
+                                       $(value).addClass('tapped');
+                                        applyOverlay();
+                                   }
+                                    if (tapCounter === 1 && $(value).hasClass('tapped') && $(value).hasClass('open')) {
+                                        if (previousValue !== undefined && $(previousValue).text() !== currentValue.text()) {
+                                            $(previousValue).removeClass('tapped');
+                                            tapCounter = 2;
+                                            $(currentValue).addClass('target');
+                                            previousValue = $(value);
+                                            return false;
+                                        } else {
+                                           $('.catalog-links > ul > li > a').each(function(currentPos, link) {
+                                               $(link).hasClass('open') ? setTimeout(function() {$(link).next().removeClass('open')}, 100) : false;
+                                               $(link).hasClass('open') ? setTimeout(function() {$(link).removeClass('open')}, 100) : false;
+                                               setTimeout(function() {!$(link).hasClass('open') ? ($(link).removeClass('tapped'), $('#nav-overlay').fadeOut(250)) : false;}, 100)
+
+                                           });
+                                        }
+
+
+                                    }
+                                   if (tapCounter === 2 && $(value).hasClass('tapped')) {
+                                        if (previousValue !== undefined && $(previousValue).text() !== currentValue.text()) {
+                                            $(previousValue).removeClass('tapped');
+                                            $('#nav-overlay').fadeIn(250);
+                                            previousValue = currentValue;
+                                            tapCounter = 1;
+                                            return false;
+                                        } 
+                                        if ($(value).hasClass('target')) {
+                                            setTimeout(function() {$(value).next().removeClass('open')}, 100);
+                                            setTimeout(function() {$(value).removeClass('open')}, 100);
+                                            $(value).removeClass('target');
+                                        }
+                                        $(value).hasClass('open') ? setTimeout(function() {$(value).next().removeClass('open')}, 100) : false;
+                                        $(value).hasClass('open') ? setTimeout(function() {$(value).removeClass('open')}, 100) : false;
+                                       $('.catalog-links > ul > li > a').each(function(currentPos, link) {
+                                          $(link).hasClass('tapped') ? $(link).removeClass('tapped') : false;
+                                       });
+                                       $(value).addClass('tapped');
+
+                                     /* if (!$(value).hasClass('open') && !$(value).siblings('div').hasClass('open')) {
+                                          $('#nav-overlay').fadeOut(500);
+                                          alert('2 if');
+                                      } else {
+
+                                          alert('2 else');
+                                      }*/
+                                        $('#nav-overlay').fadeIn(250);
+                                       tapCounter = 0;
+                                   }
+
+                                   console.log(tapCounter);
+                                    if(!tapedTwice) {
+                                        //_togglePanel.call(this, event, target.hasClass(this.settings.openClass));
+                                        tapedTwice = true;
+                                        tapCounter++;
+                                        previousValue = $(value);
+                                        console.log(tapedTwice);
+                                        setTimeout( function() { tapedTwice = false; $(value).attr('href', "#"); console.log(tapedTwice);}, 300);
+                                        return false;
+                                    }
+                                    //action on double tap goes below
+                                   e.stopPropagation();
+                                   e.preventDefault();
+                                   $(value).attr('href', saveHrefAttr[index]);
+                                   tapCounter = 0;
+                                    location.href = $(value).attr('href');
+                               });
+                            });
+                            inAreaNonTouch = false;
+                            }
+                        }
+                    //Toggles between viewports for nontouch objects
+                    screen.width > 1367 ? inAreaNonTouch = true : false;
+                if (isTouch && screen.width < 1367 && screen.width > 436) {
+                        if (inAreaTouch) {
+                            $('.catalog-links > ul > li > a').each(function(index, value) {
+                                console.log($(value).attr('href'));
                                    saveHrefAttr[index] = $(value).attr('href');
                                     $(value).attr('href', "#");
                             });
@@ -1017,22 +1018,21 @@ limitations under the License.
                                         return false;
                                     }
                                     //action on double tap goes below
-                                        e.preventDefault();
+                                       e.preventDefault();
                                        e.stopPropagation();
                                        $(value).attr('href', saveHrefAttr[index]);
                                         tapCounter = 0;
                                         location.href = $(value).attr('href');
                                  });
                             });
-                            removeAndApply = true;
+                            inAreaTouch = false;
                             }
-                         }
                     }
+                    //Toggles between viewports for touch objects
+                    screen.width > 1367 ? inAreaTouch = true : false;
                     
-                    removeAndApply = false;
                     $('.catalog-links > ul > li > a').each(function(index, value) {
                            $(value).removeClass('open'); $(value).removeClass('tapped'); $(value).removeClass('target');
-                        console.log('reset');
                     });
                 });
                 $(window).resize();
