@@ -4,21 +4,6 @@ $(document).ready(function() {
        var getAllNavItems = document.querySelectorAll('.catalog-links > a'),
            getHamburgerItems = document.querySelectorAll("ul#hamburgerMenuList > li");
 
-        $("#catalog-links-").wrapInner("<ul class=bt-nav-menu></ul>");              
-        $("#catalog-links- ul").css({
-            display: "flex",
-            listStyleType: "inherit",
-            marginBefore: "inherit",
-            marginAfter: "inheirt",
-            marginStart: "inherit",
-            marginEnd: "inherit",
-            paddingStart: "inherit",
-            justifyContent: "space-around",
-            alignItems: "center",
-            width: "100%",
-            marginLeft: "0",
-            marginRight: "0"
-        });
        /* Creates each SubNav for the Menu
        * @param currentIndex, Nav Item Number
        */
@@ -49,11 +34,6 @@ $(document).ready(function() {
                                  $('.sub-nav-'+colIn+' .'+classString+'').append('<li class="subcata-item"><a class="subcata-item-link" href="'+$(value).children('a').attr('href')+'" onclick="'+$(value).children('a').attr('onclick')+'">'+$(value).children('a').text().trim()+'</a></li>');
                                }
                         });
-                           $('.sub-nav-'+colIn+').css({
-                                maxHeight: '350px',
-                                overflowY: 'scroll',
-                                overflowX: 'hidden'
-                           });
                         //Splitter
                         //Adds the title of the category that was newly created
                         //Adds a promo container to the end of column list
@@ -196,7 +176,7 @@ $(document).ready(function() {
             if (screen.width < 1067 && screen.width > 436) {
                 if ($('.sub-nav-'+colIn+'').children('ul, div').length > 6) {
                     $('.sub-nav-'+colIn+'').css('width', '100%');
-                    $('.sub-nav-'+colIn+' > ul:not(ul.bt-sub-nav-group-promo)').css('width', '23%');
+                    $('.sub-nav-'+colIn+' > ul:not(ul.bt-sub-nav-group-promo)').css('width', '18%');
                 }
                 if ($('.sub-nav-'+colIn+'').children('ul, div').length <= 6) {
                     $('.sub-nav-'+colIn+'').css('width', '100%');
@@ -233,18 +213,26 @@ $(document).ready(function() {
       /* Adds Support for Touch Events and click events to simulate touch screens accessability.
        * This allows the dropdown to adept to each enviornment, if stetched to different viewports as well.
        */
+        function turnOffNonTouchEvents() {
+            $('.catalog-links > ul > li > a').off('click');
+        }
+       function turnOffTouchEvents() {
+            $('.catalog-links .bt-sub-nav > ul > li > a').off('touchstart');
+            $('.catalog-links .bt-sub-nav > h2 > a').on('touchstart');
+            $('.catalog-links .bt-sub-nav > div > ul > li > a').on('touchstart');
+            $('.bt-close-menu').off('touchend');
+            $('.catalog-links > ul > li > a').off('touchend');
+       }
        function Adept() {
            getAllNavItems = document.querySelectorAll('.catalog-links > ul > li > a');
            var isTouch = typeof window.hasOwnProperty === "function" && !!window.hasOwnProperty("ontouchstart"),
-               removeAndApply = false,
-               tapCounter = 0;
-           if (isTouch) {
-               $('.bt-sub-nav').css({
-                    maxHeight: '350px',
-                    overflowY: 'scroll',
-                    overflowX: 'hidden'
-               });
-           }
+                saveHrefAttr = [],
+                tapCounter = 0,
+                currentValue = "empty",
+                previousValue = "empty",
+                tapedTwice = false,
+                inAreaNonTouch = true,
+                inAreaTouch = true;
             function applyOverlay() {
                 if (!$('#nav-overlay').length) {
                    $('body').prepend('<div id="nav-overlay"></div>');
@@ -252,14 +240,19 @@ $(document).ready(function() {
                         position: 'absolute',
                         left: 0,
                         width: '100%',
-                        height: '100%',
+                        height: document.body.offsetHeight - 20 + 'px',
                         display: 'none',
                         backgroundColor: 'black',
                         opacity: '.5',
-                        zIndex: 1
+                        zIndex: 1,
+                        transform: 'translate3d(0,0,0)'
                     }).fadeIn(150);
                     $('#nav-overlay').on('touchstart', function() {
-                        $(this).fadeOut(300);
+                        $(this).fadeOut(200);
+                        tapCounter = 0;
+                    });
+                    $('#nav-overlay').on('touchmove', function() {
+                        $(this).fadeOut(200);
                         tapCounter = 0;
                     });
                 } else {
@@ -273,10 +266,11 @@ $(document).ready(function() {
                            $(value).remove();
                        }
                    });
-               } 
+               }
+              //Move the home sub-nav to the right, for accessability issues on higher viewports
+              screen.width > 1367 ? $('sub-nav-10').css({right: '5%', left: 'inherit'}) : $('sub-nav-10').css({right: '0', left: '0'});
               for (var i = 0; i < getAllNavItems.length; i++) {
                    Compressor(i);
-                  console.log('working for loop')
                    if (screen.width < 1367 && screen.width > 436) {
                         $('.sub-nav-'+i+'').append('<img alt="Close Button" src="/wcsstore/BonTon/images/categories/_shared/2016/10/ic_clear_black_48dp.png" class="bt-close-menu" width="64" height="64">');
                         $('.sub-nav-'+i+' .bt-close-menu').css({position: 'absolute', right: 0, left: '94%', top: 0});
@@ -285,122 +279,110 @@ $(document).ready(function() {
                        $('.sub-nav-'+i+'').children('img').remove();
                    } 
               }
-                if (!isTouch && screen.width < 1367 && screen.width > 436) {
-                    var saveHrefAttr = [],
-                        currentValue = "empty",
-                        previousValue = "empty",
-                        tapedTwice = false;
-                    if (!removeAndApply) {
-                        $('.catalog-links > .bt-sub-nav > a').on('touchstart', function() {
-                            location.href = $(this).attr('href');
-                        })
-                        $('.catalog-links > ul > li > a').each(function(index, value) {
-                               saveHrefAttr[index] = $(value).attr('href');
-                                $(value).attr('href', "#");
-                        });
-                       $('.bt-close-menu').on('click', function() {
-                           $('.bt-sub-nav').next().removeClass('open');
-                           $('.bt-nav-item').removeClass('open');
-                           tapCounter = 0;
-                       })
-                        $('.catalog-links > ul > li > a').each(function(index, value) {
-                           $(value).on("click", function(e) {
-                               e.preventDefault();
-                               //apply class to object on very first tap
-                               //if class is present on second tap tap counter = 1, remove it on tap counter 2
-                               currentValue = $(value);
-                               if (!$(value).hasClass('tapped') && !$(value).hasClass('open')) {
-                                   $(value).addClass('tapped');
-                                   
-                                   if (!$('#nav-overlay').length) {
-                                       applyOverlay();
-                                   }
-
-                               }
-                               if (!$(value).hasClass('tapped') && $(value).hasClass('open')) {
-                                   $(value).addClass('tapped');
-                                   
-                                   if (!$('#nav-overlay').length) {
-                                       applyOverlay();
-                                   }
-                               }
-                                if (tapCounter === 1 && $(value).hasClass('tapped') && $(value).hasClass('open')) {
-                                    if (previousValue !== undefined && $(previousValue).text() !== currentValue.text()) {
-                                        $(previousValue).removeClass('tapped');
-                                        tapCounter = 2;
-                                        $(currentValue).addClass('target');
-                                        previousValue = $(value);
-                                        return false;
-                                    } else {
-                                       $('.catalog-links > ul > li > a').each(function(currentPos, link) {
-                                           $(link).hasClass('open') ? setTimeout(function() {$(link).next().removeClass('open')}, 100) : false;
-                                           $(link).hasClass('open') ? setTimeout(function() {$(link).removeClass('open')}, 100) : false;
-                                           setTimeout(function() {!$(link).hasClass('open') ? ($(link).removeClass('tapped'), $('#nav-overlay').fadeOut(250)) : false;}, 100)
-                                           
-                                       });
-                                    }
-
-                                    
-                                }
-                               if (tapCounter === 2 && $(value).hasClass('tapped')) {
-                                    if (previousValue !== undefined && $(previousValue).text() !== currentValue.text()) {
-                                        $(previousValue).removeClass('tapped');
-                                        $('#nav-overlay').fadeIn(250);
-                                        previousValue = currentValue;
-                                        tapCounter = 1;
-                                        return false;
-                                    } 
-                                    if ($(value).hasClass('target')) {
-                                        setTimeout(function() {$(value).next().removeClass('open')}, 100);
-                                        setTimeout(function() {$(value).removeClass('open')}, 100);
-                                        $(value).removeClass('target');
-                                    }
-                                    $(value).hasClass('open') ? setTimeout(function() {$(value).next().removeClass('open')}, 100) : false;
-                                    $(value).hasClass('open') ? setTimeout(function() {$(value).removeClass('open')}, 100) : false;
-                                   $('.catalog-links > ul > li > a').each(function(currentPos, link) {
-                                      $(link).hasClass('tapped') ? $(link).removeClass('tapped') : false;
-                                   });
-                                   $(value).addClass('tapped');
-                                   
-                                 /* if (!$(value).hasClass('open') && !$(value).siblings('div').hasClass('open')) {
-                                      $('#nav-overlay').fadeOut(500);
-                                      alert('2 if');
-                                  } else {
-                                     
-                                      alert('2 else');
-                                  }*/
-                                    $('#nav-overlay').fadeIn(250);
-                                   tapCounter = 0;
-                               }
-                               
-
-                                if(!tapedTwice) {
-                                    //_togglePanel.call(this, event, target.hasClass(this.settings.openClass));
-                                    tapedTwice = true;
-                                    tapCounter++;
-                                    previousValue = $(value);
-                                    setTimeout( function() { tapedTwice = false; $(value).attr('href', "#");}, 300);
-                                    return false;
-                                }
-                                //action on double tap goes below
-                               e.stopPropagation();
-                               e.preventDefault();
-                               $(value).attr('href', saveHrefAttr[index]);
-                               tapCounter = 0;
-                                location.href = $(value).attr('href');
-                           });
-                        });
-                        removeAndApply = true;
-                        }
-                }
-                if (isTouch) {
-                    var saveHrefAttr = [],
-                        currentValue,
-                        previousValue,
-                        tapedTwice = false;
-                    if (screen.width < 1367 && screen.width > 436) {
-                        if (!removeAndApply) {
+                    if (!isTouch && screen.width < 1367 && screen.width > 436) {
+                        if (inAreaNonTouch) {
+                            turnOffNonTouchEvents();
                             $('.catalog-links > ul > li > a').each(function(index, value) {
+                                   saveHrefAttr[index] = $(value).attr('href');
+                                    $(value).attr('href', "#");
+                            });
+                           $('.bt-close-menu').on('click', function() {
+                               $('.bt-sub-nav').next().removeClass('open');
+                               $('.bt-nav-item').removeClass('open');
+                               $('#nav-overlay').fadeOut(200);
+                               tapCounter = 0;
+                           });
+                            $('.catalog-links > ul > li > a').each(function(index, value) {
+                               $(value).on("click", function(e) {
+                                   e.preventDefault();
+                                   currentValue = $(value);
+                                   if (!$(value).hasClass('tapped') && !$(value).hasClass('open')) {
+                                       $(value).addClass('tapped');
+                                        applyOverlay();
+
+                                   }
+                                   if (!$(value).hasClass('tapped') && $(value).hasClass('open')) {
+                                       $(value).addClass('tapped');
+                                        applyOverlay();
+                                   }
+                                    if (tapCounter === 1 && $(value).hasClass('tapped') && $(value).hasClass('open')) {
+                                        if (previousValue !== undefined && $(previousValue).text() !== currentValue.text()) {
+                                            $(previousValue).removeClass('tapped');
+                                            tapCounter = 2;
+                                            $(currentValue).addClass('target');
+                                            previousValue = $(value);
+                                            return false;
+                                        } else {
+                                           $('.catalog-links > ul > li > a').each(function(currentPos, link) {
+                                               $(link).hasClass('open') ? setTimeout(function() {$(link).next().removeClass('open')}, 100) : false;
+                                               $(link).hasClass('open') ? setTimeout(function() {$(link).removeClass('open')}, 100) : false;
+                                               setTimeout(function() {!$(link).hasClass('open') ? ($(link).removeClass('tapped'), $('#nav-overlay').fadeOut(200)) : false;}, 100)
+
+                                           });
+                                        }
+
+
+                                    }
+                                   if (tapCounter === 2 && $(value).hasClass('tapped')) {
+                                        if (previousValue !== undefined && $(previousValue).text() !== currentValue.text()) {
+                                            $(previousValue).removeClass('tapped');
+                                            $('#nav-overlay').fadeIn(200);
+                                            previousValue = currentValue;
+                                            tapCounter = 1;
+                                            return false;
+                                        } 
+                                        if ($(value).hasClass('target')) {
+                                            setTimeout(function() {$(value).next().removeClass('open')}, 100);
+                                            setTimeout(function() {$(value).removeClass('open')}, 100);
+                                            $(value).removeClass('target');
+                                        }
+                                        $(value).hasClass('open') ? setTimeout(function() {$(value).next().removeClass('open')}, 100) : false;
+                                        $(value).hasClass('open') ? setTimeout(function() {$(value).removeClass('open')}, 100) : false;
+                                       $('.catalog-links > ul > li > a').each(function(currentPos, link) {
+                                          $(link).hasClass('tapped') ? $(link).removeClass('tapped') : false;
+                                       });
+                                       $(value).addClass('tapped');
+
+                                     /* if (!$(value).hasClass('open') && !$(value).siblings('div').hasClass('open')) {
+                                          $('#nav-overlay').fadeOut(500);
+                                          alert('2 if');
+                                      } else {
+
+                                          alert('2 else');
+                                      }*/
+                                        $('#nav-overlay').fadeIn(200);
+                                       tapCounter = 0;
+                                   }
+
+                                   console.log(tapCounter);
+                                    if(!tapedTwice) {
+                                        //_togglePanel.call(this, event, target.hasClass(this.settings.openClass));
+                                        tapedTwice = true;
+                                        tapCounter++;
+                                        previousValue = $(value);
+                                        console.log(tapedTwice);
+                                        setTimeout( function() { tapedTwice = false; $(value).attr('href', "#"); console.log(tapedTwice);}, 300);
+                                        return false;
+                                    }
+                                    //action on double tap goes below
+                                   e.stopPropagation();
+                                   e.preventDefault();
+                                   $(value).attr('href', saveHrefAttr[index]);
+                                   tapCounter = 0;
+                                   $('#nav-overlay').fadeOut(0);
+                                    location.href = $(value).attr('href');
+                               });
+                            });
+                            inAreaNonTouch = false;
+                            }
+                        }
+                    //Toggles between viewports for nontouch objects
+                    screen.width > 1367 ? inAreaNonTouch = true : false;
+                if (isTouch && screen.width < 1367 && screen.width > 436) {
+                        if (inAreaTouch) {
+                            turnOffTouchEvents();
+                            $('.catalog-links > ul > li > a').each(function(index, value) {
+                                console.log($(value).attr('href'));
                                    saveHrefAttr[index] = $(value).attr('href');
                                     $(value).attr('href', "#");
                             });
@@ -420,25 +402,30 @@ $(document).ready(function() {
                                        $(link).hasClass('open') ? $(link).removeClass('open') : false;
                                        !$(link).hasClass('open') ? $(link).removeClass('tapped') : false;
                                    });
+                                    $('#nav-overlay').fadeOut(200);
                                     tapCounter = 0;
                                 })
                             });
                             $('.catalog-links > ul > li > a').each(function(index, value) {
                                 $(value).on('touchend', function(e) {
                                     e.preventDefault();
+                                    //alert('touch');
                                 currentValue = $(value);
                                     setTimeout(function() {
                                         if ($('#nav-overlay').length && $(value).siblings('div').hasClass('open')) {
                                             $(value).addClass('tapped');
+                                            //alert('touch 1 overlay');
                                             applyOverlay();
                                         }
                                     }, 500, true);
                                if (!$(value).hasClass('tapped') && !$(value).hasClass('open')) {
                                    $(value).addClass('tapped');
+                                   //alert('touch 2 overlay');
                                     applyOverlay();
                                }
                                if (!$(value).hasClass('tapped') && $(value).hasClass('open')) {
                                    $(value).addClass('tapped');
+                                   //alert('touch 3 overlay');
                                     applyOverlay();
                                }
                                 if (tapCounter === 1 && $(value).hasClass('tapped') && $(value).hasClass('open')) {
@@ -447,13 +434,15 @@ $(document).ready(function() {
                                         tapCounter = 2;
                                         $(currentValue).addClass('target');
                                         previousValue = $(value);
+                                        //alert('tap 1 undefined');
                                         return false;
                                     } else {
                                        $('.catalog-links > ul > li > a').each(function(currentPos, link) {
                                            $(link).hasClass('open') ? $(link).next().removeClass('open') : false;
                                            $(link).hasClass('open') ? $(link).removeClass('open') : false;
-                                           !$(link).hasClass('open') ? ($(link).removeClass('tapped'), $('#nav-overlay').fadeOut(250)) : false;
+                                           !$(link).hasClass('open') ? ($(link).removeClass('tapped'), $('#nav-overlay').fadeOut(200)) : false;
                                        });
+                                       // alert('tap 1 else');
                                     }
 
                                     
@@ -464,6 +453,7 @@ $(document).ready(function() {
                                         $('#nav-overlay').fadeIn(250);
                                         previousValue = currentValue;
                                         tapCounter = 1;
+                                        //alert('tap 2 undefined');
                                         return false;
                                     } 
                                     if ($(value).hasClass('target')) {
@@ -471,8 +461,9 @@ $(document).ready(function() {
                                         $(value).next().removeClass('open');
                                         $(value).removeClass('open');
                                         $(value).removeClass('target');
-                                        $('#nav-overlay').fadeOut(250);
+                                        $('#nav-overlay').fadeOut(200);
                                         tapCounter = 0;
+                                        //alert('tap 2 target');
                                         return false;
                                     }
                                     
@@ -487,8 +478,9 @@ $(document).ready(function() {
                                      
                                       alert('2 else');
                                   }*/
-                                    $('#nav-overlay').fadeIn(250);
+                                    $('#nav-overlay').fadeIn(200);
                                    $(value).addClass('tapped');
+                                   //alert('tap 2 end');
 
                                    tapCounter = 0;
                                }
@@ -501,27 +493,17 @@ $(document).ready(function() {
                                         return false;
                                     }
                                     //action on double tap goes below
-                                        e.preventDefault();
+                                       e.preventDefault();
                                        e.stopPropagation();
                                        $(value).attr('href', saveHrefAttr[index]);
                                         tapCounter = 0;
+                                        $('#nav-overlay').fadeOut(0);
                                         location.href = $(value).attr('href');
                                  });
                             });
-                            removeAndApply = true;
+                            inAreaTouch = false;
                             }
-                         }
                     }
-                    removeAndApply = false;
-                if (screen.width > 1367) {
-                    $('.catalog-links .bt-sub-nav > ul > li > a').off('touchstart');
-                    $('.catalog-links .bt-sub-nav > h2 > a').off('touchstart');
-                    $('.catalog-links .bt-sub-nav > div > ul > li > a').off('touchstart');
-                    $('.catalog-links > ul > li > a').off('touchend');
-                    $('.bt-close-menu').off('click');
-                    $('.catalog-links > ul > li > a').off('click');
-                    $('.catalog-links > .bt-sub-nav > a').on('touchstart');
-                }
            });
            $(window).resize();
        }
@@ -541,37 +523,58 @@ $(document).ready(function() {
                                     backgroundColor: 'black',
                                     opacity: '.5',
                                     zIndex: 2
-                                }).fadeIn(500);
+                                }).fadeIn(200);
                                  $('#nav-overlay').on('mouseenter', function() {
                                       setTimeout(function() {
                                         checkForOverlay(value);
                                       }, 260);
-                                   })
+                                   });
                               }
                             if ($('#nav-overlay').length && $(value).siblings('div').hasClass('open')) {
-                                $('#nav-overlay').fadeIn(500);
+                                $('#nav-overlay').fadeIn(200);
                             }
                           }, 600);
 
                         });
                       $('.bt-nav-menu').on('mouseleave', function() {
-                          setTimeout(function() {
-                             checkForOverlay(value);
-                          }, 260);
+                          if ($(value).hasClass('open')) {
+                              setTimeout(function() {
+                                 checkForOverlay(value);
+                                  console.log('it happens');
+                              }, 260);   
+                          }
                       });
                        $(value).siblings('div').on('mouseleave', function() {
-                          setTimeout(function() {
-                              checkForOverlay(value);
-                          }, 260);
+                           if (!$(value).hasClass('open')) {
+                              setTimeout(function() {
+                                  checkForOverlay(value);
+                              }, 260);   
+                           }
                       });
 
                    });
                    function checkForOverlay(listItem) {
                           if (!$(listItem).hasClass('open') && !$(listItem).siblings('div').hasClass('open')) {
-                              $('#nav-overlay').fadeOut(500);
+                              $('#nav-overlay').fadeOut(200);
                           }
                    }
        }
+       if (!$('.bt-nav-menu').length) {
+            $("#catalog-links-").wrapInner("<ul class=bt-nav-menu></ul>");              
+            $("#catalog-links- ul").css({
+                display: "flex",
+                listStyleType: "inherit",
+                marginBefore: "inherit",
+                marginAfter: "inheirt",
+                marginStart: "inherit",
+                marginEnd: "inherit",
+                paddingStart: "inherit",
+                justifyContent: "space-around",
+                alignItems: "center",
+                width: "100%",
+                marginLeft: "0",
+                marginRight: "0"
+            });
        //settimeout is added because featured brands loads after the DOM
        setTimeout(function() {
             for (var i = 0; i < getAllNavItems.length; i++) {
@@ -627,7 +630,8 @@ $(document).ready(function() {
             });
            addOverlayToMouseEvents();
            Adept();
-       }, 200);
+       }, 300);
+    }
    })();
 });
 /*
