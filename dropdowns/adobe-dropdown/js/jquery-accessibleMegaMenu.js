@@ -1034,6 +1034,7 @@ limitations under the License.
                     $('.catalog-links > ul > li > a').each(function(index, value) {
                            $(value).removeClass('open'); $(value).removeClass('tapped'); $(value).removeClass('target');
                     });
+                    alert(screen.width);
                 });
                 $(window).resize();
                 }
