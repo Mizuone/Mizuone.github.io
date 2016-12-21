@@ -6,73 +6,159 @@
 $(document).ready(function () {
 	"use strict";
 	(function () {
-		var getAllNavItems = document.querySelectorAll('.catalog-links > a');
+		var getAllNavItems = document.querySelectorAll('.catalog-links > a'),
+            btSubIndex = 0;
 
+        
+        /* InsertXML Creates the drop down menus for the Artemis Menu
+		 * @param xmlPath - Gets xml that fits a category format
+		 */
 		function InsertXML(xmlPath) {
 			var subNav,
 				colIn;
-
-
+            
 			$.get(xmlPath, null, function (data) {
+                //Get All Categories within categories tag and loops through each
+                console.log(data);
 				$(data).find('categories').children().each(function (index, value) {
-					var subNavHeading = $(value).find("title:first text").text(); //sub-nav Heading
-                        subNav = $('<div class="bt-sub-nav sub-nav-' + colIn + '"></div>').insertAfter($(getAllNavItems[index]));
-						$(subNav).append('<h2 class="bt-nav-group-topheading"><a href="' + $(value).find('title text').text() + '">' + subNavHeading + '</a></h2>');
-					if (index > 0) {
+                    console.log($(value) + " category");
+                    colIn = index;
+                    if (index !== 0 && index !== 10 && index !== 12) {
+                        var subNavHeading = $(value).find("title:first text").text(); //sub-nav Heading
+                            subNav = $('<div class="bt-sub-nav sub-nav-' + index + '"></div>').insertAfter($(getAllNavItems[index]));
+                            $(subNav).append('<h2 class="bt-nav-group-topheading"><a href="' + $(value).find('title:first text').text() + '">' + subNavHeading + '</a></h2>');
 
-						$(value).children().each(function (currentIndex, subcategory) {
-                        var classString = currentIndex + 'col';
-                        colIn = currentIndex;
-						$(subNav).append('<ul class="bt-sub-nav-group ' + classString + '"></ul>'); //Column Container
-                            $(subcategory).each(function (count, nodeItem) {
-    							$('.sub-nav-' + colIn + ' .' + classString + '').append('<li class="subcata-item"><a class="subcata-item-link" href="' + $(nodeItem).find('link').text() + '">' + $(nodeItem).find('name').text() + '</a></li>');
+                            //Go into each subcategory and create each column
+                            $(value).children().each(function (currentIndex, subcategory) {
+                                console.log($(subcategory) + " subcategory");
+                                if (currentIndex > 0) {
+
+                                    var classString = currentIndex + 'col';
+                                    
+                                    $(subNav).append('<ul class="bt-sub-nav-group ' + classString + '"></ul>'); //Column Container
+
+                                    //Populate each column with inner xml items, as list items
+                                    $(subcategory).children().each(function (count, nodeItem) {
+                                        
+                                        $('.sub-nav-' + colIn + ' .' + classString + '').append('<li class="subcata-item"><a class="subcata-item-link" href="' + $(nodeItem).find('link').text() + '">' + $(nodeItem).find('name').text() + '</a></li>');
+                    					/*$('.sub-nav-' + colIn + ' .' + classString + '').prepend('<li class="bt-nav-group-heading">' + '<h2>' + $(subcategory).children('title').find('text').text() + '</h2>' + '</li>');*/
+                                        
+                                        if (count + 1 >= $(subcategory).children().length) {
+                                            console.log('At the End of Column: Calling Splitter');
+                                            Splitter(colIn, classString, subcategory, count);
+                                        }
+                                    });
+                                    if (currentIndex + 1 >= $(value).children().length) {
+                                        console.log(currentIndex + " I am current index");
+                                        console.log(colIn + " I am colIn");
+                                        $('.sub-nav-' + colIn + '').append('<ul class="bt-sub-nav-group-promo">' +
+                                            ' <li><picture class="gw_card_4up">' +
+                                            '<a href="/sc1/query/gift50rtw/&facet=price_USD%253A%2528%257B*%2b49.99%257D%2b49.99%2529&orderBy=7">' +
+                                            '<img alt="Gifts Under $50" src="/wcsstore/BonTon/images/categories/women/2016/11/gateway/11_13_gw_women_16-09.jpg">' +
+                                            '</a>' +
+                                            '</picture></li>' +
+                                            '</ul>');
+                                        $('.sub-nav-' + colIn + ' .bt-sub-nav-group-promo').prepend('<li class="bt-nav-group-heading"><h2>Special Sales</h2></li>');
+                                    }
+                                }
                             });
-                            if (currentIndex + 1 >= $(this).length) {
-                                $('.sub-nav-' + colIn + '').append('<ul class="bt-sub-nav-group-promo">' +
-                                    ' <li><picture class="gw_card_4up">' +
-                                    '<a href="/sc1/query/gift50rtw/&facet=price_USD%253A%2528%257B*%2b49.99%257D%2b49.99%2529&orderBy=7">' +
-                                    '<img alt="Gifts Under $50" src="/wcsstore/BonTon/images/categories/women/2016/11/gateway/11_13_gw_women_16-09.jpg">' +
-                                    '</a>' +
-                                    '</picture></li>' +
-                                    '</ul>');
-                                $('.sub-nav-' + colIn + ' .bt-sub-nav-group-promo').prepend('<li class="bt-nav-group-heading"><h2>Special Sales</h2></li>');
-                                Splitter(colIn, classString, $(this), index);
-                            }
-						});
-					}
-					//Merger
-					Merger(colIn);
+                        //Merger
+                        Merger(colIn);
 
-					//check if col has more then two heading classes if so remove every heading class that is after the second.                 
-					//Merger Splitter
-					MergeSplitter(colIn);
+                        //check if col has more then two heading classes if so remove every heading class that is after the second.                 
+                        //Merger Splitter
+                        MergeSplitter(colIn);
 
-					Compressor(colIn);
+                        Compressor(colIn);
 
-					if (screen.width < 1367 && screen.width > 436) {
-						$('.sub-nav-' + colIn + '').append('<img alt="Close Button" src="/wcsstore/BonTon/images/categories/_shared/2016/10/ic_clear_black_48dp.png" class="bt-close-menu" width="64" height="64">');
-						$('.sub-nav-' + colIn + ' .bt-close-menu').css({
-							position: 'absolute',
-							right: 0,
-							left: '94%',
-							top: 0
-						});
-					}
+                        if (screen.width < 1367 && screen.width > 436) {
+                            $('.sub-nav-' + colIn + '').append('<img alt="Close Button" src="/wcsstore/BonTon/images/categories/_shared/2016/10/ic_clear_black_48dp.png" class="bt-close-menu" width="64" height="64">');
+                            $('.sub-nav-' + colIn + ' .bt-close-menu').css({
+                                position: 'absolute',
+                                right: 0,
+                                left: '94%',
+                                top: 0
+                            });
+                        }
+                    }
+
 				});
 
 			});
 
 		}
+        function insertFeaturedBrands() {
+            //call each xml file based on if it's attr
+            //pass data into another function to create the column and insertBefore the promo col
+            for (var i = 0; i < getAllNavItems.length; i++) {
+                switch($(getAllNavItems[i]).attr('href')) {
+                        case "/sc1/women/": $.get('/wcsstore/BonTon/text/categories/women/evergreen/leftnav/featuredbrands/women.xml', null, function (data) { 
+                            createFeaturedBrands(data);
+                        });
+                            break;
+                        case "/sc1/shoes/": $.get('/wcsstore/BonTon/text/categories/shoes/evergreen/leftnav/featuredbrands/shoes.xml', null, function (data) { 
+                            createFeaturedBrands(data);
+                        }); 
+                            break;
+                        case "/sc1/handbags-accessories/": $.get('/wcsstore/BonTon/text/categories/women/evergreen/leftnav/featuredbrands/women.xml', null, function (data) { 
+                            createFeaturedBrands(data);
+                        });
+                            break;
+                        case "/sc1/jewelry-watches/": $.get('/wcsstore/BonTon/text/categories/handbagsandaccessories/evergreen/leftnav/featuredbrands/handbagsandaccessories.xml', null, function (data) { 
+                            createFeaturedBrands(data);
+                        });
+                            break;
+                        case "/sc1/juniors/": $.get('http://www.stage.bonton.com/wcsstore/BonTon/text/categories/juniors/evergreen/leftnav/featuredbrands/juniors.xml', null, function (data) { 
+                            createFeaturedBrands(data);
+                        });
+                            break;
+                        case "/sc1/men/": $.get('http://www.stage.bonton.com/wcsstore/BonTon/text/categories/mens/evergreen/leftnav/featuredbrands/men.xml', null, function (data) { 
+                            createFeaturedBrands(data);
+                        }); 
+                            break;
+                        case "/sc1/baby-kids/": $.get('http://www.stage.bonton.com/wcsstore/BonTon/text/categories/kids/evergreen/leftnav/featuredbrands/kids.xml', null, function (data) { 
+                            createFeaturedBrands(data);
+                        });
+                            break;
+                        case "/sc1/bed-bath/": $.get('http://www.stage.bonton.com/wcsstore/BonTon/text/categories/bedandbath/evergreen/leftnav/featuredbrands/bedbath.xml', null, function (data) {
+                            createFeaturedBrands(data);
+                        }); 
+                            break;
+                        case "/sc1/home/": $.get('http://www.stage.bonton.com/wcsstore/BonTon/text/categories/home/evergreen/leftnav/featuredbrands/home.xml', null, function (data) {
+                            createFeaturedBrands(data);
+                        });
+                            break;
+                        default: break;
+                }
+            }
+        }
+        function createFeaturedBrands(xmlData) {
+            btSubIndex++;
+            $(xmlData).find('featuredBrands').each(function (index, value) {
+               var classString = $('.sub-nav-'+btSubIndex+' > ul').length + $('.sub-nav-'+btSubIndex+' > div').length + 'col'; 
+               $('<ul class="bt-sub-nav-group ' + classString + '"></ul>').insertBefore('.sub-nav-'+btSubIndex+' .bt-sub-nav-group-promo');
+                $(value).children().each(function(currentIndex, brand) {
+                    
+                    $('.sub-nav-' + btSubIndex + ' .' + classString + '').append('<li class="subcata-item"><a class="subcata-item-link" href="' + $(brand).find('link').text() + '">' + $(brand).find('name').text() + '</a></li>');
+                    
+                    if (currentIndex + 1 >= $(value).children().length) {
+                        
+    					$('.sub-nav-' + btSubIndex + ' .' + classString + '').prepend('<li class="bt-nav-group-heading">' + '<h2>Featured Brands</h2>' + '</li>');
+                    }
+                });
+            });
+        }
 		/* Splits a Column in two, depending on if there are more then 13 items in a column
 		 * @param ColIn - Current Column Index
 		 * @param classString - Current Sub Category Column
 		 * @param getWomenList - Array of Sub Categories
-		 * @param x - An integer for retrieving an index from getWomenList
+		 * @param x - An integer for retrieving an index from getList
 		 */
-		function Splitter(colIn, classString, getList, x) {
+		function Splitter(colIn, classString, subcategory, x) {
 			$('.sub-nav-' + colIn + ' .' + classString + '').each(function (index, subNavCol) {
 				if ($(subNavCol).children().length > 13) {
-					var currentCol = index + 2;
+                    console.log('Large Column Detected: ' + colIn + ' ' + classString + ' ');
+					var currentCol = index + 1;
 					$(subNavCol).wrap('<div class="sub-nav-large-group ' + x + 'group"></div>');
 					$('<ul class="bt-sub-nav-group ' + currentCol + 'col split"></ul>').insertAfter(subNavCol);
 					$(subNavCol).children().each(function (currentInd, child) {
@@ -81,9 +167,9 @@ $(document).ready(function () {
 							$(child).remove();
 						}
 					});
-					$('.sub-nav-' + colIn + ' .' + x + 'group').prepend('<li class="bt-nav-group-heading">' + '<h2>' + $(getList)[x].find("label:first").text().trim() + '</h2>' + '</li>');
+					$('.sub-nav-' + colIn + ' .' + x + 'group').prepend('<li class="bt-nav-group-heading">' + '<h2>' + $(subcategory).children('title').find('text').text() + '</h2>' + '</li>');
 				} else {
-					$('.sub-nav-' + colIn + ' .' + classString + '').prepend('<li class="bt-nav-group-heading">' + '<h2>' + $(getList)[x].find("label:first").text().trim() + '</h2>' + '</li>');
+					$('.sub-nav-' + colIn + ' .' + classString + '').prepend('<li class="bt-nav-group-heading">' + '<h2>' + $(subcategory).children('title').find('text').text() + '</h2>' + '</li>');
 				}
 			});
 		}
@@ -191,7 +277,8 @@ $(document).ready(function () {
 				}
 			}
 		}
-		/* Adds Support for Touch Events and click events to simulate touch screens accessability.
+		/* Adept
+         * Adds Support for Touch Events and click events to simulate touch screens accessability.
 		 * This allows the dropdown to adept to each enviornment, if stetched to different viewports as well.
 		 */
 		function Adept() {
@@ -589,23 +676,24 @@ $(document).ready(function () {
 				marginRight: "0"
 			});
 			//settimeout is added because featured brands loads after the DOM
-			setTimeout(function () {
 				for (var i = 0; i < getAllNavItems.length; i++) {
 					switch ($(getAllNavItems[i]).attr('href')) {
 						case "/sc1/brands/":
-							$("<div class='bt-sub-nav sub-nav0'></div>").insertAfter($(getAllNavItems[i])).css("display", "none");
+							$("<div class='bt-sub-nav sub-nav-0'></div>").insertAfter($(getAllNavItems[i])).css("display", "none");
 							break;
 						case "/sc1/home/furniture-24382/":
-							$("<div class='bt-sub-nav sub-nav10'></div>").insertAfter($(getAllNavItems[i])).css("display", "none");
+							$("<div class='bt-sub-nav sub-nav-10'></div>").insertAfter($(getAllNavItems[i])).css("display", "none");
 							break;
 						case "/clearance":
-							$("<div class='bt-sub-nav sub-nav12'></div>").insertAfter($(getAllNavItems[i])).css("display", "none");
+							$("<div class='bt-sub-nav sub-nav-12'></div>").insertAfter($(getAllNavItems[i])).css("display", "none");
+                            InsertXML('/wcsstore/BonTon/text/categories/_shared/2016/11/xmlmega/menuxmlv2.xml');
+                            insertFeaturedBrands();
 							break;
 						default:
 							break;
 					}
 				}
-                InsertXML('http://www.bonton.com/wcsstore/BonTon/text/categories/_shared/2016/11/xmlmega/menuxmlv1.xml');
+            setTimeout(function () {
 				//Wraps every pair of elements within the first ul of catalog-links in a li
 				var $set = $('.catalog-links > ul').children();
 				for (var z = 0, len = $set.length; z < len; z += 2) {
