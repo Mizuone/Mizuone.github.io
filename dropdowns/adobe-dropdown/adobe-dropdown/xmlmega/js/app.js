@@ -1,7 +1,7 @@
 // JavaScript Artemis Menu
 // By Kyle Orlinski
-// 12/20/2016
-// Version 0.5.0.0
+// 12/23/2016
+// Version 0.6.0.0
 // XML Artemis Menu
 $(document).ready(function () {
 	"use strict";
@@ -19,9 +19,8 @@ $(document).ready(function () {
             
 			$.get(xmlPath, null, function (data) {
                 //Get All Categories within categories tag and loops through each
-                console.log(data);
 				$(data).find('categories').children().each(function (index, value) {
-                    console.log($(value) + " category");
+                                console.log('sub-nav');
                     colIn = index;
                     if (index !== 0 && index !== 10 && index !== 12) {
                         var subNavHeading = $(value).find("title:first text").text(); //sub-nav Heading
@@ -30,7 +29,6 @@ $(document).ready(function () {
 
                             //Go into each subcategory and create each column
                             $(value).children().each(function (currentIndex, subcategory) {
-                                console.log($(subcategory) + " subcategory");
                                 if (currentIndex > 0) {
 
                                     var classString = currentIndex + 'col';
@@ -39,18 +37,15 @@ $(document).ready(function () {
 
                                     //Populate each column with inner xml items, as list items
                                     $(subcategory).children().each(function (count, nodeItem) {
-                                        
-                                        $('.sub-nav-' + colIn + ' .' + classString + '').append('<li class="subcata-item"><a class="subcata-item-link" href="' + $(nodeItem).find('link').text() + '">' + $(nodeItem).find('name').text() + '</a></li>');
-                    					/*$('.sub-nav-' + colIn + ' .' + classString + '').prepend('<li class="bt-nav-group-heading">' + '<h2>' + $(subcategory).children('title').find('text').text() + '</h2>' + '</li>');*/
+                                        if (count > 0) {
+                                            $('.sub-nav-' + colIn + ' .' + classString + '').append('<li class="subcata-item"><a class="subcata-item-link" href="' + $(nodeItem).find('link').text() + '">' + $(nodeItem).find('name').text() + '</a></li>');
+                                        }
                                         
                                         if (count + 1 >= $(subcategory).children().length) {
-                                            console.log('At the End of Column: Calling Splitter');
                                             Splitter(colIn, classString, subcategory, count);
                                         }
                                     });
                                     if (currentIndex + 1 >= $(value).children().length) {
-                                        console.log(currentIndex + " I am current index");
-                                        console.log(colIn + " I am colIn");
                                         $('.sub-nav-' + colIn + '').append('<ul class="bt-sub-nav-group-promo">' +
                                             ' <li><picture class="gw_card_4up">' +
                                             '<a href="/sc1/query/gift50rtw/&facet=price_USD%253A%2528%257B*%2b49.99%257D%2b49.99%2529&orderBy=7">' +
@@ -70,7 +65,7 @@ $(document).ready(function () {
                         MergeSplitter(colIn);
 
                         Compressor(colIn);
-
+                        
                         if (screen.width < 1367 && screen.width > 436) {
                             $('.sub-nav-' + colIn + '').append('<img alt="Close Button" src="/wcsstore/BonTon/images/categories/_shared/2016/10/ic_clear_black_48dp.png" class="bt-close-menu" width="64" height="64">');
                             $('.sub-nav-' + colIn + ' .bt-close-menu').css({
@@ -87,12 +82,15 @@ $(document).ready(function () {
 			});
 
 		}
+        /* insertFeaturedBrands - Loops through all the links in the top most nav and compares their href values
+        *  Each case has a get xml function and calls the createFeaturedBrands to create the associated column.
+        */
         function insertFeaturedBrands() {
-            //call each xml file based on if it's attr
-            //pass data into another function to create the column and insertBefore the promo col
+            console.log('hello');
             for (var i = 0; i < getAllNavItems.length; i++) {
                 switch($(getAllNavItems[i]).attr('href')) {
                         case "/sc1/women/": $.get('/wcsstore/BonTon/text/categories/women/evergreen/leftnav/featuredbrands/women.xml', null, function (data) { 
+                            console.log('Hello I am in women"s case statment');
                             createFeaturedBrands(data);
                         });
                             break;
@@ -108,23 +106,25 @@ $(document).ready(function () {
                             createFeaturedBrands(data);
                         });
                             break;
-                        case "/sc1/juniors/": $.get('http://www.stage.bonton.com/wcsstore/BonTon/text/categories/juniors/evergreen/leftnav/featuredbrands/juniors.xml', null, function (data) { 
+                        case "/sc1/juniors/": $.get('/wcsstore/BonTon/text/categories/juniors/evergreen/leftnav/featuredbrands/juniors.xml', null, function (data) { 
                             createFeaturedBrands(data);
                         });
                             break;
-                        case "/sc1/men/": $.get('http://www.stage.bonton.com/wcsstore/BonTon/text/categories/mens/evergreen/leftnav/featuredbrands/men.xml', null, function (data) { 
+                        case "/sc1/men/": $.get('/wcsstore/BonTon/text/categories/mens/evergreen/leftnav/featuredbrands/men.xml', null, function (data) { 
                             createFeaturedBrands(data);
                         }); 
                             break;
-                        case "/sc1/baby-kids/": $.get('http://www.stage.bonton.com/wcsstore/BonTon/text/categories/kids/evergreen/leftnav/featuredbrands/kids.xml', null, function (data) { 
+                        case "/sc1/baby-kids/": $.get('/wcsstore/BonTon/text/categories/kids/evergreen/leftnav/featuredbrands/kids.xml', null, function (data) { 
                             createFeaturedBrands(data);
                         });
                             break;
-                        case "/sc1/bed-bath/": $.get('http://www.stage.bonton.com/wcsstore/BonTon/text/categories/bedandbath/evergreen/leftnav/featuredbrands/bedbath.xml', null, function (data) {
+                        case "/sc1/bed-bath/": $.get('/wcsstore/BonTon/text/categories/bedandbath/evergreen/leftnav/featuredbrands/bedbath.xml', null, function (data) {
                             createFeaturedBrands(data);
                         }); 
                             break;
-                        case "/sc1/home/": $.get('http://www.stage.bonton.com/wcsstore/BonTon/text/categories/home/evergreen/leftnav/featuredbrands/home.xml', null, function (data) {
+                        
+                        case "/sc1/home/": $.get('/wcsstore/BonTon/text/categories/home/evergreen/leftnav/featuredbrands/home.xml', null, function (data) {
+                            btSubIndex = 10;
                             createFeaturedBrands(data);
                         });
                             break;
@@ -132,18 +132,25 @@ $(document).ready(function () {
                 }
             }
         }
+        /* createFeaturedBrands - Creates the featured brands column based on the xmlData passed in
+        *  @param xmlData - An address of xml data that is used as a string.
+        */
         function createFeaturedBrands(xmlData) {
             btSubIndex++;
+            console.log('data is: ' + xmlData);
+            console.log('Index is: ' + btSubIndex);
             $(xmlData).find('featuredBrands').each(function (index, value) {
+                console.log('in featuredBrand of');
                var classString = $('.sub-nav-'+btSubIndex+' > ul').length + $('.sub-nav-'+btSubIndex+' > div').length + 'col'; 
                $('<ul class="bt-sub-nav-group ' + classString + '"></ul>').insertBefore('.sub-nav-'+btSubIndex+' .bt-sub-nav-group-promo');
                 $(value).children().each(function(currentIndex, brand) {
                     
-                    $('.sub-nav-' + btSubIndex + ' .' + classString + '').append('<li class="subcata-item"><a class="subcata-item-link" href="' + $(brand).find('link').text() + '">' + $(brand).find('name').text() + '</a></li>');
+                    $('.sub-nav-' + btSubIndex + ' .' + classString + ':not(.merge, .split, .mergesplitter)').append('<li class="subcata-item"><a class="subcata-item-link" href="' + $(brand).find('link').text() + '">' + $(brand).find('name').text() + '</a></li>');
                     
                     if (currentIndex + 1 >= $(value).children().length) {
                         
-    					$('.sub-nav-' + btSubIndex + ' .' + classString + '').prepend('<li class="bt-nav-group-heading">' + '<h2>Featured Brands</h2>' + '</li>');
+    					$('.sub-nav-' + btSubIndex + ' .' + classString + ':not(.merge, .split, .mergesplitter)').prepend('<li class="bt-nav-group-heading">' + '<h2>Featured Brands</h2>' + '</li>');
+                        Compressor(btSubIndex);
                     }
                 });
             });
@@ -155,17 +162,23 @@ $(document).ready(function () {
 		 * @param x - An integer for retrieving an index from getList
 		 */
 		function Splitter(colIn, classString, subcategory, x) {
+            var captureLength;
 			$('.sub-nav-' + colIn + ' .' + classString + '').each(function (index, subNavCol) {
 				if ($(subNavCol).children().length > 13) {
-                    console.log('Large Column Detected: ' + colIn + ' ' + classString + ' ');
+                captureLength = $(subNavCol).children().length / 2;
+                    console.log(captureLength);
 					var currentCol = index + 1;
 					$(subNavCol).wrap('<div class="sub-nav-large-group ' + x + 'group"></div>');
-					$('<ul class="bt-sub-nav-group ' + currentCol + 'col split"></ul>').insertAfter(subNavCol);
+					$('<ul class="bt-sub-nav-group ' + currentCol + 'col split"></ul>').css('padding-left', '8px').insertAfter(subNavCol);
 					$(subNavCol).children().each(function (currentInd, child) {
-						if (currentInd > 13) {
+						/*if (currentInd > 13) {
 							$(child).clone().appendTo('.sub-nav-' + colIn + ' .' + currentCol + 'col.split');
 							$(child).remove();
-						}
+						}*/
+                        if (currentInd > captureLength) {
+                                $(child).clone().appendTo('.sub-nav-' + colIn + ' .' + currentCol + 'col.split');
+                                $(child).remove();
+                        }
 					});
 					$('.sub-nav-' + colIn + ' .' + x + 'group').prepend('<li class="bt-nav-group-heading">' + '<h2>' + $(subcategory).children('title').find('text').text() + '</h2>' + '</li>');
 				} else {
@@ -229,7 +242,6 @@ $(document).ready(function () {
 							$(heading).nextUntil('.bt-nav-group-heading:eq(' + getNextHeading + ')').remove();
 
 							if ($(heading).next().hasClass('.bt-nav-group-heading')) {
-								console.log('inside has class block');
 								$(heading).next().appendTo('.sub-nav-' + colIn + ' .' + currentCol + 'col.mergesplitter' + index + '');
 
 								$('.bt-nav-group-heading:eq(' + getNextHeading + ')').nextUntil('.bt-nav-group-heading').clone().appendTo('.sub-nav-' + colIn + ' .' + currentCol + 'col.mergesplitter' + index + '');
@@ -255,7 +267,7 @@ $(document).ready(function () {
 					$('.sub-nav-' + colIn + ' > ul:not(ul.bt-sub-nav-group-promo)').css('width', '15%');
 				}
 				if ($('.sub-nav-' + colIn + '').children('ul, div').length <= 6) {
-					$('.sub-nav-' + colIn + ' > ul:not(ul.bt-sub-nav-group-promo)').css('width', '17%');
+					$('.sub-nav-' + colIn + ' > ul:not(ul.bt-sub-nav-group-promo)').css('width', '20%');
 				}
 				return false;
 			} else {
@@ -264,16 +276,16 @@ $(document).ready(function () {
 					$('.sub-nav-' + colIn + ' > ul:not(ul.bt-sub-nav-group-promo)').css('width', '17%');
 				}
 				if ($('.sub-nav-' + colIn + '').children('ul, div').length < 6) {
-					$('.sub-nav-' + colIn + '').css('width', '85%');
+					$('.sub-nav-' + colIn + '').css('width', '90%');
 					$('.sub-nav-' + colIn + ' > ul:not(ul.bt-sub-nav-group-promo)').css('width', '15%');
 				}
 				if ($('.sub-nav-' + colIn + '').children('ul, div').length < 5) {
-					$('.sub-nav-' + colIn + '').css('width', '75%');
-					$('.sub-nav-' + colIn + ' > ul:not(ul.bt-sub-nav-group-promo)').css('width', '17%');
+					$('.sub-nav-' + colIn + '').css('width', '82%');
+					$('.sub-nav-' + colIn + ' > ul:not(ul.bt-sub-nav-group-promo)').css('width', '20%');
 				}
 				if ($('.sub-nav-' + colIn + '').children('ul, div').length < 3) {
 					$('.sub-nav-' + colIn + '').css('width', '50%');
-					$('.sub-nav-' + colIn + ' > ul:not(ul.bt-sub-nav-group-promo)').css('width', '17%');
+					$('.sub-nav-' + colIn + ' > ul:not(ul.bt-sub-nav-group-promo)').css('width', '25%');
 				}
 			}
 		}
@@ -327,10 +339,10 @@ $(document).ready(function () {
 					});
 				}
 				//Move the home sub-nav to the right, for accessability issues on higher viewports
-				screen.width > 1367 ? $('.sub-nav-10').css({
+				screen.width > 1367 ? $('.sub-nav-11').css({
 					right: '5%',
 					left: 'inherit'
-				}) : $('.sub-nav-10').css({
+				}) : $('.sub-nav-11').css({
 					right: '0',
 					left: '0'
 				});
@@ -354,7 +366,6 @@ $(document).ready(function () {
 					$('.bt-nav-item').removeClass('open');
 					$('#nav-overlay').fadeOut(300);
 					tapCounter = 0;
-					alert('tapped X');
 				});
 				$('.bt-close-menu').each(function (index, value) {
 					$(value).on('touchend', function (e) {
@@ -364,7 +375,6 @@ $(document).ready(function () {
 						});
 						$('#nav-overlay').fadeOut(300);
 						tapCounter = 0;
-						alert('tapped X');
 					})
 				});
 				if (!isTouch && screen.width < 1367 && screen.width > 436) {
@@ -382,13 +392,11 @@ $(document).ready(function () {
 								currentValue = $(value);
 								if (!$(value).hasClass('tapped') && !$(value).hasClass('open')) {
 									$(value).addClass('tapped');
-									alert('in here 1');
 									applyOverlay();
 
 								}
 								if (!$(value).hasClass('tapped') && $(value).hasClass('open')) {
 									$(value).addClass('tapped');
-									alert('in here 2');
 									applyOverlay();
 								}
 								if (tapCounter === 1 && $(value).hasClass('tapped') && $(value).hasClass('open')) {
@@ -411,7 +419,6 @@ $(document).ready(function () {
 											}, 100)
 
 										});
-										alert('in here 3');
 									}
 
 
@@ -455,18 +462,15 @@ $(document).ready(function () {
 									tapCounter = 0;
 								}
 
-								console.log(tapCounter);
 								if (!tapedTwice) {
 									//_togglePanel.call(this, event, target.hasClass(this.settings.openClass));
 									tapedTwice = true;
 									tapCounter++;
 									previousValue = $(value);
-									console.log(tapedTwice);
 									setTimeout(function () {
 										tapedTwice = false;
 										$(value).attr('href', "#");
-										console.log(tapedTwice);
-									}, 300);
+									}, 350);
 									return false;
 								}
 								//action on double tap goes below
@@ -487,7 +491,6 @@ $(document).ready(function () {
 					if (inAreaTouch) {
 
 						$('.catalog-links > ul > li > a').each(function (index, value) {
-							console.log($(value).attr('href'));
 							saveHrefAttr[index] = $(value).attr('href');
 							$(value).attr('href', "#");
 						});
@@ -586,7 +589,7 @@ $(document).ready(function () {
 									setTimeout(function () {
 										tapedTwice = false;
 										$(value).attr('href', "#");
-									}, 300, true);
+									}, 350, true);
 									return false;
 								}
 								//action on double tap goes below
@@ -616,7 +619,7 @@ $(document).ready(function () {
 								position: 'absolute',
 								left: 0,
 								width: '100%',
-								height: document.body.offsetHeight - 20 + 'px',
+								height: document.body.offsetHeight + 'px',
 								display: 'none',
 								backgroundColor: 'black',
 								opacity: '.5',
@@ -639,7 +642,6 @@ $(document).ready(function () {
 					if ($(value).hasClass('open')) {
 						setTimeout(function () {
 							checkForOverlay(value);
-							console.log('it happens');
 						}, 310);
 					}
 				});
@@ -687,7 +689,8 @@ $(document).ready(function () {
 						case "/clearance":
 							$("<div class='bt-sub-nav sub-nav-12'></div>").insertAfter($(getAllNavItems[i])).css("display", "none");
                             InsertXML('/wcsstore/BonTon/text/categories/_shared/2016/11/xmlmega/menuxmlv2.xml');
-                            insertFeaturedBrands();
+                            setTimeout(function() {insertFeaturedBrands(); }, 150);
+                            
 							break;
 						default:
 							break;
