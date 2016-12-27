@@ -1,6 +1,6 @@
 // JavaScript Artemis Menu
 // By Kyle Orlinski
-// 12/23/2016
+// 12/27/2016
 // Version 0.6.0.0
 // XML Artemis Menu
 $(document).ready(function () {
@@ -17,53 +17,62 @@ $(document).ready(function () {
 			var subNav,
 				colIn;
             
+            function createTopHeadingSubNav(value, getAllNavItems, index) {
+                var subNavHeading = $(value).find("title:first text").text(); //sub-nav Heading
+                    subNav = $('<div class="bt-sub-nav sub-nav-' + index + '"></div>').insertAfter($(getAllNavItems[index]));
+                
+                    $(subNav).append('<h2 class="bt-nav-group-topheading"><a href="' + $(value).find('title:first text').text() + '">' + subNavHeading + '</a></h2>');
+            }
+            
+            function createColumn(value) {
+                
+                function InsertListItems(classString, subcategory) {
+                    $(subcategory).children().each(function (count, nodeItem) {
+                        if (count > 0) {
+                            $('.sub-nav-' + colIn + ' .' + classString + '').append('<li class="subcata-item"><a class="subcata-item-link" href="' + $(nodeItem).find('link').text() + '">' + $(nodeItem).find('name').text() + '</a></li>');
+                        }
+
+                        if (count + 1 >= $(subcategory).children().length) {
+                            Splitter(colIn, classString, subcategory, count);
+                        }
+                    });
+                }
+                
+                $(value).children().each(function (currentIndex, subcategory) {
+                    if (currentIndex > 0) {
+
+                        var classString = currentIndex + 'col';
+
+                        $(subNav).append('<ul class="bt-sub-nav-group ' + classString + '"></ul>'); //Column Container
+
+                        //Populate each column with inner xml items, as list items
+                        InsertListItems(classString, subcategory);
+                        if (currentIndex + 1 >= $(value).children().length) {
+                            $('.sub-nav-' + colIn + '').append('<ul class="bt-sub-nav-group-promo">' +
+                                ' <li><picture class="gw_card_4up">' +
+                                '<a href="/sc1/query/gift50rtw/&facet=price_USD%253A%2528%257B*%2b49.99%257D%2b49.99%2529&orderBy=7">' +
+                                '<img alt="Gifts Under $50" src="/wcsstore/BonTon/images/categories/women/2016/11/gateway/11_13_gw_women_16-09.jpg">' +
+                                '</a>' +
+                                '</picture></li>' +
+                                '</ul>');
+                            $('.sub-nav-' + colIn + ' .bt-sub-nav-group-promo').prepend('<li class="bt-nav-group-heading"><h2>Special Sales</h2></li>');
+                        }
+                    }
+                });
+            }
 			$.get(xmlPath, null, function (data) {
                 //Get All Categories within categories tag and loops through each
 				$(data).find('categories').children().each(function (index, value) {
-                                console.log('sub-nav');
                     colIn = index;
                     if (index !== 0 && index !== 10 && index !== 12) {
-                        var subNavHeading = $(value).find("title:first text").text(); //sub-nav Heading
-                            subNav = $('<div class="bt-sub-nav sub-nav-' + index + '"></div>').insertAfter($(getAllNavItems[index]));
-                            $(subNav).append('<h2 class="bt-nav-group-topheading"><a href="' + $(value).find('title:first text').text() + '">' + subNavHeading + '</a></h2>');
+                        
+                        createTopHeadingSubNav(value, getAllNavItems, index);
 
-                            //Go into each subcategory and create each column
-                            $(value).children().each(function (currentIndex, subcategory) {
-                                if (currentIndex > 0) {
-
-                                    var classString = currentIndex + 'col';
-                                    
-                                    $(subNav).append('<ul class="bt-sub-nav-group ' + classString + '"></ul>'); //Column Container
-
-                                    //Populate each column with inner xml items, as list items
-                                    $(subcategory).children().each(function (count, nodeItem) {
-                                        if (count > 0) {
-                                            $('.sub-nav-' + colIn + ' .' + classString + '').append('<li class="subcata-item"><a class="subcata-item-link" href="' + $(nodeItem).find('link').text() + '">' + $(nodeItem).find('name').text() + '</a></li>');
-                                        }
-                                        
-                                        if (count + 1 >= $(subcategory).children().length) {
-                                            Splitter(colIn, classString, subcategory, count);
-                                        }
-                                    });
-                                    if (currentIndex + 1 >= $(value).children().length) {
-                                        $('.sub-nav-' + colIn + '').append('<ul class="bt-sub-nav-group-promo">' +
-                                            ' <li><picture class="gw_card_4up">' +
-                                            '<a href="/sc1/query/gift50rtw/&facet=price_USD%253A%2528%257B*%2b49.99%257D%2b49.99%2529&orderBy=7">' +
-                                            '<img alt="Gifts Under $50" src="/wcsstore/BonTon/images/categories/women/2016/11/gateway/11_13_gw_women_16-09.jpg">' +
-                                            '</a>' +
-                                            '</picture></li>' +
-                                            '</ul>');
-                                        $('.sub-nav-' + colIn + ' .bt-sub-nav-group-promo').prepend('<li class="bt-nav-group-heading"><h2>Special Sales</h2></li>');
-                                    }
-                                }
-                            });
-                        //Merger
+                        createColumn(value);
+                        
+                        //Formats Each Column based on the current index
                         Merger(colIn);
-
-                        //check if col has more then two heading classes if so remove every heading class that is after the second.                 
-                        //Merger Splitter
                         MergeSplitter(colIn);
-
                         Compressor(colIn);
                         
                         if (screen.width < 1367 && screen.width > 436) {
@@ -86,11 +95,9 @@ $(document).ready(function () {
         *  Each case has a get xml function and calls the createFeaturedBrands to create the associated column.
         */
         function insertFeaturedBrands() {
-            console.log('hello');
             for (var i = 0; i < getAllNavItems.length; i++) {
                 switch($(getAllNavItems[i]).attr('href')) {
                         case "/sc1/women/": $.get('/wcsstore/BonTon/text/categories/women/evergreen/leftnav/featuredbrands/women.xml', null, function (data) { 
-                            console.log('Hello I am in women"s case statment');
                             createFeaturedBrands(data);
                         });
                             break;
@@ -137,10 +144,7 @@ $(document).ready(function () {
         */
         function createFeaturedBrands(xmlData) {
             btSubIndex++;
-            console.log('data is: ' + xmlData);
-            console.log('Index is: ' + btSubIndex);
             $(xmlData).find('featuredBrands').each(function (index, value) {
-                console.log('in featuredBrand of');
                var classString = $('.sub-nav-'+btSubIndex+' > ul').length + $('.sub-nav-'+btSubIndex+' > div').length + 'col'; 
                $('<ul class="bt-sub-nav-group ' + classString + '"></ul>').insertBefore('.sub-nav-'+btSubIndex+' .bt-sub-nav-group-promo');
                 $(value).children().each(function(currentIndex, brand) {
@@ -166,7 +170,8 @@ $(document).ready(function () {
 			$('.sub-nav-' + colIn + ' .' + classString + '').each(function (index, subNavCol) {
 				if ($(subNavCol).children().length > 13) {
                 captureLength = $(subNavCol).children().length / 2;
-                    console.log(captureLength);
+
+                    
 					var currentCol = index + 1;
 					$(subNavCol).wrap('<div class="sub-nav-large-group ' + x + 'group"></div>');
 					$('<ul class="bt-sub-nav-group ' + currentCol + 'col split"></ul>').css('padding-left', '8px').insertAfter(subNavCol);
@@ -276,7 +281,7 @@ $(document).ready(function () {
 					$('.sub-nav-' + colIn + ' > ul:not(ul.bt-sub-nav-group-promo)').css('width', '17%');
 				}
 				if ($('.sub-nav-' + colIn + '').children('ul, div').length < 6) {
-					$('.sub-nav-' + colIn + '').css('width', '90%');
+					$('.sub-nav-' + colIn + '').css('width', '95%');
 					$('.sub-nav-' + colIn + ' > ul:not(ul.bt-sub-nav-group-promo)').css('width', '15%');
 				}
 				if ($('.sub-nav-' + colIn + '').children('ul, div').length < 5) {
@@ -330,54 +335,8 @@ $(document).ready(function () {
 					$('#nav-overlay').fadeIn(300);
 				}
 			}
-			$(window).resize(function () {
-				if ($('.bt-sub-nav').children('img').length > 1 && screen.width < 1367) {
-					$('.bt-sub-nav').children('img').each(function (index, value) {
-						if (index > 0) {
-							$(value).remove();
-						}
-					});
-				}
-				//Move the home sub-nav to the right, for accessability issues on higher viewports
-				screen.width > 1367 ? $('.sub-nav-11').css({
-					right: '5%',
-					left: 'inherit'
-				}) : $('.sub-nav-11').css({
-					right: '0',
-					left: '0'
-				});
-				for (var i = 0; i < getAllNavItems.length; i++) {
-					Compressor(i);
-					if (screen.width < 1367 && screen.width > 436) {
-						$('.sub-nav-' + i + '').append('<img alt="Close Button" src="/wcsstore/BonTon/images/categories/_shared/2016/10/ic_clear_black_48dp.png" class="bt-close-menu" width="64" height="64">');
-						$('.sub-nav-' + i + ' .bt-close-menu').css({
-							position: 'absolute',
-							right: 0,
-							left: '90%',
-							top: 0
-						});
-					}
-					if ($('.sub-nav-' + i + '').children('img').length > 0 && screen.width > 1367) {
-						$('.sub-nav-' + i + '').children('img').remove();
-					}
-				}
-				$('.bt-close-menu').on('click', function () {
-					$('.bt-sub-nav').next().removeClass('open');
-					$('.bt-nav-item').removeClass('open');
-					$('#nav-overlay').fadeOut(300);
-					tapCounter = 0;
-				});
-				$('.bt-close-menu').each(function (index, value) {
-					$(value).on('touchend', function (e) {
-						$('.catalog-links > ul > li > a').each(function (currentPos, link) {
-							$(link).hasClass('open') ? ($(link).next().removeClass('open'), $(link).removeClass('open')) : false;
-							!$(link).hasClass('open') ? $(link).removeClass('tapped') : false;
-						});
-						$('#nav-overlay').fadeOut(300);
-						tapCounter = 0;
-					})
-				});
-				if (!isTouch && screen.width < 1367 && screen.width > 436) {
+            function smallViewportNonTouch() {
+                if (!isTouch && screen.width < 1367 && screen.width > 436) {
 					if (inAreaNonTouch) {
 						$('.catalog-links > ul > li > a').off('click');
 
@@ -485,8 +444,8 @@ $(document).ready(function () {
 						inAreaNonTouch = false;
 					}
 				}
-				//Toggles between viewports for nontouch objects
-				screen.width > 1367 ? inAreaNonTouch = true : false;
+            }
+            function smallViewportTouch() {
 				if (isTouch && screen.width < 1367 && screen.width > 436) {
 					if (inAreaTouch) {
 
@@ -604,6 +563,71 @@ $(document).ready(function () {
 						inAreaTouch = false;
 					}
 				}
+            }
+            function removeCloseMenu() {
+				if ($('.bt-sub-nav').children('img').length > 1 && screen.width < 1367) {
+					$('.bt-sub-nav').children('img').each(function (index, value) {
+						if (index > 0) {
+							$(value).remove();
+						}
+					});
+				}
+            }
+            function adjustHomeSubNav() {
+				//Moves the home sub-nav to the right, for accessability issues on higher viewports
+				screen.width > 1367 ? $('.sub-nav-11').css({
+					right: '5%',
+					left: 'inherit'
+				}) : $('.sub-nav-11').css({
+					right: '0',
+					left: '0'
+				});
+            }
+            function appendCloseMenu() {
+				for (var i = 0; i < getAllNavItems.length; i++) {
+					Compressor(i);
+					if (screen.width < 1367 && screen.width > 436) {
+						$('.sub-nav-' + i + '').append('<img alt="Close Button" src="/wcsstore/BonTon/images/categories/_shared/2016/10/ic_clear_black_48dp.png" class="bt-close-menu" width="64" height="64">');
+						$('.sub-nav-' + i + ' .bt-close-menu').css({
+							position: 'absolute',
+							right: 0,
+							left: '90%',
+							top: 0
+						});
+					}
+					if ($('.sub-nav-' + i + '').children('img').length > 0 && screen.width > 1367) {
+						$('.sub-nav-' + i + '').children('img').remove();
+					}
+				}
+            }
+            function addEventsToCloseMenu() {
+				$('.bt-close-menu').on('click', function () {
+					$('.bt-sub-nav').next().removeClass('open');
+					$('.bt-nav-item').removeClass('open');
+					$('#nav-overlay').fadeOut(300);
+					tapCounter = 0;
+				});
+				$('.bt-close-menu').each(function (index, value) {
+					$(value).on('touchend', function (e) {
+						$('.catalog-links > ul > li > a').each(function (currentPos, link) {
+							$(link).hasClass('open') ? ($(link).next().removeClass('open'), $(link).removeClass('open')) : false;
+							!$(link).hasClass('open') ? $(link).removeClass('tapped') : false;
+						});
+						$('#nav-overlay').fadeOut(300);
+						tapCounter = 0;
+					})
+				});
+            }
+			$(window).resize(function () {
+                removeCloseMenu();
+                adjustHomeSubNav();
+                appendCloseMenu();
+                addEventsToCloseMenu();
+				//Toggles between viewports for nontouch objects
+				screen.width > 1367 ? inAreaNonTouch = true : false;
+                
+                smallViewportNonTouch();
+                smallViewportTouch();
 			});
 			$(window).resize();
 		}
@@ -740,10 +764,4 @@ $(document).ready(function () {
 <script type="text/javascript" src="/wcsstore/BonTon/text/categories/_shared/2016/11/xmlmega/js/jquery-accessibleMegaMenu.js"></script>
 <script type="text/javascript" src="/wcsstore/BonTon/text/categories/_shared/2016/11/xmlmega/js/app.js"></script>
 test -------------------
-var getHamburgerItems = document.querySelectorAll("ul#hamburgerMenuList > li");
-var getWomenList = $(getHamburgerItems[3]).find("ul:first").children();
-var getAllNavItems = document.querySelectorAll('.catalog-links > a');
-var colIn = 3;
-var subNav = $('<div class="bt-sub-nav sub-nav-'+colIn+'"></div>').insertAfter($(getAllNavItems[2]));
-$(getWomenList[2]).find('ul:first ul li:first a').attr('href'); gets the anchor of the nested list item under each catagory
 */
