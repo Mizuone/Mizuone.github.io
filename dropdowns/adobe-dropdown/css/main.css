@@ -1,8 +1,29 @@
+@font-face {
+  font-family: 'TeeFranklin';
+  src: url('/wcsstore/BonTon/text/includes/css/type/TeeFraMed.otf') format('truetype');
+}
+a {
+    text-decoration: none;
+}
+body {
+    line-height: 1.4;
+    background-color: white;
+    overflow: visible;
+}
+#catalog-links- .bt-nav-menu li ul {
+  padding-bottom: 1px;
+}
+.catalog-links {
+    background-color: #fff;
+    z-index: 999;
+}
 .catalog-links > ul {
     margin-left: 0;
     margin-right: 0;
 }
-
+.catalog-links > ul > li > a {
+    padding: 15px 0 15px 0;
+}
 /* a top level navigation item in the mega menu */
 .catalog-links > ul > li > a  {
     text-transform: lowercase;
@@ -14,25 +35,26 @@
 .bt-nav-item {
     list-style: none;
     display: inline-block;
+    padding: 0;
     margin: 0;
 }
 /* first descendant link within a top level navigation item */
 .bt-nav-item > a {
     position: relative;
     display: inline-block;
-    padding: 10px 0 10px 0;
+    padding: 0.5em 1em;
     margin: 0 0 -1px 0;
     border: 1px solid transparent;
 }
 
-/* focus/open states of first descendant link within a top level 
+/* focus/open states of first descendant link within a top level
    navigation item */
 a.nav-item > a:focus,
 .bt-nav-item > a.open {
-    border: 1px solid #dedede;
+    border-bottom: 3px solid #3c5f87;
 }
 
-/* open state of first descendant link within a top level 
+/* open state of first descendant link within a top level
    navigation item */
 .bt-nav-item > a.open {
     background-color: #fff;
@@ -43,9 +65,11 @@ a.nav-item > a:focus,
 /* sub-navigation panel */
 .bt-sub-nav {
     position: absolute;
-    width: 60%;
+    right: 0;
+    left: 0;
+    width: 100%;
     visibility: hidden;
-    top: 3.25em;
+    top: 3.5em;
     margin-top: -1px;
     padding: 0.5em 1em;
     border: 1px solid #dedede;
@@ -53,6 +77,8 @@ a.nav-item > a:focus,
     opacity: 0;
     transition: all 0.2s ease-in;
     z-index: 999;
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
     box-shadow: 0 1px 3px 0 rgba(0,0,0,.2),0 1px 1px 0 rgba(0,0,0,.14),0 2px 1px -1px rgba(0,0,0,.12);
 }
 
@@ -65,7 +91,7 @@ a.nav-item > a:focus,
 .bt-sub-nav ul {
     display: inline-block;
     vertical-align: top;
-    margin: 0 1em 0 0;
+    margin: 0;
     padding: 0;
 }
 
@@ -80,27 +106,241 @@ a.nav-item > a:focus,
     visibility: visible;
     opacity: 1;
 }
+/*************************
+.bt-sub-nav | Master subnav
+.bt-sub-nav-1 | specific subnav
+
+.bt-nav-group-topheading | top headings that include shop all, and redlinks
+.bt-topheading | sub category heading to display current sub nav
+.bt-shopallheading | shop all text that is displayed on each sub nav
+.bt-redlink | red link in the nav group
+
+.merge | a merged col that has two headings and is one ul
+
+.bt-nav-group-heading | a heading for each column in a subnav
+.subcata-item | an li that represents a nodeitem that has an anchor tag
+.bt-sub-nav-group | an ul that represents a container for the nodeitems
+
+.bt-close-menu | a close button that is appeneded to each sub nav
+.bt-column-container | parent container for each column
 /*************************/
+.bt-sub-nav {
+  padding-top: 15px;
+  padding-bottom: 30px;
+}
+.bt-column-container h2 {
+  margin: 0;
+}
+/********TOP HEADING CONTAINER**********/
+.bt-topheading {
+  font-family: 'TeeFranklin', sans-serif;
+  color: #666;
+  font-size: 28px;
+  font-weight: normal;
+  text-transform: capitalize;
+}
+#header-widget a.bt-shopallheading {
+  font-family: 'TeeFranklin', sans-serif;
+  color: #666;
+  font-size: 14px;
+  margin: 0 10px 0 10px;
+  font-weight: normal;
+  text-transform: lowercase;
+  text-align: left;
+  border-bottom: 1px solid white;
+  transition: 0.2s ease-in-out;
+}
+a.bt-redlink span {
+  color: #c00;
+  font-size: 14px;
+  font-weight: bold;
+}
+a.bt-redlink {
+  border-left: 1px solid #ccc;
+  padding: 0 10px 0 10px;
+}
+/*****************************************/
+/**********COLUMN CONTAINERS**************/
+ul.bt-sub-nav-group {
+  padding: 0 0 0 10px;
+  border-left: 1px solid #ccc;
+  margin-bottom: 20px;
+  width: 100%;
+}
+li.bt-nav-group-heading h2, .sub-nav-0 .bt-brands > h2 {
+  font-size: 14px;
+  color: #333;
+  font-weight: bold;
+  line-height: 20px;
+}
+li.subcata-item {
+  font-size: 13px;
+  color: #333;
+  line-height: 28px;
+}
+#header-widget li.subcata-item a {
+  font-weight: normal;
+  text-transform: capitalize;
+}
+.bt-column-container {
+  display: block;
+  margin-top: 10px;
+  margin-right: 20px;
+  width: 200px;
+  float: left;
+}
+.bt-brandspotlight-container img, .bt-seasonal-container img {
+  max-width: 100%;
+  height: auto;
+}
+.bt-promotional-slide {
+  position: relative;
+  width: 20%;
+  margin: 0;
+}
+.bt-promotional-container img {
+  position: absolute;
+  max-width: 100%;
+  height: auto;
+}
+.bt-promotional-slide .bt-promotional-container img {
+  max-width: 110%;
+  left: -30px;
+}
+#header-widget .catalog-links .bt-column-container li a {
+  padding-right: 0;
+}
+/*****************************************/
+/**********STYLING FOR BRANDS TAB*********/
+.sub-nav-0 .bt-brands > h2 {
+  text-transform: capitalize;
+  border-bottom: 1px solid #ccc;
+}
+.sub-nav-0 .bt-brands >  ul {
+  text-transform: capitalize;
+  display: inline-block;
+  border-left: transparent;
+}
+#header-widget .catalog-links .bt-column-container.brandscontainer a {
+  text-transform: capitalize;
+  font-size: 16px;
+}
+.brandscontainer > ul {
+  border-left: transparent;
+  margin: 0;
+}
+/*****************************************/
+#nav-overlay {
+  position: absolute;
+  top: 182px;
+  max-width: 1280px;
+  width: 98.4%;
+  margin: 0 10px;
+  background-color: #000;
+  opacity: .1;
+  z-index: 2;
+  transform: translate3d(0,0,0);
+}
 a.special {
     margin-top: 25px;
 }
 .breakline {
     display: block;
 }
-.bt-nav-group-topheading {
-    margin: 0;
+.bt-nav-group-heading h2 {
     line-height: 20px;
+    font-size: 14px;
+    padding: 0;
+    color: #cc0000;
 }
-a {
-    text-decoration: none;
+.bt-sub-nav-group-promo img {
+    margin: 0 1em 0 0;
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,.2),0 1px 1px 0 rgba(0,0,0,.14),0 2px 1px -1px rgba(0,0,0,.12);
+    max-width: 220px;
 }
-body {
-    line-height: 1.4;
+.sub-nav-large-group {
+    display: inline-block;
 }
-@media (pointer:coarse) {
+.sub-nav-large-group h2, .bt-sub-nav-group-promo h2 {
+    text-align: center;
+}
+#header-widget .catalog-links a.subcata-item-link:hover, #header-widget .catalog-links .bt-sub-nav > h2 a:hover {
+    border-bottom-color: grey;
+}
+#header-widget .catalog-links a:focus {
+    border-bottom: 3px solid #3c5f87 !important; /*For accessability reasons*/
+}
+ul.bt-sub-nav-group-promo {
+    width: 22.5%;
+}
+.sub-nav-0 li {
+  text-align: center;
+}
+.sub-nav-0 li > .subcata-item-link {
+  padding: 10px;
+  margin: 5px
+}
+.sub-nav-0 div > ul {
+  display: block;
+  width: 100%;
+}
+.sub-nav-0 ul li {
+  display: inline-block;
+}
+.brandscontainer {
+  width: 45%;
+}
+.bt-brands {
+  width: 45%;
+}
+.sub-nav-6 .bt-sub-nav-group 2col merge {
+  width: 15%;
+}
+.sub-nav-0 div .bt-nav-group-heading h2 {
+  text-align: left;
+}
+.sub-nav-10 .bt-sub-nav-group-promo h2 {
+  text-align: left;
+}
+@media screen and (max-width: 1300px) {
+    #header-widget .catalog-links a.subcata-item-link {
+        padding: .4em 0 .4em 0;
+    }
+    .catalog-links > ul > li > a {
+        padding: 10px 0 10px 0;
+    }
+    #header-widget .catalog-links a  {
+        line-height: 10px;
+    }
+    #header-widget .catalog-links .sub-nav-0 li > .subcata-item-link {
+      padding: 20px;
+      margin: 5px;
+    }
+}
+
+@media screen and (max-width: 959px) {
+    .bt-sub-nav {
+        top: 3.9em;
+    }
+}
+@media screen and (max-width: 768px) {
+  body {
+    overflow-x: hidden;
+  }
+  #nav-overlay {
+    width: 98%;
+  }
+  .bt-sub-nav-group-promo img {
+    max-width: 180px;
+  }
+  .sub-nav-0 {
+    width: 100%;
+  }
+}
+/*@media (pointer:coarse) {
     .bt-sub-nav {
         max-height: 350px;
         overflow-y: scroll;
         overflow-x: hidden;
     }
-}
+}*/
