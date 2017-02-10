@@ -7,29 +7,52 @@
         <meta name="description" content="Kyle Orlinski is a Front-End Developer that specializes in AngularJS and hybrid mobile development using Ionic. That has an eye for design, and usability.">
         <title>Kyle Orlinski - Front-End Developer</title>
         <link rel='shortcut icon' type='image/x-icon' href='images/little-jimmie-32x32.png'/>
-        <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat|Share+Tech+Mono" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
         <link rel="stylesheet" href="//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
         <link href="css/main.css" type="text/css" rel="stylesheet">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-        <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
-        <script src="scripts.js" type="text/javascript"></script>
-        <script>		
-            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){		
-            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),		
-          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)		
-            })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');		
-          		
-            ga('create', 'UA-83488200-1', 'auto');		
-            ga('send', 'pageview');		
-	
+
+        <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+        <script defer src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+        <script defer src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script defer src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+        <script defer src="scripts.js" type="text/javascript"></script>
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-83488200-1', 'auto');
+            ga('send', 'pageview');
+
         </script>
     </head>
     <body>
-        <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="loaderoverlay">
+        <h1></h1>
+        <div class="windows8">
+        	<div class="wBall" id="wBall_1">
+        		<div class="wInnerBall"></div>
+        	</div>
+        	<div class="wBall" id="wBall_2">
+        		<div class="wInnerBall"></div>
+        	</div>
+        	<div class="wBall" id="wBall_3">
+        		<div class="wInnerBall"></div>
+        	</div>
+        	<div class="wBall" id="wBall_4">
+        		<div class="wInnerBall"></div>
+        	</div>
+        	<div class="wBall" id="wBall_5">
+        		<div class="wInnerBall"></div>
+        	</div>
+        </div>
+      </div>
+      <div class="landingpagecontainer">
+        <nav class="navbar navbar-default">
             <div class="container">
                 <div class="navbar-header">
                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapsemenu"
@@ -38,25 +61,18 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#overlaycontainer" title="Go to Home"><img src="/images/Logo.PNG" width="75" height="75" alt="Kyle Orlinski Brand Image"></a>
-                    
+                    <a class="navbar-brand" href="#overlaycontainer" title="Go to Home"><img src="images/Logo.png" width="75" height="75" alt="Kyle Orlinski Brand Image"></a>
+
                 </div>
                     <div class="collapse navbar-collapse" id="collapsemenu">
                         <div class="row">
-                            
-                            <div class="col-lg-4 col-lg-offset-2 col-md-6 col-sm-6 col-xs-4 col-xs-offset-0">
+
+                            <div class="col-lg-8 col-lg-offset-2 col-md-9 col-sm-10 col-xs-12 col-xs-offset-0">
                                 <ul class="navlinks nav navbar-nav">
                                     <li><a href="#aboutjump" title="Go to About">About</a></li>
                                     <li><a href="#projectsection" title="Go to Work">Work</a></li>
                                     <li><a href="./pages/blog.html" title="Go to Blog">Blog</a></li>
                                     <li><a href="#contactformat" title="Go to Contact">Contact</a></li>
-                                </ul>
-                            </div>
-                            <div class="col-lg-3 col-lg-offset-1  col-md-3 col-md-offset-0 col-sm-4 col-sm-offset-0 col-xs-5 ">
-                                <ul class="socialicons nav navbar-nav ">
-                                    <li><a href="https://twitter.com/KyleOrlinski" title="My Twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                    <li><a href="https://github.com/Mizuone" title="My GitHub"><i class="fa fa-github" aria-hidden="true"></i></a></li>
-                                    <li><a href="https://www.linkedin.com/in/kyleorlinskideveloper" title="My Linkedin"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -67,9 +83,9 @@
             <section class="container-fluid">
                     <div id="overlaycontainer">
                        <div class="centerbannertext">
-                           <h1>Front-End Developer</h1>
-                           <h2>With a love for creating and developing!</h2>
-                           <a href="#projectsection" class="portfoliobutton" title="Go to Portfolio"><p>View Portfolio<span class="fa fa-angle-down"></span></p></a>
+                           <h1>Front-End Developer, with a love for <a class="jumpto" href="#projectsection">creating</a>, from Milwaukee WI.</h1>
+                           <!--<a href="#projectsection" class="portfoliobutton" title="Go to Portfolio"><p>View Portfolio<span class="fa fa-angle-down"></span></p></a>-->
+                           <span><i class="glyphicon glyphicon-menu-down"></i></span>
                         </div>
                     </div>
             </section>
@@ -78,22 +94,25 @@
                     <div class="row">
                         <div class="col-lg-4">
                             <div class="aboutpersonimg">
-                                <img src="/images/me.jpg" width="330" height="250" alt="Kyle Orlinski's Picture">
+                                <img src="images/me.jpg" width="330" height="250" alt="Kyle Orlinski's Picture">
                             </div>
                             <h1 class="hideme">About</h1>
                         </div>
-                        <div class="col-lg-8">
-                                
+                        <div class="col-lg-8 col-xs-12">
+
                             <div class="aboutperson">
                                 <p class="non-mobileabout">
-                                    Hello, my name is Kyle Orlinski and I specialize in front-end development. I created projects that cover data manipulation, 
-                                    algorithm computation, and even game development. When it comes to design and programming, I focus primary on simplicity and usability.
+                                    Hello, my name is Kyle Orlinski and I am a front end developer. I currently specialize in AngularJS, and mobile development.
+                                    When it comes to design and programming, I focus primary on simplicity and usability.
                                     During the last year I have been a part of a SharePoint program at Gateway Technical College, which was a intense curriculum of courses
-                                    spanning across 15 months. While I was in the program I developed a passion for programming and design. Currently I am learning AngularJS and ultimately wanting to make a mobile app using Ionic.
+                                    spanning across 15 months. While I was in the program I developed a passion for programming and design.
+                                    Currently I am working at Bonton as an eCommerce Interaction Developer in downtown Milwaukee.
                                 </p>
-                                <p class="mobileabout">Hello, my name is Kyle Orlinski and I specialize in front-end development. I created projects that cover data manipulation, 
-                                    algorithm computation, and even game development. When it comes to design and programming, I focus primary on simplicity and usability.<span class="mobilesecondparagraph">During the last year I have been a part of a SharePoint program at Gateway Technical College, which was a intense curriculum of courses
-                                    spanning across 15 months. While I was in the program I developed a passion for programming and design. Currently I am learning AngularJS and ultimately wanting to make a mobile app using Ionic.</span>
+                                <p class="mobileabout">Hello, my name is Kyle Orlinski and I am a front end developer. I currently specialize in AngularJS, and mobile development.
+                                  When it comes to design and programming, I focus primary on simplicity and usability.
+                                  <span class="mobilesecondparagraph">During the last year I have been a part of a SharePoint program at Gateway Technical College, which was a intense curriculum of courses
+                                  spanning across 15 months. While I was in the program I developed a passion for programming and design.
+                                  Currently I am working at Bonton as an eCommerce Interaction Developer in downtown Milwaukee.</span>
                                     </p>
                             <div id="skillspacing">
                                 <ul class="skilllist row">
@@ -174,7 +193,7 @@
                                             </div>
                                     </li>
                                 </ul>
-                            </div>   
+                            </div>
                             </div>
                         </div>
                     </div>
@@ -246,7 +265,7 @@
                                     </div>
                                 </li>
                                 <li>
-                                    
+
                                 </li>
                             </ul>
                     </div>
@@ -254,7 +273,7 @@
         </section>
         <section>
             <h2 class="text-center viewmore"><span>View More Projects</span></h2>
-            
+
         </section>
 
 
@@ -278,7 +297,7 @@
                                     <li><a href="https://github.com/Mizuone" title="My GitHub"><i class="fa fa-github" aria-hidden="true"></i></a><p>Check out my projects on my github profile and open source contributions.
                                         </p></li>
                                     <li><a href="https://www.linkedin.com/in/kyleorlinskideveloper" title="My Linkedin"><i class="fa fa-linkedin" aria-hidden="true"></i></a><p>Connect with me on Linkedin</p></li>
-                                    <li><i class="fa fa-envelope" aria-hidden="true"></i><p>Contact me via social media</p></li>
+                                    <li><i class="fa fa-envelope" aria-hidden="true"></i><p>Email: orlinskikyle@gmail.com</p></li>
                                </ul>
                             </div>
                     </div>
@@ -290,5 +309,6 @@
                 </div>
             </section>
         </footer>
+      </div>
     </body>
 </html>
