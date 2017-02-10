@@ -1,4 +1,13 @@
 /*******************Main Page Format SCSS********************/
+@media screen and (max-width: 1600px) {
+    .centerbannertext h1 {
+        width: 50%;
+        top: 200px;
+        left: 300px;
+        padding: 5px;
+        font-size: 4em;
+    }
+}
 @media screen and (max-width: 1500px) {
     a.portfoliobutton p, a.portfoliobutton {
         width: 13%;
@@ -6,6 +15,13 @@
     }
 }
 @media screen and (max-width: 1200px) {
+    .centerbannertext h1 {
+        width: 70%;
+        top: 200px;
+        left: 0px;
+        padding: 5px;
+        font-size: 4em;
+    }
     a.portfoliobutton p, a.portfoliobutton {
         width: 18%;
     }
@@ -14,7 +30,7 @@
     }
     .centerbannertext p {
         width: 70%;
-        font-size: 2em; 
+        font-size: 2em;
     }
     .aboutpersonimg img {
         margin-bottom: 30px;
@@ -41,6 +57,9 @@
     }
 }
 @media screen and (max-width: 800px) {
+    .glyphicon-menu-down {
+      top: 250px;
+    }
     ul.navlinks {
         float: left;
     }
@@ -75,7 +94,16 @@
         text-align: center;
     }
 }
-@media screen and (max-width:766px) {
+@media screen and (max-width:767px) {
+    nav, .navbar, .navbar-default {
+      padding-top: 0px;
+      padding-bottom: 25px;
+    }
+    ul.navlinks li {
+      width: 100%;
+      text-align: left;
+      border-bottom: 2px rgba(255, 255, 255, 0.5) solid;
+    }
     .firstrow img {
         height: 360px;
     }
@@ -83,6 +111,7 @@
         margin-right: 4%;
     }
     a.navbar-brand img {
+        top: -11px;
         height: 46px;
         width: 46px;
     }
@@ -92,25 +121,32 @@
         width: 26%;
     }
     .centerbannertext h2 {
-        font-size: 1.7em; 
+        font-size: 1.7em;
     }
 }
 @media screen and (max-width: 600px) {
-    a.portfoliobutton p, a.portfoliobutton {
-        width: 30%;
+    .centerbannertext h1 {
+        width: 90%;
+        top: 50px;
+        left: 0px;
+        padding: 5px;
+        font-size: 3em;
+    }
+    .glyphicon-menu-down {
+      top: 150px;
     }
     .centerbannertext h2 {
-        font-size: 1.5em; 
+        font-size: 1.5em;
         width: 85%;
     }
     #overlaycontainer {
-        height: 400px;
+      height: 550px;
     }
     .centerbannertext ul {
         top: 90px;
     }
     .aboutperson p {
-        width: 100%;
+        width: 125%;
         margin: 0 auto;
         font-size: 1.4em;
     }
@@ -139,7 +175,8 @@
         top: 120px;
     }
     #aboutstyling {
-        padding: 15px;
+      padding: 0;
+      margin: 5px;
     }
     .aboutperson p {
         width: 100%;
@@ -150,10 +187,21 @@
     }
 }
 @media screen and (max-width: 500px) {
+    #overlaycontainer {
+      height: 550px;
+    }
     .centerbannertext h1 {
-        width: 100%;
-        font-size: 2.5em; 
-        top: 125px;
+        width: 90%;
+        top: 50px;
+        left: 0px;
+        padding: 5px;
+        font-size: 3em;
+    }
+    .glyphicon-menu-down {
+      position: relative;
+      top: 120px;
+      color: white;
+      font-size: 3em;
     }
     a.portfoliobutton p, a.portfoliobutton {
         width: 35%;
@@ -178,14 +226,6 @@
     #skillspacing p  {
         font-size: 1em;
     }
-    .centerbannertext h1, .centerbannertext h2 {
-        top: 100px;
-        width: 100%;
-        font-size: 1.3em;
-    }
-    .centerbannertext h1 {
-        font-size: 2.1em; 
-    }
     a.portfoliobutton p, a.portfoliobutton {
         width: 42%;
         top: 100px;
@@ -196,6 +236,36 @@
     .contactstyling p {
         font-size: 1.3em;
     }
+}
+@media screen and (max-width: 360px) {
+  .centerbannertext h1 {
+      width: 95%;
+      top: 50px;
+      left: 0px;
+      padding: 5px;
+      font-size: 3em;
+  }
+  .glyphicon-menu-down {
+    position: relative;
+    top: 120px;
+    color: white;
+    font-size: 3em;
+  }
+}
+@media screen and (max-width: 340px) {
+  .centerbannertext h1 {
+      width: 95%;
+      top: 50px;
+      left: 0px;
+      padding: 5px;
+      font-size: 2.5em;
+  }
+  .glyphicon-menu-down {
+    position: relative;
+    top: 120px;
+    color: white;
+    font-size: 3em;
+  }
 }
 /***************************************************/
 /*******************BLOG MEDIA QUERIES***************/

@@ -8,10 +8,30 @@
   outline: 0;
   font-size: 100%;
   font: inherit;
-  vertical-align: baseline;
+  vertical-align: baseline; }
+
+a {
   transition: 0.1s ease-in-out; }
 
 .hideme {
+  display: none; }
+
+.loaderoverlay {
+  position: relative;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: #000;
+  height: 2000px; }
+
+.loaderoverlay h1 {
+  position: relative;
+  top: 200px;
+  text-align: center;
+  margin-top: 0; }
+
+.landingpagecontainer {
   display: none; }
 
 span.breaksection {
@@ -25,26 +45,273 @@ span.breaksection {
   margin-left: 21%; }
 
 .navbar-default .navbar-collapse {
-  color: #292928;
-  border-color: #292928; }
+  color: orangered; }
+
+a.jumpto {
+  color: white;
+  border-bottom: 5px rgba(255, 255, 255, 0.5) solid; }
+
+a.jumpto:hover {
+  text-decoration: none;
+  border-bottom-color: #fff; }
+
+.windows8 {
+  position: relative;
+  width: 78px;
+  height: 78px;
+  margin: auto; }
+
+.windows8 .wBall {
+  position: absolute;
+  width: 74px;
+  height: 74px;
+  opacity: 0;
+  transform: rotate(225deg);
+  -o-transform: rotate(225deg);
+  -ms-transform: rotate(225deg);
+  -webkit-transform: rotate(225deg);
+  -moz-transform: rotate(225deg);
+  animation: orbit 6.96s infinite;
+  -o-animation: orbit 6.96s infinite;
+  -ms-animation: orbit 6.96s infinite;
+  -webkit-animation: orbit 6.96s infinite;
+  -moz-animation: orbit 6.96s infinite; }
+
+.windows8 .wBall .wInnerBall {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: #fff;
+  left: 0;
+  top: 0;
+  border-radius: 10px; }
+
+.windows8 #wBall_1 {
+  animation-delay: 1.52s;
+  -o-animation-delay: 1.52s;
+  -ms-animation-delay: 1.52s;
+  -webkit-animation-delay: 1.52s;
+  -moz-animation-delay: 1.52s; }
+
+.windows8 #wBall_2 {
+  animation-delay: .3s;
+  -o-animation-delay: .3s;
+  -ms-animation-delay: .3s;
+  -webkit-animation-delay: .3s;
+  -moz-animation-delay: .3s; }
+
+.windows8 #wBall_3 {
+  animation-delay: .61s;
+  -o-animation-delay: .61s;
+  -ms-animation-delay: .61s;
+  -webkit-animation-delay: .61s;
+  -moz-animation-delay: .61s; }
+
+.windows8 #wBall_4 {
+  animation-delay: .91s;
+  -o-animation-delay: .91s;
+  -ms-animation-delay: .91s;
+  -webkit-animation-delay: .91s;
+  -moz-animation-delay: .91s; }
+
+.windows8 #wBall_5 {
+  animation-delay: 1.22s;
+  -o-animation-delay: 1.22s;
+  -ms-animation-delay: 1.22s;
+  -webkit-animation-delay: 1.22s;
+  -moz-animation-delay: 1.22s; }
+
+@keyframes orbit {
+  0% {
+    opacity: 1;
+    z-index: 99;
+    transform: rotate(180deg);
+    animation-timing-function: ease-out; }
+  7% {
+    opacity: 1;
+    transform: rotate(300deg);
+    animation-timing-function: linear;
+    origin: 0; }
+  30% {
+    opacity: 1;
+    transform: rotate(410deg);
+    animation-timing-function: ease-in-out;
+    origin: 7%; }
+  39% {
+    opacity: 1;
+    transform: rotate(645deg);
+    animation-timing-function: linear;
+    origin: 30%; }
+  70% {
+    opacity: 1;
+    transform: rotate(770deg);
+    animation-timing-function: ease-out;
+    origin: 39%; }
+  75% {
+    opacity: 1;
+    transform: rotate(900deg);
+    animation-timing-function: ease-out;
+    origin: 70%; }
+  100%, 76% {
+    opacity: 0;
+    transform: rotate(900deg); } }
+
+@-o-keyframes orbit {
+  0% {
+    opacity: 1;
+    z-index: 99;
+    -o-transform: rotate(180deg);
+    -o-animation-timing-function: ease-out; }
+  7% {
+    opacity: 1;
+    -o-transform: rotate(300deg);
+    -o-animation-timing-function: linear;
+    -o-origin: 0; }
+  30% {
+    opacity: 1;
+    -o-transform: rotate(410deg);
+    -o-animation-timing-function: ease-in-out;
+    -o-origin: 7%; }
+  39% {
+    opacity: 1;
+    -o-transform: rotate(645deg);
+    -o-animation-timing-function: linear;
+    -o-origin: 30%; }
+  70% {
+    opacity: 1;
+    -o-transform: rotate(770deg);
+    -o-animation-timing-function: ease-out;
+    -o-origin: 39%; }
+  75% {
+    opacity: 1;
+    -o-transform: rotate(900deg);
+    -o-animation-timing-function: ease-out;
+    -o-origin: 70%; }
+  100%, 76% {
+    opacity: 0;
+    -o-transform: rotate(900deg); } }
+
+@-ms-keyframes orbit {
+  39%, 7% {
+    -ms-animation-timing-function: linear; }
+  0%, 70%, 75% {
+    opacity: 1;
+    -ms-animation-timing-function: ease-out; }
+  100%, 75%, 76% {
+    -ms-transform: rotate(900deg); }
+  0% {
+    z-index: 99;
+    -ms-transform: rotate(180deg); }
+  7% {
+    opacity: 1;
+    -ms-transform: rotate(300deg);
+    -ms-origin: 0; }
+  30% {
+    opacity: 1;
+    -ms-transform: rotate(410deg);
+    -ms-animation-timing-function: ease-in-out;
+    -ms-origin: 7%; }
+  39% {
+    opacity: 1;
+    -ms-transform: rotate(645deg);
+    -ms-origin: 30%; }
+  70% {
+    -ms-transform: rotate(770deg);
+    -ms-origin: 39%; }
+  75% {
+    -ms-origin: 70%; }
+  100%, 76% {
+    opacity: 0; } }
+
+@-webkit-keyframes orbit {
+  0% {
+    opacity: 1;
+    z-index: 99;
+    -webkit-transform: rotate(180deg);
+    -webkit-animation-timing-function: ease-out; }
+  7% {
+    opacity: 1;
+    -webkit-transform: rotate(300deg);
+    -webkit-animation-timing-function: linear;
+    -webkit-origin: 0; }
+  30% {
+    opacity: 1;
+    -webkit-transform: rotate(410deg);
+    -webkit-animation-timing-function: ease-in-out;
+    -webkit-origin: 7%; }
+  39% {
+    opacity: 1;
+    -webkit-transform: rotate(645deg);
+    -webkit-animation-timing-function: linear;
+    -webkit-origin: 30%; }
+  70% {
+    opacity: 1;
+    -webkit-transform: rotate(770deg);
+    -webkit-animation-timing-function: ease-out;
+    -webkit-origin: 39%; }
+  75% {
+    opacity: 1;
+    -webkit-transform: rotate(900deg);
+    -webkit-animation-timing-function: ease-out;
+    -webkit-origin: 70%; }
+  100%, 76% {
+    opacity: 0;
+    -webkit-transform: rotate(900deg); } }
+
+@-moz-keyframes orbit {
+  0% {
+    opacity: 1;
+    z-index: 99;
+    -moz-transform: rotate(180deg);
+    -moz-animation-timing-function: ease-out; }
+  7% {
+    opacity: 1;
+    -moz-transform: rotate(300deg);
+    -moz-animation-timing-function: linear;
+    -moz-origin: 0; }
+  30% {
+    opacity: 1;
+    -moz-transform: rotate(410deg);
+    -moz-animation-timing-function: ease-in-out;
+    -moz-origin: 7%; }
+  39% {
+    opacity: 1;
+    -moz-transform: rotate(645deg);
+    -moz-animation-timing-function: linear;
+    -moz-origin: 30%; }
+  70% {
+    opacity: 1;
+    -moz-transform: rotate(770deg);
+    -moz-animation-timing-function: ease-out;
+    -moz-origin: 39%; }
+  75% {
+    opacity: 1;
+    -moz-transform: rotate(900deg);
+    -moz-animation-timing-function: ease-out;
+    -moz-origin: 70%; }
+  100%, 76% {
+    opacity: 0;
+    -moz-transform: rotate(900deg); } }
+
+.windows8 {
+  top: 400px; }
 
 /*#####################Nav Styling#########################*/
 nav, .navbar, .navbar-default {
   margin: 0px;
-  padding-bottom: 14px;
-  border-bottom: #2098d1;
-  font-family: "Roboto", sans-serif;
+  padding-bottom: 0px;
+  padding-top: 0px;
+  font-family: "Share Tech Mono", monospace;
   font-size: 1.2em;
-  background: #292928;
+  background: orangered;
   color: white;
   border: 0px solid transparent;
-  border-radius: 0px;
-  box-shadow: 0 1px 4px #333; }
+  border-radius: 0px; }
 
-.navbar-brand, a.navbar-brand {
-  margin: 0px;
-  padding-top: 2px;
-  padding-left: 20px; }
+.navbar-brand, a.navbar-brand img {
+  position: relative;
+  top: 0px;
+  margin: 0px; }
 
 .navbar-brand img {
   border-radius: 10px; }
@@ -57,14 +324,14 @@ ul.nav li, ul.nav li i {
   padding-top: 16px; }
 
 ul.navlinks {
-  position: relative;
+  float: right;
   text-align: center;
-  margin: 0 auto;
-  left: 50px; }
+  margin: 0 auto; }
 
 ul.navlinks li {
   display: inline-block;
-  font-size: 1.2em; }
+  font-size: 0.9em;
+  padding: 1.5em; }
 
 .navbar-default .navbar-nav > li > a {
   /*Underline transition effect*/
@@ -73,7 +340,7 @@ ul.navlinks li {
   text-decoration: none; }
 
 .navbar-default .navlinks > li > a:hover {
-  color: aqua; }
+  color: #000; }
 
 .navbar-default .navlinks > li > a:before {
   content: "";
@@ -98,63 +365,40 @@ ul.nav li i {
   margin: auto 20px;
   font-size: 1.7em; }
 
-ul.socialicons {
-  margin-left: 0px;
-  display: inline;
-  float: right; }
-
-ul.socialicons li {
-  display: inline; }
-
-ul.socialicons a {
-  color: white;
-  transition: 0.1s linear; }
-
-ul.socialicons li i {
-  width: 100%;
-  text-align: center;
-  margin: 0 20px; }
-
-ul.socialicons li a {
-  padding: 0px;
-  width: 5%; }
-
-ul.socialicons li i:hover {
-  color: aqua; }
-
-.navbar-default .socialicons > li > a:hover {
-  color: white; }
-
 /******************************************/
 /*#####################Banner Section#########################*/
 #overlaycontainer {
   position: relative;
-  box-shadow: 0 0 5px white;
-  height: 600px;
+  height: 800px;
   text-align: center;
-  top: 0px;
+  top: 0;
   bottom: 0;
   left: 0;
   right: 0;
-  z-index: 999; }
+  z-index: 999;
+  background-color: orangered; }
 
-.centerbannertext p, .centerbannertext h1, .centerbannertext h2 {
-  width: 100%;
-  margin: 0 auto;
-  position: relative;
-  text-align: left;
-  padding: 10px 15px;
-  top: 150px;
-  font-size: 2em;
-  line-height: 150%;
-  text-align: center;
-  color: black;
-  font-family: "Raleway", sans-serif; }
+.centerbannertext {
+  position: relative; }
 
 .centerbannertext h1 {
+  position: relative;
+  width: 45%;
+  top: 250px;
+  left: 375px;
+  margin: 0 auto;
+  text-align: left;
   padding: 5px;
-  font-size: 3em;
-  font-family: "Open Sans", sans-serif; }
+  font-size: 4.5em;
+  line-height: 150%;
+  color: #fff;
+  font-family: "Montserrat", sans-serif; }
+
+.glyphicon-menu-down {
+  position: relative;
+  top: 325px;
+  color: white;
+  font-size: 3em; }
 
 .centerbannertext p:nth-of-type(2) span.skillset {
   display: block;
@@ -178,7 +422,7 @@ a.portfoliobutton p:hover {
   background-color: rgba(0, 0, 0, 0.2); }
 
 a.portfoliobutton:hover span.fa-angle-down {
-  color: aqua; }
+  color: #000; }
 
 .centerbannertext ul {
   position: relative;
@@ -199,10 +443,9 @@ span.fa-angle-down {
 
 /*#####################About Section#########################*/
 #aboutstyling {
-  background-color: rgba(0, 0, 0, 0.08);
+  background-color: #fff;
   position: relative;
-  padding: 50px;
-  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3); }
+  margin: 50px; }
 
 .aboutpersonimg img {
   display: block;
@@ -218,7 +461,7 @@ span.fa-angle-down {
 .aboutperson h2, .headingtwoformat {
   text-align: center;
   font-size: 3em;
-  font-family: "Roboto", sans-serif; }
+  font-family: "Share Tech Mono", monospace; }
 
 .aboutperson p:first-child, .aboutperson p:nth-of-type(2), #skillspacing p {
   width: 90%;
@@ -300,7 +543,7 @@ ul.progress-style li {
 
 .projectdivider h3 {
   text-align: center;
-  font-family: "Roboto", sans-serif; }
+  font-family: "Share Tech Mono", monospace; }
 
 .projectdivider a img {
   display: block;
@@ -320,7 +563,7 @@ ul.progress-style li {
   text-align: center;
   color: white;
   font-size: 1.5em;
-  font-family: "Roboto", sans-serif;
+  font-family: "Share Tech Mono", monospace;
   -webkit-transition: 0.3s;
   -moz-transition: 0.3s;
   -ms-transition: 0.3s;
@@ -333,8 +576,13 @@ ul.progress-style li {
   opacity: 1;
   top: 300px; }
 
+.appdescription.heighttransitionmobile {
+  position: absolute;
+  opacity: 1;
+  top: 190px; }
+
 .viewmore {
-  font-family: "Roboto", sans-serif;
+  font-family: "Share Tech Mono", monospace;
   font-size: 1.3em;
   margin: 3.5em 0 3.5em 0; }
 
@@ -351,10 +599,10 @@ footer .fa {
   font-size: 2.5em; }
 
 footer a {
-  color: black; }
+  color: rgba(255, 255, 255, 0.9); }
 
 footer a:hover {
-  color: aqua; }
+  color: orangered; }
 
 .footernavlinks p, .footersociallinks p {
   font-size: 1.2em;
@@ -367,14 +615,15 @@ footer a:hover {
   font-size: 1.5em; }
 
 .contactstyling {
-  background-color: rgba(0, 0, 0, 0.08);
+  background-color: #000;
   width: 100%;
   margin-top: 0;
   padding: 40px;
-  box-shadow: 0px -2px 1px rgba(0, 0, 0, 0.3); }
+  box-shadow: 0px -2px 1px rgba(0, 0, 0, 0.3);
+  color: rgba(255, 255, 255, 0.6); }
 
 .contactstyling h2 {
-  font-family: "Roboto", sans-serif;
+  font-family: "Share Tech Mono", monospace;
   text-align: center;
   font-size: 2.8em; }
 
@@ -421,12 +670,26 @@ footer a:hover {
   margin: 24px 0; }
 
 /*******************Main Page Format SCSS********************/
+@media screen and (max-width: 1600px) {
+  .centerbannertext h1 {
+    width: 50%;
+    top: 200px;
+    left: 300px;
+    padding: 5px;
+    font-size: 4em; } }
+
 @media screen and (max-width: 1500px) {
   a.portfoliobutton p, a.portfoliobutton {
     width: 13%;
     font-size: 0.9em; } }
 
 @media screen and (max-width: 1200px) {
+  .centerbannertext h1 {
+    width: 70%;
+    top: 200px;
+    left: 0px;
+    padding: 5px;
+    font-size: 4em; }
   a.portfoliobutton p, a.portfoliobutton {
     width: 18%; }
   .progress-style li p {
@@ -452,6 +715,8 @@ footer a:hover {
     height: 250px; } }
 
 @media screen and (max-width: 800px) {
+  .glyphicon-menu-down {
+    top: 250px; }
   ul.navlinks {
     float: left; }
   ul.socialicons {
@@ -476,12 +741,20 @@ footer a:hover {
   .contactstyling p {
     text-align: center; } }
 
-@media screen and (max-width: 766px) {
+@media screen and (max-width: 767px) {
+  nav, .navbar, .navbar-default {
+    padding-top: 0px;
+    padding-bottom: 25px; }
+  ul.navlinks li {
+    width: 100%;
+    text-align: left;
+    border-bottom: 2px rgba(255, 255, 255, 0.5) solid; }
   .firstrow img {
     height: 360px; }
   .projectdivider .row {
     margin-right: 4%; }
   a.navbar-brand img {
+    top: -11px;
     height: 46px;
     width: 46px; } }
 
@@ -492,17 +765,23 @@ footer a:hover {
     font-size: 1.7em; } }
 
 @media screen and (max-width: 600px) {
-  a.portfoliobutton p, a.portfoliobutton {
-    width: 30%; }
+  .centerbannertext h1 {
+    width: 90%;
+    top: 50px;
+    left: 0px;
+    padding: 5px;
+    font-size: 3em; }
+  .glyphicon-menu-down {
+    top: 150px; }
   .centerbannertext h2 {
     font-size: 1.5em;
     width: 85%; }
   #overlaycontainer {
-    height: 400px; }
+    height: 550px; }
   .centerbannertext ul {
     top: 90px; }
   .aboutperson p {
-    width: 100%;
+    width: 125%;
     margin: 0 auto;
     font-size: 1.4em; }
   .aboutpersonimg img {
@@ -523,7 +802,8 @@ footer a:hover {
   .centerbannertext ul {
     top: 120px; }
   #aboutstyling {
-    padding: 15px; }
+    padding: 0;
+    margin: 5px; }
   .aboutperson p {
     width: 100%; }
   .aboutpersonimg img {
@@ -531,10 +811,19 @@ footer a:hover {
     max-width: 235px; } }
 
 @media screen and (max-width: 500px) {
+  #overlaycontainer {
+    height: 550px; }
   .centerbannertext h1 {
-    width: 100%;
-    font-size: 2.5em;
-    top: 125px; }
+    width: 90%;
+    top: 50px;
+    left: 0px;
+    padding: 5px;
+    font-size: 3em; }
+  .glyphicon-menu-down {
+    position: relative;
+    top: 120px;
+    color: white;
+    font-size: 3em; }
   a.portfoliobutton p, a.portfoliobutton {
     width: 35%; }
   a.portfoliobutton p:first-child {
@@ -552,12 +841,6 @@ footer a:hover {
     font-size: 1.3em; }
   #skillspacing p {
     font-size: 1em; }
-  .centerbannertext h1, .centerbannertext h2 {
-    top: 100px;
-    width: 100%;
-    font-size: 1.3em; }
-  .centerbannertext h1 {
-    font-size: 2.1em; }
   a.portfoliobutton p, a.portfoliobutton {
     width: 42%;
     top: 100px; }
@@ -565,6 +848,32 @@ footer a:hover {
     width: 100%; }
   .contactstyling p {
     font-size: 1.3em; } }
+
+@media screen and (max-width: 360px) {
+  .centerbannertext h1 {
+    width: 95%;
+    top: 50px;
+    left: 0px;
+    padding: 5px;
+    font-size: 3em; }
+  .glyphicon-menu-down {
+    position: relative;
+    top: 120px;
+    color: white;
+    font-size: 3em; } }
+
+@media screen and (max-width: 340px) {
+  .centerbannertext h1 {
+    width: 95%;
+    top: 50px;
+    left: 0px;
+    padding: 5px;
+    font-size: 2.5em; }
+  .glyphicon-menu-down {
+    position: relative;
+    top: 120px;
+    color: white;
+    font-size: 3em; } }
 
 /***************************************************/
 /*******************BLOG MEDIA QUERIES***************/
