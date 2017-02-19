@@ -18,7 +18,20 @@ $(document).ready(function() {
                animateBar();
            }
         });
+        function checkSessionStorage() {
+          let findLoader = document.querySelector('.loaderoverlay'),
+              findLandingPage = document.querySelector('.landingpagecontainer');
 
+          if (sessionStorage.getItem([0]) === 'onSite_KyleOrlinski' && findLoader !== null && findLoader !== undefined) {
+            console.log('Session Initialized - Welcome Visitor.');
+            findLoader.style.display = "none";
+            findLandingPage.style.display = "block";
+          }
+          if (sessionStorage.getItem([0]) !== 'onSite_KyleOrlinski') {
+            sessionStorage.setItem(0, 'onSite_KyleOrlinski');
+            fadeLoader();
+          }
+        }
         function attachEvents() {
             let displayDescription = document.querySelectorAll(".projectdivider .col-lg-4"),
                 Description = document.querySelectorAll(".appdescription");
@@ -43,22 +56,20 @@ $(document).ready(function() {
             });
           }
         }
-        notHomepage();
-        loaderTitle();
-        fadeLoader();
         function loaderTitle() {
           let bakingArr = ['Making Brownies', 'Applying Textures', 'Leveling Up', '<3', 'Closures?', 'Epic...', 'Adventure Awaits',
                           'Initializing...', 'Warming Up Textures', 'Applying Styles', 'Coffee++;', 'ES6 is old!', '["Loading..."]', 'Entering World...',
                           'Node.js', 'Angular.js', 'Material Design, so pretty.'
                           ];
           let getLoaderTitle = document.querySelector('.loaderoverlay h1');
-
-          getLoaderTitle.textContent = bakingArr[Math.floor(Math.random() * (bakingArr.length - 1))];
+          if (getLoaderTitle !== null && getLoaderTitle !== undefined) {
+            getLoaderTitle.textContent = bakingArr[Math.floor(Math.random() * (bakingArr.length - 1))];
+          }
         }
         function fadeLoader() {
           setTimeout(function() {
             $('.loaderoverlay').fadeOut(1000);
-            $('.landingpagecontainer').fadeIn(2000);
+            $('.landingpagecontainer').fadeIn(1000);
           }, 500, true);
         }
         function animateBar() {
@@ -96,6 +107,9 @@ $(document).ready(function() {
             }, 100);
 
         }
+        notHomepage();
+        loaderTitle();
+        checkSessionStorage();
         attachEvents();
     })();
 });
