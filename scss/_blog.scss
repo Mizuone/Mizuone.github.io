@@ -1,7 +1,5 @@
 
 $aboutAndContactBackground: rgba(0, 0, 0, 0.08);
-$paragraphFont: 'Open Sans', sans-serif;
-$headingFontAndNav: 'Roboto', sans-serif;
 
 .blogformat {
     margin-top: 1%;
@@ -12,13 +10,11 @@ $headingFontAndNav: 'Roboto', sans-serif;
     position: relative;
     margin-top: 100px;
     font-size: 3.5em;
-    font-family: $headingFontAndNav;
 }
 .blogformat h2 {
     position: relative;
     margin-top: 25px;
     font-size: 2em;
-    font-family: $headingFontAndNav;
 }
 .blogarticle {
     width: 50%;
@@ -32,7 +28,6 @@ $headingFontAndNav: 'Roboto', sans-serif;
     margin: 24px 0px;
     font-size: 1.3em;
     line-height: 175%;
-    font-family: $paragraphFont;
     list-style-type: none;
 }
 .articleparagraph li {

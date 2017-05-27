@@ -20,7 +20,7 @@
   "author": "Kyle Orlinski",
   "license": "ISC",
   "devDependencies": {
-    "browser-sync": "^2.14.0",
+    "browser-sync": "^2.18.8",
     "gulp": "^3.9.1",
     "gulp-sass": "^2.3.2"
   }
