@@ -1,4 +1,3 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto);
 body, html {
   height: 100%;
   width: 100%; }
@@ -16,16 +15,41 @@ body, html {
 a {
   transition: 0.1s ease-in-out; }
 
+@keyframes fadeIn {
+  to {
+    opacity: 1; } }
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    display: none; } }
+
+.container-fluid {
+  padding: 0px; }
+
+.col-lg-offset-2 {
+  margin-left: 21%; }
+
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 2s ease-in 1 forwards; }
+
+.fade-out {
+  opacity: 1;
+  animation: fadeOut 2s ease-in 1 forwards; }
+
 .row {
   margin: 0; }
 
 .hideme {
   display: none; }
 
+.loaderoverlay, .backtotop {
+  bottom: 0;
+  right: 0; }
+
 .backtotop {
   position: fixed;
-  bottom: 0;
-  right: 0;
   width: 50px;
   line-height: 25px;
   background-color: rgba(34, 139, 34, 0.8);
@@ -39,8 +63,6 @@ a {
 .loaderoverlay {
   position: relative;
   top: 0;
-  bottom: 0;
-  right: 0;
   left: 0;
   background-color: #000;
   height: 2000px; }
@@ -58,12 +80,6 @@ span.breaksection {
   display: block;
   margin-bottom: 16px; }
 
-.container-fluid {
-  padding: 0px; }
-
-.col-lg-offset-2 {
-  margin-left: 21%; }
-
 .navbar-default .navbar-collapse {
   color: forestgreen; }
 
@@ -75,6 +91,7 @@ a.jumpto:hover {
   text-decoration: none;
   border-bottom-color: #FAFAFA; }
 
+/*#####################Lazy Loader#########################*/
 .windows8 {
   position: relative;
   width: 78px;
@@ -318,18 +335,22 @@ a.jumpto:hover {
 
 /*#####################Nav Styling#########################*/
 nav, .navbar, .navbar-default {
-  margin: 0px;
-  padding-bottom: 0px;
-  padding-top: 0px;
+  margin: 0;
+  padding-bottom: 0;
+  padding-top: 0;
   font-size: 1.2em;
   background: forestgreen;
-  border: 0px solid transparent;
-  border-radius: 0px; }
+  border: 0 solid transparent;
+  border-radius: 0;
+  min-height: 95px; }
+
+.navbar-boxshadow {
+  box-shadow: -2px 1px 3px 0px #000; }
 
 .navbar-brand, a.navbar-brand img {
   position: relative;
   top: -2px;
-  margin: 0px; }
+  margin: 0; }
 
 .navbar-brand img {
   border-radius: 10px; }
@@ -353,22 +374,22 @@ ul.navlinks li {
 .navlinks li a {
   color: #FAFAFA; }
 
-.navlinks li a:hover {
-  background-color: transparent; }
-
-.navbar-default > li > a {
+.navbar-default li a {
   /*Underline transition effect*/
   position: relative;
   text-decoration: none; }
 
-.nav-frontpage {
-  text-align: right; }
+.navlinks li a:hover {
+  background-color: transparent; }
 
-.navbar-default .navlinks > li > a:hover {
+.navlinks li a:hover {
   color: #000;
   font-weight: bold; }
 
-.navbar-default .navlinks > li > a:before {
+.nav-frontpage {
+  text-align: right; }
+
+.navlinks li a:before {
   content: "";
   position: absolute;
   width: 100%;
@@ -382,7 +403,7 @@ ul.navlinks li {
   -webkit-transition: all 0.2s ease-in-out 0s;
   transition: all 0.2s ease-in-out 0s; }
 
-.navbar-default .navlinks > li > a:hover:before {
+.navlinks li a:hover:before {
   visibility: visible;
   -webkit-transform: scaleX(1);
   transform: scaleX(1); }
@@ -429,44 +450,6 @@ ul.nav li i {
 
 .glyphicon-menu-down:hover {
   color: black; }
-
-.centerbannertext p:nth-of-type(2) span.skillset {
-  display: block;
-  font-size: 0.5em; }
-
-.centerbannertext a p:nth-of-type(3) {
-  font-size: 0.5em; }
-
-a.portfoliobutton p, a.portfoliobutton {
-  text-decoration: none;
-  margin-top: 1em;
-  background-color: rgba(0, 0, 0, 0.15);
-  width: 10%;
-  border-radius: 10px;
-  box-shadow: 0 5px 5px black; }
-
-a.portfoliobutton p:first-child {
-  font-size: 1.5em; }
-
-a.portfoliobutton p:hover {
-  background-color: rgba(0, 0, 0, 0.2); }
-
-a.portfoliobutton:hover span.fa-angle-down {
-  color: #000; }
-
-.centerbannertext ul {
-  position: relative;
-  top: 150px; }
-
-.centerbannertext ul li {
-  display: inline;
-  padding: 10px; }
-
-.centerbannertext img {
-  transition: ease-in-out 0.25s; }
-
-.centerbannertext ul li a img:hover, .contactstyling ul li img:hover {
-  box-shadow: 0 0 10px black; }
 
 span.fa-angle-down {
   display: block; }
@@ -614,73 +597,52 @@ span.fa-angle-down {
   opacity: 0;
   transition: 0.3s all; }
 
-.menu-down-about-card, .menu-down-stats-card, .menu-down-blog-card {
-  position: absolute;
-  left: 47%;
-  color: forestgreen;
-  top: 485px;
-  transition: 0.5s all; }
-
-.menu-down-stats-card {
-  color: black; }
-
-.about-card:hover {
-  height: 730px; }
-
-.stats-card:hover {
+.about-card {
   height: 920px; }
 
-.blog-card:hover {
-  height: 670px; }
+.stats-card {
+  height: 920px; }
 
-.about-card:hover .about-card-bottom p {
+.blog-card {
+  height: 920px; }
+
+.about-card .about-card-bottom p {
   margin-top: 3%; }
 
-.about-card:hover .slide-aboutparagraph-card {
+.about-card .slide-aboutparagraph-card {
   margin-top: 5%;
   display: block;
   opacity: 1; }
-
-.about-card:hover .menu-down-about-card {
-  top: 690px;
-  transform: rotateX(180deg); }
 
 .player-experience {
   opacity: 0;
   color: #FAFAFA; }
 
-.stats-card:hover .player-experience, .stats-card:hover .player-health-bars, .stats-card:hover .player-health, .stats-card:hover .player-mana {
+.stats-card .player-experience, .stats-card .player-health-bars, .stats-card .player-health, .stats-card .player-mana {
   opacity: 1; }
 
-.stats-card:hover .player-health, .stats-card:hover .player-mana {
+.stats-card .player-health, .stats-card .player-mana {
   margin-top: 30px; }
 
-.stats-card:hover .menu-down-stats-card {
-  top: 885px;
-  transform: rotateX(180deg); }
-
-.stats-card:hover .stats-card-top {
+.stats-card .stats-card-top {
   opacity: 0; }
 
-.stats-card:hover .stats-card-top-background {
+.stats-card .stats-card-top-background {
   height: 350px;
   box-shadow: 0 4px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   opacity: 1; }
 
-.stats-card:hover .view-stats {
+.stats-card .view-stats {
   opacity: 0;
   display: none; }
 
-.stats-card:hover .player-stats {
+.stats-card .player-stats {
   display: block; }
-
-.stats-card:hover .stat-bars {
-  opacity: 1; }
 
 .stats-card-bottom {
   opacity: 0; }
 
-.stats-card:hover .stats-card-bottom {
+.stats-card .stats-card-bottom {
   position: absolute;
   right: 0;
   top: 0;
@@ -688,71 +650,13 @@ span.fa-angle-down {
   transition: 0.5s all;
   opacity: 1; }
 
-.blog-card:hover .blog-card-leadon {
+.blog-card .blog-card-leadon {
   display: none; }
 
-.blog-card:hover .menu-down-blog-card {
-  top: 630px;
-  transform: rotateX(180deg); }
-
-.blog-card:hover .blog-card-revealed {
+.blog-card .blog-card-revealed {
   transition: 0.5s all;
   opacity: 1; }
 
-.progress-javascript {
-  background-color: rgba(237, 255, 92, 0.68); }
-
-.progress-jquery {
-  background-color: #E97213; }
-
-.progress-angular {
-  background-color: #73F0FF; }
-
-.progress-css {
-  background-color: #7545B0; }
-
-.progress-algorithms {
-  background-color: #C5E9D0; }
-
-.progress-html {
-  background-color: #d45b5b; }
-
-.progress-container {
-  position: relative;
-  text-align: center;
-  display: inline-block;
-  width: 16%; }
-
-.progress-container span {
-  font-size: 14px; }
-
-.skillset {
-  position: absolute;
-  color: #999;
-  font-style: italic; }
-
-/**************PROGRESS BAR STYLING*********/
-.stat-bars {
-  margin-left: 12%;
-  opacity: 0;
-  transition: 0.5s linear all; }
-
-.progress-bar-vertical {
-  width: 30px;
-  min-height: 400px;
-  display: flex;
-  align-items: flex-end;
-  margin: 0 20px;
-  float: left; }
-
-.progress-bar-vertical .progress-bar {
-  width: 100%;
-  height: 0;
-  -webkit-transition: height 0.6s ease;
-  -o-transition: height 0.6s ease;
-  transition: height 0.6s ease; }
-
-/*******************************************/
 /******************************************/
 .projectdivider .row {
   box-sizing: border-box;
@@ -766,12 +670,12 @@ span.fa-angle-down {
   display: inline; }
 
 .firstrow li {
-  width: 103.1%;
+  width: 103%;
   position: relative;
   overflow: hidden; }
 
 .firstrow img {
-  width: 103.1%;
+  width: 103%;
   max-height: 360px;
   height: 360px; }
 
@@ -791,13 +695,17 @@ span.fa-angle-down {
 .projectdivider a img:hover {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); }
 
+.projectdivider li:last-child {
+  transition: 0.3s ease-in;
+  opacity: 0; }
+
 .appdescription {
   position: absolute;
   top: 350px;
   left: 0;
   right: 0;
   bottom: 0px;
-  width: 103.1%;
+  width: 103%;
   background-color: rgba(0, 0, 0, 0.3);
   text-align: center;
   color: #FAFAFA;
@@ -826,10 +734,6 @@ span.fa-angle-down {
 .viewmore span {
   cursor: pointer;
   color: #1976D2; }
-
-.projectdivider li:last-child {
-  transition: 0.3s ease-in;
-  opacity: 0; }
 
 /*#####################Footer Section#########################*/
 footer .fa {
@@ -914,7 +818,7 @@ footer a:hover {
     margin-right: 0%; }
   .stats-card {
     margin: 16px 0; }
-  .stats-card:hover .stats-card-top-background {
+  .stats-card .stats-card-top-background {
     height: 44%; }
   .player-portrait {
     margin-top: 15%; }
@@ -924,23 +828,21 @@ footer a:hover {
     font-size: 16px; } }
 
 @media screen and (max-width: 1727px) {
-  .stats-card:hover .stats-card-top-background {
+  .stats-card .stats-card-top-background {
     height: 44%; }
-  .stats-card:hover .menu-down-stats-card {
-    height: 100px; }
-  .stats-card:hover {
+  .about-card {
     height: 980px; }
-  .blog-card:hover {
-    height: 710px; }
-  .blog-card:hover .menu-down-blog-card {
-    top: 670px; } }
+  .stats-card {
+    height: 980px; }
+  .blog-card {
+    height: 980px; } }
 
 @media screen and (max-width: 1674px) {
   .about-card, .stats-card, .blog-card {
     width: 31.5%; }
   .about-card {
     margin-left: 2%; }
-  .stats-card:hover .stats-card-top-background {
+  .stats-card .stats-card-top-background {
     height: 44%; } }
 
 @media screen and (max-width: 1600px) {
@@ -954,19 +856,12 @@ footer a:hover {
     margin-top: 30px; } }
 
 @media screen and (max-width: 1500px) {
-  a.portfoliobutton p, a.portfoliobutton {
-    width: 13%;
-    font-size: 0.9em; }
   .player-stats {
     font-size: 24px; }
   .about-card-bottom p, .view-stats, .player-experience, .blog-card-paragraph {
     font-size: 16px; }
   .skillset {
     font-size: 14px; }
-  .progress-container {
-    font-size: 12px; }
-  .progress-container span {
-    margin-left: 30%; }
   .code-skill {
     font-size: 14px; }
   .player-portrait {
@@ -995,7 +890,7 @@ footer a:hover {
   .blog-card-responsive, .about-card {
     width: 47%;
     display: inline-block; }
-  .stats-card:hover .player-stats {
+  .stats-card .player-stats {
     display: none; }
   .stats-card {
     width: 100%; }
@@ -1009,17 +904,10 @@ footer a:hover {
   .player-container {
     width: 50%;
     margin: 10px auto; }
-  .progress.progress-bar-vertical {
-    margin: 0 auto;
-    float: none; }
-  .progress-container span {
-    margin-left: 0; }
-  .stats-card:hover .stats-card-top-background {
+  .stats-card .stats-card-top-background {
     height: 31%; }
-  .stats-card:hover .stat-bars {
+  .stats-card .stat-bars {
     position: relative;
-    top: 100px; }
-  .skillset-container {
     top: 100px; }
   .centerbannertext h1 {
     width: 70%;
@@ -1027,10 +915,6 @@ footer a:hover {
     left: 0px;
     padding: 5px;
     font-size: 4em; }
-  a.portfoliobutton p, a.portfoliobutton {
-    width: 18%; }
-  .progress-style li p {
-    font-size: 0.9em; }
   .centerbannertext p {
     width: 70%;
     font-size: 2em; }
@@ -1046,7 +930,7 @@ footer a:hover {
     width: 50%; }
   .player-experience p {
     width: 75%; }
-  .stats-card:hover .stats-card-top-background {
+  .stats-card .stats-card-top-background {
     height: 365px; } }
 
 @media screen and (max-width: 1027px) {
@@ -1057,19 +941,16 @@ footer a:hover {
   .code-skill {
     font-size: 16px; } }
 
+@media screen and (max-width: 991px) {
+  ul.navlinks li {
+    padding: 10px;
+    margin-top: 12px; } }
+
 @media screen and (max-width: 980px) {
-  a.portfoliobutton p, a.portfoliobutton {
-    width: 20%; }
   .firstrow img, .secondrow img, .thirdrow img, .fourthrow img {
     height: 250px; }
   .blog-card-heading-container {
     padding: 9px; } }
-
-@media screen and (max-width: 935px) {
-  .progress-container {
-    width: 16%; }
-  .stat-bars {
-    margin-left: 18%; } }
 
 @media screen and (max-width: 872px) {
   .blog-card-heading-container {
@@ -1078,25 +959,8 @@ footer a:hover {
 @media screen and (max-width: 800px) {
   ul.navlinks {
     float: left; }
-  ul.socialicons {
-    float: right; }
-  .aboutperson .non-mobileabout {
-    display: none; }
-  .aboutperson .mobileabout {
-    display: block; }
-  a.portfoliobutton p, a.portfoliobutton {
-    width: 23%; }
-  .aboutperson p {
-    width: 100%;
-    margin: 0 auto;
-    font-size: 1.4em; }
-  .progress-style .col-xs-10 {
-    width: 80%;
-    margin: 0 auto; }
   ul.skilllist {
     width: 70%; }
-  .progress-style li p {
-    font-size: 0.8em; }
   .contactstyling p {
     text-align: center; } }
 
@@ -1125,10 +989,6 @@ footer a:hover {
     display: none; }
   .player-experience p {
     width: 100%; }
-  .skillset-container {
-    display: none; }
-  .stats-card:hover .skillset-container {
-    display: block; }
   .blog-card-desktop, .about-card {
     width: 100%;
     display: block; }
@@ -1145,28 +1005,9 @@ footer a:hover {
     margin-top: 2%; } }
 
 @media screen and (max-width: 700px) {
-  a.portfoliobutton p, a.portfoliobutton {
-    width: 26%; }
   .centerbannertext h2 {
     font-size: 1.7em; } }
 
-/************ MOBILE YEARS OF EXPERIENCE VERSION **************/
-@media screen and (min-width: 656px) {
-  .skillset-mobile, .progress-mobile {
-    display: none; } }
-
-@media screen and (max-width: 655px) {
-  .skillset, .progress-desktop, .progress-mobile {
-    display: none; }
-  .stats-card:hover .skillset-mobile {
-    display: inline; }
-  .stats-card:hover .progress-mobile {
-    position: relative;
-    display: block;
-    top: 25px;
-    margin-left: 2%; } }
-
-/**************************************************************/
 @media screen and (max-width: 600px) {
   .banner-menu-down {
     top: 280px; }
@@ -1185,20 +1026,11 @@ footer a:hover {
     padding-top: 25px; }
   .centerbannertext ul {
     top: 90px; }
-  .aboutperson p {
-    width: 125%;
-    margin: 0 auto;
-    font-size: 1.4em; }
-  .aboutpersonimg img {
-    max-height: 200px;
-    max-width: 275px; }
   .progress-style .col-xs-10 {
     width: 90%;
     margin: 0 auto; }
   ul.skilllist {
     width: 100%; }
-  .aboutperson {
-    font-size: 0.8em; }
   .progress-style li p {
     font-size: 1em; }
   .centerbannertext img {
@@ -1206,21 +1038,13 @@ footer a:hover {
     max-height: 50px; }
   .centerbannertext ul {
     top: 120px; }
-  #aboutstyling {
-    padding: 0;
-    margin: 5px; }
-  .aboutperson p {
-    width: 100%; }
-  .aboutpersonimg img {
-    max-height: 195px;
-    max-width: 235px; }
-  .stats-card:hover .stats-card-top-background {
+  .stats-card .stats-card-top-background {
     height: 38%; } }
 
 @media screen and (max-width: 510px) {
   .banner-menu-down {
     top: 190px; }
-  .stats-card:hover .stats-card-top-background {
+  .stats-card .stats-card-top-background {
     height: 46%; }
   .player-portrait-container {
     margin-top: 6%; } }
@@ -1234,15 +1058,8 @@ footer a:hover {
     left: 0px;
     padding: 5px;
     font-size: 3em; }
-  a.portfoliobutton p, a.portfoliobutton {
-    width: 35%; }
-  a.portfoliobutton p:first-child {
-    font-size: 1.2em; }
-  .aboutpersonimg img {
-    max-height: 150px;
-    max-width: 200px; }
   .firstrow img {
-    height: 275px; } }
+    height: 250px; } }
 
 @media screen and (max-width: 437px) {
   .banner-menu-down {
@@ -1251,17 +1068,6 @@ footer a:hover {
     font-size: 14px; } }
 
 @media screen and (max-width: 412px) {
-  .aboutperson p:first-child, .aboutperson p:nth-of-type(2) {
-    width: 100%;
-    padding: 0px 10px;
-    font-size: 1.3em; }
-  #skillspacing p {
-    font-size: 1em; }
-  a.portfoliobutton p, a.portfoliobutton {
-    width: 42%;
-    top: 100px; }
-  .progress-style .col-xs-10 {
-    width: 100%; }
   .contactstyling p {
     font-size: 1.3em; } }
 
@@ -1274,14 +1080,14 @@ footer a:hover {
     font-size: 3em; }
   .banner-menu-down {
     top: 150px; }
-  .stats-card:hover .stats-card-top-background {
+  .stats-card .stats-card-top-background {
     height: 44%; }
-  .stats-card:hover {
+  .stats-card {
     height: 1010px; }
-  .stats-card:hover .menu-down-stats-card {
+  .stats-card .menu-down-stats-card {
     top: 920px; } }
 
-@media screen and (max-width: 340px) {
+@media screen and (max-width: 360px) {
   .centerbannertext h1 {
     width: 95%;
     top: 50px;
@@ -1292,8 +1098,8 @@ footer a:hover {
     font-size: 12px; }
   .banner-menu-down {
     top: 180px; }
-  .stats-card:hover .stats-card-top-background {
-    height: 46%; } }
+  .stats-card .stats-card-top-background {
+    height: 50%; } }
 
 /***************************************************/
 /*******************BLOG MEDIA QUERIES***************/

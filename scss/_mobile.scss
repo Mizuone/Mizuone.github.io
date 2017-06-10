@@ -19,7 +19,7 @@
   .stats-card {
     margin: 16px 0;
   }
-  .stats-card:hover .stats-card-top-background {
+  .stats-card .stats-card-top-background {
     height: 44%;
   }
   .player-portrait {
@@ -34,20 +34,17 @@
 }
 
 @media screen and (max-width: 1727px) {
-  .stats-card:hover .stats-card-top-background {
+  .stats-card .stats-card-top-background {
     height: 44%;
   }
-  .stats-card:hover .menu-down-stats-card  {
-    height: 100px
-  }
-  .stats-card:hover {
+  .about-card {
     height: 980px;
   }
-  .blog-card:hover {
-    height: 710px;
+  .stats-card {
+    height: 980px;
   }
-  .blog-card:hover .menu-down-blog-card {
-    top: 670px;
+  .blog-card {
+    height: 980px;
   }
 }
 
@@ -58,7 +55,7 @@
   .about-card {
     margin-left: 2%;
   }
-  .stats-card:hover .stats-card-top-background {
+  .stats-card .stats-card-top-background {
     height: 44%;
   }
 }
@@ -77,10 +74,6 @@
 }
 
 @media screen and (max-width: 1500px) {
-    a.portfoliobutton p, a.portfoliobutton {
-        width: 13%;
-        font-size: 0.9em;
-    }
     .player-stats {
       font-size: 24px;
     }
@@ -89,12 +82,6 @@
     }
     .skillset {
       font-size: 14px;
-    }
-    .progress-container {
-      font-size: 12px;
-    }
-    .progress-container span {
-      margin-left: 30%;
     }
     .code-skill  {
       font-size: 14px;
@@ -136,7 +123,7 @@
       width: 47%;
       display: inline-block;
     }
-    .stats-card:hover .player-stats {
+    .stats-card .player-stats {
       display: none;
     }
     .stats-card {
@@ -156,21 +143,11 @@
       width: 50%;
       margin: 10px auto;
     }
-    .progress.progress-bar-vertical {
-      margin: 0 auto;
-      float: none;
-    }
-    .progress-container span {
-      margin-left: 0;
-    }
-    .stats-card:hover .stats-card-top-background {
+    .stats-card .stats-card-top-background {
       height: 31%;
     }
-    .stats-card:hover .stat-bars {
+    .stats-card .stat-bars {
       position: relative;
-      top: 100px;
-    }
-    .skillset-container {
       top: 100px;
     }
     .centerbannertext h1 {
@@ -179,12 +156,6 @@
         left: 0px;
         padding: 5px;
         font-size: 4em;
-    }
-    a.portfoliobutton p, a.portfoliobutton {
-        width: 18%;
-    }
-    .progress-style li p {
-        font-size: 0.9em;
     }
     .centerbannertext p {
         width: 70%;
@@ -208,7 +179,7 @@
     .player-experience p {
       width: 75%;
     }
-    .stats-card:hover .stats-card-top-background {
+    .stats-card .stats-card-top-background {
       height: 365px;
     }
 }
@@ -225,25 +196,20 @@
   }
 }
 
+@media screen and (max-width: 991px) {
+  ul.navlinks li {
+    padding: 10px;
+    margin-top: 12px;
+  }
+}
+
 @media screen and (max-width: 980px) {
-    a.portfoliobutton p, a.portfoliobutton {
-        width: 20%;
-    }
     .firstrow img, .secondrow img, .thirdrow img, .fourthrow img {
         height: 250px;
     }
     .blog-card-heading-container {
       padding: 9px;
     }
-}
-
-@media screen and (max-width: 935px) {
-  .progress-container {
-    width: 16%;
-  }
-  .stat-bars {
-    margin-left: 18%;
-  }
 }
 
 @media screen and (max-width: 872px) {
@@ -257,32 +223,8 @@
     ul.navlinks {
         float: left;
     }
-    ul.socialicons {
-        float: right;
-    }
-    .aboutperson .non-mobileabout {
-        display: none;
-    }
-    .aboutperson .mobileabout {
-        display: block;
-    }
-    a.portfoliobutton p, a.portfoliobutton {
-        width: 23%;
-    }
-    .aboutperson p {
-        width: 100%;
-        margin: 0 auto;
-        font-size: 1.4em;
-    }
-    .progress-style .col-xs-10 {
-        width: 80%;
-        margin: 0 auto;
-    }
     ul.skilllist {
         width: 70%;
-    }
-    .progress-style li p {
-        font-size: 0.8em;
     }
     .contactstyling p {
         text-align: center;
@@ -323,12 +265,6 @@
   .player-experience p {
     width: 100%;
   }
-  .skillset-container {
-    display: none;
-  }
-  .stats-card:hover .skillset-container {
-    display: block;
-  }
   .blog-card-desktop, .about-card{
     width: 100%;
     display: block;
@@ -352,40 +288,10 @@
 }
 
 @media screen and (max-width: 700px) {
-    a.portfoliobutton p, a.portfoliobutton {
-        width: 26%;
-    }
     .centerbannertext h2 {
         font-size: 1.7em;
     }
 }
-
-
-
-
-/************ MOBILE YEARS OF EXPERIENCE VERSION **************/
-@media screen and (min-width: 656px) {
-  .skillset-mobile, .progress-mobile {
-    display: none;
-  }
-}
-@media screen and (max-width: 655px) {
-  .skillset, .progress-desktop, .progress-mobile {
-    display: none;
-  }
-  .stats-card:hover .skillset-mobile {
-    display: inline;
-  }
-
-  .stats-card:hover .progress-mobile {
-    position: relative;
-    display: block;
-    top: 25px;
-    margin-left: 2%;
-  }
-}
-/**************************************************************/
-
 
 
 
@@ -413,24 +319,12 @@
     .centerbannertext ul {
         top: 90px;
     }
-    .aboutperson p {
-        width: 125%;
-        margin: 0 auto;
-        font-size: 1.4em;
-    }
-    .aboutpersonimg img{
-        max-height: 200px;
-        max-width: 275px;
-    }
     .progress-style .col-xs-10 {
         width: 90%;
         margin: 0 auto;
     }
     ul.skilllist {
         width: 100%;
-    }
-    .aboutperson {
-        font-size: 0.8em;
     }
     .progress-style li p {
         font-size: 1em;
@@ -442,18 +336,7 @@
     .centerbannertext ul {
         top: 120px;
     }
-    #aboutstyling {
-      padding: 0;
-      margin: 5px;
-    }
-    .aboutperson p {
-        width: 100%;
-    }
-    .aboutpersonimg img{
-        max-height: 195px;
-        max-width: 235px;
-    }
-    .stats-card:hover .stats-card-top-background {
+    .stats-card .stats-card-top-background {
       height: 38%;
     }
 }
@@ -462,7 +345,7 @@
   .banner-menu-down {
     top: 190px;
   }
-  .stats-card:hover .stats-card-top-background {
+  .stats-card .stats-card-top-background {
     height: 46%;
   }
   .player-portrait-container {
@@ -481,18 +364,8 @@
         padding: 5px;
         font-size: 3em;
     }
-    a.portfoliobutton p, a.portfoliobutton {
-        width: 35%;
-    }
-    a.portfoliobutton p:first-child {
-        font-size: 1.2em;
-    }
-    .aboutpersonimg img{
-        max-height: 150px;
-        max-width: 200px;
-    }
     .firstrow img {
-        height: 275px;
+        height: 250px;
     }
 }
 
@@ -506,21 +379,6 @@
 }
 
 @media screen and (max-width: 412px) {
-    .aboutperson p:first-child, .aboutperson p:nth-of-type(2){
-        width: 100%;
-        padding: 0px 10px;
-        font-size: 1.3em;
-    }
-    #skillspacing p  {
-        font-size: 1em;
-    }
-    a.portfoliobutton p, a.portfoliobutton {
-        width: 42%;
-        top: 100px;
-    }
-    .progress-style .col-xs-10 {
-        width: 100%;
-    }
     .contactstyling p {
         font-size: 1.3em;
     }
@@ -537,18 +395,18 @@
   .banner-menu-down {
     top: 150px;
   }
-  .stats-card:hover .stats-card-top-background {
+  .stats-card .stats-card-top-background {
     height: 44%;
   }
-  .stats-card:hover {
+  .stats-card {
     height: 1010px;
   }
-  .stats-card:hover .menu-down-stats-card {
+  .stats-card .menu-down-stats-card {
     top: 920px;
   }
 }
 
-@media screen and (max-width: 340px) {
+@media screen and (max-width: 360px) {
   .centerbannertext h1 {
       width: 95%;
       top: 50px;
@@ -562,8 +420,8 @@
   .banner-menu-down {
     top: 180px;
   }
-  .stats-card:hover .stats-card-top-background {
-    height: 46%;
+  .stats-card .stats-card-top-background {
+    height: 50%;
   }
 }
 

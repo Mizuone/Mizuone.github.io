@@ -1,11 +1,8 @@
 
-$aboutAndContactBackground: rgba(0, 0, 0, 0.08);
-
 .blogformat {
     margin-top: 1%;
     margin-bottom: 10%;
 }
-
 .blogformat h1, .blogarticle h1 {
     position: relative;
     margin-top: 100px;
@@ -24,12 +21,14 @@ $aboutAndContactBackground: rgba(0, 0, 0, 0.08);
     text-align: center;
     text-transform: capitalize;
 }
+
 .blogarticle .articleparagraph, .articleparagraph ul li {
     margin: 24px 0px;
     font-size: 1.3em;
     line-height: 175%;
     list-style-type: none;
 }
+
 .articleparagraph li {
     margin: 24px 0;
 }
