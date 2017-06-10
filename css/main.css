@@ -1041,7 +1041,7 @@ footer a:hover {
   .stats-card .stats-card-top-background {
     height: 38%; } }
 
-@media screen and (max-width: 510px) {
+@media screen and (max-width: 530px) {
   .banner-menu-down {
     top: 190px; }
   .stats-card .stats-card-top-background {
@@ -1081,13 +1081,17 @@ footer a:hover {
   .banner-menu-down {
     top: 150px; }
   .stats-card .stats-card-top-background {
-    height: 44%; }
+    height: 46%; }
   .stats-card {
     height: 1010px; }
   .stats-card .menu-down-stats-card {
     top: 920px; } }
 
-@media screen and (max-width: 360px) {
+@media screen and (max-width: 350px) {
+  .stats-card .stats-card-top-background {
+    height: 49%; } }
+
+@media screen and (max-width: 340px) {
   .centerbannertext h1 {
     width: 95%;
     top: 50px;
