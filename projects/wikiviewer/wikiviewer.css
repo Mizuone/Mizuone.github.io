@@ -1,0 +1,103 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway);
+body {
+    background-color: #232323;
+}
+.responsecontainer {
+  height: 1500px;
+}
+#formcontrol {
+    position: relative;
+    top: 100px;
+    width: 50%;
+    margin: 0 auto;
+}
+#formcontrol input[type=search] {
+    border: solid 1px blue;
+    box-shadow: 0 0 2px blue;
+}
+#formcontrol input[type=search]:focus {
+    box-shadow: 0 0 5px aqua;
+}
+h1.headingone, h1.headingresult {
+    position: relative;
+    top: 75px;
+    text-align: center;
+    font-family: 'Raleway', sans-serif;
+    color: white;
+    text-shadow: 0 0 5px rgb(0,0,0);
+}
+h1.headingresult {
+    top: 125px;
+    margin-top: 25px;
+}
+ul li {
+    text-align: center;
+    list-style-type: none;
+
+}
+a {
+    text-decoration: none;
+}
+ul.resultformat {
+    position: relative;
+    top: 150px;
+    text-align: center;
+}
+ul.resultformat a {
+    transition: 0.1s ease-in-out;
+}
+ul.resultformat a:link {
+    color: black;
+}
+ul.resultformat a:visited {
+    color: black;
+}
+ul.resultformat li {
+    padding: 15px;
+    background-color: white;
+    border-radius: 10px;
+}
+ul.resultformat li h2 {
+    margin-top: 0px;
+    text-align: left;
+    word-break: break-all;
+    border-right: solid black 1px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+ul.resultformat li p {
+    margin: 0 auto;
+    margin-right: 0px;
+    text-align: left;
+    font-size: 0.6em;
+}
+ul.resultformat a li {
+    font-size: 2em;
+}
+ul.resultformat a:hover {
+    text-decoration: none;
+    color: blue;
+}
+#randombutton {
+    position: relative;
+    top: 70px;
+    cursor: default;
+    transition: 0.1s ease-in-out;
+}
+#randombutton:hover {
+    color: darkorange;
+    box-shadow: 0 0 5px white;
+}
+@media screen and (max-width: 500px) {
+    h1.headingone {
+        top: 25px;
+        font-size: 1em;
+    }
+    #formcontrol {
+        width: 75%;
+        top: 25px;
+    }
+    #randombutton {
+        left: 150px;
+    }
+}
