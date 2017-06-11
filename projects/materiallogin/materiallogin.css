@@ -101,12 +101,40 @@ span.glyphicon-user, span.glyphicon-lock {
     font-size: 14px;
     color: #EF9A9A;
 }
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 767px) {
+  .userloginform {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 640px) {
+  .glyphicon.glyphicon-lock {
+    display: none;
+  }
+  .glyphicon.glyphicon-user {
+    display: none;
+  }
+}
+@media screen and (max-width:550px) {
+  .materialogin-container {
+    margin: 25px;
+  }
+  .userloginform input {
+    width: 80%
+  }
+  #submit {
+    width: 50%;
+  }
+}
+@media screen and (max-width: 440px) {
     .userloginform  {
-        width: 99%;
         margin-top: 10px;
     }
-    span.glyphicon-user, span.glyphicon-lock {
-        display: none;
+    .userloginform label {
+      left: -87px;
     }
+}
+@media screen and (max-width:390px) {
+  .userloginform label {
+    left: -68px;
+  }
 }
