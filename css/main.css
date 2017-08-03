@@ -884,6 +884,7 @@ footer a:hover {
   .blog-card-desktop {
     display: none; }
   .flexcontainer {
+    -webkit-display: flex;
     display: flex; }
   .blog-card-article-title {
     font-size: 20px; }
