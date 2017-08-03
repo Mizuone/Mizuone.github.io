@@ -2,11 +2,12 @@ document.addEventListener('DOMContentLoaded', function () {
   "use strict";
 
   var landingpageInitialization = function () {
+
     var isAnimated = 0,
         showAdditionProjects = document.querySelector(".viewmore span"),
         isTouch = typeof window.hasOwnProperty === "function" && !!window.hasOwnProperty("ontouchstart");
 
-    console.log('here');
+
     if (showAdditionProjects != undefined) {
       showAdditionProjects.addEventListener("click", function () {
         var hideSection = document.getElementsByClassName("viewmore")[0];
@@ -157,7 +158,6 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     };
   }();
-  var start = performance.now();
+
   landingpageInitialization.init();
-  console.log(performance.now() - start);
 });
