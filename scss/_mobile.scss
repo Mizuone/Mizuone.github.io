@@ -114,6 +114,7 @@
       display: none;
     }
     .flexcontainer {
+      -webkit-display: flex;
       display: flex;
     }
     .blog-card-article-title {
