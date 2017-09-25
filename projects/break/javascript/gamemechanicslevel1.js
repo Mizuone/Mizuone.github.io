@@ -4,14 +4,14 @@ function start() {
         secondBall = {x: 250, y: 250, radius: 10, speedx: 2, speedy: -2}, //second ball variables
         paddle = {x: canvas.width - paddleWidth / 2, y: canvas.height, width: 75, height: 20},
         audiobackground = new Audio('sound/Stellardrone - Billions And Billions.mp3'), bounceSound = new Audio('sound/bounce-effect.wav'),
-        score = 0, lives = 10, delayDouble = 2000, delay = 4000, upPressed = false, downPressed = false, rightPressed = false, leftPressed = false, 
-        spacePressed = false, cancelAnimation; 
+        score = 0, lives = 10, delayDouble = 2000, delay = 4000, upPressed = false, downPressed = false, rightPressed = false, leftPressed = false,
+        spacePressed = false, cancelAnimation;
 
     var paddleHeight = 20; /* Paddle Object Height */
     var paddleWidth = 75;  /* Paddle Object Width */
     var paddleX = (canvas.width - paddleWidth) / 2; /* Starting point on the X-Axis */
     var paddleY = (canvas.height); //Starting point on the Y-Axis
-    
+
 	//brick variable objects
 	var brickRowCount = 5, brickColumnCount = 7, brickWidth = 75, brickHeight = 20, brickPadding = 5, brickOffsetTop = 30, brickOffsetLeft = 20; //number of rows
 
@@ -24,11 +24,11 @@ function start() {
             }
         }
         //document.addEventListener("mousemove", mouseMoveHandler, false); //EventListener for Mousemovement
-    
+
         document.addEventListener("keydown", keyDownHandler, false); //EventListener for key down commands
-    
+
         document.addEventListener("keyup", keyUpHandler, false); //EventListener for key up commands
-    
+
         function keyDownHandler(e) { // if key down then KeyDownHandler is true
                 if (e.keyCode == 68) { // 68 = A Fire when user presses A on keyboard
                     rightPressed = true;
@@ -88,7 +88,7 @@ function start() {
             ctx.fill();
             ctx.closePath();
          }
-				
+
         function drawBricks() {
             //loops through each brick in the array and draws them onto the canvas
             for(c = 0; c < brickColumnCount; c++) {
@@ -120,14 +120,14 @@ function start() {
 		}
     //collision dectection for brick objects
         function collisionDetection() {
-            
+
             for(c = 0; c < brickColumnCount; c++) {
                 for(r = 0; r < brickRowCount; r++) {
                     var b = bricks[c][r];
                     if (b.status == 1) {
                         if (firstBall.x > b.x && firstBall.x < b.x + brickWidth &&
                            firstBall.y > b.y && firstBall.y < b.y + brickHeight + 10) { //all four conditions have to be met before ball moves reverse
-                            
+
                             firstBall.speedy = -(firstBall.speedy);
                             firstBall.speedx = -Math.abs(firstBall.speedx);
                             b.lives--;
@@ -207,41 +207,45 @@ function start() {
         } */
 		function pauseGame() {
 			if(spacePressed = true) {
-				window.cancelAnimationFrame(cancelAnimation);
+        setTimeout(function() {
+          window.cancelAnimationFrame(cancelAnimation);
+        }, 1000 / 60);
 			}
 			else if(spacePressed = false){
-				window.requestAnimationFrame(cancelAnimation);
+        setTimeout(function() {
+          window.requestAnimationFrame(cancelAnimation);
+        }, 1000 / 60);
 			}
 		}
-    
+
         //handles all movement and collision with objects
         function triggerBranches() {
-            if(score == 70) {  
+            if(score == 70) {
 				drawVictory();
                 lives = 10;
                 setTimeout(function(){
                     location.reload();
-				}, delay); 
+				}, delay);
             }
         }
         function movementMechanics() {
             if (firstBall.x + firstBall.speedx > canvas.width - firstBall.radius ||
                firstBall.x + firstBall.speedx < firstBall.radius) {
-                
+
                 firstBall.speedx = -(firstBall.speedx); //Pushes object in reverse momentum
             }
             /* Used for collision on up and down edges */
             if (firstBall.y + firstBall.speedy < firstBall.radius ) {
-                
+
                firstBall.speedy = -(firstBall.speedy);
             }
-            
+
             if(firstBall.y + firstBall.speedy > canvas.height - firstBall.radius) {
 				if(firstBall.x > paddleX &&
                    firstBall.x < paddleX + paddleWidth &&
                    firstBall.y > paddleY &&
                    firstBall.y < paddleY + paddleHeight) { //checks if ball is in between paddle when ball hits bottom
-                    
+
                     firstBall.speedy = 0;
                     firstBall.speedy = -Math.abs(firstBall.speedy - 2); //pushes object in reverse direction + -0.1 will increase slightly per hit
 				}
@@ -264,12 +268,12 @@ function start() {
             //Second ball Collision
             if (secondBall.x + secondBall.speedx > canvas.width - secondBall.radius ||
                secondBall.x + secondBall.speedx < secondBall.radius) {
-                
+
                 secondBall.speedx = -(secondBall.speedx); //Pushes object in reverse momentum
             }
             /* Used for collision on up and down edges */
             if (secondBall.y + secondBall.speedy < secondBall.radius) {
-                
+
 				secondBall.speedy = -(secondBall.speedy);
 			}
 			if(secondBall.y + secondBall.speedy > canvas.height - secondBall.radius) {
@@ -301,15 +305,15 @@ function start() {
             /*a = */((firstBall.x - secondBall.x) * (firstBall.x - secondBall.x))
           + /*b = */((firstBall.y - secondBall.y) * (firstBall.y - secondBall.y))
            );
-            if (distance < firstBall.radius + secondBall.radius)//value is checked against the sum of the radii of the two cricles  
+            if (distance < firstBall.radius + secondBall.radius)//value is checked against the sum of the radii of the two cricles
             {
                 secondBall.speedx = 0;
                 secondBall.speedx = -(secondBall.speedx - 3);
                 secondBall.speedy = 0;
-                secondBall.speedy = -(secondBall.speedy - 3);     
+                secondBall.speedy = -(secondBall.speedy - 3);
             }
             if(firstBall.x > paddleX + 5 && firstBall.x < paddleX + paddleWidth + 5 && firstBall.y > paddleY - 30 && firstBall.y < paddleY + paddleHeight - 25) {
-				
+
                 var deltaY = firstBall.y
                         -(paddleY + paddleWidth / 2);
                     firstBall.speedy = deltaY * 0.06;
@@ -323,8 +327,8 @@ function start() {
                firstBall.x < paddleX + paddleWidth + 25 &&
                firstBall.y > paddleY + 10 &&
                firstBall.y < paddleY + paddleHeight - 10) { //checks if ball is in between paddle when ball hits bottom
-                    
-                    
+
+
                 firstBall.speedy = 0;
                 firstBall.speedy = firstBall.speedy + 4; //pushes object in reverse direction + -0.1 will increase slightly per hit
             }
@@ -348,7 +352,7 @@ function start() {
         }
         function draw() {
             ctx.clearRect(0, 0, canvas.width, canvas.height); //Refreshs Canvas ctx frame
-			drawBricks();
+			      drawBricks();
             drawBall(); //Calls drawball function
             drawSecondball();
             drawPaddle(); //Calls drawPaddle
@@ -357,10 +361,11 @@ function start() {
             triggerBranches();
             drawScore();
             drawLives();
-            
-            
-        cancelAnimation = window.requestAnimationFrame(draw);
-            
+
+        setTimeout(function() {
+          cancelAnimation = window.requestAnimationFrame(draw);
+        }, 1000 / 60);
+
         }
     audiobackground.play();
     audiobackground.volume = 0.6;

@@ -12,12 +12,12 @@ $(document).ready(function() {
             tieGame = false;
             addSelectionEvents();
 
-            setInterval(function() {
-                    computerAI();
-                    tie();
-                    checkwinner("X");
-                    checkwinner("O");
-            }, 1);
+            var animationInterval = setInterval(function() {
+              computerAI();
+              tie();
+              checkwinner("X");
+              checkwinner("O");
+            }, 1000 / 60);
 
 
         $("#overlay").fadeIn(0, function() {
@@ -29,12 +29,14 @@ $(document).ready(function() {
             computerPick = "O";
             processFadeEvents();
             appendChoices();
+            $("button.firstuserbutton").off('click');
         });
         $("button.seconduserbutton").on("click", function() {
             userPick = "O";
             computerPick = "X";
             processFadeEvents();
             appendChoices();
+            $("button.seconduserbutton").off('click');
         });
         function appendChoices() {
             $(".playerchoice").append(userPick).css({color: "aqua",
@@ -179,21 +181,22 @@ $(document).ready(function() {
         }
         function checkwinner(XorO) {
             //check row position
+            console.log(ticTacToeBoard);
             for (var i = 0; i <= 6; i += 3) {
                 if (ticTacToeBoard[i] === XorO && ticTacToeBoard[i + 1] === XorO && ticTacToeBoard[i + 2] === XorO) {
-                    showWinner(computerPick);
                     showWinner(userPick);
+                    showWinner(computerPick);
                 }
             }
             //check column position
             for (var i = 0; i <= 2; i += 2 ) {
                 if (ticTacToeBoard[i] === XorO && ticTacToeBoard[i + 3] === XorO && ticTacToeBoard[i + 6] === XorO) {
-                    showWinner(computerPick);
                     showWinner(userPick);
+                    showWinner(computerPick);
                 }
                 if (ticTacToeBoard[i + 1] === XorO && ticTacToeBoard[i + 4] === XorO && ticTacToeBoard[i + 7] === XorO) {
-                    showWinner(computerPick);
                     showWinner(userPick);
+                    showWinner(computerPick);
                 }
             }
 
@@ -201,15 +204,17 @@ $(document).ready(function() {
             //check diagonals postions
             for (var i = 0, x = 4; i <= 2; i += 2, x -= 2) {
                 if (ticTacToeBoard[i] === XorO && ticTacToeBoard[i + x] === XorO && ticTacToeBoard[i + x * 2] === XorO) {
-                    showWinner(computerPick);
                     showWinner(userPick);
+                    showWinner(computerPick);
                 }
 
             }
             function showWinner(winner) {
                 if (winner === XorO) {
-                    $(".userpicktitle").html('<h1 class="text-center">' + "Winner: " + winner + "</h1>" + '<p class="text-center">' + "Play Again?" + "</p>");
-                    displayWinnerDialog();
+                  $(".userpicktitle").html('<h1 class="text-center">' + "Winner: " + winner + "</h1>" + '<p class="text-center">' + "Play Again?" + "</p>");
+                  displayWinnerDialog();
+                  XorO = undefined;
+                  clearInterval(animationInterval);
                 }
             }
         }

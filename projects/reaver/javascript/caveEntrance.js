@@ -1,5 +1,5 @@
 
-   
+
 var mapEntrance =[  0,0,0,0,0,9,9,9,9,9,9,9,9,9,9,9,9,0,0,0,
                     9,9,9,9,10,2,2,2,2,2,2,2,2,2,2,2,2,8,0,0,
                     2,2,2,2,2,1,1,1,1,1,1,1,1,1,1,1,1,8,0,0,
@@ -15,7 +15,7 @@ var mapEntrance =[  0,0,0,0,0,9,9,9,9,9,9,9,9,9,9,9,9,0,0,0,
                     0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
                     0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
                     0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 ];
-                    
+
         var mapEntranceIndex = 0;
 
         function drawEntrance() {
@@ -79,7 +79,10 @@ var mapEntrance =[  0,0,0,0,0,9,9,9,9,9,9,9,9,9,9,9,9,0,0,0,
 function caveEntrance() {
     //console.log(player_coordinates_x + "X");
     //console.log(player_coordinates_y + "Y");
-    requestID = requestAnimationFrame(caveEntrance);
+    anitmationTimeout = setTimeout(function() {
+      requestID = requestAnimationFrame(caveEntrance);
+    }, 1000 / 60);
+
     drawEntrance();
     resetAnimationCounter();
     playerMovement();
@@ -87,7 +90,7 @@ function caveEntrance() {
     is_playerMove = false;
     playerDirection = 0;
     if (key.escape) {return;} //Access Player Menu
-    
+
         if (slimeEntrance1_Alive) {
             slimeEntrance1_x = enemyPatrol(slimeEntrance1_Alive, slimeEntrance1_x, slimeEntrance1_y, slimeEntrance1_Left, slimeEntrance1_Right, "slime", 450, 150, false);
             if (slimeEntrance1_x >= 350 && slimeEntrance1_Right) { slimeEntrance1_Right = false; slimeEntrance1_Left = true; }
@@ -104,11 +107,11 @@ function caveEntrance() {
     //console.log(player_coordinates_y + "Y");
     if (player_coordinates_x >= 0 && player_coordinates_x <= 15 &&
         player_coordinates_y >= 84 && player_coordinates_y <= 100) {
-                cancelAnimationFrame(requestID);
+                cancelAnimation();
                 drawForest(); player_coordinates_x = 590; player_coordinates_y = 94; return;
             }
     if (player_coordinates_x >= 470 && player_coordinates_x <= 500 &&
         player_coordinates_y >= 300 && player_coordinates_y <= 305) {
-        cancelAnimationFrame(requestID); player_coordinates_x = 310; player_coordinates_y = 410; cave_level1(); return;
+        cancelAnimation(); player_coordinates_x = 310; player_coordinates_y = 410; cave_level1(); return;
     }
 };

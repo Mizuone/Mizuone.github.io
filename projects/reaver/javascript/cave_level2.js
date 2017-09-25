@@ -14,7 +14,7 @@ var mapCave_level2 = [3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
                       3,3,3,3,3,3,3,3,3,3,3,3,2,2,1,2,2,3,3,3,
                       3,3,3,3,3,3,3,3,3,3,3,3,0,2,1,2,0,3,3,3,
                       3,3,3,3,3,3,3,3,3,3,3,3,3,2,1,2,3,3,3,3];
-                    
+
         var mapCave2Index = 0;
 
         function drawCave_level2() {
@@ -38,7 +38,7 @@ var mapCave_level2 = [3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
                     }
                     if (tileType == 1) { //Cave Terrian 1
                         cave_Wall.draw(tile_x, tile_y);
-                        
+
                     }
                     if (tileType == 2) { //Cave Ceiling 2
                         cave_ceiling.draw(tile_x, tile_y);
@@ -53,7 +53,10 @@ var mapCave_level2 = [3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
 function cave_level2() {
     //console.log(player_coordinates_x + "X");
     //console.log(player_coordinates_y + "Y");
-    requestID = requestAnimationFrame(cave_level2);
+    anitmationTimeout = setTimeout(function() {
+      requestID = requestAnimationFrame(cave_level2);
+    }, 1000 / 60);
+
     drawCave_level2();
     Context.context.beginPath(); Context.context.fillStyle = "rgba(0,0,0,0.2)"; Context.context.fillRect(0,0,Context.width, Context.height); Context.context.fill();Context.context.closePath();
     resetAnimationCounter();
@@ -75,11 +78,11 @@ function cave_level2() {
         alert("Congratulations you beat my first ever canvas adventure!");
         var con = confirm("Do you want to play again?");
         con ? location.reload() : location.href = "https://mizuone.github.io/#projectsection";
-        
+
     }
     if (player_coordinates_x >= 440 && player_coordinates_x <= 470 &&
        player_coordinates_y >= 440 && player_coordinates_y <= 460) {
-         cancelAnimationFrame(requestID); player_coordinates_x = 460; player_coordinates_y = 80; cave_level1(); return;
+         cancelAnimation(); player_coordinates_x = 460; player_coordinates_y = 80; cave_level1(); return;
     }
-   
+
 };

@@ -1,6 +1,6 @@
 
 var playerStrength = 4, playerAgility = 3, playerDefense = 5, playerAttack = 5, playerHealth = 100, playerMaxHealth = 100, playerLevel = 1, nextLevel =                                                                                                                                                                           [50,150,275,350,500,650,875,950,1050,1300,1500,
-1675,1900,2125,2300,2525,2775,2925,3150,3500], currentXP = 0, currentGold = 0, hitChance = 80, critChance = 5, playerMelee = playerStrength * playerAttack - 7 + 10; 
+1675,1900,2125,2300,2525,2775,2925,3150,3500], currentXP = 0, currentGold = 0, hitChance = 80, critChance = 5, playerMelee = playerStrength * playerAttack - 7 + 10;
 
 
 
@@ -14,12 +14,12 @@ function handleMouseClick(evt, evty) {
     //2560x1080
     //console.log(screen.width);
     //Portrait Resolution
-        
+
     if (screen.width > 1000) {
         /*console.log(evt.pageX);
         console.log(evt.pageY);*/
-        if (evt.pageX <= screen.width / 1.4 && evt.pageX >= screen.width / 1.7 &&
-           evt.pageY <= screen.height / 2.5 && evt.pageY <= screen.height / 2.85) {
+        if (evt.pageX <= screen.width / 1.61 && evt.pageX >= screen.width / 1.69 &&
+           evt.pageY <= screen.height / 2.45 && evt.pageY >= screen.height / 2.53) {
             attackEvents();
         }
     }
@@ -62,13 +62,13 @@ function playerMonitor() {
 
 function drawBattleUI() {
     function drawBattleBackground() {
-        Context.context.beginPath(); 
-        Context.context.fillStyle = "black"; 
-        Context.context.fillRect(0,0,Context.width, Context.height); 
+        Context.context.beginPath();
+        Context.context.fillStyle = "black";
+        Context.context.fillRect(0,0,Context.width, Context.height);
         Context.context.fill();
-        Context.context.closePath();        
+        Context.context.closePath();
     };
-    
+
     function drawPlayerinterface() {
         Context.context.beginPath();
         Context.context.fillStyle = "rgba(77,150,255,0.7)";
@@ -81,7 +81,7 @@ function drawBattleUI() {
         Context.context.fillRect(190, 100, 260, 75);
         Context.context.closePath();
         //Draws player Health
-        Context.context.font = "bold 1.2em Arial"; 
+        Context.context.font = "bold 1.2em Arial";
         screen.width <= 699 ? Context.context.font = "bold 1.3em Arial" : false;
         Context.context.shadowColor= "black";
         Context.context.shadowBlur= 1;
@@ -96,11 +96,11 @@ function drawBattleUI() {
         Context.context.fillText("Player HP: ", 350, 140);
         Context.context.fillText(playerHealth + "/" + playerMaxHealth, 360, 160);
         Context.context.fill();
-        
+
     };
     var drawAttackinterface = function() {
         Context.context.font = "bold 1.2em Arial";
-        
+
         screen.width <= 699 ? Context.context.font = "bold 1.3em Arial" : false;
         Context.context.shadowColor= "black";
         Context.context.shadowBlur= 1;
@@ -108,7 +108,7 @@ function drawBattleUI() {
         Context.context.strokeText("Potions", 507, 350);
         Context.context.strokeText("Special", 507, 275);
         Context.context.strokeText("Attack", 507, 200);
-                
+
         Context.context.shadowBlur= 0;
         Context.context.fillStyle = "white";
         Context.context.fillText("Potions", 507, 350);
@@ -116,21 +116,22 @@ function drawBattleUI() {
         Context.context.fillText("Attack", 507, 200);
     };
     var drawEnemyHP = function() {
-        
+
             //forest enemies
-            slime1_Alive && slime1_Engaged ? displayEnemyHealth("Slime", slime1_HP, 25) : false;
-            slime2_Alive && slime2_Engaged ? displayEnemyHealth("Slime", slime2_HP, 30) : false;
-            slime3_Alive && slime3_Engaged ? displayEnemyHealth("Slime", slime3_HP, 35) : false;
-            slime4_Alive && slime4_Engaged ? displayEnemyHealth("Slime", slime4_HP, 30) : false;
+            if (slime1_Alive && slime1_Engaged) displayEnemyHealth("Slime", slime1_HP, 25);
+            if (slime2_Alive && slime2_Engaged) displayEnemyHealth("Slime", slime2_HP, 30);
+            if (slime3_Alive && slime3_Engaged) displayEnemyHealth("Slime", slime3_HP, 35);
+            if (slime4_Alive && slime4_Engaged) displayEnemyHealth("Slime", slime4_HP, 30);
+
             //cave entrance enemies
             slimeEntrance1_Alive && slimeEntrance1_Engaged ? displayEnemyHealth("Slime", slimeEntrance1_HP, 35) : false;
             slimeEntrance2_Alive && slimeEntrance2_Engaged ? displayEnemyHealth("Slime Super", slimeEntrance2_HP, 75) : false;
-            
+
             //cave enemies
             shadewalker1_Alive && shadewalker1_Engaged ? displayEnemyHealth("Shade Walker", shadewalker1_HP, 60) : false;
             shadewalker2_Alive && shadewalker2_Engaged ? displayEnemyHealth("Shade Walker", shadewalker2_HP, 60) : false;
             shadekeeper1_Alive && shadekeeper1_Engaged ? displayEnemyHealth("Shade Keeper", shadekeeper1_HP, 90) : false;
-        
+
             function displayEnemyHealth(enemyName, enemyHP, totalHealth) {
                 Context.context.font = "bold 1.2em Arial";
                 screen.width <= 699 ? Context.context.font = "bold 1.3em Arial" : false;
@@ -141,7 +142,7 @@ function drawBattleUI() {
                 Context.context.strokeText( enemyHP + "/" + totalHealth, 230, 160);
                /* Context.context.strokeText("Player HP: ", 350, 140);
                 Context.context.strokeText(playerHealth + "/" + playerMaxHealth, 360, 160); */
-                
+
                 Context.context.shadowBlur= 0;
                 Context.context.fillStyle = "white";
                 if (enemyHP < totalHealth / 3) {
@@ -250,6 +251,6 @@ function drawUI() {
     if(player_coordinates_y < 0){
         player_coordinates_y = 0;
     }
-    
+
 
  };

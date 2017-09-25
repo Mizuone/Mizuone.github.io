@@ -4,6 +4,8 @@
 angular.module('fcc_twitch_api', ['ngMaterial', 'ngRoute']);
 
 angular.module('fcc_twitch_api').config(function($routeProvider, $locationProvider) {
+  $locationProvider.hashPrefix('');
+
   $routeProvider.when('/', {
     templateUrl: './src/views/allstreamers.html',
     controller: 'mainController'
