@@ -14,7 +14,7 @@ body {
   position: absolute;
   top: 10px;
   border: transparent;
-  background: url("https://www.woohahfestival.com/wp-content/themes/shindig-child/images/hamburger_menu.svg") center no-repeat;
+  background: url("../../../images/hamburger-menu-icon.svg") center no-repeat;
   background-size: 40px 40px;
   width: 40px;
   height: 40px;
