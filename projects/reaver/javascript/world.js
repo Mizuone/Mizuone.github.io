@@ -5,27 +5,28 @@ if (typeof(Reaver === "undefined")) {
 } else {
     console.log("Object Reaver is of invalid type!")
 }
-        $(window).load(function(){
-            Context = new HTML("myCanvas", 640, 480);
-            Context.canvas.addEventListener("mousedown", handleMouseClick);
-            initializeKeyboard();
-            initializeAnimationCounters();
-            screen.width < 800 ? mobileControls() : false;
-            /*
-            *Initialize touch events to canvas object
-            */
-            addEventListener(document, "touchstart", function(e) {
-                    e.preventDefault();
-            }, Modernizr.passiveeventlisteners ? {passive: true} : false);
-            Context.canvas.addEventListener("scroll", preventMotion, false);
-            Context.canvas.addEventListener("touchmove", preventMotion, false);
-            Context.canvas.addEventListener("touchend", preventMotion, false);
-            Context.canvas.addEventListener("touchcancel", preventMotion, false);
-            $(Context.canvas).on("touchstart", preventMotion);
 
-            playerMonitor();
+        window.addEventListener('load', function() {
+          Context = new HTML("myCanvas", 640, 480);
+          Context.canvas.addEventListener("mousedown", handleMouseClick);
+          initializeKeyboard();
+          initializeAnimationCounters();
+          screen.width < 800 ? mobileControls() : false;
+          /*
+          *Initialize touch events to canvas object
+          */
+          /*addEventListener(document, "touchstart", function(e) {
+                  e.preventDefault();
+          }, Modernizr.passiveeventlisteners ? {passive: true} : false);*/
+          Context.canvas.addEventListener("scroll", preventMotion, false);
+          Context.canvas.addEventListener("touchmove", preventMotion, false);
+          Context.canvas.addEventListener("touchend", preventMotion, false);
+          Context.canvas.addEventListener("touchcancel", preventMotion, false);
+          $(Context.canvas).on("touchstart", preventMotion);
 
-            drawForest();
+          playerMonitor();
+
+          drawForest();
         });
 (function() {
     //All Sprite Terrain Objects are loaded first
@@ -611,9 +612,9 @@ function playerBattleMovement() {
 
         if (battleScreen) {
             playerDeathReset(); //checks if player health is below 0 if so reset game
-                addEventListener(document, "touchstart", function(e) {
+                /*addEventListener(document, "touchstart", function(e) {
                     e.preventDefault();
-                }, Modernizr.passiveeventlisteners ? {passive: true} : false);
+                }, Modernizr.passiveeventlisteners ? {passive: true} : false);*/
             mobileControls();
                 resetAnimationCounter();
                 drawBattleUI();

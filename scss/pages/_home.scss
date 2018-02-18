@@ -1,0 +1,41 @@
+ .home-header {
+  position: relative;
+  display: flex;
+  background-color: $color-primary;
+  height: 70vh;
+  justify-content: flex-end;
+
+  &__container {
+    flex-direction: row-reverse;
+    margin-right: 35rem;
+    margin-top: 15rem;
+
+    &__title {
+       font-size: 8rem;
+       font-weight: lighter;
+       color: $color-white;
+
+       &-name {
+         display: block;
+         font-size: 9rem;
+         font-weight: bold;
+       }
+
+    }
+
+   &__description-title {
+      font-size: 2rem;
+      font-weight: lighter;
+      color: $color-white;
+      margin-top: 2.5rem;
+
+   }
+
+   &__socialmedia {
+
+   }
+
+  }
+
+
+ }

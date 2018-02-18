@@ -2,42 +2,59 @@ var gulp = require('gulp'),
     sass = require('gulp-sass'),
     browserSync = require('browser-sync').create(),
     htmlmin = require('gulp-htmlmin'),
-    htmlbeautify = require('gulp-html-beautify');
+    htmlbeautify = require('gulp-html-beautify'),
+    concatCSS = require('gulp-concat-css'),
+    autoprefixer = require('gulp-autoprefixer'),
+    cleanCSS = require('gulp-clean-css');
 
-gulp.task('htmlbeautify', function() {
-  var options = {
-    indentSize: 2
-  };
-  gulp.src('index.html')
-    .pipe(htmlbeautify(options))
-    .pipe(gulp.dest('./'));
+gulp.task('sass', function() {
+  gulp.src('./scss/main.scss')
+      .pipe(sass())
+      .pipe(gulp.dest('./css/'))
+      .pipe('autoprefixer')
+      .pipe(browserSync.reload({stream: true}));
+
 });
 
+/*
+gulp.task('concat', function() {
+  gulp.src('./Trillo/starter/css/*.css')
+      .pipe(concatCSS('./main.css'))
+      .pipe(gulp.dest('./Trillo/starter/css/'));
+});
+*/
 
-gulp.task('minify', function() {
-   gulp.src('index.html')
-    .pipe(htmlmin({collapseWhitespace: true}))
-    .pipe(gulp.dest('./'));
+gulp.task('autoprefixer', function() {
+  gulp.src('./css/main.css')
+      .pipe(autoprefixer({
+        browsers: ['last 2 versions']
+      }))
+      .pipe(gulp.dest('./css/prefix'));
+
 });
 
-gulp.task('sass',function() {
-   gulp.src('scss/main.scss')
-    .pipe(sass())
-    .pipe(gulp.dest('./css'))
-    .pipe(browserSync.reload({stream: true}));
+gulp.task('cleanCSS', function() {
+  gulp.src('./css/prefix/main.css')
+      .pipe(cleanCSS({}))
+      .pipe(gulp.dest('./css/dest'));
 });
+
 gulp.task('serve', function() {
-   browserSync.init({
-       server: {
-           baseDir: "./"
-       }
-   });
+  browserSync.init({
+    server: {
+      baseDir: ["./"]
+    }
+  });
 
 
-    gulp.watch('./scss/*.scss', ['sass']);
-    gulp.watch('./**/*.html').on('change', browserSync.reload);
+  gulp.watch('./scss/*.scss', ['sass', 'autoprefixer', 'cleanCSS']);
+  gulp.watch('./scss/base/*.scss', ['sass', 'autoprefixer', 'cleanCSS']);
+  gulp.watch('./scss/abstracts/*.scss', ['sass', 'autoprefixer', 'cleanCSS']);
+  gulp.watch('./scss/components/*.scss', ['sass', 'autoprefixer', 'cleanCSS']);
+  gulp.watch('./scss/layout/*.scss', ['sass', 'autoprefixer', 'cleanCSS']);
+  gulp.watch('./scss/pages/*.scss', ['sass', 'autoprefixer', 'cleanCSS']);
+  gulp.watch('./css/*.css').on('change', browserSync.reload);
+  gulp.watch('*.html').on('change', browserSync.reload);
 });
 
-
-
-gulp.task('default', ['sass', 'serve']);
+gulp.task('default', ['serve', 'sass', 'autoprefixer', 'cleanCSS']);

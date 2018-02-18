@@ -3,7 +3,8 @@
 *::before {
   margin: 0;
   padding: 0;
-  box-sizing: inherit; }
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit; }
 
 html {
   font-size: 62.5%; }
@@ -13,12 +14,19 @@ body {
 
 .home-header {
   position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   background-color: #2196F3;
   height: 70vh;
-  justify-content: flex-end; }
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end; }
   .home-header__container {
-    flex-direction: row-reverse;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: row-reverse;
+            flex-direction: row-reverse;
     margin-right: 35rem;
     margin-top: 15rem; }
     .home-header__container__title {
