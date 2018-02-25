@@ -1,0 +1,20 @@
+.desktop-navigation {
+  position: absolute;
+  display: block;
+  width: 100%;
+  z-index: 4;
+
+
+  &__list {
+    position: relative;
+    left: 55%;
+    margin-top: 5rem;
+    &-item {
+      display: inline-block;
+      padding: 0.2rem;
+      font-size: 3rem;
+      margin: 2.3rem;
+      color: $color-white;
+    }
+  }
+}

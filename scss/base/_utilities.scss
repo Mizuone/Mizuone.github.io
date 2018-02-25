@@ -1,0 +1,12 @@
+.text-primary {
+  color: $color-primary;
+}
+
+.display-block {
+  display: block;
+}
+
+.primary-underline {
+  display: inline-block;
+  border-bottom: 3px solid $color-primary;
+}

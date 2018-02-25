@@ -1,0 +1,40 @@
+.btn {
+  color: $color-white;
+  font-size: 1.5rem;
+  border-radius: 1rem;
+  padding: 1rem;
+  outline: 0;
+  border: 0;
+  cursor: pointer;
+  transition: 0.15s ease-in all;
+
+  &:hover {
+    background-color: $color-lighterblue;
+  }
+
+  &:active {
+    background-color: $color-white;
+    color: $color-black;
+  }
+}
+
+.btn-blue {
+  background-color: $color-lightblue;
+}
+
+.btn-faded {
+  position: relative;
+  left: 0;
+  bottom: 0;
+  background-color: #fff;
+  padding-left: 0;
+  margin-top: 2rem;
+  color: rgba(0,0,0,0.3);
+  font-style: italic;
+  font-weight: bold;
+
+  &:hover {
+    background-color: transparent;
+    color: #000;
+  }
+}

@@ -9,4 +9,8 @@
 html {
 	font-size: 62.5% // 1rem = 10px;
 }
- 
+
+body {
+  background-color: $color-white-dark;
+  box-sizing: border-box;
+}

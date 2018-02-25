@@ -1,0 +1,53 @@
+.card_3up_container {
+  display: flex;
+}
+
+.card_3up, .card_3up-project {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 2.5rem;
+  margin: 0 3rem 3rem 3rem;
+  width: 33.3%;
+  transition: all 0.2 ease-in;
+  overflow: hidden;
+
+  &_image, &_image-project {
+    width: 100%;
+    max-width: 280px;
+    max-height: 280px;
+    display: block;
+    margin: 0 auto;
+  }
+
+  &_image-project {
+    max-width: 900px;
+    max-height: 360px;
+    transition: all 0.4s ease-in-out;
+  }
+
+  &:hover &_image-project {
+    transform: scale(1.03);
+  }
+  &:hover .project-description {
+    opacity: 1;
+    height: 20%;
+  }
+
+  &_header {
+    font-size: 3rem;
+    width: 90%;
+  }
+
+  &_primary {
+    color: $color-primary;
+    width: 100%;
+    font-size: 1.5rem;
+    margin-top: 2rem;
+  }
+}
+
+.card_3up-project {
+  padding: 0;
+  margin: 0;
+}

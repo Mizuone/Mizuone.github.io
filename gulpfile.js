@@ -11,7 +11,6 @@ gulp.task('sass', function() {
   gulp.src('./scss/main.scss')
       .pipe(sass())
       .pipe(gulp.dest('./css/'))
-      .pipe('autoprefixer')
       .pipe(browserSync.reload({stream: true}));
 
 });
