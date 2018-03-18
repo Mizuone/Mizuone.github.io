@@ -8,7 +8,8 @@
     <meta name="description" content="Kyle Orlinski is a Front-End Developer that has a focus for usability and simplicity. Specialized in using AngularJS for front end development.">
     <title>Kyle Orlinski - Front-End Developer</title>
     <link rel="shortcut icon" type="image/x-icon" href="images/little-jimmie-32x32.png">
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+    <link href="css/fontawesome-all.css" type="text/css" rel="stylesheet">
     <link href="css/main.css" type="text/css" rel="stylesheet">
     <!--
     <script>
@@ -40,34 +41,35 @@
 
     <nav>
       <div class="desktop-navigation">
-        <img class="desktop-navigation__logo" src="" alt="">
-        <ul class="desktop-navigation__list">
-          <a href="#">
-            <li class="desktop-navigation__list-item"> 
-              About
-            </li>
-          </a>
-          <a href="#">
-            <li class="desktop-navigation__list-item">
-              Projects
-            </li>
-          </a>
-          <a href="#">
-            <li class="desktop-navigation__list-item">
-              Blog
-            </li>
-          </a>
-          <a href="#">
-            <li class="desktop-navigation__list-item">
-              Contact
-            </li>
-          </a>
-          <a href="#">
-            <li class="desktop-navigation__list-item">
+        <div class="desktop-navigation__card_2up">
+          <img class="desktop-navigation__logo" src="images/Logo.png" alt="">
+        </div>
 
-            </li>
-          </a>
-        </ul>
+        <div class="desktop-navigation__card_2up">
+          <ul class="desktop-navigation__list">
+            <a class="desktop-navigation__list-item" href="#">
+              <li>
+                About
+              </li>
+            </a>
+            <a class="desktop-navigation__list-item" href="#">
+              <li>
+                Projects
+              </li>
+            </a>
+            <a class="desktop-navigation__list-item" href="#">
+              <li>
+                Blog
+              </li>
+            </a>
+            <a class="desktop-navigation__list-item" href="#">
+              <li>
+                Contact
+              </li>
+            </a>
+          </ul>
+        </div>
+
       </div>
     </nav>
 
@@ -118,14 +120,69 @@
         </div>
       </section>
 
-      <section class="projects-container">
-        <div class="projects-container__inner-container">
-          <h4 class="projects-container__inner-container__section-title">For Fun Projects</h4>
-          <div class="projects-container__inner-container__3up card_3up_container">
-            <div class="card_3up-project">
-              <img src="images/materialdesignlogin.PNG" alt="User Login Picture" class="card_3up_image-project">
-              <span class="project-description">UserLogin - Material Design, HTML5, CSS</span>
+      <section class="about-container">
+        <div class="about-container__inner-container">
+          <div class="about-container__inner-container__2up card_2up_container">
+            <div class="card_2up">
+              <img src="/images/me.jpg" alt="Picture of Kyle" class="about-container__inner-container__2up-image card_2up__image center-image">
             </div>
+            <div class="card_2up color-white primary-backgroundcolor">
+              <p class="about-container__inner-container__2up__about-paragraph">
+                Hello, my name is Kyle Orlinski and I am a Front End Developer.
+                I currently specialize in AngularJS, and my work is focused on using ES6.
+                When it comes to design and programming, I focus primary on simplicity and usability.
+              </p>
+              <p class="about-container__inner-container__2up__about-paragraph">
+                In the last 12 months I have completely focused on front end development, and made it my goal to become an expert in such a broad career path.
+                Before my focus I found my passion from general programming in small projects and creating JavaScript games.
+                Currently I am working at Bon-Ton as a Front End Developer in downtown Milwaukee.
+              </p>
+              <p class="about-container__inner-container__2up__about-paragraph">
+                Now I want to shift my focus on moving up to Angular with TypeScript
+                to help me focus on creating modular web applications.
+              </p>
+              <div class="about-container__inner-container__skills-container">
+                <h4 class="about-container__inner-container__skills-container-title">Skills</h4>
+                <div class="programming-skills-container">
+                  <span class="flex-large-symbol">&lcub; &rcub;</span>
+
+                  <ul class="about-container__inner-container__programminglist-halfone">
+                    <li>JavaScript - <strong>2 years</strong></li>
+                    <li>HTML5/SCSS - <strong>2 years</strong></li>
+                    <li>Angular - <strong>1 year</strong></li>
+                  </ul>
+                  <ul class="about-container__inner-container__programminglist-halftwo">
+                    <li>NodeJS - <strong>6 months</strong></li>
+                    <li>PHP - <strong>6 months</strong></li>
+                    <li>React - <strong>1 month</strong></li>
+                  </ul>
+
+                </div>
+
+                <div class="design-skills-container">
+                  <span class="flex-large-symbol">&andd;</span>
+
+                  <ul class="about-container__inner-container__designlist-halfone">
+                    <li>Material Design</li>
+                    <li>Grid</li>
+                    <li>Bootstrap</li>
+                  </ul>
+                  <ul class="about-container__inner-container__designlist-halftwo">
+                    <li>Photoshop</li>
+                    <li>Krita</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <section class="projects-container">
+        <h4 class="projects-container__inner-container__section-title">Side Projects</h4>
+        <div class="projects-container__inner-container">
+          <div class="projects-container__inner-container__3up card_3up_container">
             <div class="card_3up-project">
               <img src="images/twitchapiapp.png" alt="Preview Image of my Twitch Api App using Angular JS" class="card_3up_image-project">
               <span class="project-description">Twitch JSON API - AngularJS, JavaScript, Material Design</span>
@@ -133,6 +190,10 @@
             <div class="card_3up-project">
               <img src="images/reaver.PNG" alt="Reaver Game Picture" class="card_3up_image-project">
               <span class="project-description">Reaver - Canvas, JS, Bootstrap, HammerJS</span>
+            </div>
+            <div class="card_3up-project">
+              <img src="images/materialdesignlogin.PNG" alt="User Login Picture" class="card_3up_image-project">
+              <span class="project-description">UserLogin - Material Design, HTML5, CSS</span>
             </div>
             <div class="card_3up-project">
               <img src="images/angularcalc.PNG" alt="JS Calculator Picture" class="card_3up_image-project">
@@ -174,18 +235,63 @@
         </div>
       </section>
 
-      <section class="project-container">
-
-      </section>
-
       <section class="blog-container">
-
+        <div class="blog-container__inner-container">
+          <div class="blog-container__inner-container__header">
+            <h4 class="blog-container__inner-container-title">PERSPECTIVE</h4>
+            <h4>Latest From The <span class="primary-underline"><span class="text-primary">B</span>log</span></h4>
+          </div>
+          <div class="blog-container__inner-container__3up card_3up_container">
+            <div class="card_3up-standard">
+              <div class="card_3up-standard__highlight-band"></div>
+              <img class="card_3up-standard__image" src="images/pexels-photo.jpeg">
+              <h4 class="card_3up-standard__title">What the heck is .call, .bind, and .apply!?</h4>
+              <p class="card_3up-standard__description">
+                Something that I came across quite a bit in JavaScript
+                 but never really understood how it fully worked,
+                 or the usage for each method. Hopefully after my explanation and examples of each method,
+                 you and myself will be more confident when facing this beast.
+                 Now from the beginning, these three methods are a part of the Function
+                 object in JavaScript.
+               </p>
+               <button class="btn btn-faded btn-left btn-blog">Read More &rarr;</button>
+            </div>
+            <div class="card_3up-standard">
+              <div class="card_3up-standard__highlight-band"></div>
+              <img class="card_3up-standard__image" src="images/closure.png">
+              <h4 class="card_3up-standard__title">Closures everywhere...</h4>
+              <p class="card_3up-standard__description">
+                When I was just starting out with JavaScript and if I heard the word closure,
+                I thought it was this magical concept that only the very brightest may fully understand.
+                Which is the scope that gets initialized during the execution phase of the JavaScript engine.
+              </p>
+              <button class="btn btn-faded btn-left btn-blog">Read More &rarr;</button>
+            </div>
+            <div class="card_3up-standard">
+              <div class="card_3up-standard__highlight-band"></div>
+              <img class="card_3up-standard__image" src="images/sackcloth.jpeg">
+              <h4 class="card_3up-standard__title">Improvising - Strip HTML Entities</h4>
+              <p class="card_3up-standard__description">
+                At work we use Google tag manager to track a portion of our analytics
+                and in some cases we send data to certain groups for marketing.
+                We came across a problem in which special characters were being encoded in strings
+                that were being sent to this group.
+              </p>
+              <button class="btn btn-faded btn-left btn-blog">Read More &rarr;</button>
+            </div>
+          </div>
+        </div>
       </section>
 
     </main>
 
-    <footer>
-
+    <footer class="footer-container">
+      <span class="footer-container__copyright">&copy; 2018, Created by Kyle Orlinski</span>
+      <ul class="footer-container__socialmedia-list">
+        <li><i class="fab fa-github"></i></li>
+        <li><i class="fab fa-linkedin-in"></i></li>
+        <li><i class="fab fa-twitter"></i></li>
+      </ul>
     </footer>
 
 </body>

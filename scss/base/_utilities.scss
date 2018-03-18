@@ -6,7 +6,31 @@
   display: block;
 }
 
+.primary-backgroundcolor {
+  background-color: $color-primary;
+}
 .primary-underline {
   display: inline-block;
   border-bottom: 3px solid $color-primary;
+}
+
+.lighter-grey-leftborder {
+  border-left: 1px solid rgba(0,0,0,0.1);
+}
+
+.color-white {
+  color: #FAFAFA;
+}
+.center-image {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+
+.bottom-margin-medium {
+  margin-bottom: 4rem;
 }

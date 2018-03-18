@@ -38,3 +38,18 @@
     color: #000;
   }
 }
+
+.btn-left {
+  width: inherit;
+  text-align: center;
+}
+
+.btn-blog {
+  bottom: 8px;
+  font-style: normal;
+  color: $color-black;
+  background-color: $color-white;
+  border: 1px solid rgba(0,0,0,0.1);
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  margin-top: 8rem;
+}

@@ -18,7 +18,7 @@
           .then(function(twitchResponse) {
 
           var dataProp = twitchResponse.data,
-              streamerObj = JSON.parse(dataProp.slice(dataProp.indexOf('{'), dataProp.length - 2)); //refactor
+              streamerObj = JSON.parse(dataProp.slice(dataProp.indexOf('{'), dataProp.length - 2));
 
           streamersChannelArr.push(streamerObj);
 

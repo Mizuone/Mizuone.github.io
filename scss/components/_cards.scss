@@ -1,8 +1,13 @@
-.card_3up_container {
+.card_3up_container, .card_2up_container {
   display: flex;
 }
 
-.card_3up, .card_3up-project {
+.card_2up {
+  position: relative;
+  width: 50%;
+}
+
+.card_3up, .card_3up-project, .card_3up-standard {
   position: relative;
   display: flex;
   flex-wrap: wrap;
@@ -34,7 +39,7 @@
     height: 20%;
   }
 
-  &_header {
+  &_header, &__title {
     font-size: 3rem;
     width: 90%;
   }
@@ -50,4 +55,64 @@
 .card_3up-project {
   padding: 0;
   margin: 0;
+}
+
+.card_3up-standard {
+  margin: 1rem;
+  padding: 0;
+  width: 32%;
+  flex-direction: column;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &__title {
+    width: 100%;
+    flex: 1 0 auto;
+    margin-top: 1rem;
+  }
+
+  &__highlight-band {
+    width: 100%;
+    height: 5px;
+    background-color: rgba(0,0,0,0.2);
+    margin-bottom: 2rem;
+    transition: all 0.2s ease-in-out;
+  }
+
+  &:hover &__highlight-band {
+    background-color: $color-primary;
+  }
+
+  &:hover .btn-blog {
+    background-color: $color-primary;
+    color: $color-white;
+  }
+  &:active .btn-blog, &:active &__highlight-band {
+    background-color: $color-lighterblue;
+  }
+
+  &__image {
+    width: 100%;
+    height: 360px;
+    max-height: 360px;
+    flex: 1 0 auto;
+  }
+
+  &__articledate {
+    display: block;
+    width: 100%;
+    margin-top: 0.5rem;
+    color: rgba(0,0,0,0.5)
+  }
+
+  &__description {
+    margin-top: 0.5rem;
+    font-size: 1.5rem;
+    color: #333;
+    flex: 1 0 auto;
+    line-height: 125%;
+  }
+
 }
