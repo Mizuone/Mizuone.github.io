@@ -4,7 +4,7 @@
   padding: 5rem;
   border-top: 1px solid rgba(0,0,0,0.1);
   text-align: center;
-  color: #666;
+  color: #333;
   font-size: 16px;
 
   &__copyright {
@@ -19,5 +19,17 @@
   &__socialmedia-list li {
     display: inline-block;
     margin-left: 2rem;
+  }
+
+  &__socialmedia-list a {
+    color: #333;
+    transition: all 0.15s ease-in;
+
+    &:hover {
+      color: $color-primary;
+    }
+    &:active {
+      color: $color-lighterblue;
+    }
   }
 }

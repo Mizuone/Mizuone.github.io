@@ -39,6 +39,14 @@
     height: 20%;
   }
 
+  &_link {
+    color: inherit;
+    text-decoration: none;
+  }
+  &_link:hover .btn.btn-faded {
+    color: #000;
+  }
+
   &_header, &__title {
     font-size: 3rem;
     width: 90%;
@@ -63,8 +71,9 @@
   width: 32%;
   flex-direction: column;
 
-  &:hover {
-    cursor: pointer;
+  &__link {
+    color: inherit;
+    text-decoration: none;
   }
 
   &__title {
@@ -85,11 +94,12 @@
     background-color: $color-primary;
   }
 
-  &:hover .btn-blog {
+  .btn-blog:hover {
     background-color: $color-primary;
     color: $color-white;
   }
-  &:active .btn-blog, &:active &__highlight-band {
+
+  &:active &__highlight-band {
     background-color: $color-lighterblue;
   }
 

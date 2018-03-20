@@ -108,7 +108,9 @@ body {
   border: 1px solid rgba(0, 0, 0, 0.1);
   -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
           box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-  margin-top: 8rem; }
+  margin-top: 8rem;
+  padding-left: 2rem;
+  padding-right: 2rem; }
 
 .card_3up_container, .card_2up_container {
   display: -webkit-box;
@@ -149,6 +151,11 @@ body {
   .card_3up:hover .project-description, .card_3up-project:hover .project-description, .card_3up-standard:hover .project-description {
     opacity: 1;
     height: 20%; }
+  .card_3up_link, .card_3up-project_link, .card_3up-standard_link {
+    color: inherit;
+    text-decoration: none; }
+  .card_3up_link:hover .btn.btn-faded, .card_3up-project_link:hover .btn.btn-faded, .card_3up-standard_link:hover .btn.btn-faded {
+    color: #000; }
   .card_3up_header, .card_3up__title, .card_3up-project_header, .card_3up-project__title, .card_3up-standard_header, .card_3up-standard__title {
     font-size: 3rem;
     width: 90%; }
@@ -170,8 +177,9 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column; }
-  .card_3up-standard:hover {
-    cursor: pointer; }
+  .card_3up-standard__link {
+    color: inherit;
+    text-decoration: none; }
   .card_3up-standard__title {
     width: 100%;
     -webkit-box-flex: 1;
@@ -187,7 +195,7 @@ body {
     transition: all 0.2s ease-in-out; }
   .card_3up-standard:hover .card_3up-standard__highlight-band {
     background-color: #2196F3; }
-  .card_3up-standard:hover .btn-blog {
+  .card_3up-standard .btn-blog:hover {
     background-color: #2196F3;
     color: #fcfcfc; }
   .card_3up-standard:active .btn-blog, .card_3up-standard:active .card_3up-standard__highlight-band {
@@ -275,7 +283,7 @@ body {
   padding: 5rem;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
   text-align: center;
-  color: #666;
+  color: #333;
   font-size: 16px; }
   .footer-container__copyright {
     display: inline-block;
@@ -284,7 +292,16 @@ body {
     display: block;
     font-size: 24px; }
   .footer-container__socialmedia-list li {
-    display: inline-block; }
+    display: inline-block;
+    margin-left: 2rem; }
+  .footer-container__socialmedia-list a {
+    color: #333;
+    -webkit-transition: all 0.15s ease-in;
+    transition: all 0.15s ease-in; }
+    .footer-container__socialmedia-list a:hover {
+      color: #2196F3; }
+    .footer-container__socialmedia-list a:active {
+      color: #6cd1ff; }
 
 .home-header {
   position: relative;
@@ -324,11 +341,29 @@ body {
       font-weight: lighter;
       color: #fcfcfc;
       margin-top: 2.5rem; }
-    .home-header__container__socialmedia span {
-      font-size: 1.7rem;
-      text-transform: lowercase;
-      color: rgba(255, 255, 255, 0.7);
-      letter-spacing: 0.12rem; }
+    .home-header__container__socialmedia {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex; }
+      .home-header__container__socialmedia span {
+        font-size: 1.7rem;
+        text-transform: lowercase;
+        color: rgba(255, 255, 255, 0.7);
+        letter-spacing: 0.12rem; }
+      .home-header__container__socialmedia-list {
+        font-size: 2rem;
+        color: rgba(255, 255, 255, 0.7); }
+        .home-header__container__socialmedia-list li {
+          display: inline-block;
+          margin-left: 1.5rem; }
+        .home-header__container__socialmedia-list a {
+          color: rgba(255, 255, 255, 0.7);
+          -webkit-transition: 0.15s all ease-in;
+          transition: 0.15s all ease-in; }
+          .home-header__container__socialmedia-list a:hover {
+            color: #6cd1ff; }
+          .home-header__container__socialmedia-list a:active {
+            color: #fcfcfc; }
 
 .experience-container, .about-container, .projects-container, .blog-container {
   position: relative;
@@ -403,8 +438,7 @@ body {
         width: 64px;
         height: 64px;
         border-radius: 50%;
-        padding-top: 0.4rem;
-        background-color: rgba(33, 150, 243, 0.2); }
+        background-color: rgba(79, 195, 247, 0.83); }
       .about-container__inner-container__skills-container .programming-skills-container .about-container__inner-container__programminglist-halfone, .about-container__inner-container__skills-container .programming-skills-container .about-container__inner-container__programminglist-halftwo, .about-container__inner-container__skills-container .design-skills-container .about-container__inner-container__programminglist-halfone, .about-container__inner-container__skills-container .design-skills-container .about-container__inner-container__programminglist-halftwo {
         display: inline-block;
         list-style-type: none;
@@ -414,7 +448,7 @@ body {
       .about-container__inner-container__skills-container .programming-skills-container .about-container__inner-container__programminglist-halfone, .about-container__inner-container__skills-container .design-skills-container .about-container__inner-container__programminglist-halfone {
         margin-right: 3rem; }
     .about-container__inner-container__skills-container .design-skills-container .flex-large-symbol {
-      background-color: rgba(255, 125, 100, 0.2); }
+      background-color: rgba(220, 255, 0, 0.49); }
     .about-container__inner-container__skills-container .design-skills-container .about-container__inner-container__designlist-halfone, .about-container__inner-container__skills-container .design-skills-container .about-container__inner-container__designlist-halftwo {
       margin-top: 2rem;
       font-size: 16px;

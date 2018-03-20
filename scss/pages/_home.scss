@@ -41,11 +41,35 @@
    }
 
    &__socialmedia {
+     display: flex;
      span {
        font-size: 1.7rem;
        text-transform: lowercase;
-       color: rgba(255,255,255,0.7);
+       color: $color-lightgrey;
        letter-spacing: 0.12rem;
+     }
+
+     &-list {
+       font-size: 2rem;
+       color: $color-lightgrey;
+
+       li {
+         display: inline-block;
+         margin-left: 1.5rem;
+       }
+
+       a {
+         color: $color-lightgrey;
+         transition: 0.15s all ease-in;
+
+         &:hover {
+           color: $color-lighterblue;
+         }
+         &:active {
+           color: $color-white;
+         }
+
+       }
      }
    }
 
@@ -147,8 +171,7 @@
            width: 64px;
            height: 64px;
            border-radius: 50%;
-           padding-top: 0.4rem;
-           background-color: rgba($color-primary, 0.2);
+           background-color: rgba(79, 195, 247, 0.83);
          }
 
          .about-container__inner-container__programminglist-halfone, .about-container__inner-container__programminglist-halftwo{
@@ -169,7 +192,7 @@
 
 
          .flex-large-symbol {
-           background-color: rgba(255,125,100,0.2);
+           background-color: rgba(220, 255, 0, 0.49);
          }
 
          .about-container__inner-container__designlist-halfone, .about-container__inner-container__designlist-halftwo {

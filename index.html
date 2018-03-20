@@ -47,17 +47,17 @@
 
         <div class="desktop-navigation__card_2up">
           <ul class="desktop-navigation__list">
-            <a class="desktop-navigation__list-item" href="#">
+            <a class="desktop-navigation__list-item" href="#about-section">
               <li>
                 About
               </li>
             </a>
-            <a class="desktop-navigation__list-item" href="#">
+            <a class="desktop-navigation__list-item" href="#projects-section">
               <li>
                 Projects
               </li>
             </a>
-            <a class="desktop-navigation__list-item" href="#">
+            <a class="desktop-navigation__list-item" href="#blog-section">
               <li>
                 Blog
               </li>
@@ -79,9 +79,14 @@
         <div class="home-header__container">
           <h1 class="home-header__container__title">Hi, I am <span class="home-header__container__title-name">Kyle Orlinski.</span></h1>
           <h4 class="home-header__container__description-title">Front-End developer from Milwaukee</h4>
-          <button class="btn btn-blue home-header__container__button">Know More &rarr;</button>
+          <a href="#about-section"><button class="btn btn-blue home-header__container__button">Know More &rarr;</button></a>
           <div class="home-header__container__socialmedia">
             <span>Join me here</span>
+            <ul class="home-header__container__socialmedia-list">
+              <li><a href="https://github.com/Mizuone"><i class="fab fa-github"></i></a></li>
+              <li><a href="https://www.linkedin.com/in/kyleorlinskideveloper/"><i class="fab fa-linkedin-in"></i></a></li>
+              <li><a href="https://twitter.com/KyleOrlinski?lang=en"><i class="fab fa-twitter"></i></a></li>
+            </ul>
           </div>
         </div>
 
@@ -99,28 +104,34 @@
           </h2>
           <div class="experience-container__inner-container__3up card_3up_container">
             <div class="card_3up">
-              <img class="card_3up_image" src="/images/position-marker.png"/>
-              <h2 class="card_3up_header">Rewriting the site's store locator</h2>
-              <h3 class="card_3up_primary">UI, Feature, PHP, JavaScript</h3>
-              <button class="btn btn-faded">Know More &rarr;</button>
+              <a href="" class="card_3up_link">
+                <img class="card_3up_image" src="/images/position-marker.png"/>
+                <h2 class="card_3up_header">Rewriting the site's store locator</h2>
+                <h3 class="card_3up_primary">UI, Feature, PHP, JavaScript</h3>
+                <button class="btn btn-faded">Know More &rarr;</button>
+              </a>
             </div>
             <div class="card_3up">
-              <img class="card_3up_image" src="/images/checkbox-tree.png"/>
-              <h2 class="card_3up_header">Simplflying Coupons and Deals</h2>
-              <h3 class="card_3up_primary">UI, Feature, JavaScript, Handlebars</h3>
-              <button class="btn btn-faded">Know More &rarr;</button>
+              <a href="" class="card_3up_link">
+                <img class="card_3up_image" src="/images/checkbox-tree.png"/>
+                <h2 class="card_3up_header">Simplflying Coupons and Deals</h2>
+                <h3 class="card_3up_primary">UI, Feature, JavaScript, Handlebars</h3>
+                <button class="btn btn-faded">Know More &rarr;</button>
+              </a>
             </div>
             <div class="card_3up">
-              <img class="card_3up_image" src="/images/fall-down.png"/>
-              <h2 class="card_3up_header">Mega Menu for ease of navigation</h2>
-              <h3 class="card_3up_primary">UI, Feature, JavaScript</h3>
-              <button class="btn btn-faded">Know More &rarr;</button>
+              <a href="" class="card_3up_link">
+                <img class="card_3up_image" src="/images/fall-down.png"/>
+                <h2 class="card_3up_header">Mega Menu for ease of navigation</h2>
+                <h3 class="card_3up_primary">UI, Feature, JavaScript</h3>
+                <button class="btn btn-faded">Know More &rarr;</button>
+              </a>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="about-container">
+      <section class="about-container" id="about-section">
         <div class="about-container__inner-container">
           <div class="about-container__inner-container__2up card_2up_container">
             <div class="card_2up">
@@ -179,106 +190,154 @@
         </div>
       </section>
 
-      <section class="projects-container">
+      <section class="projects-container" id="projects-section">
         <h4 class="projects-container__inner-container__section-title">Side Projects</h4>
         <div class="projects-container__inner-container">
           <div class="projects-container__inner-container__3up card_3up_container">
+
             <div class="card_3up-project">
-              <img src="images/twitchapiapp.png" alt="Preview Image of my Twitch Api App using Angular JS" class="card_3up_image-project">
-              <span class="project-description">Twitch JSON API - AngularJS, JavaScript, Material Design</span>
+              <a href="/projects/twitchapiangularapp/index.html">
+                <img src="images/twitchapiapp.png" alt="Preview Image of my Twitch Api App using Angular JS" class="card_3up_image-project">
+                <span class="project-description">Twitch JSON API - AngularJS, JavaScript, Material Design</span>
+              </a>
             </div>
+
             <div class="card_3up-project">
-              <img src="images/reaver.PNG" alt="Reaver Game Picture" class="card_3up_image-project">
-              <span class="project-description">Reaver - Canvas, JS, Bootstrap, HammerJS</span>
+              <a href="/projects/reaver/index.html">
+                <img src="images/reaver.PNG" alt="Reaver Game Picture" class="card_3up_image-project">
+                <span class="project-description">Reaver - Canvas, JS, Bootstrap, HammerJS</span>
+              </a>
             </div>
+
             <div class="card_3up-project">
-              <img src="images/materialdesignlogin.PNG" alt="User Login Picture" class="card_3up_image-project">
-              <span class="project-description">UserLogin - Material Design, HTML5, CSS</span>
+              <a href="/projects/materiallogin/materiallogin.html">
+                <img src="images/materialdesignlogin.PNG" alt="User Login Picture" class="card_3up_image-project">
+                <span class="project-description">UserLogin - Material Design, HTML5, CSS</span>
+              </a>
             </div>
+
             <div class="card_3up-project">
-              <img src="images/angularcalc.PNG" alt="JS Calculator Picture" class="card_3up_image-project">
-              <span class="project-description">JS Calculator - AngularJS, Material Design, Bootstrap</span>
+              <a href="/projects/angularcalculator/angularcalculator.html">
+                <img src="images/angularcalc.PNG" alt="JS Calculator Picture" class="card_3up_image-project">
+                <span class="project-description">JS Calculator - AngularJS, Material Design, Bootstrap</span>
+              </a>
             </div>
+
             <div class="card_3up-project">
-              <img src="images/bookmarku.PNG" alt="Bookmark-U Picture" class="card_3up_image-project">
-              <span class="project-description">Bookmark-U - AngularJS, Material Design, Bootstrap, LocalStorage</span>
+              <a href="/projects/bookmarku/index.html">
+                <img src="images/bookmarku.PNG" alt="Bookmark-U Picture" class="card_3up_image-project">
+                <span class="project-description">Bookmark-U - AngularJS, Material Design, Bootstrap, LocalStorage</span>
+              </a>
             </div>
+
             <div class="card_3up-project">
-              <img src="images/breakout.PNG" alt="Breakout Game Picture" class="card_3up_image-project">
-              <span class="project-description">BreakOut - Canvas, JavaScript</span>
+              <a href="/projects/break/index.html">
+                <img src="images/breakout.PNG" alt="Breakout Game Picture" class="card_3up_image-project">
+                <span class="project-description">BreakOut - Canvas, JavaScript</span>
+              </a>
             </div>
+
             <div class="card_3up-project">
-              <img src="images/ecshpower.PNG" alt="Esch Power Website Picture" class="card_3up_image-project">
-              <span class="project-description">Esch Power - Wordpress, CSS</span>
+              <a href="https://eschpower.com">
+                <img src="images/ecshpower.PNG" alt="Esch Power Website Picture" class="card_3up_image-project">
+                <span class="project-description">Esch Power - Wordpress, CSS</span>
+              </a>
             </div>
+
             <div class="card_3up-project">
-              <img src="images/wikiviewer.PNG" alt="WikiViewer App UI" class="card_3up_image-project">
-              <span class="project-description">WikiViewer - AJAX, JQuery, JavaScript</span>
+              <a href="/projects/wikiviewer/wikiviewer.html">
+                <img src="images/wikiviewer.PNG" alt="WikiViewer App UI" class="card_3up_image-project">
+                <span class="project-description">WikiViewer - AJAX, JQuery, JavaScript</span>
+              </a>
             </div>
+
             <div class="card_3up-project">
-              <img src="images/tictactoe.PNG" alt="TicTacToe Picture" class="card_3up_image-project">
-              <span class="project-description">TicTacToe - JavaScript, JQuery, Bootstrap, CSS</span>
+              <a href="/projects/tictactoe/tictactoe.html">
+                <img src="images/tictactoe.PNG" alt="TicTacToe Picture" class="card_3up_image-project">
+                <span class="project-description">TicTacToe - JavaScript, JQuery, Bootstrap, CSS</span>
+              </a>
             </div>
+
             <div class="card_3up-project">
-              <img src="images/weatherapi.PNG" alt="Weather API UI" class="card_3up_image-project">
-              <span class="project-description">Weather API - Bootstrap, JQuery, JavaScript</span>
+              <a href="/projects/weatherapi/weatherapi.html">
+                <img src="images/weatherapi.PNG" alt="Weather API UI" class="card_3up_image-project">
+                <span class="project-description">Weather API - Bootstrap, JQuery, JavaScript</span>
+              </a>
             </div>
+
             <div class="card_3up-project">
-              <img src="images/todo.PNG" alt="Todo-List Picture" class="card_3up_image-project">
-              <span class="project-description">To-do List - JavaScript, Bootstrap, LocalStorage</span>
+              <a href="/projects/to-do-list/index.html">
+                <img src="images/todo.PNG" alt="Todo-List Picture" class="card_3up_image-project">
+                <span class="project-description">To-do List - JavaScript, Bootstrap, LocalStorage</span>
+              </a>
             </div>
+
             <div class="card_3up-project">
-              <img src="images/pong.PNG" alt="Pong Game Picture" class="card_3up_image-project">
-              <span class="project-description">Pong - Canvas, JavaScript</span>
+              <a href="/projects/pong/index.html">
+                <img src="images/pong.PNG" alt="Pong Game Picture" class="card_3up_image-project">
+                <span class="project-description">Pong - Canvas, JavaScript</span>
+              </a>
             </div>
+
+
           </div>
         </div>
       </section>
 
-      <section class="blog-container">
+      <section class="blog-container" id="blog-section">
         <div class="blog-container__inner-container">
           <div class="blog-container__inner-container__header">
             <h4 class="blog-container__inner-container-title">PERSPECTIVE</h4>
             <h4>Latest From The <span class="primary-underline"><span class="text-primary">B</span>log</span></h4>
           </div>
           <div class="blog-container__inner-container__3up card_3up_container">
-            <div class="card_3up-standard">
-              <div class="card_3up-standard__highlight-band"></div>
-              <img class="card_3up-standard__image" src="images/pexels-photo.jpeg">
-              <h4 class="card_3up-standard__title">What the heck is .call, .bind, and .apply!?</h4>
-              <p class="card_3up-standard__description">
-                Something that I came across quite a bit in JavaScript
-                 but never really understood how it fully worked,
-                 or the usage for each method. Hopefully after my explanation and examples of each method,
-                 you and myself will be more confident when facing this beast.
-                 Now from the beginning, these three methods are a part of the Function
-                 object in JavaScript.
-               </p>
-               <button class="btn btn-faded btn-left btn-blog">Read More &rarr;</button>
-            </div>
-            <div class="card_3up-standard">
-              <div class="card_3up-standard__highlight-band"></div>
-              <img class="card_3up-standard__image" src="images/closure.png">
-              <h4 class="card_3up-standard__title">Closures everywhere...</h4>
-              <p class="card_3up-standard__description">
-                When I was just starting out with JavaScript and if I heard the word closure,
-                I thought it was this magical concept that only the very brightest may fully understand.
-                Which is the scope that gets initialized during the execution phase of the JavaScript engine.
-              </p>
-              <button class="btn btn-faded btn-left btn-blog">Read More &rarr;</button>
-            </div>
-            <div class="card_3up-standard">
-              <div class="card_3up-standard__highlight-band"></div>
-              <img class="card_3up-standard__image" src="images/sackcloth.jpeg">
-              <h4 class="card_3up-standard__title">Improvising - Strip HTML Entities</h4>
-              <p class="card_3up-standard__description">
-                At work we use Google tag manager to track a portion of our analytics
-                and in some cases we send data to certain groups for marketing.
-                We came across a problem in which special characters were being encoded in strings
-                that were being sent to this group.
-              </p>
-              <button class="btn btn-faded btn-left btn-blog">Read More &rarr;</button>
-            </div>
+
+              <div class="card_3up-standard">
+                  <div class="card_3up-standard__highlight-band"></div>
+                  <img class="card_3up-standard__image" src="images/pexels-photo.jpeg">
+                  <h4 class="card_3up-standard__title">What the heck is .call, .bind, and .apply!?</h4>
+                  <p class="card_3up-standard__description">
+                    Something that I came across quite a bit in JavaScript
+                    but never really understood how it fully worked,
+                    or the usage for each method. Hopefully after my explanation and examples of each method,
+                    you and myself will be more confident when facing this beast.
+                    Now from the beginning, these three methods are a part of the Function
+                    object in JavaScript.
+                  </p>
+                    <a href="/pages/articles/callbindapply.html" class="card_3up-standard__link">
+                      <button class="btn btn-faded btn-left btn-blog">Read More &rarr;</button>
+                    </a>
+              </div>
+
+              <div class="card_3up-standard">
+
+                  <div class="card_3up-standard__highlight-band"></div>
+                  <img class="card_3up-standard__image" src="images/closure.png">
+                  <h4 class="card_3up-standard__title">Closures everywhere...</h4>
+                  <p class="card_3up-standard__description">
+                    When I was just starting out with JavaScript and if I heard the word closure,
+                    I thought it was this magical concept that only the very brightest may fully understand.
+                    Which is the scope that gets initialized during the execution phase of the JavaScript engine.
+                  </p>
+                <a href="/pages/articles/closures.html" class="card_3up-standard__link">
+                  <button class="btn btn-faded btn-left btn-blog">Read More &rarr;</button>
+                </a>
+              </div>
+
+              <div class="card_3up-standard">
+                  <div class="card_3up-standard__highlight-band"></div>
+                  <img class="card_3up-standard__image" src="images/sackcloth.jpeg">
+                  <h4 class="card_3up-standard__title">Improvising - Strip HTML Entities</h4>
+                  <p class="card_3up-standard__description">
+                    At work we use Google tag manager to track a portion of our analytics
+                    and in some cases we send data to certain groups for marketing.
+                    We came across a problem in which special characters were being encoded in strings
+                    that were being sent to this group.
+                  </p>
+                <a href="/pages/articles/improvising.html" class="card_3up-standard__link">
+                  <button class="btn btn-faded btn-left btn-blog">Read More &rarr;</button>
+                </a>
+              </div>
           </div>
         </div>
       </section>
@@ -288,9 +347,9 @@
     <footer class="footer-container">
       <span class="footer-container__copyright">&copy; 2018, Created by Kyle Orlinski</span>
       <ul class="footer-container__socialmedia-list">
-        <li><i class="fab fa-github"></i></li>
-        <li><i class="fab fa-linkedin-in"></i></li>
-        <li><i class="fab fa-twitter"></i></li>
+        <li><a href="https://github.com/Mizuone"><i class="fab fa-github"></i></a></li>
+        <li><a href="https://www.linkedin.com/in/kyleorlinskideveloper/"><i class="fab fa-linkedin-in"></i></a></li>
+        <li><a href="https://twitter.com/KyleOrlinski?lang=en"><i class="fab fa-twitter"></i></a></li>
       </ul>
     </footer>
 
