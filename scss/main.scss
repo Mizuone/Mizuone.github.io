@@ -1,3 +1,4 @@
+@import 'abstracts/mixins';
 @import 'abstracts/variables';
 
 @import 'base/animation';
@@ -7,6 +8,7 @@
 
 @import 'components/button';
 @import 'components/cards';
+@import 'components/top';
 @import 'components/navigation';
 @import 'components/footer';
 
