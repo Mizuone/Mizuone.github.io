@@ -22,7 +22,7 @@ $breakpoint arguement choices:
 
 @mixin respond($breakpoint) {
   @if $breakpoint == phone-small {
-    @media (max-width: 26.5em) { @content };
+    @media (max-width: 27em) { @content };
   }
   @if $breakpoint == phone {
     @media (max-width: 37.5em) { @content };

@@ -2,7 +2,7 @@
   position: relative;
   display: flex;
   background-color: $color-primary;
-  height: 90vh;
+  height: calc(109vh - 6rem);
   justify-content: flex-end;
 
   @include respond(tab-land) {
@@ -205,10 +205,6 @@
          }
 
          @include respond(tab-port) {
-           width: 50%;
-         }
-
-         @include respond(phone-land) {
            width: 70%;
          }
 
@@ -293,6 +289,10 @@
            height: 64px;
            border-radius: 50%;
            background-color: rgba(79, 195, 247, 0.83);
+
+           @include respond(phone-land) {
+              display: none;
+           }
          }
 
          .about-container__inner-container__programminglist-halfone, .about-container__inner-container__programminglist-halftwo{

@@ -102,6 +102,16 @@
     text-align: center;
     cursor: pointer;
 
+    @include respond(phone-land) {
+      top: 5rem;
+      right: 5rem;
+    }
+
+    @include respond(phone-small) {
+      top: 4rem;
+      right: 4rem;
+    }
+
   }
 
   &__background {
@@ -115,6 +125,16 @@
     z-index: 1000;
 
     transition: transform .8s;
+
+    @include respond(phone-land) {
+      top: 5.5rem;
+      right: 5.5rem;
+    }
+
+    @include respond(phone-small) {
+      top: 4.5rem;
+      right: 4.5rem;
+    }
   }
 
   &__nav {
@@ -126,6 +146,7 @@
 
     opacity: 0;
     width: 0;
+    visibility: hidden;
     transition: all .8s cubic-bezier(0.645, 0.045, 0.355, 1);
   }
 
@@ -163,6 +184,7 @@
       color: $color-primary;
       transform: translateX(1rem);
     }
+
   }
 
   &__checkbox:checked ~ &__background {
@@ -172,6 +194,7 @@
   &__checkbox:checked ~ &__nav {
     opacity: 1;
     width: 100%;
+    visibility: visible;
   }
 
   //ICON

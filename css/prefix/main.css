@@ -212,7 +212,7 @@ body {
     @media (max-width: 37.5em) {
       .card_3up_header, .card_3up__title, .card_3up-project_header, .card_3up-project__title, .card_3up-standard_header, .card_3up-standard__title {
         font-size: 2.5rem; } }
-    @media (max-width: 26.5em) {
+    @media (max-width: 27em) {
       .card_3up_header, .card_3up__title, .card_3up-project_header, .card_3up-project__title, .card_3up-standard_header, .card_3up-standard__title {
         font-size: 2rem; } }
   .card_3up_primary, .card_3up-project_primary, .card_3up-standard_primary {
@@ -380,6 +380,14 @@ body {
             box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.1);
     text-align: center;
     cursor: pointer; }
+    @media (max-width: 43.75em) {
+      .hamburgermenu__button {
+        top: 5rem;
+        right: 5rem; } }
+    @media (max-width: 27em) {
+      .hamburgermenu__button {
+        top: 4rem;
+        right: 4rem; } }
   .hamburgermenu__background {
     height: 6rem;
     width: 6rem;
@@ -393,6 +401,14 @@ body {
     transition: -webkit-transform .8s;
     transition: transform .8s;
     transition: transform .8s, -webkit-transform .8s; }
+    @media (max-width: 43.75em) {
+      .hamburgermenu__background {
+        top: 5.5rem;
+        right: 5.5rem; } }
+    @media (max-width: 27em) {
+      .hamburgermenu__background {
+        top: 4.5rem;
+        right: 4.5rem; } }
   .hamburgermenu__nav {
     height: 100vh;
     position: fixed;
@@ -401,6 +417,7 @@ body {
     z-index: 1001;
     opacity: 0;
     width: 0;
+    visibility: hidden;
     -webkit-transition: all 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
     transition: all 0.8s cubic-bezier(0.645, 0.045, 0.355, 1); }
   .hamburgermenu__list {
@@ -437,7 +454,8 @@ body {
             transform: scale(80); }
   .hamburgermenu__checkbox:checked ~ .hamburgermenu__nav {
     opacity: 1;
-    width: 100%; }
+    width: 100%;
+    visibility: visible; }
   .hamburgermenu__icon {
     position: relative;
     margin-top: 3.5rem; }
@@ -522,7 +540,7 @@ body {
     @media (max-width: 75em) {
       .home-header__container {
         margin-right: 0; } }
-    @media (max-width: 26.5em) {
+    @media (max-width: 27em) {
       .home-header__container {
         display: -webkit-box;
         display: -ms-flexbox;
@@ -551,7 +569,7 @@ body {
         @media (max-width: 37.5em) {
           .home-header__container__title-name {
             font-size: 5rem; } }
-        @media (max-width: 26.5em) {
+        @media (max-width: 27em) {
           .home-header__container__title-name {
             font-size: 4.5rem; } }
     .home-header__container__button {
@@ -567,7 +585,7 @@ body {
       font-weight: lighter;
       color: #fcfcfc;
       margin-top: 2.5rem; }
-      @media (max-width: 26.5em) {
+      @media (max-width: 27em) {
         .home-header__container__description-title {
           font-size: 1.75rem; } }
     .home-header__container__socialmedia {
@@ -602,7 +620,7 @@ body {
   @media (max-width: 56.25em) {
     .experience-container, .about-container, .projects-container, .blog-container {
       margin: 0 3rem 0 3rem; } }
-  @media (max-width: 26.5em) {
+  @media (max-width: 27em) {
     .experience-container, .about-container, .projects-container, .blog-container {
       margin: 0 1.5rem 0 1.5rem; } }
   .experience-container__inner-container, .about-container__inner-container, .projects-container__inner-container, .blog-container__inner-container {
@@ -620,7 +638,7 @@ body {
     @media (max-width: 37.5em) {
       .experience-container__inner-container, .about-container__inner-container, .projects-container__inner-container, .blog-container__inner-container {
         padding: 3rem; } }
-    @media (max-width: 26.5em) {
+    @media (max-width: 27em) {
       .experience-container__inner-container, .about-container__inner-container, .projects-container__inner-container, .blog-container__inner-container {
         padding: 2rem; } }
     .experience-container__inner-container__section-title, .experience-container__inner-container-title, .about-container__inner-container__section-title, .about-container__inner-container-title, .projects-container__inner-container__section-title, .projects-container__inner-container-title, .blog-container__inner-container__section-title, .blog-container__inner-container-title {
@@ -639,7 +657,7 @@ body {
       @media (max-width: 37.5em) {
         .experience-container__inner-container__header, .experience-container__inner-container__header-secondary, .about-container__inner-container__header, .about-container__inner-container__header-secondary, .projects-container__inner-container__header, .projects-container__inner-container__header-secondary, .blog-container__inner-container__header, .blog-container__inner-container__header-secondary {
           font-size: 3rem; } }
-      @media (max-width: 26.5em) {
+      @media (max-width: 27em) {
         .experience-container__inner-container__header, .experience-container__inner-container__header-secondary, .about-container__inner-container__header, .about-container__inner-container__header-secondary, .projects-container__inner-container__header, .projects-container__inner-container__header-secondary, .blog-container__inner-container__header, .blog-container__inner-container__header-secondary {
           font-size: 2.5rem; } }
 
@@ -663,13 +681,10 @@ body {
         width: 80%; } }
     @media (max-width: 56.25em) {
       .about-container__inner-container__2up-image {
-        width: 50%; } }
-    @media (max-width: 43.75em) {
-      .about-container__inner-container__2up-image {
         width: 70%; } }
     @media (max-width: 37.5em) {
       .about-container__inner-container__2up-image {
-        width: 85%; } }
+        width: 100%; } }
   .about-container__inner-container__2up__about-paragraph {
     width: 75%;
     line-height: 125%;
@@ -734,6 +749,9 @@ body {
         height: 64px;
         border-radius: 50%;
         background-color: rgba(79, 195, 247, 0.83); }
+        @media (max-width: 43.75em) {
+          .about-container__inner-container__skills-container .programming-skills-container .flex-large-symbol, .about-container__inner-container__skills-container .design-skills-container .flex-large-symbol {
+            display: none; } }
       .about-container__inner-container__skills-container .programming-skills-container .about-container__inner-container__programminglist-halfone, .about-container__inner-container__skills-container .programming-skills-container .about-container__inner-container__programminglist-halftwo, .about-container__inner-container__skills-container .design-skills-container .about-container__inner-container__programminglist-halfone, .about-container__inner-container__skills-container .design-skills-container .about-container__inner-container__programminglist-halftwo {
         display: inline-block;
         list-style-type: none;
