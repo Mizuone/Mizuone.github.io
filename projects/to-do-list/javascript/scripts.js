@@ -58,7 +58,7 @@ if (typeof(listSpace === "undefined")) {
             for(var i = 0; i < localStorage.length; i++) {
                 var taskID = localStorage.key(i);
 
-                if (taskID.indexOf('task') !== -1) {
+                if (taskID.indexOf('task-') !== -1) {
                   createItem(taskID, localStorage.getItem(taskID));
                   listSpace.addDragAndDrop();
                 }

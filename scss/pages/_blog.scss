@@ -1,0 +1,85 @@
+.nav-blog {
+
+  & .desktop-navigation-blog {
+    position: relative;
+    background-color: $color-primary;
+    padding-bottom: 5rem;
+  }
+}
+
+.blog-container-article {
+  height: 100%;
+  z-index: 10;
+
+  &__inner-container {
+    top: -4rem;
+
+    &__header {
+      margin: 2rem 0;
+    }
+
+    @include respond(tab-land) {
+      margin-top: 14rem;
+      padding: 3rem;
+    }
+
+    &__section {
+      width: 75%;
+      margin: 2rem auto;
+
+      @include respond(medium-desktop) {
+        width: 85%;
+      }
+
+      @include respond(laptop) {
+        width: 100%;
+      }
+
+      &-sectionheader {
+        font-size: 3rem;
+        width: 90%;
+
+        @include respond(tab-land) {
+          font-size: 2.4rem;
+        }
+      }
+
+      &-sectionparagraph {
+        font-size: 2rem;
+        line-height: 125%;
+        margin: 2rem 0;
+
+        @include respond(tab-land) {
+          font-size: 1.6rem;
+        }
+      }
+
+      &-sectionpre {
+        display: block;
+        font-size: 2rem;
+        padding: 9.5px;
+        margin: 0 0 10px;
+        line-height: 1.42857143;
+        color: #333;
+        word-break: break-all;
+        word-wrap: break-word;
+        background-color: #f5f5f5;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        overflow: auto;
+
+        @include respond (medium-desktop) {
+          font-size: 1.6rem;
+        }
+
+        @include respond(tab-land) {
+          font-size: 1.4rem;
+        }
+      }
+
+    }
+
+
+  }
+
+}

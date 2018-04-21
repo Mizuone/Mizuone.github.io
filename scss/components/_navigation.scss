@@ -1,4 +1,4 @@
-.nav-logo-container {
+.nav-logo-container, .nav-logo-container-project, .nav-logo-container-blog {
   position: absolute;
   z-index: 1001;
   top: 7%;
@@ -15,7 +15,22 @@
 
 }
 
-.desktop-navigation {
+.nav-logo-container-project, .nav-logo-container-blog {
+
+  @include respond(phone-land) {
+    top: 5%;
+  }
+
+  &__logo {
+
+    @include respond(phone-land) {
+      margin-top: 0;
+    }
+
+  }
+}
+
+.desktop-navigation, .desktop-navigation-project, .desktop-navigation-blog {
   @include respond(tab-land) {
     display: none;
   }
@@ -24,6 +39,7 @@
   display: flex;
   width: 100%;
   z-index: 4;
+
 
 
 
@@ -75,6 +91,14 @@
       }
 
     }
+  }
+}
+
+.desktop-navigation-project {
+  position: relative;
+
+  @include respond(tab-land) {
+    display: none;
   }
 }
 

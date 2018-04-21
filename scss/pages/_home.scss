@@ -111,7 +111,7 @@
 
  }
 
- .experience-container, .about-container, .projects-container, .blog-container {
+ .experience-container, .about-container, .projects-container, .blog-container, .blog-container-article {
    position: relative;
    background-color: transparent;
    height: 90vh;
@@ -262,7 +262,6 @@
         @include respond(phone-land) {
           width: 80%;
         }
-
         @include respond(phone) {
           width: 100%;
         }
@@ -349,6 +348,10 @@
 
      &__3up {
        flex-wrap: wrap;
+
+       @include respond(tab-port) {
+         flex-direction: row;
+       }
      }
 
      &__section-title {
@@ -374,6 +377,22 @@
        color: $color-white-dark;
        background-color: rgba(0,0,0,0.5);
        transition: all 0.2s ease-in-out;
+
+       @include respond(tab-land) {
+         height: 25%;
+         opacity: 1;
+       }
+
+       @include respond(tab-port) {
+         height: 20%;
+       }
+
+       @include respond(phone) {
+         height: 30%;
+       }
+       @include respond(phone-small) {
+         height: 45%;
+       }
      }
    }
  }
@@ -387,8 +406,44 @@
       margin-top: 8rem;
       top: 0;
 
+      @include respond(tab-port) {
+        padding: 1.5rem;
+      }
+
       &__header {
         margin-bottom: 2rem;
+      }
+
+      &__3up.card_3up_container {
+
+        & .card_3up-standard {
+
+        }
+
+        @include respond(large-desktop) {
+          flex-wrap: wrap;
+
+
+          & .card_3up-standard {
+            flex: 1 0;
+            flex-basis: 48%;
+            align-items: center;
+          }
+
+          & .card_3up-standard.card_3up_drop {
+            flex-basis: 100%;
+            flex-direction: column;
+          }
+
+        }
+
+        @include respond(phone) {
+
+          & .card_3up-standard {
+            margin-bottom: 2rem;
+          }
+
+        }
       }
 
     }

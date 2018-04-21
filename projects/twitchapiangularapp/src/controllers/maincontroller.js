@@ -30,7 +30,6 @@
                     streamerObj = JSON.parse(streamerProp.slice(streamerProp.indexOf('{'), streamerProp.length - 2));
 
                  streamersStreamArr.push(streamerObj);
-                console.log(streamersStreamArr);
             });
 
            }

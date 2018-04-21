@@ -136,7 +136,6 @@ $(document).ready(function() {
                                 get = parseInt($.grep(object.className.split(" "), function(elem, index){
                                     return elem.indexOf(ticTacToeBoard[q]) === 0;
                                 }).join());
-                                console.log(get);
                             }
                         }
                         for (var x = 0; x < ticTacToeBoard.length; x++) {
@@ -181,7 +180,6 @@ $(document).ready(function() {
         }
         function checkwinner(XorO) {
             //check row position
-            console.log(ticTacToeBoard);
             for (var i = 0; i <= 6; i += 3) {
                 if (ticTacToeBoard[i] === XorO && ticTacToeBoard[i + 1] === XorO && ticTacToeBoard[i + 2] === XorO) {
                     showWinner(userPick);

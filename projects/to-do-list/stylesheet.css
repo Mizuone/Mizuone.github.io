@@ -28,16 +28,6 @@ h2 {
 p {
     text-align: center;
 }
-nav, .navbar, .navbar-default {
-  margin: inherit;
-  padding-bottom: inherit;
-  padding-top: inherit;
-  font-size: inherit;
-  background: #fff;
-  border: inherit;
-  border-radius: inherit;
-  min-height: inherit;
-}
 .todo-container {
   height: 800px;
   margin-top: 64px;

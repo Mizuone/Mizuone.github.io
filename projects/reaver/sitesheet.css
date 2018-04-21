@@ -24,15 +24,13 @@ html, body {
           user-select: none;
 }
 #wrapper {
-    position: relative;
-    width: 100%;
     background: #1F1C2C; /* fallback for old browsers */
     background: -webkit-linear-gradient(to left, #1F1C2C , #928DAB); /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to left, #1F1C2C , #928DAB); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     /*Background is from http://uigradients.com, awesome site*/
     color: rgba(255, 255, 255, 0.8);
 }
-a {
+a:not(footer a) {
     color: rgba(0, 255, 0, 0.5);
 }
 h2 {
@@ -78,17 +76,17 @@ h2 {
 .mobiletext span {
     font-weight: bold;
 }
-#wrapper ul {
+#wrapper .container ul {
     text-align: center;
 }
-#wrapper ul li {
+#wrapper .container ul li {
     display: inline;
     margin: 25px;
 }
-#wrapper img {
+#wrapper .container img {
     box-shadow: 0 0 3px black;
 }
-#wrapper ul li img:hover {
+#wrapper .container ul li img:hover {
     box-shadow: 0 0 10px crimson;
 }
 #myCanvas {
