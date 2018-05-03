@@ -2,8 +2,6 @@ var gulp = require('gulp'),
     sass = require('gulp-sass'),
     browserSync = require('browser-sync').create(),
     htmlmin = require('gulp-htmlmin'),
-    htmlbeautify = require('gulp-html-beautify'),
-    concatCSS = require('gulp-concat-css'),
     autoprefixer = require('gulp-autoprefixer'),
     cleanCSS = require('gulp-clean-css');
 

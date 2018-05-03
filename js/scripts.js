@@ -17,8 +17,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
     };
 
+    let _hamburgerMenuClickEvents = () => {
+
+      if (location.pathname === '/') {
+          let hamburgerNavItems = document.querySelectorAll('.hamburgermenu__link');
+
+          hamburgerNavItems.forEach((navItem) => {
+            navItem.addEventListener('click', (event) => {
+              document.querySelector('.hamburgermenu__checkbox').checked = false;
+            });
+          });
+      }
+
+    };
+
     let events = {
-      topContainerEvent: _topContainerEvent
+      topContainerEvent: _topContainerEvent,
+      hamburgerMenuClickEvents: _hamburgerMenuClickEvents
     };
 
     return events;
@@ -30,6 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       init: () => {
         portfolioEvents.topContainerEvent();
+        portfolioEvents.hamburgerMenuClickEvents();
       }
 
     };

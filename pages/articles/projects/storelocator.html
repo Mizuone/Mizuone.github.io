@@ -4,14 +4,14 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="I go through a brief explanation of JavaScript's Closures and some of the interesting things that happen with the JavaScript engine.">
-        <title>Kyle Orlinski - JavaScript Closures</title>
-        <link rel='shortcut icon' type='image/x-icon' href='../../images/little-jimmie-32x32.png'/>
+        <meta name="description" content="A brief article highlighting the tasks and challenges I faced during the storelocator project.">
+        <title>Kyle Orlinski - Storelocator</title>
+        <link rel='shortcut icon' type='image/x-icon' href='../../../images/little-jimmie-32x32.png'/>
         <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
         <link href="../../../css/fontawesome-all.css" type="text/css" rel="stylesheet">
         <link href="../../../css/main.css" type="text/css" rel="stylesheet">
-        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script type="text/javascript" src="../../../js/scripts.js"></script>
         <script>
             (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
             (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -24,6 +24,12 @@
         </script>
     </head>
     <body>
+
+      <a href="#">
+          <div class="backtotop">
+              <div><i class="fas fa-arrow-up"></i></div>Top</div>
+      </a>
+
       <nav class="nav-blog">
 
         <div class="nav-logo-container-blog">
@@ -45,7 +51,7 @@
             <ul class="hamburgermenu__list">
               <li class="hamburgermenu__item"><a href="/#about-section" class="hamburgermenu__link">About</a></li>
               <li class="hamburgermenu__item"><a href="/#projects-section" class="hamburgermenu__link">Projects</a></li>
-              <li class="hamburgermenu__item"><a href="/#blog-section" class="hamburgermenu__link">Blog</a></li>
+              <li class="hamburgermenu__item"><a href="/#experience-section" class="hamburgermenu__link">Blog</a></li>
               <li class="hamburgermenu__item"><a href="/#" class="hamburgermenu__link">Contact</a></li>
             </ul>
           </div>
@@ -69,7 +75,7 @@
                   Projects
                 </li>
               </a>
-              <a class="desktop-navigation__list-item" href="/#blog-section">
+              <a class="desktop-navigation__list-item" href="/#experience-section">
                 <li>
                   Blog
                 </li>
@@ -87,100 +93,100 @@
               <section class="blog-container-article__inner-container__section">
                 <h4 class="blog-container-article__inner-container__section-title">ARTICLE</h4>
                 <h1 class="blog-container-article__inner-container__header">
-                  <span class="text-primary">Closures</span> everywhere...
+                  <span class="text-primary">Store</span> Locator Rewrite
                 </h1>
-                  <p class="blog-container-article__inner-container__section-articledate">Nov 5 2016</p>
-                  <h2 class="blog-container-article__inner-container__section-sectionheader">Something you have always used!</h2>
+                <p class="blog-container-article__inner-container__section-articledate">April 22 2018</p>
+                <img class="blog-container-article__inner-container__section-image" src="../../../images/storelocator.PNG">
+                  <h2 class="blog-container-article__inner-container__section-sectionheader">Bringing it in house.</h2>
                       <p class="blog-container-article__inner-container__section-sectionparagraph">
-                          When I was just starting out with JavaScript and if I heard the word closure, I thought it was this magical concept that only the very brightest may fully understand. To start things off, let's take a look at lexical scope. Which is the scope that gets initialized during the execution phase of the JavaScript engine.
+                        The first iteration of our storelocator was built by a third party development company that stored our store information. This company has their own
+                        API that they use to pull in the closest stores based on your geo coordinates. I was tasked with re-writing this store locator to bring it in house and show the closest store's events.
+                        With this situation in hand I used php to communicate with their API which was just a straight forward post request with a user's geo coordinates. This request goes
+                        to this third party's API and a response of store data gets returned. I then use this data to create the user interface for the storelocator. Now the build process begins.
+                      </p>
+              </section>
+
+              <section class="blog-container-article__inner-container__section">
+                  <h2 class="blog-container-article__inner-container__section-sectionheader">First Steps</h2>
+                      <p class="blog-container-article__inner-container__section-sectionparagraph">
+                        The design of the storelocator didn't change, this choice made it easier to implement the original design's CSS styling.
+                        This saved me a considerable amount of time and helped me focus on how I was going to build the logic for this application.
+                        The only feature I incorporated from the past locator was the Google map styling.
+                        This styling is an array of objects that has a property for each feature that is styleable. The JavaScript logic that I built was inspired from the
+                        original store locator which cut overall development time by another large percentage.
+                      </p>
+                      <p class="blog-container-article__inner-container__section-sectionparagraph">
+                        The most interesting problem to figure out was the configuration of the Google map, and placing each marker on the correct store location. I created a forEach
+                        to place each marker on the Google map with an icon and it's position. Each marker has then a click event that once clicked will display the stores address and other details such as directions.
                       </p>
                       <pre class="blog-container-article__inner-container__section-sectionpre">
-        "use strict";
+responseData.forEach(function(store) {
 
-        var hiGlobal = 'Hi Global!'; //Lexical Scope is Global
+  var pt = new google.maps.LatLng(parseFloat(store.lat), parseFloat(store.lng)),
+      storeInfoWindow = new google.maps.InfoWindow({
+        content: _infoWindow(store)
+      });
 
-        function myTerritory(grassLand) {
-        //Lexical Scope is myTerritory
-        var myScope = 'My Territory';
+  bounds.extend(pt);
 
-        function enableGrass() {
-        //Lexical Scope is enableGrass
-        var grass = 'Inner function';
-        return "Grass is: " + grassLand;
-        }
+  var marker = new google.maps.Marker({
+    position: pt,
+    map: map,
+    icon: '//static.content-bonton.com/pr/BonTon/images/marker.png'
+  });
 
-        console.log(hiGlobal); // Hi Global!
-        console.log(myScope); // My Territory
-        console.log(grass); //grass is not defined, since we're in use strict mode.
-        }
-        console.log(myTerritory(true));
+  marker.addListener('click', function() {
+    storeInfoWindow.open(map, marker);
+  });
 
+  markersArr.push(marker);
 
+});
                       </pre>
                       <p class="blog-container-article__inner-container__section-sectionparagraph">
-                          The example above is just showing you that after the compile phase, there is an execution phase and during that phase, lexical scope gets bound to each object. Such as the global object or a function object. Now a closure is when a function references or remembers its lexical scope even when that function is executed outside that specific lexical scope.
+                        What followed after this was pulling in the closest store to a user's location and displaying that store on the Google map.
+                        Below is the function that I created to compute the distance between a user's location and a store. Then returned is a sorted
+                        array based on the first index being the closest
+                      </p>
+                      <pre class="blog-container-article__inner-container__section-sectionpre">
+var _findClosestN = function(pt,numberOfResults, markers) {
+   var closest = [];
+
+   for (var i = 0; i < markers.length; i++) {
+     markers[i].distance = (google.maps.geometry.spherical.computeDistanceBetween(pt, markers[i].getPosition())) / 1609.344;
+
+     closest.push(markers[i]);
+   }
+
+   closest.sort(function(a,b) {
+     return a.distance - b.distance;
+   });
+
+   return closest;
+};
+                      </pre>
+              </section>
+              <section class="blog-container-article__inner-container__section">
+                  <h2 class="blog-container-article__inner-container__section-sectionheader">Time Formatting</h2>
+                      <p class="blog-container-article__inner-container__section-sectionparagraph">
+                        The data returned from the API concerning store hours was probably the most difficult and reoccurring problem I faced.
+                        I had to format the data to look presentable and readable to the customer and while doing so think of all the cases a store may have
+                        unusual hours. This problem ultimately lead me down a path of testing my formatting functions before pushing them out into production.
+                        Doing this prevented any future issues concerning a store being open or closed in a incorrect manner. Going forward on future projects now.
+                        When I deal with a function or set of functions that need to handle multiple use cases. A series of test calls to each function takes place with
+                        every possible use case as input.
                       </p>
               </section>
               <section class="blog-container-article__inner-container__section">
-                      <h2 class="blog-container-article__inner-container__section-sectionheader">Closure Example</h2>
-                      <pre class="blog-container-article__inner-container__section-sectionpre">
-        "use strict";
-        function deployClosure() {
-
-        var deploy = "I am deployed";
-        function getDeploy() {
-        console.log(deploy);
-        }
-
-        sendDeploy(getDeploy);
-        }
-
-        function sendDeploy(getAFunction) {
-        getAFunction();
-        }
-
-        deployClosure();
-        //I am deployed
-                      </pre>
-                          <p class="blog-container-article__inner-container__section-sectionparagraph">
-                                   This is our closure, and when sendDeploy() gets called inside deployClosure(), getDeploy is passed in as an argument and it references its lexical scope. Closures are widely used in return statements or any kind of callback. An example of a callback would be a setTimeout, and after each delay the setTimeout will reference the function or callback inside of itself. So as the program is running, it doesn't matter what lexical scope it's at, it will continue to reference that function's lexical scope every time.
-                          </p>
-                          <p class="blog-container-article__inner-container__section-sectionparagraph">
-                                  A neat thing that happens or to keep thought of is that during the execution phase a closure will not be garbage collected because the program is keeping reference of a lexical scope. It will be garbage collected after the reference or the function stops invoking that closure.
-                          </p>
-              </section>
-              <section class="blog-container-article__inner-container__section">
-                  <h2 class="blog-container-article__inner-container__section-sectionheader">Loop Closure</h2>
-                          <pre class="blog-container-article__inner-container__section-sectionpre">
-        for (var i = 0; i &lt; 5; i++) {
-        (function(i) {
-        setTimeout(function() {
-         console.log(i);
-        }, 1000)
-        })(i)
-        }
-        // 0
-        // 1
-        // 2
-        // 3
-        // 4
-
-        for (var i = 0; i &lt; 5; i++) {
-        setTimeout(function() {
-         console.log(i);
-        }, 1000)
-        }
-        // 5
-                          </pre>
-                  <p class="blog-container-article__inner-container__section-sectionparagraph">
-                       Now in this example we use an IIFE to hide our setTimeout from the global scope, and the variable i is passed in during each iteration. So what will happen is that a separate setTimeout will be created in memory during each iteration, and after 1 second of delay it will console.log its referenced lexical scope. The second for loop will create 5 separate timeout functions that just logs 5 instead of having a reference for each iteraition like the for loop above it.
-                  </p>
-                  <p class="blog-container-article__inner-container__section-sectionparagraph">
-                       If you wanted to use ES6 you can simply replace var i with let i. During each iteration in the for loop i recreates itself. You can play around with this concept because it's pretty cool, also the reason i is 5 is because it will check its condition and immediately break out of the loop. The closure loop above it, will output the range of the condition that is set.
-                  </p>
-                  <p class="blog-container-article__inner-container__section-sectionparagraph">
-                       This is a concept that I am continuing to learn and practice in my work and these are my thoughts when it comes to this area of JavaScript. For further information towards closures or really anything JavaScript I recommend Kyle Simpson's book called <a href="https://github.com/getify/You-Dont-Know-JS">You Don't Know JS</a>. Hope you learned a bit more detail towards closures, and like always happy coding!
-                  </p>
+                  <h2 class="blog-container-article__inner-container__section-sectionheader">In House</h2>
+                      <p class="blog-container-article__inner-container__section-sectionparagraph">
+                        Through a number of challenges I faced I was able to finish development on our rewrite. During the process I was the only
+                        developer that worked on this re-write. Making it rather difficult to keep track of my next task, I would mark down my daily progress
+                        and the progress I needed to make the next. This helped me personally in reaching our project deadline. Overall this was an awesome project
+                        to be apart of. This gave me experience using php to interact with an API and to use JavaScript to construct the user interface for the customer.
+                        On average the store locator gets around 400+ hits a day. Before the customer had to manually search using Google. This application cut that time away and
+                        automated the process for the customer. Please feel free to read my other articles covering a few projects that I was a part of at Bon-Ton. <a href="./coupons.html">Coupons and Deals</a> - <a href="./megamenu.html">Mega Menu</a>
+                      </p>
               </section>
           </article>
 

@@ -10,9 +10,8 @@
     <link rel="shortcut icon" type="image/x-icon" href="images/little-jimmie-32x32.png">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
     <link href="css/fontawesome-all.css" type="text/css" rel="stylesheet">
-    <link href="css/main.css" type="text/css" rel="stylesheet">
+    <link href="css/dest/main.css" type="text/css" rel="stylesheet">
     <script type="text/javascript" src="/js/scripts.js"></script>
-    <!--
     <script>
         (function(i, s, o, g, r, a, m) {
             i['GoogleAnalyticsObject'] = r;
@@ -29,7 +28,6 @@
         ga('create', 'UA-83488200-1', 'auto');
         ga('send', 'pageview');
     </script>
-  -->
 </head>
 
 <body lang="en">
@@ -60,7 +58,7 @@
           <ul class="hamburgermenu__list">
             <li class="hamburgermenu__item"><a href="#about-section" class="hamburgermenu__link">About</a></li>
             <li class="hamburgermenu__item"><a href="#projects-section" class="hamburgermenu__link">Projects</a></li>
-            <li class="hamburgermenu__item"><a href="#blog-section" class="hamburgermenu__link">Blog</a></li>
+            <li class="hamburgermenu__item"><a href="#experience-section" class="hamburgermenu__link">Blog</a></li>
             <li class="hamburgermenu__item"><a href="#" class="hamburgermenu__link">Contact</a></li>
           </ul>
         </div>
@@ -84,7 +82,7 @@
                 Projects
               </li>
             </a>
-            <a class="desktop-navigation__list-item" href="#blog-section">
+            <a class="desktop-navigation__list-item" href="#experience-section">
               <li>
                 Blog
               </li>
@@ -119,7 +117,7 @@
 
       </header>
 
-      <section class="experience-container">
+      <section class="experience-container" id="experience-section">
         <div class="experience-container__inner-container">
           <h4 class="experience-container__inner-container__section-title">PRESENT</h4>
           <h2 class="experience-container__inner-container__header">
@@ -139,7 +137,7 @@
               </a>
             </div>
             <div class="card_3up">
-              <a href="" class="card_3up_link">
+              <a href="/pages/articles/projects/coupons.html" class="card_3up_link">
                 <img class="card_3up_image" src="/images/checkbox-tree.png"/>
                 <h2 class="card_3up_header">Simplflying Coupons and Deals</h2>
                 <h3 class="card_3up_primary">UI, Feature, JavaScript, Handlebars</h3>
@@ -147,7 +145,7 @@
               </a>
             </div>
             <div class="card_3up">
-              <a href="" class="card_3up_link">
+              <a href="/pages/articles/projects/megamenu.html" class="card_3up_link">
                 <img class="card_3up_image" src="/images/fall-down.png"/>
                 <h2 class="card_3up_header">Mega Menu for ease of navigation</h2>
                 <h3 class="card_3up_primary">UI, Feature, JavaScript</h3>
@@ -166,18 +164,12 @@
             </div>
             <div class="card_2up color-white primary-backgroundcolor">
               <p class="about-container__inner-container__2up__about-paragraph">
-                Hello, my name is Kyle Orlinski and I am a Front End Developer.
-                I currently specialize in AngularJS, and my work is focused on using ES6.
-                When it comes to design and programming, I focus primary on simplicity and usability.
-              </p>
-              <p class="about-container__inner-container__2up__about-paragraph">
-                In the last 12 months I have completely focused on front end development, and made it my goal to become an expert in such a broad career path.
-                Before my focus I found my passion from general programming in small projects and creating JavaScript games.
-                Currently I am working at Bon-Ton as a Front End Developer in downtown Milwaukee.
-              </p>
-              <p class="about-container__inner-container__2up__about-paragraph">
-                Now I want to shift my focus on moving up to Angular with TypeScript
-                to help me focus on creating modular web applications.
+                Hello, my name is Kyle Orlinski and I am a Front End Developer. My focus when it comes to development is to aim at building aesthetically pleasing designs.
+                Specialized in using JavaScript and SCSS to help construct these designs. I have a previous knowledge in building web applications using AngularJS and now I am shifting my focus to ReactJS + Redux.
+                Worked as a Front End Developer at Bon-Ton developing major features to the site in improving a customer's user experience.
+                My workflow ranged from independent work as a solo developer on a project to actively updating logic on our business codebase within a team. With the time I have now,
+                I am growing my current knowledge of NodeJS and AWS.
+                Hoping to prepare myself enough to pass the first three certifications of the AWS curriculum. I feel like these are the next steps I need to take to improve myself and become a full stack developer.
               </p>
               <div class="about-container__inner-container__skills-container">
                 <h4 class="about-container__inner-container__skills-container-title">Skills</h4>
@@ -223,6 +215,13 @@
           <div class="projects-container__inner-container__3up card_3up_container">
 
             <div class="card_3up-project">
+              <a href="/projects/reaver/index.html">
+                <img src="images/reaver.PNG" alt="Reaver Game Picture" class="card_3up_image-project">
+                <span class="project-description">Reaver - Canvas, JS, Bootstrap, HammerJS</span>
+              </a>
+            </div>
+
+            <div class="card_3up-project">
               <a href="/projects/twitchapiangularapp/index.html">
                 <img src="images/twitchapiapp.png" alt="Preview Image of my Twitch Api App using Angular JS" class="card_3up_image-project">
                 <span class="project-description">Twitch API - AngularJS, JavaScript, Material Design</span>
@@ -230,9 +229,9 @@
             </div>
 
             <div class="card_3up-project">
-              <a href="/projects/reaver/index.html">
-                <img src="images/reaver.PNG" alt="Reaver Game Picture" class="card_3up_image-project">
-                <span class="project-description">Reaver - Canvas, JS, Bootstrap, HammerJS</span>
+              <a href="https://codepen.io/mizuone/full/zRrVLJ/" rel="noreferrer" target="_blank">
+                <img src="images/pomodoroclock.PNG" alt="Pomodoro Clock Picture" class="card_3up_image-project">
+                <span class="project-description">Pomodoro Clock - ES6, SCSS</span>
               </a>
             </div>
 
@@ -261,13 +260,6 @@
               <a href="/projects/break/index.html">
                 <img src="images/breakout.PNG" alt="Breakout Game Picture" class="card_3up_image-project">
                 <span class="project-description">BreakOut - Canvas, JavaScript</span>
-              </a>
-            </div>
-
-            <div class="card_3up-project">
-              <a href="https://eschpower.com">
-                <img src="images/ecshpower.PNG" alt="Esch Power Website Picture" class="card_3up_image-project">
-                <span class="project-description">Esch Power - Wordpress, CSS</span>
               </a>
             </div>
 
@@ -311,6 +303,7 @@
         </div>
       </section>
 
+  <!--
       <section class="blog-container" id="blog-section">
         <div class="blog-container__inner-container">
           <div class="blog-container__inner-container__header">
@@ -369,7 +362,7 @@
           </div>
         </div>
       </section>
-
+    -->
     </main>
 
     <footer class="footer-container">
