@@ -15,6 +15,7 @@ $breakpoint arguement choices:
 - phone
 - phone-land
 - tab-port
+- small-height
 - tab-land
 - laptop
 - medium-desktop
@@ -54,6 +55,15 @@ $breakpoint arguement choices:
   }
   @if $breakpoint == big-desktop {
     @media (min-width: 112.5em) { @content };
+  }
+  @if $breakpoint == small-height {
+    @media (max-height: 38.06em) { @content };
+  }
+  @if $breakpoint == tiny-height {
+    @media (max-height: 32.81em) { @content };
+  }
+  @if $breakpoint == ant-height {
+    @media (max-height: 25em) { @content };
   }
 }
 

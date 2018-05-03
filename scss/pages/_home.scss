@@ -9,6 +9,18 @@
     justify-content: center;
   }
 
+  @include respond(small-height) {
+    height: calc(140vh - 6rem);
+  }
+
+  @include respond(tiny-height) {
+    height: calc(160vh - 6rem);
+  }
+
+  @include respond(ant-height) {
+    height: 200vh;
+  }
+
   &__container {
     flex-direction: row-reverse;
     margin-right: 35rem;
@@ -140,6 +152,7 @@
 
      @include respond(phone) {
        padding: 3rem;
+       top: -4rem
      }
 
      @include respond(phone-small) {
@@ -198,18 +211,21 @@
        }
 
        &-image {
-         width: 60%;
+         width: 50%;
 
-         @include respond(tab-land) {
-           width: 80%;
-         }
-
-         @include respond(tab-port) {
+         @include respond(laptop) {
            width: 70%;
          }
 
+         @include respond(tab-port) {
+           width: 50%;
+         }
+
+         @include respond(phone-land) {
+           width: 60%;
+         }
          @include respond(phone) {
-           width: 100%;
+           width: 85%;
          }
        }
 
@@ -244,94 +260,62 @@
      }
 
      &__skills-container {
-        width: 60%;
-        margin: 0 auto;
+        width: 100%;
+        display: flex;
         margin-top: 2rem;
+        flex-wrap: wrap;
 
         @include respond(laptop) {
-          width: 80%;
-        }
-
-        @include respond(tab-land) {
-          width: 100%;
-        }
-
-        @include respond(tab-port) {
-          width: 60%;
+          & > div {
+            flex-wrap: wrap;
+            flex: 1 0;
+            flex-basis: 48%;
+            align-items: center;
+            flex-direction: column;
+          }
+          & > div:last-child {
+            flex-basis: 100%;
+            width: 100%;
+          }
         }
 
         @include respond(phone-land) {
-          width: 80%;
-        }
-        @include respond(phone) {
-          width: 100%;
+          & > div {
+            flex-basis: 100%;
+          }
         }
 
         &-title {
           text-align: center;
           margin-top: 2rem;
-          margin-bottom: 2rem;
           font-size: 3.2rem;
-          letter-spacing: 1px;
+          letter-spacing: -.003em;
         }
 
-       .programming-skills-container, .design-skills-container {
-         display: flex;
-         justify-content: left;
+        &-proficient,
+        &-intermediate,
+        &-entry,
+        &-libraries,
+        &-principles,
+        &-software {
 
-         .flex-large-symbol {
-           display: inline-block;
-           align-self: center;
-           font-size: 42px;
-           text-align: center;
-           margin-right: 2rem;
-           width: 64px;
-           height: 64px;
-           border-radius: 50%;
-           background-color: rgba(79, 195, 247, 0.83);
+          & ul {
+            list-style-type: none;
+            font-size: 1.6rem;
+          }
 
-           @include respond(phone-land) {
-              display: none;
-           }
-         }
+          & h4 {
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            font-size: 2rem;
+          }
 
-         .about-container__inner-container__programminglist-halfone, .about-container__inner-container__programminglist-halftwo{
-           display: inline-block;
-           list-style-type: none;
-           font-size: 1.6rem;
+          flex: auto;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
 
-           @include respond(tab-small) {
-             font-size: 1.4rem;
-           }
-         }
-         .about-container__inner-container__programminglist-halfone li, .about-container__inner-container__programminglist-halftwo li {
-           margin-top: 0.5rem;
-         }
-         .about-container__inner-container__programminglist-halfone {
-           margin-right: 3rem;
-         }
-
-       }
-
-       .design-skills-container {
-
-
-         .flex-large-symbol {
-           background-color: rgba(220, 255, 0, 0.49);
-         }
-
-         .about-container__inner-container__designlist-halfone, .about-container__inner-container__designlist-halftwo {
-           margin-top: 2rem;
-           font-size: 16px;
-           list-style-type: none;
-         }
-         .about-container__inner-container__designlist-halfone li, .about-container__inner-container__designlist-halftwo li {
-           margin-bottom: 0.5rem;
-         }
-         .about-container__inner-container__designlist-halfone {
-           margin-right: 3rem;
-         }
-       }
      }
 
 

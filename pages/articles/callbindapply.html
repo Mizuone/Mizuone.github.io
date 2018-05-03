@@ -7,7 +7,6 @@
         <meta name="description" content="Use cases for .call, .apply, and .bind(). I cover the differences and where these methods derive from. This is a comprehensive guide, but a breif explanation.">
         <title>Kyle Orlinski - What the heck is .call, .bind, and .apply!?</title>
         <link rel='shortcut icon' type='image/x-icon' href='../../images/little-jimmie-32x32.png'/>
-        <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
         <link href="../../css/fontawesome-all.css" type="text/css" rel="stylesheet">
         <link href="../../css/dest/main.css" type="text/css" rel="stylesheet">
@@ -23,6 +22,12 @@
         </script>
     </head>
     <body>
+
+      <a href="#">
+          <div class="backtotop">
+              <div><i class="fas fa-arrow-up"></i></div>Top</div>
+      </a>
+
       <nav class="nav-blog">
 
         <div class="nav-logo-container-blog">
@@ -81,18 +86,18 @@
             </ul>
           </div>
       </nav>
-        <main class="container blogarticle">
-          <a href="#"><div class="backtotop"><div><i class="glyphicon glyphicon-menu-up"></i></div>Top</div></a>
-            <article>
-                <h1>
-                    What the heck is .call, .bind, and .apply!?
-                </h1>
-                <section>
-                    <p>Oct 18 2016</p>
-                    <h2>The Beginning</h2>
-                        <p class="articleparagraph">
+        <main class="blog-container-article">
+            <article class="blog-container-article__inner-container">
+
+                <section class="blog-container-article__inner-container__section">
+                  <h4 class="blog-container-article__inner-container__section-title">ARTICLE</h4>
+                  <h1 class="blog-container-article__inner-container__header">
+                    <span class="text-primary">What the heck</span> is .call, .bind, and .apply!?
+                  </h1>
+                  <p class="blog-container-article__inner-container__section-articledate">Oct 18 2016</p>
+                        <p class="blog-container-article__inner-container__section-sectionparagraph">
                             Something that I came across quite a bit in JavaScript but never really understood how it fully worked, or the usage for each method. Hopefully after my explanation and examples of each method, you and myself will be more confident when facing this beast. Now from the beginning, these three methods are a part of the Function object in JavaScript.</p>
-                        <pre>
+                        <pre class="blog-container-article__inner-container__section-sectionpre">
 Function
 //returns Function() { [native code] }
 
@@ -112,13 +117,13 @@ function helloWorld() {
 helloWorld.bind;
 //returns function bind() { [native code] }
                         </pre>
-                        <p class="articleparagraph">
+                        <p class="blog-container-article__inner-container__section-sectionparagraph">
                             With this example you can see that the Function object has the methods bind, apply, and call. Then I created a function called helloWorld, and checked if the newly created function has the bind method. So let us focus on our .call method. For short helloWorld.call() and helloWorld() will return the same result in calling the function. Why would you use .call then? The main reason is to create a pointer for our this  keyword.
                         </p>
                 </section>
-                <section>
-                        <h2>The .call() Method</h2>
-                        <pre>
+                <section class="blog-container-article__inner-container__section">
+                        <h2 class="blog-container-article__inner-container__section-sectionheader">The .call() Method</h2>
+                        <pre class="blog-container-article__inner-container__section-sectionpre">
 //One example
 "use strict";
 function newWorld() {
@@ -156,7 +161,7 @@ getJiggy.call("I am this", "I am Will", "I am Smith", "I am spaceJam");
 //I am Smith
 //I am spaceJam
                         </pre>
-                            <ul class="articleparagraph">
+                            <ul class="blog-container-article__inner-container__section-sectionparagraph">
                                 <li>
                                      Here I have three examples of showing you how you can use call(). You will get two different results in strict, and non strict. The keyword this in strict mode will be undefined, and in non strict it will point to the window object. In the first example, this is pointing to the value of undefined. Then I simply pass a number as a argument, and now this is pointing to 20 in that case.
                                 </li>
@@ -168,12 +173,12 @@ getJiggy.call("I am this", "I am Will", "I am Smith", "I am spaceJam");
                                 </li>
                             </ul>
                 </section>
-                <section>
-                        <p class="articleparagraph">
+                <section class="blog-container-article__inner-container__section">
+                        <p class="blog-container-article__inner-container__section-sectionparagraph">
                             Once you understand the call method it's much easier then to understand the apply method. With apply everything is the same compared to call except that when you pass arguments. They must be inside of an array.
                         </p>
-                            <h2>The .apply() Method</h2>
-                            <pre>
+                            <h2 class="blog-container-article__inner-container__section-sectionheader">The .apply() Method</h2>
+                            <pre class="blog-container-article__inner-container__section-sectionpre">
 "use strict";
 function getJiggy(Will, Smith, spaceJam) {
     console.log(this);
@@ -188,10 +193,10 @@ getJiggy.apply("I am this", ["I am Will", "I am Smith", "I am spaceJam"]);
 //I am spaceJam
 
                             </pre>
-                    <p class="articleparagraph">
+                    <p class="blog-container-article__inner-container__section-sectionparagraph">
                          The use of .apply is when a function takes a variable number of parameters. So instead of hard coding a number of arguments in an array format, you can pass along an array variable. So instead of passing 5+ arguments to a function you can just use the .apply method and pass a variable array for the second argument.
                     </p>
-                        <pre>
+                        <pre class="blog-container-article__inner-container__section-sectionpre">
 function concatString() {
     var combinedString = "";
     for (let i = 0; i &lt; arguments.length; i++) {
@@ -207,13 +212,13 @@ concatString.apply(null, letters);
 
                         </pre>
                 </section>
-                <section>
-                    <p class="articleparagraph">
+                <section class="blog-container-article__inner-container__section">
+                    <p class="blog-container-article__inner-container__section-sectionparagraph">
                         Next lets wrap things up with the bind() method. This method is used to lock down the this keyword when defining a function expression.
                         Nothing we do on the outside will change its output, and it can only be used in a function expression. This is because when you bind it, you're binding to the function object that is created.
                     </p>
-                        <h2>The .bind() Method</h2>
-                        <pre>
+                        <h2 class="blog-container-article__inner-container__section-sectionheader">The .bind() Method</h2>
+                        <pre class="blog-container-article__inner-container__section-sectionpre">
 var lockedForever = function() {
     console.log(this);
 }.bind("This function's this keyword is locked!");
@@ -225,76 +230,12 @@ lockedForever();
 lockedForever.call("new");
 // This function's this keyword is locked!
                         </pre>
-                    <p class="articleparagraph">
+                    <p class="blog-container-article__inner-container__section-sectionparagraph">
                         I hoped you enjoyed my brief explanation and examples of using the three methods that allow you to stabilize the value of this in JavaScript. Good luck, and happy coding!
                     </p>
                 </section>
             </article>
 
-
-        </main>
-        <main class="blog-container-article">
-          <article class="blog-container-article__inner-container">
-              <section class="blog-container-article__inner-container__section">
-                <h4 class="blog-container-article__inner-container__section-title">ARTICLE</h4>
-                <h1 class="blog-container-article__inner-container__header">
-                  <span class="text-primary">What the heck</span> is .call, .bind, and .apply!?
-                </h1>
-                <p class="blog-container-article__inner-container__section-articledate">Oct 18 2016</p>
-                  <h2 class="blog-container-article__inner-container__section-sectionheader">The Beginning</h2>
-                      <p class="blog-container-article__inner-container__section-sectionparagraph">
-                        Something that I came across quite a bit in JavaScript but never really understood how it fully worked,
-                        or the usage for each method. Hopefully after my explanation and examples of each method, you and myself will be more confident when facing this beast.
-                        Now from the beginning, these three methods are a part of the Function object in JavaScript.
-                      </p>
-                      <pre class="blog-container-article__inner-container__section-sectionpre">
-Function
-//returns Function() { [native code] }
-
-Function.prototype.bind;
-//returns bind() { [native code] }
-
-Function.prototype.apply
-//returns apply() { [native code] }
-
-Function.prototype.call
-//returns call() { [native code] }
-
-function helloWorld() {
-    console.log("Hello World!");
-}
-
-helloWorld.bind;
-//returns function bind() { [native code] }
-                      </pre>
-                      <p class="blog-container-article__inner-container__section-sectionparagraph">
-                        With this example you can see that the Function object has the methods bind, apply, and call.
-                        Then I created a function called helloWorld, and checked if the newly created function has the bind method.
-                        So let us focus on our .call method. For short helloWorld.call() and helloWorld() will return the same result in calling the function. Why would you use .call then? The main reason is to create a pointer for our this keyword.
-                      </p>
-              </section>
-
-              <section class="blog-container-article__inner-container__section">
-                  <h2 class="blog-container-article__inner-container__section-sectionheader">The .call() Method</h2>
-                  <p class="blog-container-article__inner-container__section-sectionparagraph">
-                    With this example you can see that the Function object has the methods bind, apply, and call.
-                    Then I created a function called helloWorld, and checked if the newly created function has the bind method.
-                    So let us focus on our .call method. For short helloWorld.call() and helloWorld() will return the same result in calling the function. Why would you use .call then? The main reason is to create a pointer for our this keyword.
-                  </p>
-              </section>
-
-              <section class="blog-container-article__inner-container__section">
-                  <h2 class="blog-container-article__inner-container__section-sectionheader">Final Thoughts</h2>
-                      <p class="blog-container-article__inner-container__section-sectionparagraph">
-                        Overall the coupons and deals update to the site was a major success. During the first phase of A/B testing in production, it served to be the 7th most visited site. Reaching on average 30,000 people a month.
-                        There were other significant increases relative to the amount of money a customer would spend on the site. The simplification of our coupons on site helped a large number of people substantially.
-                        The process before was confusing to track down every deal on site visually and know which promotion is correct. The project helped me gain a tremendous amount of experience not only in my JavaScript skills, but
-                        for my problem solving as well. I faced a number of difficult problems that caused me to feel the anxiety of not being able to finish this project before our deadlines. Luckily I was able to
-                        push myself through these mental barriers. Allowing our team to successfully move forward with this project and let this feature help our customers. Feel free to read about some of my experiences I faced on the
-                        other projects I faced while working at Bon-Ton. <a href="./storelocator.html">Store Locator</a> - <a href="./megamenu.html">Mega Menu</a>
-                      </p>
-              </section>
-          </article>
 
         </main>
         <footer class="footer-container">

@@ -1,8 +1,12 @@
 .nav-logo-container, .nav-logo-container-project, .nav-logo-container-blog {
   position: absolute;
-  z-index: 1001;
+  z-index: 1002;
   top: 7%;
   left: 6%;
+
+  @include respond(phone-land) {
+    top: 4%;
+  }
 
   &__logo {
     display: inline-block;
@@ -11,6 +15,11 @@
     border-radius: 3px;
     margin-top: 5.5%;
     margin-left: 10%;
+
+    @include respond(phone-land) {
+      margin-top: 0;
+      margin-left: 0;
+    }
   }
 
 }
@@ -18,7 +27,7 @@
 .nav-logo-container-project, .nav-logo-container-blog {
 
   @include respond(phone-land) {
-    top: 5%;
+    top: 4%;
   }
 
   &__logo {
@@ -127,13 +136,13 @@
     cursor: pointer;
 
     @include respond(phone-land) {
-      top: 5rem;
-      right: 5rem;
+      top: 3rem;
+      right: 3rem;
     }
 
     @include respond(phone-small) {
-      top: 4rem;
-      right: 4rem;
+      top: 2.5rem;
+      right: 2.5rem;
     }
 
   }
@@ -151,13 +160,13 @@
     transition: transform .8s;
 
     @include respond(phone-land) {
-      top: 5.5rem;
-      right: 5.5rem;
+      top: 3.5rem;
+      right: 3.5rem;
     }
 
     @include respond(phone-small) {
-      top: 4.5rem;
-      right: 4.5rem;
+      top: 2.5rem;
+      right: 2.5rem;
     }
   }
 
