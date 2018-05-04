@@ -408,8 +408,8 @@ body {
         right: 3.5rem; } }
     @media (max-width: 27em) {
       .hamburgermenu__background {
-        top: 2.5rem;
-        right: 2.5rem; } }
+        top: 3rem;
+        right: 3rem; } }
   .hamburgermenu__nav {
     height: 100vh;
     position: fixed;
