@@ -205,7 +205,8 @@ body {
     max-width: 700px;
     max-height: 360px;
     -webkit-transition: all 0.4s ease-in-out;
-    transition: all 0.4s ease-in-out; }
+    transition: all 0.4s ease-in-out;
+    height: 100%; }
   .card_3up:hover .card_3up_image-project, .card_3up-project:hover .card_3up_image-project, .card_3up-standard:hover .card_3up_image-project, .card_3up:hover .card_3up-project_image-project, .card_3up-project:hover .card_3up-project_image-project, .card_3up-standard:hover .card_3up-project_image-project, .card_3up:hover .card_3up-standard_image-project, .card_3up-project:hover .card_3up-standard_image-project, .card_3up-standard:hover .card_3up-standard_image-project {
     -webkit-transform: scale(1.03);
             transform: scale(1.03); }
