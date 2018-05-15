@@ -6,76 +6,92 @@
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 <!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
 
+
 <url>
-  <loc>http://kyleorlinski.com/</loc>
-  <lastmod>2017-06-16T03:23:26+00:00</lastmod>
+  <loc>https://kyleorlinski.com/</loc>
+  <lastmod>2018-05-04T05:24:56+00:00</lastmod>
+  <priority>1.00</priority>
 </url>
 <url>
-  <loc>http://kyleorlinski.com/pages/blog.html</loc>
-  <lastmod>2017-06-16T03:23:26+00:00</lastmod>
+  <loc>https://kyleorlinski.com/pages/articles/projects/storelocator.html</loc>
+  <lastmod>2018-05-04T05:24:56+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://kyleorlinski.com/pages/articles/Improvising.html</loc>
-  <lastmod>2017-06-16T03:23:26+00:00</lastmod>
+  <loc>https://kyleorlinski.com/pages/articles/projects/coupons.html</loc>
+  <lastmod>2018-05-04T05:24:56+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://kyleorlinski.com/pages/articles/closures.html</loc>
-  <lastmod>2017-06-16T03:23:26+00:00</lastmod>
+  <loc>https://kyleorlinski.com/pages/articles/projects/megamenu.html</loc>
+  <lastmod>2018-05-04T05:24:56+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://kyleorlinski.com/projects/minimu/index.html</loc>
-  <lastmod>2017-06-16T03:23:26+00:00</lastmod>
+  <loc>https://kyleorlinski.com/projects/reaver/index.html</loc>
+  <lastmod>2018-05-04T05:24:56+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://kyleorlinski.com/projects/wikiviewer/wikiviewer.html</loc>
-  <lastmod>2017-06-16T03:23:26+00:00</lastmod>
+  <loc>https://kyleorlinski.com/projects/twitchapiangularapp/index.html</loc>
+  <lastmod>2018-05-04T05:24:56+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://kyleorlinski.com/projects/materiallogin/materiallogin.html</loc>
-  <lastmod>2017-06-16T03:23:26+00:00</lastmod>
+  <loc>https://kyleorlinski.com/projects/materiallogin/materiallogin.html</loc>
+  <lastmod>2018-05-04T05:24:56+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://kyleorlinski.com/projects/angularcalculator/angularcalculator.html</loc>
-  <lastmod>2017-06-16T03:23:26+00:00</lastmod>
+  <loc>https://kyleorlinski.com/projects/angularcalculator/angularcalculator.html</loc>
+  <lastmod>2018-05-04T05:24:56+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://kyleorlinski.com/projects/bookmarku/index.html</loc>
-  <lastmod>2017-06-16T03:23:26+00:00</lastmod>
+  <loc>https://kyleorlinski.com/projects/bookmarku/index.html</loc>
+  <lastmod>2018-05-04T05:24:56+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://kyleorlinski.com/projects/reaver/index.html</loc>
-  <lastmod>2017-06-16T03:23:26+00:00</lastmod>
+  <loc>https://kyleorlinski.com/projects/break/index.html</loc>
+  <lastmod>2018-05-04T05:24:56+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://kyleorlinski.com/projects/break/index.html</loc>
-  <lastmod>2017-06-16T03:23:26+00:00</lastmod>
+  <loc>https://kyleorlinski.com/projects/wikiviewer/wikiviewer.html</loc>
+  <lastmod>2018-05-04T05:24:56+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://kyleorlinski.com/projects/pong/index.html</loc>
-  <lastmod>2017-06-16T03:23:26+00:00</lastmod>
+  <loc>https://kyleorlinski.com/projects/tictactoe/tictactoe.html</loc>
+  <lastmod>2018-05-04T05:24:56+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://kyleorlinski.com/projects/tictactoe/tictactoe.html</loc>
-  <lastmod>2017-06-16T03:23:26+00:00</lastmod>
+  <loc>https://kyleorlinski.com/projects/weatherapi/weatherapi.html</loc>
+  <lastmod>2018-05-04T05:24:56+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://kyleorlinski.com/projects/weatherapi/weatherapi.html</loc>
-  <lastmod>2017-06-16T03:23:26+00:00</lastmod>
+  <loc>https://kyleorlinski.com/projects/to-do-list/index.html</loc>
+  <lastmod>2018-05-04T05:24:56+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://kyleorlinski.com/projects/to-do-list/index.html</loc>
-  <lastmod>2017-06-16T03:23:26+00:00</lastmod>
+  <loc>https://kyleorlinski.com/projects/pong/index.html</loc>
+  <lastmod>2018-05-04T05:24:56+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://kyleorlinski.com/index.html</loc>
-  <lastmod>2017-06-16T03:23:26+00:00</lastmod>
+  <loc>https://kyleorlinski.com/pages/articles/callbindapply.html</loc>
+  <lastmod>2018-05-04T05:24:56+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://kyleorlinski.com/pages/articles/callbindapply.html</loc>
-  <lastmod>2017-06-16T03:23:26+00:00</lastmod>
+  <loc>https://kyleorlinski.com/pages/articles/closures.html</loc>
+  <lastmod>2018-05-04T05:24:56+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
-<url>
-  <loc>http://kyleorlinski.com/projects/to-do-list/secondlist.html</loc>
-  <lastmod>2017-06-16T03:23:26+00:00</lastmod>
-</url>
+
+
 </urlset>
