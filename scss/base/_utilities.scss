@@ -36,7 +36,18 @@
   transform: translate(-50%, -50%);
 }
 
+.no-style-link {
+  text-decoration: none;
+  color: inherit;
+  transition: 0.15s all ease-in;
 
+  &:hover {
+    color: $color-primary;
+  }
+  &:active {
+    color: $color-lighterblue;
+  }
+}
 
 .bottom-margin-medium {
   margin-bottom: 4rem;

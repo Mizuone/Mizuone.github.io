@@ -74,6 +74,15 @@ body {
   left: 50%;
   transform: translate(-50%, -50%); }
 
+.no-style-link {
+  text-decoration: none;
+  color: inherit;
+  transition: 0.15s all ease-in; }
+  .no-style-link:hover {
+    color: #2196F3; }
+  .no-style-link:active {
+    color: #6cd1ff; }
+
 .bottom-margin-medium {
   margin-bottom: 4rem; }
 
@@ -642,6 +651,10 @@ body {
       @media (max-width: 27em) {
         .experience-container__inner-container__header, .experience-container__inner-container__header-secondary, .about-container__inner-container__header, .about-container__inner-container__header-secondary, .projects-container__inner-container__header, .projects-container__inner-container__header-secondary, .blog-container__inner-container__header, .blog-container__inner-container__header-secondary, .blog-container-article__inner-container__header, .blog-container-article__inner-container__header-secondary {
           font-size: 2.5rem; } }
+    .experience-container__inner-container__previous-header, .about-container__inner-container__previous-header, .projects-container__inner-container__previous-header, .blog-container__inner-container__previous-header, .blog-container-article__inner-container__previous-header {
+      font-size: 2rem;
+      text-align: center;
+      margin-top: 4rem; }
 
 .experience-container, .about-container {
   height: 100%; }
