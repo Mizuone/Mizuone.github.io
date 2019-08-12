@@ -1,0 +1,148 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans|Roboto+Slab);
+/* soft reset*/
+* {
+    padding: 0px;
+    margin: 0px;
+}
+/*User Choice Section*/
+#overlay {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    background-color: rgba(0,0,0,0.8); /*dim the background*/
+}
+#userlightbox {
+    display: none;
+    color: black;
+}
+.userpick {
+    position: relative;
+    top: 150px;
+    width: 450px;
+    height: 250px;
+    margin: 0 auto;
+    z-index: 500;
+    background-color: white;
+    /*background-color: rgba(150,100,255, 0.5);*/
+    border: 1px solid black;
+}
+.userpicktitle {
+    padding-top: 25px;
+}
+.userpicktitle p {
+    font-size: 1.4em;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+}
+.userpicktitle h1 {
+    font-family: 'Roboto Slab', serif;
+}
+.userpick button.userbutton {
+    margin: 0 auto;
+    width: 75px;
+    padding: 10px;
+    border-radius: 15px;
+    background-color: black;
+    color: white;
+    cursor: default;
+    transition: 0.2s ease-in-out;
+    font-family: 'Open Sans', sans-serif;
+}
+button.userbutton:first-child:hover {
+    color: aqua;
+}
+button.userbutton:last-child:hover {
+    color: red;
+}
+.buttoncontainer {
+    margin-top: 25px;
+    text-align: center;
+}
+/*******************************************/
+/*TicTacToe Board*/
+#gamestats {
+    margin: 0 auto;
+    display: none;
+    width: 700px;
+    text-align: center;
+}
+#gamestats h1 {
+    margin-top: 0px;
+}
+#tictactoebox {
+    display: none;
+    margin: 0 auto;
+    width: 700px;
+    height: 700px;
+}
+.tictactoe-container .row:first-child {
+    margin-top: 50px;
+}
+.tictactoe-container div.col-xs-4 {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+#topleft, #topcenter, #topright, #middleleft, #middlecenter,
+#middleright, #bottomleft, #bottomcenter, #bottomright {
+    width: 100%;
+    height: 200px;
+    background-color: white;
+}
+#topleft { border-right: 1px solid black; border-bottom: 1px solid black;}
+#topcenter { border-bottom: 1px solid black; border-right: 1px solid black;}
+#topright { border-bottom: 1px solid black;}
+#middleleft { border-right: 1px solid black; border-bottom: 1px solid black;}
+#middlecenter { border-right: 1px solid black; border-bottom: 1px solid black;}
+#middleright { border-bottom: 1px solid black;}
+#bottomleft { border-right: 1px solid black;}
+#bottomcenter { border-right: 1px solid black;}
+
+.append {
+    position: relative;
+    text-align: center;
+}
+.append p {
+    font-size: 9em;
+    color: white;
+    text-shadow: 0 0 5px black, 0 0 5px black;
+}
+/*******************************************/
+/*MEDIA QUERIES*/
+@media screen and (max-width: 600px) {
+    .userpick {
+        width: 90%;
+    }
+    #gamestats {
+        width: 100%;
+    }
+    #gamestats h1 {
+        font-size: 2em;
+    }
+    #tictactoebox {
+        width: 350px;;
+    }
+    #topleft, #topcenter, #topright, #middleleft, #middlecenter,
+    #middleright, #bottomleft, #bottomcenter, #bottomright {
+        height: 150px;
+    }
+    .append p {
+        font-size: 6em;
+    }
+}
+@media screen and (max-width: 360px) {
+    #gamestats h1 {
+        font-size: 1.7em;
+    }
+    #tictactoebox {
+        width: 300px;;
+    }
+    #topleft, #topcenter, #topright, #middleleft, #middlecenter,
+    #middleright, #bottomleft, #bottomcenter, #bottomright {
+        height: 125px;
+    }
+}
+/*******************************************/
