@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Kyle Orlinski created a breakout style game to help better understand general game development using the canvas element.">
+
+	<title>Kyle Orlinski - Breakout</title>
+	<link rel='shortcut icon' type='image/x-icon' href='../../images/little-jimmie-32x32.png'/>
+	<link href="sitesheet.css" type="text/css" rel="stylesheet">
+	<script src="javascript/gamemechanicslevel1.js" type="text/javascript" defer="defer"></script>
+  <script type="text/javascript" src="../../../dist/main.js"></script>
+	<script>
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+			ga('create', 'UA-83488200-1', 'auto');
+			ga('send', 'pageview');
+
+	</script>
+</head>
+<body>
+  <nav>
+
+    <div class="nav-logo-container-project">
+      <a href="/">
+        <img class="nav-logo-container__logo" src="../../images/Logo.png" alt="Kyle Orlinski Logo">
+      </a>
+    </div>
+
+    <div class="hamburgermenu">
+      <input type="checkbox" class="hamburgermenu__checkbox" id="navi-toggle">
+
+      <label for="navi-toggle" class="hamburgermenu__button">
+        <span class="hamburgermenu__icon">&nbsp;</span>
+      </label>
+
+      <div class="hamburgermenu__background">&nbsp;</div>
+
+      <div class="hamburgermenu__nav">
+        <ul class="hamburgermenu__list">
+          <li class="hamburgermenu__item"><a href="../../../index.html#about-section"
+              class="hamburgermenu__link">About</a>
+          </li>
+          <li class="hamburgermenu__item"><a href="../../../index.html#projects-section"
+              class="hamburgermenu__link">Projects</a></li>
+          <li class="hamburgermenu__item"><a href="../../../index.html#blog-section"
+              class="hamburgermenu__link">Blog</a></li>
+          <li class="hamburgermenu__item"><a href="../../../index.html#" class="hamburgermenu__link">Contact</a>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="desktop-navigation-project">
+      <div class="desktop-navigation__card_2up">
+
+      </div>
+
+      <div class="desktop-navigation__card_2up">
+        <ul class="desktop-navigation__list">
+          <a class="desktop-navigation__list-item" href="../../../index.html#about-section">
+            <li>
+              About
+            </li>
+          </a>
+          <a class="desktop-navigation__list-item" href="../../../index.html#projects-section">
+            <li>
+              Projects
+            </li>
+          </a>
+          <a class="desktop-navigation__list-item" href="../../../index.html#blog-section">
+            <li>
+              Blog
+            </li>
+          </a>
+          <a class="desktop-navigation__list-item" href="../../../index.html#">
+            <li>
+              Contact
+            </li>
+          </a>
+        </ul>
+      </div>
+  </nav>
+	<a href="#"><div class="backtotop"><div><i class="glyphicon glyphicon-menu-up"></i></div>Top</div></a>
+	<main class="breakout-container">
+		<canvas id="myCanvas" width="600" height="400"></canvas>
+		<p style="text-align:center;">Move around using WASD keys to control your paddle</p>
+	</main>
+    <footer class="footer-container">
+      <span class="footer-container__copyright">© 2019, Created by <a class="portfolio-themed-link"
+           href="../../../index.html">Kyle
+          Orlinski</a></span>
+      <ul class="footer-container__socialmedia-list">
+        <li><a href="https://github.com/Mizuone"><i class="fab fa-github"></i></a></li>
+        <li><a href="https://www.linkedin.com/in/kyleorlinskideveloper/"><i class="fab fa-linkedin-in"></i></a></li>
+        <li><a href="https://twitter.com/KyleOrlinski?lang=en"><i class="fab fa-twitter"></i></a></li>
+      </ul>
+    </footer>
+</body>
+</html>

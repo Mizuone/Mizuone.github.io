@@ -7,11 +7,8 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="description" content="Kyle Orlinski is a Front-End Developer that has a focus for usability and simplicity. With a strong background in Ecommerce and web development.">
     <title>Kyle Orlinski - Front-End Developer</title>
-    <link rel="shortcut icon" type="image/x-icon" href="images/little-jimmie-32x32.png">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
-    <link href="css/fontawesome-all.css" type="text/css" rel="stylesheet">
-    <link href="css/dest/main.css" type="text/css" rel="stylesheet">
-    <script type="text/javascript" src="/js/scripts.js"></script>
+    <link rel="shortcut icon" type="image/x-icon" href="./src/images/little-jimmie-32x32.png">
+    <script type="text/javascript" src="./dist/main.js"></script>
 
     <script>
         (function(i, s, o, g, r, a, m) {
@@ -43,7 +40,7 @@
 
       <div class="nav-logo-container">
         <a href="/">
-          <img class="nav-logo-container__logo" src="images/Logo.PNG" alt="Kyle Orlinski Logo">
+          <img class="nav-logo-container__logo" src="./src/images/Logo.PNG" alt="Kyle Orlinski Logo">
         </a>
       </div>
 
@@ -110,9 +107,9 @@
           <div class="home-header__container__socialmedia">
             <span>Join me here</span>
             <ul class="home-header__container__socialmedia-list">
-              <li><a href="https://github.com/Mizuone"><i class="fab fa-github"></i></a></li>
-              <li><a href="https://www.linkedin.com/in/kyleorlinskideveloper/"><i class="fab fa-linkedin-in"></i></a></li>
-              <li><a href="https://twitter.com/KyleOrlinski?lang=en"><i class="fab fa-twitter"></i></a></li>
+              <li><a target="_blank" rel="noopener noreferrer" href="https://github.com/Mizuone"><i class="fab fa-github"></i></a></li>
+              <li><a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/kyleorlinskideveloper/"><i class="fab fa-linkedin-in"></i></a></li>
+              <li><a target="_blank" rel="noopener noreferrer" href="https://twitter.com/KyleOrlinski?lang=en"><i class="fab fa-twitter"></i></a></li>
             </ul>
           </div>
         </div>
@@ -127,31 +124,38 @@
               <span class="text-primary">works</span>
               at
             </span>
-            <span class="primary-underline"><a class="no-style-link" href="https://concurrency.com">Concurrency, Inc</a></span> as a Associate Software Developer
+            <span class="primary-underline"><a class="no-style-link" href="https://concurrency.com">Concurrency, Inc</a></span> as a Software Developer
           </h2>
+          <h2 class="experience-container__inner-container__current-header">
+            Current Experience - <span class="text-primary">Concurrency, Inc. (May 2018 - Present)</span>
+          </h2>
+          <span class="experience-container__inner-container__line">|</span>
+          <span class="experience-container__inner-container__line">|</span>
           <h2 class="experience-container__inner-container__previous-header">
             Previous Experience - Bon-Ton (Nov 2016 - May 2018)
           </h2>
+          <span class="experience-container__inner-container__line">|</span>
+          <span class="experience-container__inner-container__line">|</span>
           <div class="experience-container__inner-container__3up card_3up_container">
             <div class="card_3up">
-              <a href="/pages/articles/projects/storelocator.html" class="card_3up_link">
-                <img class="card_3up_image" src="/images/position-marker.png"/>
+              <a href="./src/pages/articles/storelocator.html" class="card_3up_link">
+                <img class="card_3up_image" src="./src/images/position-marker.png" />
                 <h2 class="card_3up_header">Rewriting the site's store locator</h2>
                 <h3 class="card_3up_primary">UI, Feature, PHP, JavaScript</h3>
                 <button class="btn btn-faded">Know More &rarr;</button>
               </a>
             </div>
             <div class="card_3up">
-              <a href="/pages/articles/projects/coupons.html" class="card_3up_link">
-                <img class="card_3up_image" src="/images/checkbox-tree.png"/>
+              <a href="./src/pages/articles/coupons.html" class="card_3up_link">
+                <img class="card_3up_image" src="./src/images/checkbox-tree.png"/>
                 <h2 class="card_3up_header">Simplflying Coupons and Deals</h2>
                 <h3 class="card_3up_primary">UI, Feature, JavaScript, Handlebars</h3>
                 <button class="btn btn-faded">Know More &rarr;</button>
               </a>
             </div>
             <div class="card_3up">
-              <a href="/pages/articles/projects/megamenu.html" class="card_3up_link">
-                <img class="card_3up_image" src="/images/fall-down.png"/>
+              <a href="./src/pages/articles/megamenu.html" class="card_3up_link">
+                <img class="card_3up_image" src="./src/images/fall-down.png"/>
                 <h2 class="card_3up_header">Mega Menu for ease of navigation</h2>
                 <h3 class="card_3up_primary">UI, Feature, JavaScript</h3>
                 <button class="btn btn-faded">Know More &rarr;</button>
@@ -164,46 +168,68 @@
       <section class="about-container" id="about-section">
         <div class="about-container__inner-container">
           <div class="about-container__inner-container__2up card_2up_container">
-            <div class="card_2up">
-              <img src="/images/me_portrait_small.jpg" alt="Picture of Kyle" class="about-container__inner-container__2up-image card_2up__image">
-            </div>
-            <div class="card_2up color-white primary-backgroundcolor">
+            <div class="card_2up color-black">
+            <img src="./src/images/picture_fuji.jpg" alt="Picture of Kyle"
+              class="about-container__inner-container__2up-image card_2up__image">
               <p class="about-container__inner-container__2up__about-paragraph">
-                Hello, my name is Kyle Orlinski and I am a Front End Developer. My focus when it comes to development is to aim at building aesthetically pleasing designs.
-                Specialized in using JavaScript and SCSS to help construct these designs. I have a previous knowledge in building web applications using AngularJS and now I am shifting my focus to ReactJS + Redux.
-                <span class="mobile-block">
-                  Worked as a Front End Developer at Bon-Ton developing major features to the site in improving a customer's user experience.
-                  My workflow ranged from independent work as a solo developer on a project to actively updating logic on our business codebase within a team. With the time I have now,
-                  I am growing my current knowledge of NodeJS and AWS.
-                  Hoping to prepare myself enough to pass the first three certifications of the AWS curriculum. I feel like these are the next steps I need to take to improve myself and become a full stack developer.
+                Hello, my name is Kyle Orlinski. I have specialized in front end web development for the
+                past three
+                years. Half of this time was spent at Bon-Ton, working as a JavaScript developer. Here I
+                was on
+                the E-commerce department, building new features and promotions for the website.
+                <span class="content-block">
+                  The other half is currently at Concurrency, Inc. Working as a software
+                  developer on the
+                  modern applications
+                  team. During this time I have been building web solutions for our clients. Be it in our
+                  office or
+                  working on-site a part
+                  of their development teams. 
+                  
+                  Outside of work. I am a hobbyist game developer,
+                  bodybuilder, and when I
+                  am healthy practice
+                  brazilian jiu jitsu.
                 </span>
               </p>
+            </div>
+
+            <div class="card_2up color-white primary-backgroundcolor">
               <h4 class="about-container__inner-container__skills-container-title">Development Skills</h4>
               <div class="about-container__inner-container__skills-container">
                 <div class="about-container__inner-container__skills-container-proficient">
                   <h4>Proficient Knowledge</h4>
                   <ul>
-                    <li>JavaScript - 2 years</li>
-                    <li>HTML5/CSS3 - 2 years</li>
+                    <li>JavaScript - 3 years</li>
+                    <li>HTML5/CSS3 - 3 years</li>
                   </ul>
                 </div>
                 <div class="about-container__inner-container__skills-container-intermediate">
                   <h4>Intermediate Knowledge</h4>
                   <ul>
-                    <li>OOP / OOD - 2 years</li>
+                    <li>OOP / OOD - 3 years</li>
+                    <li>Angular - 1 year</li>
+                    <li>TypeScript - 1 year</li>
                     <li>SCSS / SASS - 1 year</li>
                   </ul>
                 </div>
                 <div class="about-container__inner-container__skills-container-entry">
                   <h4>Entry-Level Knowledge</h4>
                   <ul>
+                    <li>HTML5 Game Development - 1 year</li>
+                    <li>Azure - 6 months</li>
+                    <li>C# - 3 months</li>
+                    <li>ASP.NET - 3 months</li>
+                    <li>ReactJS + Redux - 2 month</li>
+                  </ul>
+                </div>
+                <div class="about-container__inner-container__skills-container-past">
+                  <h4>Past Knowledge</h4>
+                  <ul>
                     <li>JQuery - 1 year</li>
-                    <li>NodeJS / Express - 6 months</li>
                     <li>AngularJS - 6 months</li>
-                    <li>PHP / MySQL - 6 months</li>
-                    <li>C# / Java - 3 months</li>
-                    <li>ASP.NET / VB.NET - 3 months</li>
-                    <li>ReactJS + Redux - 1 month</li>
+                    <li>NodeJS / Express - 6 months</li>
+                    <li>Java - 3 months</li>
                     <li>AWS - 1 month</li>
                   </ul>
                 </div>
@@ -213,6 +239,7 @@
                 <div class="about-container__inner-container__skills-container-libraries">
                   <h4>Libraries</h4>
                   <ul>
+                    <li>Kendo UI - 1 year</li>
                     <li>Bootstrap v1-2 - 1 year</li>
                     <li>Materialize CSS - 1 month</li>
                   </ul>
@@ -245,85 +272,36 @@
           <div class="projects-container__inner-container__3up card_3up_container">
 
             <div class="card_3up-project">
-              <a href="/projects/reaver/index.html">
-                <img src="images/reaver.PNG" alt="Reaver Game Picture" class="card_3up_image-project">
-                <span class="project-description">Reaver - Canvas, JS, Bootstrap, HammerJS</span>
-              </a>
-            </div>
-
-            <div class="card_3up-project">
-              <a href="/projects/twitchapiangularapp/index.html">
-                <img src="images/twitchapiapp.png" alt="Preview Image of my Twitch Api App using Angular JS" class="card_3up_image-project">
-                <span class="project-description">Twitch API - AngularJS, JavaScript, Material Design</span>
+              <a href="./src/projects/reaver/index.html">
+                <img src="./src/images/reaver.PNG" alt="Reaver Game Picture" class="card_3up_image-project">
+                <span class="project-description">Reaver - Canvas, JS, TypeScript</span>
               </a>
             </div>
 
             <div class="card_3up-project">
               <a href="https://codepen.io/mizuone/full/zRrVLJ/" rel="noreferrer" target="_blank">
-                <img src="images/pomodoroclock.PNG" alt="Pomodoro Clock Picture" class="card_3up_image-project">
+                <img src="./src/images/pomodoroclock.PNG" alt="Pomodoro Clock Picture" class="card_3up_image-project">
                 <span class="project-description">Pomodoro Clock - ES6, SCSS</span>
               </a>
             </div>
 
             <div class="card_3up-project">
-              <a href="/projects/to-do-list/index.html" rel="noreferrer noopener" target="_blank">
-                <img src="images/todofocus.png" alt="Todo-List Picture" class="card_3up_image-project">
-                <span class="project-description">To-do List - ReactJS + Redux, Materialize</span>
-              </a>
-            </div>
-
-            <div class="card_3up-project">
-              <a href="/projects/materiallogin/materiallogin.html">
-                <img src="images/materialdesignlogin.PNG" alt="User Login Picture" class="card_3up_image-project">
-                <span class="project-description">UserLogin - Material Design, HTML5, CSS</span>
-              </a>
-            </div>
-
-            <div class="card_3up-project">
-              <a href="/projects/angularcalculator/angularcalculator.html">
-                <img src="images/angularcalc.PNG" alt="JS Calculator Picture" class="card_3up_image-project">
-                <span class="project-description">JS Calculator - AngularJS, Material Design, Bootstrap</span>
-              </a>
-            </div>
-
-            <div class="card_3up-project">
-              <a href="/projects/bookmarku/index.html">
-                <img src="images/bookmarku.PNG" alt="Bookmark-U Picture" class="card_3up_image-project">
-                <span class="project-description">Bookmark-U - AngularJS, Material Design, Bootstrap</span>
-              </a>
-            </div>
-
-            <div class="card_3up-project">
-              <a href="/projects/break/index.html">
-                <img src="images/breakout.PNG" alt="Breakout Game Picture" class="card_3up_image-project">
+              <a href="./src/projects/break/index.html">
+                <img src="./src/images/breakout.PNG" alt="Breakout Game Picture" class="card_3up_image-project">
                 <span class="project-description">BreakOut - Canvas, JavaScript</span>
               </a>
             </div>
 
             <div class="card_3up-project">
-              <a href="/projects/wikiviewer/wikiviewer.html">
-                <img src="images/wikiviewer.PNG" alt="WikiViewer App UI" class="card_3up_image-project">
-                <span class="project-description">WikiViewer - AJAX, JQuery, JavaScript</span>
-              </a>
-            </div>
-
-            <div class="card_3up-project">
-              <a href="/projects/tictactoe/tictactoe.html">
-                <img src="images/tictactoe.PNG" alt="TicTacToe Picture" class="card_3up_image-project">
+              <a href="./src/projects/tictactoe/tictactoe.html">
+                <img src="./src/images/tictactoe.PNG" alt="TicTacToe Picture" class="card_3up_image-project">
                 <span class="project-description">TicTacToe - JavaScript, JQuery, Bootstrap, CSS</span>
               </a>
             </div>
 
             <div class="card_3up-project">
-              <a href="/projects/weatherapi/weatherapi.html">
-                <img src="images/weatherapi.PNG" alt="Weather API UI" class="card_3up_image-project">
-                <span class="project-description">Weather API - Bootstrap, JQuery, JavaScript</span>
-              </a>
-            </div>
-
-            <div class="card_3up-project">
-              <a href="/projects/pong/index.html">
-                <img src="images/pong.PNG" alt="Pong Game Picture" class="card_3up_image-project">
+              <a href="./src/projects/pong/index.html">
+                <img src="./src/images/pong.PNG" alt="Pong Game Picture" class="card_3up_image-project">
                 <span class="project-description">Pong - Canvas, JavaScript</span>
               </a>
             </div>
@@ -342,9 +320,9 @@
           <div class="blog-container__inner-container__3up card_3up_container">
 
                 <div class="card_3up-standard">
-                  <a href="/pages/articles/callbindapply.html" class="card_3up-standard__link">
+                  <a href="./src/pages/articles/callbindapply.html" class="card_3up-standard__link">
                     <div class="card_3up-standard__highlight-band"></div>
-                    <img class="card_3up-standard__image" src="images/callbindapply.JPG">
+                    <img class="card_3up-standard__image" src="./src/images/callbindapply.JPG">
                     <h4 class="card_3up-standard__title">What the heck is .call, .bind, and .apply!?</h4>
                     <p class="card_3up-standard__description">
                       Something that I came across quite a bit in JavaScript
@@ -359,10 +337,10 @@
                 </div>
 
               <div class="card_3up-standard">
-                <a href="/pages/articles/closures.html" class="card_3up-standard__link">
+                <a href="./src/pages/articles/closures.html" class="card_3up-standard__link">
 
                   <div class="card_3up-standard__highlight-band"></div>
-                  <img class="card_3up-standard__image" src="images/closure.PNG">
+                  <img class="card_3up-standard__image" src="./src/images/closure.PNG">
                   <h4 class="card_3up-standard__title">Closures everywhere...</h4>
                   <p class="card_3up-standard__description">
                     When I was just starting out with JavaScript and if I heard the word closure,
@@ -374,9 +352,9 @@
               </div>
 
               <div class="card_3up-standard card_3up_drop">
-                <a href="/pages/articles/Improvising.html" class="card_3up-standard__link">
+                <a href="./src/pages/articles/Improvising.html" class="card_3up-standard__link">
                   <div class="card_3up-standard__highlight-band"></div>
-                  <img class="card_3up-standard__image" src="images/sackcloth.jpeg">
+                  <img class="card_3up-standard__image" src="./src/images/sackcloth.jpeg">
                   <h4 class="card_3up-standard__title">Improvising - Strip HTML Entities</h4>
                   <p class="card_3up-standard__description">
                     At work we use Google tag manager to track a portion of our analytics
@@ -395,11 +373,12 @@
     </main>
 
     <footer class="footer-container">
-      <span class="footer-container__copyright">© 2018, Created by <a href="/">Kyle Orlinski</a></span>
+      <span class="footer-container__copyright">© 2019, Created by <a class="portfolio-themed-link" href="/">Kyle
+          Orlinski</a></span>
       <ul class="footer-container__socialmedia-list">
-        <li><a href="https://github.com/Mizuone"><i class="fab fa-github"></i></a></li>
-        <li><a href="https://www.linkedin.com/in/kyleorlinskideveloper/"><i class="fab fa-linkedin-in"></i></a></li>
-        <li><a href="https://twitter.com/KyleOrlinski?lang=en"><i class="fab fa-twitter"></i></a></li>
+        <li><a target="_blank" rel="noopener noreferrer" href="https://github.com/Mizuone"><i class="fab fa-github"></i></a></li>
+        <li><a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/kyleorlinskideveloper/"><i class="fab fa-linkedin-in"></i></a></li>
+        <li><a target="_blank" rel="noopener noreferrer" href="https://twitter.com/KyleOrlinski?lang=en"><i class="fab fa-twitter"></i></a></li>
       </ul>
     </footer>
 

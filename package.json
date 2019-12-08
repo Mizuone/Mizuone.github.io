@@ -2,9 +2,9 @@
   "name": "portfolio",
   "version": "1.0.0",
   "description": "Kyle's portfolio website",
-  "main": "index.html",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "webpack --config webpack.config.js"
   },
   "repository": {
     "type": "git",
@@ -13,18 +13,18 @@
   "keywords": [
     "portfolio",
     "frontend",
-    "SASS",
-    "gulp",
+    "SCSS",
     "bootstrap"
   ],
   "author": "Kyle Orlinski",
   "license": "ISC",
   "devDependencies": {
-    "browser-sync": "^2.24.3",
-    "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^5.0.0",
-    "gulp-clean-css": "^3.9.4",
-    "gulp-htmlmin": "^3.0.0",
-    "gulp-sass": "^3.1.0"
+    "css-loader": "^3.2.0",
+    "file-loader": "^4.2.0",
+    "node-sass": "^4.12.0",
+    "sass-loader": "^7.2.0",
+    "style-loader": "^1.0.0",
+    "webpack": "^4.39.1",
+    "webpack-cli": "^3.3.6"
   }
 }
