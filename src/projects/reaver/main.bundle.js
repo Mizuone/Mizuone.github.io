@@ -2261,51 +2261,51 @@
         return (new i).encodeNonASCII(e)
     }, e.exports = i
 }, function (e, t, r) {
-    e.exports = r.p + "./sprites/cliffgrass_back.png"
+    e.exports = r.p + "sprites/cliffgrass_back.png"
 }, function (e, t, r) {
-    e.exports = r.p + "./sprites/cliffgrass_leftside.png"
+    e.exports = r.p + "sprites/cliffgrass_leftside.png"
 }, function (e, t, r) {
-    e.exports = r.p + "./sprites/cliff_front.png"
+    e.exports = r.p + "sprites/cliff_front.png"
 }, function (e, t, r) {
-    e.exports = r.p + "./sprites/cliffgrass_topright.png"
+    e.exports = r.p + "sprites/cliffgrass_topright.png"
 }, function (e, t, r) {
-    e.exports = r.p + "./sprites/cliffgrass_all.png"
+    e.exports = r.p + "sprites/cliffgrass_all.png"
 }, function (e, t, r) {
-    e.exports = r.p + "./sprites/cliffgrass_bottomright.png"
+    e.exports = r.p + "sprites/cliffgrass_bottomright.png"
 }, function (e, t, r) {
-    e.exports = r.p + "./sprites/cliffgrass_bottomleft.png"
+    e.exports = r.p + "sprites/cliffgrass_bottomleft.png"
 }, function (e, t, r) {
-    e.exports = r.p + "./sprites/cliffgrass_topleft.png"
+    e.exports = r.p + "sprites/cliffgrass_topleft.png"
 }, function (e, t, r) {
-    e.exports = r.p + "./sprites/cliffgrass_uprightbottom.png"
+    e.exports = r.p + "sprites/cliffgrass_uprightbottom.png"
 }, function (e, t, r) {
-    e.exports = r.p + "./sprites/cliffgrass_topbottom.png"
+    e.exports = r.p + "sprites/cliffgrass_topbottom.png"
 }, function (e, t, r) {
-    e.exports = r.p + "./sprites/caveentrance_open.png"
+    e.exports = r.p + "sprites/caveentrance_open.png"
 }, function (e, t, r) {
-    e.exports = r.p + "./sprites/black_block.png"
+    e.exports = r.p + "sprites/black_block.png"
 }, function (e, t, r) {
-    e.exports = r.p + "./sprites/bushV1.png"
+    e.exports = r.p + "sprites/bushV1.png"
 }, function (e, t, r) {
-    e.exports = r.p + "./sprites/slime_spritesheet.png"
+    e.exports = r.p + "sprites/slime_spritesheet.png"
 }, function (e, t, r) {
-    e.exports = r.p + "./sprites/slimeSuper_spritesheet.png"
+    e.exports = r.p + "sprites/slimeSuper_spritesheet.png"
 }, function (e, t, r) {
-    e.exports = r.p + "./sprites/shadewalker_Spritesheet.png"
+    e.exports = r.p + "sprites/shadewalker_Spritesheet.png"
 }, function (e, t, r) {
-    e.exports = r.p + "./sprites/shadeKeeper_Spritesheet.png"
+    e.exports = r.p + "sprites/shadeKeeper_Spritesheet.png"
 }, function (e, t, r) {
-    e.exports = r.p + "./sprites/playerAttack_Spritesheet.png"
+    e.exports = r.p + "sprites/playerAttack_Spritesheet.png"
 }, function (e, t, r) {
-    e.exports = r.p + "./sprites/character_spritesheet.png"
+    e.exports = r.p + "sprites/character_spritesheet.png"
 }, function (e, t, r) {
-    e.exports = r.p + "./sprites/cliffgrass_side.png"
+    e.exports = r.p + "sprites/cliffgrass_side.png"
 }, function (e, t, r) {
-    e.exports = r.p + "./sprites/dirt_terrian.png"
+    e.exports = r.p + "sprites/dirt_terrian.png"
 }, function (e, t, r) {
-    e.exports = r.p + "./sprites/cave_terrain.png"
+    e.exports = r.p + "sprites/cave_terrain.png"
 }, function (e, t, r) {
-    e.exports = r.p + "./sprites/grass1.png"
+    e.exports = r.p + "sprites/grass1.png"
 }, function (e, t, r) {
     r(30), e.exports = r(52)
 }, function (e, t, r) {
@@ -6159,19 +6159,19 @@
                 we.drawanimation(n)
             }, e
         }(),
-        Ce = new xe("./sprites/cliffgrass_back.png"),
-        Ee = new xe("./sprites/cliffgrass_front.png"),
-        _e = new xe("./sprites/cliffgrass_leftside.png"),
-        Se = new xe("./sprites/cliffgrass_side.png"),
-        ke = new xe("./sprites/cliff_front.png"),
-        Ae = new xe("./sprites/cliffgrass_topright.png"),
-        Oe = new xe("./sprites/cliffgrass_all.png"),
-        je = new xe("./sprites/cliffgrass_bottomright.png"),
-        Te = new xe("./sprites/cliffgrass_bottomleft.png"),
-        Ne = new xe("./sprites/cliffgrass_topleft.png"),
-        qe = new xe("./sprites/cliffgrass_uprightbottom.png"),
-        Le = new xe("./sprites/cliffgrass_topbottom.png"),
-        De = new xe("./sprites/caveentrance_open.png"),
+        Ce = new xe("sprites/cliffgrass_back.png"),
+        Ee = new xe("sprites/cliffgrass_front.png"),
+        _e = new xe("sprites/cliffgrass_leftside.png"),
+        Se = new xe("sprites/cliffgrass_side.png"),
+        ke = new xe("sprites/cliff_front.png"),
+        Ae = new xe("sprites/cliffgrass_topright.png"),
+        Oe = new xe("sprites/cliffgrass_all.png"),
+        je = new xe("sprites/cliffgrass_bottomright.png"),
+        Te = new xe("sprites/cliffgrass_bottomleft.png"),
+        Ne = new xe("sprites/cliffgrass_topleft.png"),
+        qe = new xe("sprites/cliffgrass_uprightbottom.png"),
+        Le = new xe("sprites/cliffgrass_topbottom.png"),
+        De = new xe("sprites/caveentrance_open.png"),
         Re = {
             cliffgrass_back: Ce,
             cliffgrass_front: Ee,
