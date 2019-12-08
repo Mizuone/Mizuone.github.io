@@ -4,6 +4,10 @@
     padding: 0px;
     margin: 0px;
 }
+
+.desktop-navigation__list a {
+    color: #333;
+}
 /*User Choice Section*/
 #overlay {
     display: none;

@@ -15,7 +15,7 @@ export class PortfolioEvents {
             let hamburgerNavItems = document.querySelectorAll('.hamburgermenu__link');
 
             hamburgerNavItems.forEach((navItem) => {
-                navItem.addEventListener('click', (event) => {
+                navItem.addEventListener('click', () => {
                     document.querySelector('.hamburgermenu__checkbox').checked = false;
                 });
             });

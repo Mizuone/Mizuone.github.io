@@ -53,6 +53,17 @@
     color: $color-lighterblue;
   }
 }
+.portfolio-themed-link {
+    color: $color-primary;
+    transition: 0.15s all ease-in;
+
+    &:hover {
+      color: $color-lighterblue;
+    }
+    &:active {
+      color: $color-lighterblue;
+    }
+}
 
 .bottom-margin-medium {
   margin-bottom: 4rem;

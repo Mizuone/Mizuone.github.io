@@ -6106,7 +6106,7 @@
                 this.width = t, this.height = r, this.canvas = null, this.context = null, this.canvas = document.getElementById(e), this.context = this.canvas.getContext("2d"), this.canvas.setAttribute("width", this.width), this.canvas.setAttribute("height", this.height), this.canvas.setAttribute("style", "width: " + this.width + "px; height: " + this.height + "px;")
             }
         }();
-    document.body.appendChild(((n = document.createElement("canvas")).id = "myCanvas", n.width = 640, n.height = 480, n));
+        document.getElementsByClassName('canvas-container')[0].appendChild(((n = document.createElement("canvas")).id = "myCanvas", n.width = 640, n.height = 480, n));
     var me = new ge("myCanvas", 640, 480);
     var ve = {
             i2xy: function (e, t) {
