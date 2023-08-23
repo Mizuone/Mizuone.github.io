@@ -10,21 +10,14 @@
     <link rel="shortcut icon" type="image/x-icon" href="./src/images/little-jimmie-32x32.png">
     <script type="text/javascript" src="./dist/main.js"></script>
 
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8SQ6V0SLTT"></script>
     <script>
-        (function(i, s, o, g, r, a, m) {
-            i['GoogleAnalyticsObject'] = r;
-            i[r] = i[r] || function() {
-                (i[r].q = i[r].q || []).push(arguments)
-            }, i[r].l = 1 * new Date();
-            a = s.createElement(o),
-                m = s.getElementsByTagName(o)[0];
-            a.async = 1;
-            a.src = g;
-            m.parentNode.insertBefore(a, m)
-        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
 
-        ga('create', 'UA-83488200-1', 'auto');
-        ga('send', 'pageview');
+      gtag('config', 'G-8SQ6V0SLTT');
     </script>
 
 </head>
@@ -57,8 +50,8 @@
           <ul class="hamburgermenu__list">
             <li class="hamburgermenu__item"><a href="#about-section" class="hamburgermenu__link">About</a></li>
             <li class="hamburgermenu__item"><a href="#projects-section" class="hamburgermenu__link">Projects</a></li>
-            <li class="hamburgermenu__item"><a href="#blog-section" class="hamburgermenu__link">Blog</a></li>
-            <li class="hamburgermenu__item"><a href="#" class="hamburgermenu__link">Contact</a></li>
+            <!--<li class="hamburgermenu__item"><a href="#blog-section" class="hamburgermenu__link">Blog</a></li>
+            <li class="hamburgermenu__item"><a href="#" class="hamburgermenu__link">Contact</a></li> -->
           </ul>
         </div>
 
@@ -81,7 +74,7 @@
                 Projects
               </li>
             </a>
-            <a class="desktop-navigation__list-item" href="#blog-section">
+            <!--<a class="desktop-navigation__list-item" href="#blog-section">
               <li>
                 Blog
               </li>
@@ -90,7 +83,7 @@
               <li>
                 Contact
               </li>
-            </a>
+            </a>-->
           </ul>
         </div>
 
@@ -102,14 +95,12 @@
       <header class="home-header">
         <div class="home-header__container">
           <h1 class="home-header__container__title">Hi, I am <span class="home-header__container__title-name">Kyle Orlinski.</span></h1>
-          <h4 class="home-header__container__description-title">Software Developer from Milwaukee</h4>
+          <h4 class="home-header__container__description-title">Indie Game Developer from Milwaukee</h4>
           <a href="#about-section"><button class="btn btn-blue home-header__container__button">Know More &rarr;</button></a>
           <div class="home-header__container__socialmedia">
             <span>Join me here</span>
             <ul class="home-header__container__socialmedia-list">
-              <li><a target="_blank" rel="noopener noreferrer" href="https://github.com/Mizuone"><i class="fab fa-github"></i></a></li>
               <li><a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/kyleorlinskideveloper/"><i class="fab fa-linkedin-in"></i></a></li>
-              <li><a target="_blank" rel="noopener noreferrer" href="https://twitter.com/KyleOrlinski?lang=en"><i class="fab fa-twitter"></i></a></li>
             </ul>
           </div>
         </div>
@@ -121,23 +112,31 @@
           <h4 class="experience-container__inner-container__section-title">PRESENT</h4>
           <h2 class="experience-container__inner-container__header">
             <span class="display-block">
-              <span class="text-primary">works</span>
-              at
+              <span class="text-primary">working</span>
+              as an
             </span>
-            <span class="primary-underline"><a class="no-style-link" href="https://concurrency.com">Concurrency, Inc</a></span> as a Software Developer
+            <span class="primary-underline">Indie Game Developer</span>
           </h2>
           <h2 class="experience-container__inner-container__current-header">
-            Current Experience - <span class="text-primary">Concurrency, Inc. (May 2018 - Present)</span>
+          <span class="text-primary">Indie Game Developer (December 2022 - Present)</span>
           </h2>
           <span class="experience-container__inner-container__line">|</span>
           <span class="experience-container__inner-container__line">|</span>
           <h2 class="experience-container__inner-container__previous-header">
-            Previous Experience - Bon-Ton (Nov 2016 - May 2018)
+            Software Developer - Concurrency, Inc. (May 2019 - Nov 2022)
           </h2>
           <span class="experience-container__inner-container__line">|</span>
           <span class="experience-container__inner-container__line">|</span>
+          <h2 class="experience-container__inner-container__previous-header">
+            Associate Software Developer - Concurrency, Inc. (May 2018 - Nov 2019)
+          </h2>
+          <span class="experience-container__inner-container__line">|</span>
+          <span class="experience-container__inner-container__line">|</span>
+          <h2 class="experience-container__inner-container__previous-header">
+            Ecommerce Interaction Developer - Bon-Ton (Nov 2016 - May 2018)
+          </h2>
           <div class="experience-container__inner-container__3up card_3up_container">
-            <div class="card_3up">
+            <!--<div class="card_3up">
               <a href="./src/pages/articles/storelocator.html" class="card_3up_link">
                 <img class="card_3up_image" src="./src/images/position-marker.png" />
                 <h2 class="card_3up_header">Rewriting the site's store locator</h2>
@@ -160,7 +159,7 @@
                 <h3 class="card_3up_primary">UI, Feature, JavaScript</h3>
                 <button class="btn btn-faded">Know More &rarr;</button>
               </a>
-            </div>
+            </div>-->
           </div>
         </div>
       </section>
@@ -172,91 +171,67 @@
             <img src="./src/images/picture_fuji.jpg" alt="Picture of Kyle"
               class="about-container__inner-container__2up-image card_2up__image">
               <p class="about-container__inner-container__2up__about-paragraph">
-                Hello, my name is Kyle Orlinski. I have specialized in front end web development for the
-                past three
-                years. Half of this time was spent at Bon-Ton, working as a JavaScript developer. Here I
-                was on
-                the E-commerce department, building new features and promotions for the website.
-                <span class="content-block">
-                  The other half is currently at Concurrency, Inc. Working as a software
-                  developer on the
-                  modern applications
-                  team. During this time I have been building web solutions for our clients. Be it in our
-                  office or
-                  working on-site a part
-                  of their development teams. 
-                  
-                  Outside of work. I am a hobbyist game developer,
-                  bodybuilder, and when I
-                  am healthy practice
-                  brazilian jiu jitsu.
-                </span>
+                  Hello, my name is Kyle Orlinski. I boast a solid seven-year background in software development. I embarked on my journey
+                  as a front-end developer at Bon-Ton, where I excelled at melding design with functionality. Evolving further, I
+                  ultimately took on a full stack development role at Concurrency as a part of the Modern Apps team. Presently, my
+                  trajectory has guided me to the realm of indie game development, where I'm seamlessly integrating technical acumen with
+                  creative passion to craft enthralling interactive experiences.
               </p>
             </div>
 
             <div class="card_2up color-white primary-backgroundcolor">
-              <h4 class="about-container__inner-container__skills-container-title">Development Skills</h4>
+              <h4 class="about-container__inner-container__skills-container-title">Game Development Skills</h4>
               <div class="about-container__inner-container__skills-container">
                 <div class="about-container__inner-container__skills-container-proficient">
-                  <h4>Proficient Knowledge</h4>
+                  <h4>Engine Knowledge</h4>
                   <ul>
-                    <li>JavaScript - 3 years</li>
-                    <li>HTML5/CSS3 - 3 years</li>
+                    <li>Godot 3D v3.5 - 4.0 - 2 years</li>
+                    <li>Unity 3D - 2 months</li>
                   </ul>
                 </div>
                 <div class="about-container__inner-container__skills-container-intermediate">
-                  <h4>Intermediate Knowledge</h4>
+                  <h4>Programming Architecture</h4>
                   <ul>
-                    <li>OOP / OOD - 3 years</li>
-                    <li>Angular - 1 year</li>
-                    <li>TypeScript - 1 year</li>
-                    <li>SCSS / SASS - 1 year</li>
-                  </ul>
-                </div>
-                <div class="about-container__inner-container__skills-container-entry">
-                  <h4>Entry-Level Knowledge</h4>
-                  <ul>
-                    <li>HTML5 Game Development - 1 year</li>
-                    <li>Azure - 6 months</li>
-                    <li>C# - 3 months</li>
-                    <li>ASP.NET - 3 months</li>
-                    <li>ReactJS + Redux - 2 month</li>
+                    <li>OOP / OOD - 2 years</li>
+                    <li>Component Based Design - 2 months</li>
                   </ul>
                 </div>
                 <div class="about-container__inner-container__skills-container-past">
-                  <h4>Past Knowledge</h4>
+                  <h4>Past Software Knowledge</h4>
                   <ul>
-                    <li>JQuery - 1 year</li>
-                    <li>AngularJS - 6 months</li>
-                    <li>NodeJS / Express - 6 months</li>
-                    <li>Java - 3 months</li>
-                    <li>AWS - 1 month</li>
+                    <li>Angular - 2 years</li>
+                    <li>ReactJS - 4 years</li>
+                    <li>C#, ASP.NET Core - 4.5 years</li>
+                    <li>Azure (Application Lifecycle) via Azure Devops - 4.5 years</li>
+                    <li>Azure B2C Management - 2 years</li>
                   </ul>
                 </div>
               </div>
-              <h4 class="about-container__inner-container__skills-container-title">Design Skills</h4>
+              <h4 class="about-container__inner-container__skills-container-title">3D & Design Skills</h4>
               <div class="about-container__inner-container__skills-container">
                 <div class="about-container__inner-container__skills-container-libraries">
-                  <h4>Libraries</h4>
+                  <h4>Animation</h4>
                   <ul>
-                    <li>Kendo UI - 1 year</li>
-                    <li>Bootstrap v1-2 - 1 year</li>
-                    <li>Materialize CSS - 1 month</li>
+                    <li>Melee, Magic, Bow Combat &amp; Movement</li>
+                    <li>Third Person Movements</li>
                   </ul>
                 </div>
                 <div class="about-container__inner-container__skills-container-principles">
-                  <h4>Principles</h4>
+                  <h4>3D Modeling</h4>
                   <ul>
-                    <li>Material Design - 1 year</li>
-                    <li>Grid - 1 year</li>
-                    <li>UX/UI - 1 year</li>
+                    <li>Asset Library Creation</li>
+                    <li>Modular Design</li>
+                    <li>Character Creation</li>
+                    <li>Rigging - via Auto Rig Pro</li>
+                    <li>Rigging(IK Setup)</li>
+                    <li>Zen UI - Texturing and UV Wrapping</li>
                   </ul>
                 </div>
                 <div class="about-container__inner-container__skills-container-software">
-                  <h4>Software</h4>
+                  <h4>Workflow Assitance</h4>
                   <ul>
-                    <li>Photoshop - Entry-Level</li>
-                    <li>Krita - Entry-Level</li>
+                    <li>Zen UI</li>
+                    <li>Auto Rig Pro</li>
                   </ul>
                 </div>
               </div>
