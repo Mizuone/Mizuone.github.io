@@ -50,7 +50,7 @@
     color: $color-primary;
   }
   &:active {
-    color: $color-lighterblue;
+    color: $color-lightergreen;
   }
 }
 .portfolio-themed-link {
@@ -58,13 +58,17 @@
     transition: 0.15s all ease-in;
 
     &:hover {
-      color: $color-lighterblue;
+      color: $color-lightergreen;
     }
     &:active {
-      color: $color-lighterblue;
+      color: $color-lightergreen;
     }
 }
 
 .bottom-margin-medium {
   margin-bottom: 4rem;
+}
+
+.mb-2 {
+  margin-bottom: 2rem;
 }

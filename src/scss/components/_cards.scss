@@ -1,9 +1,25 @@
-.card_3up_container, .card_2up_container {
+.card, .card_3up_container, .card_2up_container {
   display: flex;
 
   @include respond(tab-port) {
     flex-direction: column;
     justify-content: center;
+  }
+}
+
+.card, .card_2up {
+  position: relative;
+  display: flex;  
+  width: 100%;
+  flex-direction: column;
+}
+
+.card {
+  
+  & img {
+    margin: auto;
+    max-width: 280px;
+    max-height: 280px;
   }
 }
 
@@ -166,7 +182,7 @@
   }
 
   &:active &__highlight-band {
-    background-color: $color-lighterblue;
+    background-color: $color-lightergreen;
   }
 
   &__image {
