@@ -6,6 +6,10 @@
   display: block;
 }
 
+.display-none {
+  display: none;
+}
+
 .content-block {
   display: block;
   margin-top: 2rem;
@@ -18,12 +22,25 @@
   }
 }
 
+.width-full {
+  width: 100%;
+}
+
 .primary-backgroundcolor {
   background-color: $color-primary;
 }
 .primary-underline {
   display: inline-block;
   border-bottom: 3px solid $color-primary;
+}
+
+.border-b-primary-clickable {
+  border-bottom: 3px solid $color-primary;
+
+  &:hover {
+    cursor: pointer;
+    border-bottom-color: $color-lightgreen;
+  }
 }
 
 .lighter-grey-leftborder {
