@@ -32,12 +32,20 @@
     flex-direction: column;
 }
 
+.justify-space-around {
+    justify-content: space-around;
+}
+
 .justify-content-center {
    justify-content: center; 
 }
 
 .align-items-center {
     align-items: center;
+}
+
+.flex-start {
+    place-self: flex-start;
 }
 
 
