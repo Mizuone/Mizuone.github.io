@@ -32,10 +32,12 @@
 
 .border-b-primary-clickable {
   border-bottom: 3px solid $color-primary;
+  transition: all .1s ease-in;
 
   &:hover {
     cursor: pointer;
     border-bottom-color: $color-lightgreen;
+    color: $color-faded-black;
   }
 }
 
@@ -78,10 +80,16 @@
     }
 }
 
-
+.no-select {
+  user-select: none;
+}
 
 .bottom-margin-medium {
   margin-bottom: 4rem;
+}
+
+.py-2 {
+  padding: 2rem 0;
 }
 
 .m-2 {
@@ -106,4 +114,8 @@
 
 .mt-4 {
   margin-top: 4rem;
+}
+
+.mt-6 {
+  margin-top: 6rem;
 }

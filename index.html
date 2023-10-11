@@ -136,32 +136,6 @@
           <h2 class="experience-container__inner-container__previous-header">
             Ecommerce Interaction Developer - Bon-Ton (Nov 2016 - May 2018)
           </h2>
-          <div class="experience-container__inner-container__3up card_3up_container">
-            <!--<div class="card_3up">
-              <a href="./src/pages/articles/storelocator.html" class="card_3up_link">
-                <img class="card_3up_image" src="./src/images/position-marker.png" />
-                <h2 class="card_3up_header">Rewriting the site's store locator</h2>
-                <h3 class="card_3up_primary">UI, Feature, PHP, JavaScript</h3>
-                <button class="btn btn-faded">Know More &rarr;</button>
-              </a>
-            </div>
-            <div class="card_3up">
-              <a href="./src/pages/articles/coupons.html" class="card_3up_link">
-                <img class="card_3up_image" src="./src/images/checkbox-tree.png"/>
-                <h2 class="card_3up_header">Simplflying Coupons and Deals</h2>
-                <h3 class="card_3up_primary">UI, Feature, JavaScript, Handlebars</h3>
-                <button class="btn btn-faded">Know More &rarr;</button>
-              </a>
-            </div>
-            <div class="card_3up">
-              <a href="./src/pages/articles/megamenu.html" class="card_3up_link">
-                <img class="card_3up_image" src="./src/images/fall-down.png"/>
-                <h2 class="card_3up_header">Mega Menu for ease of navigation</h2>
-                <h3 class="card_3up_primary">UI, Feature, JavaScript</h3>
-                <button class="btn btn-faded">Know More &rarr;</button>
-              </a>
-            </div>-->
-          </div>
         </div>
       </section>
 
@@ -186,19 +160,20 @@
       </section>
 
       <section class="section" id="background_skills">
-        <div class="container flex flex-column">
-          <h2 class="secondary-header text-center"><span class="primary-underline">Background &amp; Skills</span></h2>
+        <div class="container mt-6 flex flex-column">
+          <h2 class="secondary-header text-center"><span class="text-primary">Background</span> &amp; Skills</h2>
+          <input type="checkbox" checked="true" class="checkbox-toggle-1 display-none" id="software-development-toggle" />
+          <input type="checkbox" class="checkbox-toggle-2 display-none" id="game-development-toggle" />
           <ul class="list mt-4">
-            <li class="list-item item-shadow checkbox-toggle-1 expandable-item">
-              <input type="checkbox" checked="true" class="display-none" id="software-development-toggle"/>
+            <li class="list-item item-shadow checkbox-toggle-1-container">
               <label for="software-development-toggle">
-                <div class="flex border-b-primary-clickable align-items-center">
-                  <h3 class="item-header">Software Development</h3>
+                <div class="flex py-2 border-b-primary-clickable align-items-center">
+                  <h3 class="item-header no-select">Software Development</h3>
                   <div class="icon"><i class="fas fa-caret-down icon-desktop"></i></div>
                 </div>
               </label>
               <div class="flex mt-4 align-items-center expandable">
-                <div class="flex flex-column flex-item">
+                <div class="flex flex-column flex-item flex-start">
                   <h3 class="item-header text-center">Career</h3>
                   <div class="flex flex-column mt-2">
                     <h4 class="item-secondary-header">Concurrency<span class="unbold"> (4.75 Years)</span></h4>
@@ -308,16 +283,15 @@
                 </div>
               </div>
             </li>
-            <li class="list-item item-shadow checkbox-toggle-2 expandable-item">
-              <input type="checkbox" class="display-none" id="game-development-toggle" />
+            <li class="list-item item-shadow checkbox-toggle-2-container mt-4 expandable-item">
               <label for="game-development-toggle">
-                <div class="flex border-b-primary-clickable align-items-center">
-                  <h3 class="item-header">Game Development</h3>
+                <div class="flex border-b-primary-clickable py-2 align-items-center">
+                  <h3 class="item-header no-select">Game Development</h3>
                   <div class="icon"><i class="fas fa-caret-down icon-desktop"></i></div>
                 </div>
               </label>
               <div class="flex mt-4 align-items-center expandable">
-                <div class="flex flex-column flex-item">
+                <div class="flex flex-column flex-item flex-start">
                   <h3 class="item-header text-center">Ambitions</h3>
                   <div class="flex flex-column mt-2">
                     <h4 class="item-secondary-header">RPG Game<span class="unbold"> (6 Months)</span></h4>
@@ -408,8 +382,8 @@
 
             <div class="card_3up-project">
               <a href="./src/projects/reaver/index.html">
-                <img src="./src/images/reaver.PNG" alt="Reaver Game Picture" class="card_3up_image-project">
-                <span class="project-description">Reaver - Canvas, JS, TypeScript</span>
+                <img src="./src/images/godot_rpg_game.PNG" alt="Reaver Game Picture" class="card_3up_image-project">
+                <span class="project-description">Godot RPG - Godot v3.5, Game Dev</span>
               </a>
             </div>
 
