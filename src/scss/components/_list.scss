@@ -1,9 +1,15 @@
-.list {
+.list, .list-inline {
     list-style-type: none;
 
     & .list-item {
         position: relative;
         padding: 4rem;
+    }
+}
+
+.list-inline {
+    li {
+        display: inline-block;
     }
 }
 

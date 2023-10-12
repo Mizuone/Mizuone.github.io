@@ -1,0 +1,23 @@
+.link-clean {
+    text-decoration: none;
+
+    &:visited, &:active {
+        color: inherit;
+    }
+}
+
+.link {
+    color: $color-primary;
+
+    &:hover {
+        color: $color-lightergreen;
+    }
+}
+
+.link-black {
+    color: $color-black;
+
+    &:hover {
+        color: $color-lightergreen;
+    }
+}

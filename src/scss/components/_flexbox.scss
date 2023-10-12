@@ -1,0 +1,37 @@
+.flex {
+    display: flex;
+    justify-content: space-between;
+}
+
+.flex-item {
+    display: flex;
+    flex-basis: 50%;
+}
+
+.gap-4 {
+    gap: 4%;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.justify-space-around {
+    justify-content: space-around;
+}
+
+.justify-content-evenly {
+    justify-content: space-evenly;
+}
+
+.justify-content-center {
+   justify-content: center; 
+}
+
+.align-items-center {
+    align-items: center;
+}
+
+.flex-start {
+    place-self: flex-start;
+}

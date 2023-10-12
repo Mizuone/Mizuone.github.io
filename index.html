@@ -32,7 +32,7 @@
     <nav>
 
       <div class="nav-logo-container">
-        <a href="/">
+        <a href="#">
           <img class="nav-logo-container__logo" src="./src/images/Logo.png" alt="Kyle Orlinski Logo">
         </a>
       </div>
@@ -51,7 +51,7 @@
             <li class="hamburgermenu__item"><a href="#about-section" class="hamburgermenu__link">About</a></li>
             <li class="hamburgermenu__item"><a href="#projects-section" class="hamburgermenu__link">Projects</a></li>
             <li class="hamburgermenu__item"><a href="#blog-section" class="hamburgermenu__link">Blog</a></li>
-            <li class="hamburgermenu__item"><a href="#" class="hamburgermenu__link">Contact</a></li>
+            <li class="hamburgermenu__item"><a href="#contact-section" class="hamburgermenu__link">Contact</a></li>
           </ul>
         </div>
 
@@ -79,7 +79,7 @@
                 Blog
               </li>
             </a>
-            <a class="desktop-navigation__list-item" href="#">
+            <a class="desktop-navigation__list-item" href="#contact-section">
               <li>
                 Contact
               </li>
@@ -375,121 +375,95 @@
         </div>
       </section>
 
-      <section class="projects-container" id="projects-section">
-        <h4 class="projects-container__inner-container__section-title">Side Projects</h4>
-        <div class="projects-container__inner-container">
-          <div class="projects-container__inner-container__3up card_3up_container">
-
-            <div class="card_3up-project">
-              <a href="./src/projects/reaver/index.html">
-                <img src="./src/images/godot_rpg_game.PNG" alt="Reaver Game Picture" class="card_3up_image-project">
-                <span class="project-description">Godot RPG - Godot v3.5, Game Dev</span>
-              </a>
-            </div>
-
-            <div class="card_3up-project">
-              <a href="https://codepen.io/mizuone/full/zRrVLJ/" rel="noreferrer" target="_blank">
-                <img src="./src/images/pomodoroclock.PNG" alt="Pomodoro Clock Picture" class="card_3up_image-project">
-                <span class="project-description">Pomodoro Clock - ES6, SCSS</span>
-              </a>
-            </div>
-
-            <div class="card_3up-project">
-              <a href="./src/projects/break/index.html">
-                <img src="./src/images/breakout.PNG" alt="Breakout Game Picture" class="card_3up_image-project">
-                <span class="project-description">BreakOut - Canvas, JavaScript</span>
-              </a>
-            </div>
-
-            <div class="card_3up-project">
-              <a href="./src/projects/tictactoe/tictactoe.html">
-                <img src="./src/images/tictactoe.PNG" alt="TicTacToe Picture" class="card_3up_image-project">
-                <span class="project-description">TicTacToe - JavaScript, JQuery, Bootstrap, CSS</span>
-              </a>
-            </div>
-
-            <div class="card_3up-project">
-              <a href="./src/projects/pong/index.html">
-                <img src="./src/images/pong.PNG" alt="Pong Game Picture" class="card_3up_image-project">
-                <span class="project-description">Pong - Canvas, JavaScript</span>
-              </a>
-            </div>
-
-
-          </div>
-        </div>
-      </section>
-
-      <section class="blog-container" id="blog-section">
-        <div class="blog-container__inner-container">
-          <div class="blog-container__inner-container__header">
-            <h4 class="blog-container__inner-container-title">PERSPECTIVE</h4>
-            <h4>Latest From The <span class="primary-underline"><span class="text-primary">B</span>log</span></h4>
-          </div>
-          <div class="blog-container__inner-container__3up card_3up_container">
-
-                <div class="card_3up-standard">
-                  <a href="./src/pages/articles/callbindapply.html" class="card_3up-standard__link">
-                    <div class="card_3up-standard__highlight-band"></div>
-                    <img class="card_3up-standard__image" src="./src/images/callbindapply.JPG">
-                    <h4 class="card_3up-standard__title">What the heck is .call, .bind, and .apply!?</h4>
-                    <p class="card_3up-standard__description">
-                      Something that I came across quite a bit in JavaScript
-                      but never really understood how it fully worked,
-                      or the usage for each method. Hopefully after my explanation and examples of each method,
-                      you and myself will be more confident when facing this beast.
-                      Now from the beginning, these three methods are a part of the Function
-                      object in JavaScript.
-                    </p>
-
-                  </a>
+      <section class="section point-of-interest" id="projects-section">
+        <h2 class="secondary-header mt-4 text-center">Side Projects</h2>
+        <div class="container-transparent flex align-items-center gap-4">
+            <div class="flex overflow-hidden">
+              <a class="flex flex-column link-clean hover-scale-image relative" href="./src/projects/reaver/index.html">
+                <img src="./src/images/godot_rpg_game.png" alt="Godot RPG Character Sheet Image" class="image">
+                <div class="flex justify-content-center align-items-center image-description-background">
+                  <span class="image-description">Godot RPG - Godot v3.5, Game Dev</span>
                 </div>
+              </a>
+            </div>
+            
+            <div class="flex overflow-hidden">
+              <a class="flex flex-column link-clean hover-scale-image relative" href="https://codepen.io/mizuone/full/zRrVLJ/" rel="noreferrer" target="_blank">
+                <img src="./src/images/project_organizer-stretched.png" alt="Project Organizer Dashboard Image" class="image">
+                <div class="flex justify-content-center align-items-center image-description-background">
+                  <span class="image-description">Project Organizer - React, .NET, EF 7+</span>
+                </div>
+              </a>
+            </div>
+        </div>
+      </section>
 
-              <div class="card_3up-standard">
-                <a href="./src/pages/articles/closures.html" class="card_3up-standard__link">
+      <section class="section" id="blog-section">
+        <div class="container mt-4 flex flex-column">
+          <h4 class="section-summary-title">PERSPECTIVE</h4>
+          <h4 class="secondary-header">Latest From The <span class="primary-underline"><span class="text-primary">B</span>log</span></h4>
 
-                  <div class="card_3up-standard__highlight-band"></div>
-                  <img class="card_3up-standard__image" src="./src/images/closure.PNG">
-                  <h4 class="card_3up-standard__title">Closures everywhere...</h4>
-                  <p class="card_3up-standard__description">
-                    When I was just starting out with JavaScript and if I heard the word closure,
-                    I thought it was this magical concept that only the very brightest may fully understand.
-                    Which is the scope that gets initialized during the execution phase of the JavaScript engine.
-                  </p>
+          <div class="flex gap-4 justify-content-evenly align-items-center">
+            <div class="card">
+              <a href="./src/pages/articles/callbindapply.html" class="card_3up-standard__link">
+                <div class="highlight-band"></div>
+                <img class="card-image" src="./src/images/callbindapply.JPG">
+                <h4 class="card-header">What the heck is .call, .bind, and .apply!?</h4>
+                <p class="card-paragraph">
+                  Something that I came across quite a bit in JavaScript
+                  but never really understood how it fully worked,
+                  or the usage for each method. Hopefully after my explanation and examples of each method,
+                  you and myself will be more confident when facing this beast.
+                  Now from the beginning, these three methods are a part of the Function
+                  object in JavaScript.
+                </p>
+              </a>
+            </div>
 
-                </a>
-              </div>
-
-              <div class="card_3up-standard card_3up_drop">
-                <a href="./src/pages/articles/Improvising.html" class="card_3up-standard__link">
-                  <div class="card_3up-standard__highlight-band"></div>
-                  <img class="card_3up-standard__image" src="./src/images/sackcloth.jpeg">
-                  <h4 class="card_3up-standard__title">Improvising - Strip HTML Entities</h4>
-                  <p class="card_3up-standard__description">
-                    At work we use Google tag manager to track a portion of our analytics
-                    and in some cases we send data to certain groups for marketing.
-                    We came across a problem in which special characters were being encoded in strings
-                    that were being sent to this group.
-                  </p>
-
-                </a>
-              </div>
-
+            <div class="card">
+              <a href="./src/pages/articles/callbindapply.html" class="card_3up-standard__link">
+                <div class="highlight-band"></div>
+                <img class="card-image" src="./src/images/callbindapply.JPG">
+                <h4 class="card-header">What the heck is .call, .bind, and .apply!?</h4>
+                <p class="card-paragraph">
+                  Something that I came across quite a bit in JavaScript
+                  but never really understood how it fully worked,
+                  or the usage for each method. Hopefully after my explanation and examples of each method,
+                  you and myself will be more confident when facing this beast.
+                  Now from the beginning, these three methods are a part of the Function
+                  object in JavaScript.
+                </p>
+              </a>
+            </div>
           </div>
         </div>
       </section>
 
+      <section class="section" id="contact-section">
+        <div class="container-transparent flex justify-content-center align-items-center flex-column">
+          <h2 class="secondary-header text-center"><span class="primary-underline">Contact</span></h2>
+          <div class="flex sm-container flex-column">
+            <div>
+              <h3 class="h3">Email</h3>
+              <p class="paragraph">Feel free to email me <a class="link" href="mailto:orlinskikyle@gmail.com">here</a></p>
+            </div>
+            <div class="mt-2">
+              <h3 class="h3">Linkedin</h3>
+              <p class="paragraph">Reach out to my <a class="link" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/kyleorlinskideveloper/">Linkedin</a></a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
 
-    <footer class="footer-container">
-      <span class="footer-container__copyright">© 2023, Created by <a class="portfolio-themed-link" href="/">Kyle
-          Orlinski</a></span>
-      <ul class="footer-container__socialmedia-list">
-        <li><a target="_blank" rel="noopener noreferrer" href="https://github.com/Mizuone"><i class="fab fa-github"></i></a></li>
-        <li><a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/kyleorlinskideveloper/"><i class="fab fa-linkedin-in"></i></a></li>
+    <footer class="container-full text-center">
+      <p class="paragraph">© 2023, Created by <a class="link transition" href="#">Kyle Orlinski</a></p>
+      <ul class="list-inline">
+        <li class="mx-1 text text-large"><a class="link-black transition" target="_blank" rel="noopener noreferrer" href="https://github.com/Mizuone"><i class="fab fa-github"></i></a></li>
+        <li class="mx-1 text text-large"><a class="link-black transition" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/kyleorlinskideveloper/"><i class="fab fa-linkedin-in"></i></a></li>
       </ul>
     </footer>
-
 </body>
 
 </html>

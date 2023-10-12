@@ -2,8 +2,24 @@
   display: block;
 }
 
+.display-inline-block {
+  display: inline-block;
+}
+
 .display-none {
   display: none;
+}
+
+.relative {
+  position: relative;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.transition {
+  transition: all 0.3s ease-out;
 }
 
 .content-block {
@@ -90,6 +106,14 @@
 
 .py-2 {
   padding: 2rem 0;
+}
+
+.m-1 {
+  margin: 1rem;
+}
+
+.mx-1 {
+  margin: 0 1rem;
 }
 
 .m-2 {

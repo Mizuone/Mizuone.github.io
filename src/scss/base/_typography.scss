@@ -4,15 +4,20 @@ body {
   font-family: 'Open Sans', sans-serif;
 }
 
-.paragraph {
+.paragraph, .text {
+  font-size: 1.75rem;
+  color: #333;
+  flex: 1 0 auto;
   line-height: 1.58;
   letter-spacing: -0.003em;
-  margin: 0 auto;
-  font-size: 1.75rem;
 }
 
 .text-center {
   text-align: center;
+}
+
+.text-large {
+  font-size: 2.5rem;
 }
 
 .text-primary {
