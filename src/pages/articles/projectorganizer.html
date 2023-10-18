@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description"
+        content="Article Template Written By Kyle Orlinski">
+    <title>Kyle Orlinski - Article Template</title>
+    <link rel="shortcut icon" type="image/x-icon" href="../../images/little-jimmie-32x32.png">
+    <script type="text/javascript" src="../../../dist/main.js"></script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8SQ6V0SLTT"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-8SQ6V0SLTT');
+    </script>
+
+</head>
+
+<body>
+    <a href="#">
+        <div class="backtotop clickable">
+            <div><i class="fas fa-arrow-up"></i></div>Top
+        </div>
+    </a>
+
+    <nav class="nav-blog">
+
+        <div class="nav-logo-container-blog">
+            <a href="/">
+                <img class="nav-logo-container__logo" src="../../images/Logo.png" alt="Kyle Orlinski Logo">
+            </a>
+        </div>
+
+        <div class="hamburgermenu">
+            <input type="checkbox" class="hamburgermenu__checkbox" id="navi-toggle">
+
+            <label for="navi-toggle" class="hamburgermenu__button">
+                <span class="hamburgermenu__icon">&nbsp;</span>
+            </label>
+
+            <div class="hamburgermenu__background">&nbsp;</div>
+
+            <div class="hamburgermenu__nav">
+                <ul class="hamburgermenu__list">
+                    <li class="hamburgermenu__item"><a href="../../../index.html#about-section"
+                            class="hamburgermenu__link">About</a></li>
+                    <li class="hamburgermenu__item"><a href="../../../index.html#projects-section"
+                            class="hamburgermenu__link">Projects</a></li>
+                    <li class="hamburgermenu__item"><a href="../../../index.html#blog-section"
+                            class="hamburgermenu__link">Blog</a></li>
+                    <li class="hamburgermenu__item"><a href="../../../index.html#contact-section"
+                            class="hamburgermenu__link">Contact</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="desktop-navigation-blog">
+            <div class="desktop-navigation__card_2up">
+
+            </div>
+
+            <div class="desktop-navigation__card_2up">
+                <ul class="desktop-navigation__list">
+                    <a class="desktop-navigation__list-item" href="../../../index.html#about-section">
+                        <li>
+                            About
+                        </li>
+                    </a>
+                    <a class="desktop-navigation__list-item" href="../../../index.html#projects-section">
+                        <li>
+                            Projects
+                        </li>
+                    </a>
+                    <a class="desktop-navigation__list-item" href="../../../index.html#blog-section">
+                        <li>
+                            Blog
+                        </li>
+                    </a>
+                    <a class="desktop-navigation__list-item" href="../../../index.html#contact-section">
+                        <li>
+                            Contact
+                        </li>
+                    </a>
+                </ul>
+            </div>
+    </nav>
+    <main class="article-main">
+        <a href="#">
+            <div class="backtotop">
+                <div><i class="glyphicon glyphicon-menu-up"></i></div>Top
+            </div>
+        </a>
+        <article class="article">
+            <section class="article-section">
+                <h1 class="article-header">
+                    <span class="text-primary">Side Project:</span> Project Organizer
+                </h1>
+                <p>Oct 15 2023</p>
+                <h2 class="article-section-header">Going With Curiousity</h2>
+                <p class="article-paragraph">
+                    The project organizer was an idea that I always go back too. It is an idea that allows you to make a project to be as complex as you want it. It takes a basic
+                    CRUD side project and further expands on it. You can add features like user management, role assignment, impersonation, and many more. The ceiling is massive, and while doing so,
+                    look at which technologies you want to integrate. Possibly it is something you heard of and want to further explore. In my case, I wanted to bring in technologies
+                    I've never used before. These are all technologies that can be utilize in the real-world and mastered to a degree in the project. The entire stack of the web application
+                    I had a library, framework, or technique to bring into it. To start, I used dotnet's react <a href="">template</a> to help scaffold the project's UI and backend. I then
+                    started to convert the project to TypeScript, and added <a href="">tailwind css</a> to support the UI design. Unit testing on the front-end was something I lacked in
+                    understanding. So I brough in a combination of jest, and an expansion package to jest called <a href="">jest-dom</a>. To help me setup the Rest API implementation I found
+                    <a href="">SWR</a>. Which is renowed for it's declarative nature in data communications to the web api and back. Extending SWR with React hooks was another cool technique when I
+                    started to create the API layer. After the general setup and a few days working on building the front end, below is a picture of the structure right now.
+                </p>
+                <img src="../../images/ui_project_structure_860x473.png" />
+                <p class="article-paragraph">
+                    After a few planning phases on figuring out how do I want to architecture to flow. To start off very simple. I went with a landing page that will be a dashboard.
+                    The user can also check to see their projects and taskes they are a part of. They can interact with projects and tasks. For projects. They can view each project and 
+                    see all the tasks and members. For their tasks. The user can, add, update or remove a task. What I want to aim for is to start off very simple and when the architecture
+                    is in place properly. To further expand, and add new layers. Ideally, having a way to establish user creation and authorization into the application is going to be a must.
+                </p>
+                <p class="article-paragraph">
+                    To jump back into it and breakdown the backend system. I went with a .NET 7 solution that uses Entity Framework. To keep things separated I implemented the repository pattern and setup
+                    the DbContext. Then I went through a few iterations of figuring out what model structure I wanted for my migrations. Eventually I settled with the images below.
+                </p>
+                <img src="../../images/project_model.png" />
+                <img src="../../images/member_model.png" />
+                <img src="../../images/projecttask_model.png" />
+            </section>
+            <section class="article-section">
+                <h2 class="article-section-header">After the Setup Phase</h2>
+                <p class="article-paragraph">
+                    Once I felt like 
+                </p>
+            </section>
+        </article>
+    </main>
+    <footer class="container-full text-center">
+        <p class="paragraph">© 2023, Created by <a class="link transition" href="/">Kyle Orlinski</a></p>
+        <ul class="list-inline">
+            <li class="mx-1 text text-large"><a class="link-black transition" target="_blank" rel="noopener noreferrer"
+                    href="https://github.com/Mizuone"><i class="fab fa-github"></i></a></li>
+            <li class="mx-1 text text-large"><a class="link-black transition" target="_blank" rel="noopener noreferrer"
+                    href="https://www.linkedin.com/in/kyleorlinskideveloper/"><i class="fab fa-linkedin-in"></i></a></li>
+        </ul>
+    </footer>
+</body>
+
+</html>

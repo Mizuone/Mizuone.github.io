@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description"
+        content="Article detailing how I used Godot 3.5 to build large scale rpg systems towards a single player RPG game. Written by Kyle Orlinski">
+    <title>Kyle Orlinski - Godot RPG Game</title>
+    <link rel="shortcut icon" type="image/x-icon" href="../../images/little-jimmie-32x32.png">
+    <script type="text/javascript" src="../../../dist/main.js"></script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8SQ6V0SLTT"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-8SQ6V0SLTT');
+    </script>
+
+</head>
+
+<body>
+    <a href="#">
+        <div class="backtotop clickable">
+            <div><i class="fas fa-arrow-up"></i></div>Top
+        </div>
+    </a>
+
+    <nav class="nav-blog">
+
+        <div class="nav-logo-container-blog">
+            <a href="/">
+                <img class="nav-logo-container__logo" src="../../images/Logo.png" alt="Kyle Orlinski Logo">
+            </a>
+        </div>
+
+        <div class="hamburgermenu">
+            <input type="checkbox" class="hamburgermenu__checkbox" id="navi-toggle">
+
+            <label for="navi-toggle" class="hamburgermenu__button">
+                <span class="hamburgermenu__icon">&nbsp;</span>
+            </label>
+
+            <div class="hamburgermenu__background">&nbsp;</div>
+
+            <div class="hamburgermenu__nav">
+                <ul class="hamburgermenu__list">
+                    <li class="hamburgermenu__item"><a href="../../../index.html#about-section"
+                            class="hamburgermenu__link">About</a></li>
+                    <li class="hamburgermenu__item"><a href="../../../index.html#projects-section"
+                            class="hamburgermenu__link">Projects</a></li>
+                    <li class="hamburgermenu__item"><a href="../../../index.html#blog-section"
+                            class="hamburgermenu__link">Blog</a></li>
+                    <li class="hamburgermenu__item"><a href="../../../index.html#contact-section"
+                            class="hamburgermenu__link">Contact</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="desktop-navigation-blog">
+            <div class="desktop-navigation__card_2up">
+
+            </div>
+
+            <div class="desktop-navigation__card_2up">
+                <ul class="desktop-navigation__list">
+                    <a class="desktop-navigation__list-item" href="../../../index.html#about-section">
+                        <li>
+                            About
+                        </li>
+                    </a>
+                    <a class="desktop-navigation__list-item" href="../../../index.html#projects-section">
+                        <li>
+                            Projects
+                        </li>
+                    </a>
+                    <a class="desktop-navigation__list-item" href="../../../index.html#blog-section">
+                        <li>
+                            Blog
+                        </li>
+                    </a>
+                    <a class="desktop-navigation__list-item" href="../../../index.html#contact-section">
+                        <li>
+                            Contact
+                        </li>
+                    </a>
+                </ul>
+            </div>
+    </nav>
+    <main class="article-main">
+        <a href="#">
+            <div class="backtotop">
+                <div><i class="glyphicon glyphicon-menu-up"></i></div>Top
+            </div>
+        </a>
+        <article class="article">
+            <section class="article-section">
+                <h1 class="article-header">
+                    <span class="text-primary">Godot</span> RPG Game: What I Learned
+                </h1>
+                <p>Oct 14 2023</p>
+                <h2 class="article-section-header">The Start</h2>
+                <p class="article-paragraph">
+                    During mid 2021 I started to watch a youtuber called <a target="_blank" rel="noreferrer noopener" href="https://www.youtube.com/@Miziziziz/videos">Miziziziz</a>.
+                    At this time he was working on an FPS game called Wrought Flesh which was later released on Steam. To create this game,
+                    he used an engine called Godot. Curiously, I started to look into this engine and got inspired to build an FPS game. I
+                    saw he released a few courses on Udemy, which covered making an 
+                    <a target="_blank" rel="noreferrer noopener" href="https://www.udemy.com/course/how-to-make-a-retro-style-3d-fps-in-the-godot-game-engine/">FPS game in Godot</a>, and 
+                    <a target="_blank" rel="noreferrer noopener" href="https://www.udemy.com/course/how-to-create-retro-3d-graphics/">blender 3D character creation</a>.
+                    After I completed the courses. I started to work on observing the mechanics you see in modern FPS games like Apex
+                    Legends or Quake Champions. For example, I always enjoyed the movement mechanics behind Scalebearer in Quake Champions.
+                    And wanted to see how I could implement the instant responsive directional changes. For Apex Legends, I wanted to see
+                    how I could build a sliding mechanic into my game. From here I started to iterate over a period of months.
+
+                </p>
+                <p class="article-paragraph">
+                    Fast-forward to 2022. I went from iterating my FPS game to focusing on a third person RPG game. Playing games like
+                    NieR:Automata and World of Warcraft Vanilla. Itched a part of my mind that wanted to see how I could mold these game
+                    types into one another. For instance, NieR has a smooth fast pace combat system that allows you to quickly fight targets
+                    and bunch from target to target effortlessly. World of Warcraft has this vast world and intuitive mechanics that pull
+                    you into exploring each zone. On top of these game loops. You have the character development that incentives you further
+                    into progressing through the world. For me, the sheer enjoyment came from building systems you would see in these games.
+                    And bringing it to life in my game projects. Breaking down step by step and seeing how I can integrate the core
+                    mechanics that make up these systems was what really pulled me further into game development.
+                </p>
+                <img src="../../images/initial_version_860x473.png" />
+                <p class="article-paragraph">
+                    The above image is after a number of phases where I wanted to tackle each system at a time and bring everything
+                    together. At this point I was able to create a basic world with questing, dialogue, character management and general
+                    responsive movement. There are a few feedback systems as well. Such as a player HUD to give the player crucial
+                    information when interacting with the world. This was the period after I started to realize bringing in paid assets
+                    helped accelerate my general workflow as well. The way I use assets is mainly to provide a base mesh to allow myself to
+                    modify further and theme it to my game. Another thing, it gave me a starting point in how to gauge quality. Seeing how
+                    other people created models allowed me to upgrade myself and skip a large amount of back and forth on figuring out what
+                    is correct.
+                </p>
+                <p class="article-paragraph">
+                    Now at this point, I thought to myself. What part of the game is lacking as a whole, and what part of my skill set needs
+                    work too? I decided the enemy AI in my game was really clumsy in the way it interpreted the player's actions. It also
+                    had really low quality animations by me. I went and planned out the next phase of the enemy AI. How would it react? How
+                    would it animate and so on. This allowed me to take my current knowledge of 3D rigging and push it to a IK rig. The main
+                    mechanics behind IK, is to act as a joint structure for the skeleton. As you extend, twist, or contract. Your joints
+                    allow you to move yourself in a fluid manner. I wanted my rig's skeleton to have the same kind of mechanics. So I began
+                    learning how to implement IK into my basic rigs, and eventually I created a working rig that allowed me to replicate it
+                    across all my characters.
+                </p>
+                <img src="../../images/blender_initial_860x473.png" />
+                <p class="article-paragraph">
+                    After the animations, rig and model quality were in a good spot. I started to do some iterative development on the enemy
+                    AI system. Basically I pulled everything that was essential to the AI and started overhauling. The pattern I followed
+                    for the enemy AI was using a state machine to manage its current intention in game. These states encapsulated things
+                    like idleness, aggression towards a target, and patrolling.
+                </p>
+                <img src="../../images/melee_enemy_860x473.png" />
+                <p class="article-paragraph">
+                    I followed this way of carrying out development towards my game on and off for the rest of mid 2022. Be it, I was
+                    working full time as a Software Developer at Concurrency. So any free time I had I would devote to the game and
+                    improving my current skills. From late 2022 to mid 2023, I started to pour more time into the game. Learned new tools to
+                    help improve my workflow. Such as finding a realistic 3D character base mesh, and a new rigging add-on called Auto Rig
+                    Pro. This allowed me to further push my capabilities and every two months I developed a sprint that would have a new
+                    phase of the game. Be it improving existing systems to start handling new mechanics or introducing new systems into the
+                    game. The next bit of information is my reflection from this period of development and a summary of what I've learned.
+                </p>
+            </section>
+            <section class="article-section">
+                <h2 class="article-section-header">Reflection</h2>
+                <p class="article-paragraph">
+                    The main starting point to answer from all of this is, is. What is hindsight telling me? Well, I would say that sticking
+                    to an aesthetic and not uplifting it every couple months. Will save a ton of bandwidth to supply towards other areas.
+                    Such as story, world, and character design. Saying to yourself, ok this is the graphic quality I am going to hit. Hit
+                    it, and stay there without having the part of you saying. I need to re-do this. Now in terms of UI, I would argue. Aim
+                    for getting something roughly implemented and come back with a new design. Then towards the polish phase, decide if you
+                    want to revamp it or not. Also too, something I haven't tried yet is story driven development. Create an overall story
+                    and develop the story while building the systems alongside. Going from a development standpoint of just building the
+                    systems then coming to the story felt so foreign to me. It was so hard for me to interpret how to integrate my systems
+                    into the story I wanted to portray. This can also be a good thing, because it aims towards a sandbox experience.Kenshi
+                    and the old Elder Scrolls games do this very well. There are many examples to follow.
+                </p>
+                <h2 class="article-section-header">To Summarize</h2>
+                <ul class="article-list">
+                    <li>
+                        Find a set of standards that you know you can achieve and stick with them. Alter as little as possible. Aim for a
+                        balance towards functionality and quality.
+                    </li>
+                    <li>
+                        Naturally follow your curiosity to allow you to build your skillset.
+                    </li>
+                    <li>
+                        Stick to a genre you always enjoyed playing and work towards releasing games in that genre.
+                    </li>
+                </ul>
+                <p class="article-paragraph">
+                    With this cycle, you want to work towards quality in the long run. Volume in the beginning to learn the skills and
+                    develop a solid workflow. As I continue my endeavors I will be writing more about this and see how my thinking holds up.
+                </p>
+                <p class="article-paragraph">
+                    Below is a set of images of where I left off on my RPG game.
+                </p>
+                <img src="../../images/woman_bandit_860x473.png" />
+                <img src="../../images/character_creation_860x473.png" />
+                <img src="../../images/load_game_860x473.png" />
+                <img src="../../images/settings_menu_860x473.png" />
+                <img src="../../images/town_picture_01_860x473.png" />
+                <img src="../../images/town_picture_02_860x473.png" />
+                <img src="../../images/world_picture_860x473.png" />
+                <img src="../../images/container_looting_870x473.png" />
+                <img src="../../images/enemy_looting_860x473.png" />
+                <img src="../../images/world_02_860x473.png" />
+            </section>
+        </article>
+    </main>
+    <footer class="container-full text-center">
+        <p class="paragraph">© 2023, Created by <a class="link transition" href="/">Kyle Orlinski</a></p>
+        <ul class="list-inline">
+            <li class="mx-1 text text-large"><a class="link-black transition" target="_blank" rel="noopener noreferrer"
+                    href="https://github.com/Mizuone"><i class="fab fa-github"></i></a></li>
+            <li class="mx-1 text text-large"><a class="link-black transition" target="_blank" rel="noopener noreferrer"
+                    href="https://www.linkedin.com/in/kyleorlinskideveloper/"><i class="fab fa-linkedin-in"></i></a></li>
+        </ul>
+    </footer>
+</body>
+
+</html>
