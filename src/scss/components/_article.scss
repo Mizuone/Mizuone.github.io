@@ -18,6 +18,12 @@
         border: 1px solid #ccc;
         border-radius: 4px;
         overflow: auto;
+
+        &.code-block {
+            font-size: 1.25rem;
+            background-color: #1b1b1b;
+            color: #f3f3f3;
+        }
     }
 }
 
