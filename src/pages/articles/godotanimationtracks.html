@@ -106,13 +106,13 @@
                 <p>Jan 09 2024</p>
                 <h2 class="article-section-header">Setup</h2>
                 <p class="article-paragraph">
-                    This is my initial player structure that will be referenced in the setup process. The root node Player 
-                    has a script attached called Player.gd and the following code will be within this script.
+                    My player structure. This example primarily needs to call methods from the root node. At the end I provide an
+                    example that calls methods from
+                    two different scripts in the hierarchy.
                 </p>
                 <img src="../../images/godotplayerstructure.png" />
                 <p class="article-paragraph">
-                    My example is from an FPS game I am building. The example can be interchanged to mold into any game that has 
-                    a similar player node structure. Past the example I explain a number of key take-aways and details.
+                    Animation track builder, which is implemented on the root node's script called Player.gd
                 </p>
                 <pre class="code-block">
 @onready var animation_player: AnimationPlayer = mesh.get_node("AnimationPlayer")
@@ -124,6 +124,8 @@ func _ready():
     
     path_to_player_node = animation_player_root_node.get_path_to(self)
 
+    setup_pistol_track_events();
+
 func setup_pistol_track_events():
     const WIELD_PISTOL_FIRE = "Wield_Pistol_Fire"
     const WIELD_PISTOL_RELOAD = "Wield_Pistol_Reload"
@@ -134,18 +136,17 @@ func setup_pistol_track_events():
     track_builder(wield_pistol_fire, path_to_player_node, wield_pistol_fire.length, track_key_details("ready_to_fire", []))
     track_builder(wield_pistol_reload, path_to_player_node, wield_pistol_reload.length, track_key_details("reload_revolver", []))
 
-func track_key_details(animation_name: String, animation_arguments):
-    return { "method": animation_name, "args": animation_arguments, }
+func track_key_details(method_name: String, method_arguments):
+    return { "method": method_name, "args": method_arguments, }
 
 func track_builder(animation: Animation, path_to_node: NodePath, timestamp: float, track_details):
     var animation_track = animation.add_track(Animation.TYPE_METHOD)
 
     animation.track_set_path(animation_track, path_to_node)
     animation.track_insert_key(animation_track, timestamp, track_details)
-    
                 </pre>
                 <p class="article-paragraph">
-                    If your method call has parameters you want to pass values into see below.
+                    If the call method has arguments. See this example below.
                 </p>
                 <pre class="code-block">
 function ready_to_fire(is_ready: bool):
@@ -154,8 +155,8 @@ function ready_to_fire(is_ready: bool):
 # Usage: track_builder(wield_pistol_fire, path_to_player_node, wield_pistol_fire.length, track_key_details("ready_to_fire", [true]))
                 </pre>
                 <p class="article-paragraph">
-                    Another use case is what happens if you have a method you want to call that is not on the root node? Keep in mind, all that the path_to_node means 
-                    is where is the source to the method I wish to append to this track.
+                    Another use case is what happens if you have a method you want to call that is not on the root node? Keep in mind,
+                    the path_to_node is the source path to the call methods you wish to add on the animation track.
                 </p>
                 <p class="article-paragraph">
                     In a different project I abstracted the track builder methods into their own Script. Here I have two sources where I need to call methods from.
@@ -189,10 +190,52 @@ func set_node_paths():
                 <p class="article-paragraph">
                     Usage:
                 </p>
-                <img src="../../images/godotmethodloaderexpanded.png" />
+                <pre class="code-block">
+func one_hander_attack_first(main_hand: String):
+    var one_hander_attack_01_animation: Animation = animation_player.get_animation("one_hander_attack_01")
+
+    track_builder(one_hander_attack_01_animation, path_to_player_node, .12, track_key_details("frame_based_acceleration", []))
+    track_builder(one_hander_attack_01_animation, path_to_player_node, .33, track_key_details("play_attack_sound", []))
+    track_builder(one_hander_attack_01_animation, path_to_player_node, .40, track_key_details("decelerate_frame_based_movement", []))
+    track_builder(one_hander_attack_01_animation, path_to_player_node, .45, track_key_details("sequence_attack", [main_hand]))
+    track_builder(one_hander_attack_01_animation, path_to_player_node, .62, track_key_details("melee_attack_chained", [1]))
+    track_builder(one_hander_attack_01_animation, path_to_player_node, .66, track_key_details("attack_animation_finished", [1]))
+
+    track_builder(one_hander_attack_01_animation, path_to_player_mesh_node, .32, track_key_details("show_melee_weapon_trail", ["main_hand"]))
+    track_builder(one_hander_attack_01_animation, path_to_player_mesh_node, .51, track_key_details("play_melee_weapon_swing_sound", ["main_hand"]))
+    track_builder(one_hander_attack_01_animation, path_to_player_mesh_node, .60, track_key_details("hide_melee_weapon_trail", ["main_hand"]))
+                </pre>
             </section>
             <section class="article-section">
                 <h2 class="article-section-header">Key Takeaways</h2>
+                <h3 class="article-section-subheader">Requirements to Adding a Method</h2>
+                <ul class="article-list">
+                    <li>
+                        <span class="code">path_to_player_node</span> - Node path specified from the parent node of the animation player.
+                    </li>
+                    <li>
+                        <span class="code">animation_player.get_animation(animation_name)</span> - The animation from the animation player you wish to add the method too.
+                    </li>
+                    <li>
+                        <span class="code">timestamp</span> - When will the method be called during the animation runtime.
+                    </li>
+                    <li>
+                        <span class="code">animation key</span> - An object with two properties. One for the method name. Called method, another for
+                        the arguments. Called args in an array.
+                    </li>
+                </ul>
+                <h3 class="article-section-subheader">Building the Track</h2>
+                <ul class="article-list">
+                    <li>
+                        <span class="code">animation.add_track(Animation.TYPE_METHOD)</span> - The type of track that will be added to the animation.
+                    </li>
+                    <li>
+                        <span class="code">animation.track_set_path(animation_track, path_to_node)</span> - Sets the track path to the source node.
+                    </li>
+                    <li>
+                        <span class="code">animation.track_insert_key(animation_track, timestamp, track_details)</span> - Where to insert the newly created track on the animation.
+                    </li>
+                </ul>
                 <p class="article-paragraph">
                     The main use case is to bypass the manual approach of adding the method call tracks yourself. This proves to be tedious, especially for rapid animation prototyping. 
                     My animation workflow is done through Blender using Auto Rig Pro as the export process. To manually export the animations yourself on a rig. This <a href="https://www.youtube.com/watch?v=wEJ-ex4_gYc&ab_channel=Whimfoome">video</a> 

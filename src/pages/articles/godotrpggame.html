@@ -101,116 +101,81 @@
         <article class="article">
             <section class="article-section">
                 <h1 class="article-header">
-                    <span class="text-primary">Godot</span> RPG Game: What I Learned
+                    <span class="text-primary">Godot</span> RPG Game
                 </h1>
                 <p>Oct 14 2023</p>
                 <h2 class="article-section-header">The Start</h2>
                 <p class="article-paragraph">
-                    During mid 2021 I started to watch a youtuber called <a target="_blank" rel="noreferrer noopener" href="https://www.youtube.com/@Miziziziz/videos">Miziziziz</a>.
+                    During mid 2020 I started to watch a youtuber called <a target="_blank" rel="noreferrer noopener" href="https://www.youtube.com/@Miziziziz/videos">Miziziziz</a>.
                     At this time he was working on an FPS game called Wrought Flesh which was later released on Steam. To create this game,
                     he used an engine called Godot. Curiously, I started to look into this engine and got inspired to build an FPS game. I
                     saw he released a few courses on Udemy, which covered making an 
                     <a target="_blank" rel="noreferrer noopener" href="https://www.udemy.com/course/how-to-make-a-retro-style-3d-fps-in-the-godot-game-engine/">FPS game in Godot</a>, and 
-                    <a target="_blank" rel="noreferrer noopener" href="https://www.udemy.com/course/how-to-create-retro-3d-graphics/">blender 3D character creation</a>.
-                    After I completed the courses. I started to work on observing the mechanics you see in modern FPS games like Apex
+                    a <a target="_blank" rel="noreferrer noopener" href="https://www.udemy.com/course/how-to-create-retro-3d-graphics/">blender 3D character creation</a> course.
+                    After I completed these courses. I started to work on observing the mechanics you see in modern FPS games like Apex
                     Legends or Quake Champions. For example, I always enjoyed the movement mechanics behind Scalebearer in Quake Champions.
                     And wanted to see how I could implement the instant responsive directional changes. For Apex Legends, I wanted to see
-                    how I could build a sliding mechanic into my game. From here I started to iterate over a period of months.
-
+                    how I could build a sliding mechanic into my game. From here I started to iterate over a period of months. Below is a number of screenshots I took to highlight 
+                    what I was aiming to build.
                 </p>
-                <p class="article-paragraph">
-                    Fast-forward to 2022. I went from iterating my FPS game to focusing on a third person RPG game. Playing games like
-                    NieR:Automata and World of Warcraft Vanilla. Itched a part of my mind that wanted to see how I could mold these game
-                    types into one another. For instance, NieR has a smooth fast pace combat system that allows you to quickly fight targets
-                    and bunch from target to target effortlessly. World of Warcraft has this vast world and intuitive mechanics that pull
-                    you into exploring each zone. On top of these game loops. You have the character development that incentives you further
-                    into progressing through the world. For me, the sheer enjoyment came from building systems you would see in these games.
-                    And bringing it to life in my game projects. Breaking down step by step and seeing how I can integrate the core
-                    mechanics that make up these systems was what really pulled me further into game development.
-                </p>
+                <h2 class="article-section-header">2022-2023 Development</h2>
+                <h3 class="article-section-subheader my-2">Early phase of development</h3>
                 <img src="../../images/initial_version_860x473.png" />
-                <p class="article-paragraph">
-                    The above image is after a number of phases where I wanted to tackle each system at a time and bring everything
-                    together. At this point I was able to create a basic world with questing, dialogue, character management and general
-                    responsive movement. There are a few feedback systems as well. Such as a player HUD to give the player crucial
-                    information when interacting with the world. This was the period after I started to realize bringing in paid assets
-                    helped accelerate my general workflow as well. The way I use assets is mainly to provide a base mesh to allow myself to
-                    modify further and theme it to my game. Another thing, it gave me a starting point in how to gauge quality. Seeing how
-                    other people created models allowed me to upgrade myself and skip a large amount of back and forth on figuring out what
-                    is correct.
-                </p>
-                <p class="article-paragraph">
-                    Now at this point, I thought to myself. What part of the game is lacking as a whole, and what part of my skill set needs
-                    work too? I decided the enemy AI in my game was really clumsy in the way it interpreted the player's actions. It also
-                    had really low quality animations by me. I went and planned out the next phase of the enemy AI. How would it react? How
-                    would it animate and so on. This allowed me to take my current knowledge of 3D rigging and push it to a IK rig. The main
-                    mechanics behind IK, is to act as a joint structure for the skeleton. As you extend, twist, or contract. Your joints
-                    allow you to move yourself in a fluid manner. I wanted my rig's skeleton to have the same kind of mechanics. So I began
-                    learning how to implement IK into my basic rigs, and eventually I created a working rig that allowed me to replicate it
-                    across all my characters.
-                </p>
+                <h3 class="article-section-subheader my-2">First main rig with IK added - Bandit Enemy</h3>
                 <img src="../../images/blender_initial_860x473.png" />
-                <p class="article-paragraph">
-                    After the animations, rig and model quality were in a good spot. I started to do some iterative development on the enemy
-                    AI system. Basically I pulled everything that was essential to the AI and started overhauling. The pattern I followed
-                    for the enemy AI was using a state machine to manage its current intention in game. These states encapsulated things
-                    like idleness, aggression towards a target, and patrolling.
-                </p>
+                <h3 class="article-section-subheader my-2">State Machine AI pattern for melee enemies</h3>
                 <img src="../../images/melee_enemy_860x473.png" />
-                <p class="article-paragraph">
-                    I followed this way of carrying out development towards my game on and off for the rest of mid 2022. Be it, I was
-                    working full time as a Software Developer at Concurrency. So any free time I had I would devote to the game and
-                    improving my current skills. From late 2022 to mid 2023, I started to pour more time into the game. Learned new tools to
-                    help improve my workflow. Such as finding a realistic 3D character base mesh, and a new rigging add-on called Auto Rig
-                    Pro. This allowed me to further push my capabilities and every two months I developed a sprint that would have a new
-                    phase of the game. Be it improving existing systems to start handling new mechanics or introducing new systems into the
-                    game. The next bit of information is my reflection from this period of development and a summary of what I've learned.
-                </p>
+                <h3 class="article-section-subheader my-2">Refined bandit enemy with Auto Rig Pro</h3>
+                <img src="../../images/woman_bandit_860x473.png" />
+                <h3 class="article-section-subheader my-2">Character creation iteration</h3>
+                <img src="../../images/character_creation_860x473.png" />
+                <h3 class="article-section-subheader my-2">Save/Loading functionality</h3>
+                <img src="../../images/load_game_860x473.png" />
+                <h3 class="article-section-subheader my-2">Settings menu</h3>
+                <img src="../../images/settings_menu_860x473.png" />
+                <h3 class="article-section-subheader my-2">World creation play testing of quest chaining</h3>
+                <img src="../../images/town_picture_01_860x473.png" />
+                <h3 class="article-section-subheader my-2">Quest chaining testing</h3>
+                <img src="../../images/town_picture_02_860x473.png" />
+                <h3 class="article-section-subheader my-2">Test World</h3>
+                <img src="../../images/world_picture_860x473.png" />
+                <h3 class="article-section-subheader my-2">Container looting mechanic</h3>
+                <img src="../../images/container_looting_870x473.png" />
+                <h3 class="article-section-subheader my-2">Enemy looting mechanic</h3>
+                <img src="../../images/enemy_looting_860x473.png" />
+                <h3 class="article-section-subheader my-2">Different World Test angle</h3>
+                <img src="../../images/world_02_860x473.png" />
             </section>
             <section class="article-section">
-                <h2 class="article-section-header">Reflection</h2>
-                <p class="article-paragraph">
-                    The main starting point to answer from all of this is, is. What is hindsight telling me? Well, I would say that sticking
-                    to an aesthetic and not uplifting it every couple months. Will save a ton of bandwidth to supply towards other areas.
-                    Such as story, world, and character design. Saying to yourself, ok this is the graphic quality I am going to hit. Hit
-                    it, and stay there without having the part of you saying. I need to re-do this. Now in terms of UI, I would argue. Aim
-                    for getting something roughly implemented and come back with a new design. Then towards the polish phase, decide if you
-                    want to revamp it or not. Also too, something I haven't tried yet is story driven development. Create an overall story
-                    and develop the story while building the systems alongside. Going from a development standpoint of just building the
-                    systems then coming to the story felt so foreign to me. It was so hard for me to interpret how to integrate my systems
-                    into the story I wanted to portray. This can also be a good thing, because it aims towards a sandbox experience.Kenshi
-                    and the old Elder Scrolls games do this very well. There are many examples to follow.
-                </p>
-                <h2 class="article-section-header">To Summarize</h2>
+                <h2 class="article-section-header">Summary of Systems</h2>
+                <p class="article-paragraph">This list does not cover every system I built, but a highlight of the major systems that
+                    were created.</p>
                 <ul class="article-list">
-                    <li>
-                        Find a set of standards that you know you can achieve and stick with them. Alter as little as possible. Aim for a
-                        balance towards functionality and quality.
-                    </li>
-                    <li>
-                        Naturally follow your curiosity to allow you to build your skillset.
-                    </li>
-                    <li>
-                        Stick to a genre you always enjoyed playing and work towards releasing games in that genre.
-                    </li>
+                    <li><span class="bold">Character In-game UI/UX</span> - Player details, pausing, equipment, quests, and inventory</li>
+                    <li><span class="bold">Animation system</span> - Animate differently based on the type of weapon being held while
+                        interacting with the world.
+                        Dynamic call method loading during compile time.</li>
+                    <li><span class="bold">Gear Management</span> - Ability to equip, unequip, store gear pieces to either sell or obtain to
+                        wear. All gear changes would display on character.</li>
+                    <li><span class="bold">Responsive Movement</span> - Instant character feedback the moment an input is pressed.</li>
+                    <li><span class="bold">Advanced Movement &amp; Combat</span> - Crouching, sprinting, dodging, attack comboing, and blocking.</li>
+                    <li><span class="bold">Smart Combat</span> - Attack the closest target when attacking, block the closest target, and target cycling(tabbing) targeting.</li>
+                    <li><span class="bold">Enemy AI States</span> - Respond differently based on the player actions and reset after a delay</li>
+                    <li><span class="bold">World Creation</span> - Water shadars for rivers and waterfalls. Experimenting with general optimizing techniques while
+                        facing open-world challenges towards performance</li>
+                    <li><span class="bold">Saving &amp; Loading</span> - Locally storing save files and retrieving to load where you left off.</li>
+                    <li><span class="bold">NPC Questing</span> - Quest system incorpating dialogue, chaining, tracking, and completion.</li>
+                    <li><span class="bold">World Looting</span> - Ability to loot containers and enemies.</li>
+                    <li><span class="bold">Character Progression</span> - Obtaining gear, gold, fame, skill and level progression.</li>
                 </ul>
-                <p class="article-paragraph">
-                    With this cycle, you want to work towards quality in the long run. Volume in the beginning to learn the skills and
-                    develop a solid workflow. As I continue my endeavors I will be writing more about this and see how my thinking holds up.
+                <p class="article-paragraph">An extensive amount of 3D modeling was done as well, mainly towards character creation and animation.</p>
+            </section>
+            <section class="article-section">
+                <h2 class="article-section-header">Next Steps</h2>
+                <p class="article-paragraph">My intensions for the short term is to work towards making the game be presentable for others to download and play as is. 
+                    Long term, I look to migrate this project to Godot 4 and implement things like multiplayer and tighten up the scope. This long term idea, may just be a grand goal
+                    type game. I will see as time goes on.
                 </p>
-                <p class="article-paragraph">
-                    Below is a set of images of where I left off on my RPG game.
-                </p>
-                <img src="../../images/woman_bandit_860x473.png" />
-                <img src="../../images/character_creation_860x473.png" />
-                <img src="../../images/load_game_860x473.png" />
-                <img src="../../images/settings_menu_860x473.png" />
-                <img src="../../images/town_picture_01_860x473.png" />
-                <img src="../../images/town_picture_02_860x473.png" />
-                <img src="../../images/world_picture_860x473.png" />
-                <img src="../../images/container_looting_870x473.png" />
-                <img src="../../images/enemy_looting_860x473.png" />
-                <img src="../../images/world_02_860x473.png" />
             </section>
         </article>
     </main>

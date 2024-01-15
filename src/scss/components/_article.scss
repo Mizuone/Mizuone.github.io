@@ -59,6 +59,11 @@
 
 .article-section-header {
     font-size: 3rem;
+    width: 90%;    
+}
+
+h3.article-section-subheader {
+    font-size: 2rem;
     width: 90%;
 }
 
@@ -70,5 +75,10 @@
 }
 
 .article-list {
-    margin-left: 5rem;
+    font-size: 1.8rem;
+    list-style-type: none;
+
+    & li {
+        margin-top: 1rem;
+    }
 }
