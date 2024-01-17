@@ -24,11 +24,11 @@
 </head>
 
 <body>
-    <a href="#">
-        <div class="backtotop clickable">
+    <div class="backtotop clickable">
+        <a href="#" class="link-clean">
             <div><i class="fas fa-arrow-up"></i></div>Top
-        </div>
-    </a>
+        </a>
+    </div>
 
     <nav class="nav-blog">
 
@@ -49,8 +49,6 @@
 
             <div class="hamburgermenu__nav">
                 <ul class="hamburgermenu__list">
-                    <li class="hamburgermenu__item"><a href="../../../index.html#about-section"
-                            class="hamburgermenu__link">About</a></li>
                     <li class="hamburgermenu__item"><a href="../../../index.html#projects-section"
                             class="hamburgermenu__link">Projects</a></li>
                     <li class="hamburgermenu__item"><a href="../../../index.html#blog-section"
@@ -69,11 +67,6 @@
 
             <div class="desktop-navigation__card_2up">
                 <ul class="desktop-navigation__list">
-                    <a class="desktop-navigation__list-item" href="../../../index.html#about-section">
-                        <li>
-                            About
-                        </li>
-                    </a>
                     <a class="desktop-navigation__list-item" href="../../../index.html#projects-section">
                         <li>
                             Projects
@@ -93,11 +86,6 @@
             </div>
     </nav>
     <main class="article-main">
-        <a href="#">
-            <div class="backtotop">
-                <div><i class="glyphicon glyphicon-menu-up"></i></div>Top
-            </div>
-        </a>
         <article class="article">
             <section class="article-section">
                 <h1 class="article-header">
@@ -168,7 +156,7 @@ export const useProjects = () => {
                 </pre>
                 <p class="article-paragraph">
                     To fully flush out the custom hook. Operations for <span class="bold">create, update, delete</span> are added. 
-                    Plus, a sorting helper function and a pattern to utilize SWR 2.0's optimistic UI functionality.
+                    In my main project, I needed to sort by a project's start date. To do this, I created a sorting function.
                 </p>
                 <pre class="code-block">
 import { sortByStartDate } from '../../../helpers/helpers';
@@ -310,21 +298,14 @@ export const ProjectList = () => {
                     straightforward and any weird
                     configuration issues can be found online.
                 </p>
-                <p class="article-paragraph">
-                    Given the use of the custom hook and the SWR mutation key is stored within it. Any additional usages of the hook will not
-                    cause random fetch requests.
-                    The only instances I found where data is refetched are when the user refocuses on the browser tab or makes a change to the
-                    client-side data via interaction.
-                </p>
-                <p class="article-paragraph">
-                    The CRUD operations are abstracted into reuseable React components. For a complete example of the project, refer 
-                    <a href="">here</a>. The following section provides a summary of why SWR is beneficial.
-                </p>
+                <h3 class="article-section-subheader my-2">
+                    <a href="">Complete Example</a>
+                </h3>
             </section>
             <section class="article-section">
                 <h2 class="article-section-header">Why use SWR?</h2>
                 <p class="article-paragraph">
-                    Setting up SWR ism easy and allows the extension of using custom hooks in React, eliminating the need to use axios for setting up the REST Client.
+                    Setting up SWR is easy and allows the extension of using custom hooks in React, eliminating the need to use axios for setting up the REST Client.
                     Combining the browser's built-in Fetch with useSWR's hook gets the job done. The logic is encapsulated within a custom hook
                     that can be imported into any React functional component.
                 </p>
@@ -353,12 +334,29 @@ export const ProjectList = () => {
         </article>
     </main>
     <footer class="container-full text-center">
-        <p class="paragraph">© 2023, Created by <a class="link transition" href="/">Kyle Orlinski</a></p>
+        <p class="paragraph">© 2024, Created by <a class="link transition" href="/">Kyle Orlinski</a></p>
         <ul class="list-inline">
             <li class="mx-1 text text-large"><a class="link-black transition" target="_blank" rel="noopener noreferrer"
                     href="https://github.com/Mizuone"><i class="fab fa-github"></i></a></li>
             <li class="mx-1 text text-large"><a class="link-black transition" target="_blank" rel="noopener noreferrer"
                     href="https://www.linkedin.com/in/kyleorlinskideveloper/"><i class="fab fa-linkedin-in"></i></a></li>
+        </ul>
+        <ul class="list-inline">
+            <li>
+                <a class="mx-1 text link-black transition" href="../../../index.html#projects-section">
+                    Projects
+                </a>
+            </li>
+            <li>
+                <a class="mx-1 text link-black transition" href="../../../index.html#blog-section">
+                    Blog
+                </a>
+            </li>
+            <li>
+                <a class="mx-1 text link-black transition" href="../../../index.html#contact-section">
+                    Contact
+                </a>
+            </li>
         </ul>
     </footer>
 </body>

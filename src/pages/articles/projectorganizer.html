@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="description"
-        content="Article Template Written By Kyle Orlinski">
-    <title>Kyle Orlinski - Article Template</title>
+        content="Project Organizer Side Project Written By Kyle Orlinski">
+    <title>Kyle Orlinski - Project Organizer Side Project</title>
     <link rel="shortcut icon" type="image/x-icon" href="../../images/little-jimmie-32x32.png">
     <script type="text/javascript" src="../../../dist/main.js"></script>
 
@@ -24,11 +24,11 @@
 </head>
 
 <body>
-    <a href="#">
-        <div class="backtotop clickable">
+    <div class="backtotop clickable">
+        <a href="#" class="link-clean">
             <div><i class="fas fa-arrow-up"></i></div>Top
-        </div>
-    </a>
+        </a>
+    </div>
 
     <nav class="nav-blog">
 
@@ -49,8 +49,6 @@
 
             <div class="hamburgermenu__nav">
                 <ul class="hamburgermenu__list">
-                    <li class="hamburgermenu__item"><a href="../../../index.html#about-section"
-                            class="hamburgermenu__link">About</a></li>
                     <li class="hamburgermenu__item"><a href="../../../index.html#projects-section"
                             class="hamburgermenu__link">Projects</a></li>
                     <li class="hamburgermenu__item"><a href="../../../index.html#blog-section"
@@ -69,11 +67,6 @@
 
             <div class="desktop-navigation__card_2up">
                 <ul class="desktop-navigation__list">
-                    <a class="desktop-navigation__list-item" href="../../../index.html#about-section">
-                        <li>
-                            About
-                        </li>
-                    </a>
                     <a class="desktop-navigation__list-item" href="../../../index.html#projects-section">
                         <li>
                             Projects
@@ -93,59 +86,97 @@
             </div>
     </nav>
     <main class="article-main">
-        <a href="#">
-            <div class="backtotop">
-                <div><i class="glyphicon glyphicon-menu-up"></i></div>Top
-            </div>
-        </a>
         <article class="article">
             <section class="article-section">
                 <h1 class="article-header">
                     <span class="text-primary">Side Project:</span> Project Organizer
                 </h1>
                 <p>Oct 15 2023</p>
-                <h2 class="article-section-header">Going With Curiousity</h2>
+                <h2 class="article-section-header">Reasoning Behind this Project</h2>
                 <p class="article-paragraph">
-                    The project organizer was an idea that I always go back too. It is an idea that allows you to make a project to be as complex as you want it. It takes a basic
-                    CRUD side project and further expands on it. You can add features like user management, role assignment, impersonation, and many more. The ceiling is massive, and while doing so,
-                    look at which technologies you want to integrate. Possibly it is something you heard of and want to further explore. In my case, I wanted to bring in technologies
-                    I've never used before. These are all technologies that can be utilize in the real-world and mastered to a degree in the project. The entire stack of the web application
-                    I had a library, framework, or technique to bring into it. To start, I used dotnet's react <a href="">template</a> to help scaffold the project's UI and backend. I then
-                    started to convert the project to TypeScript, and added <a href="">tailwind css</a> to support the UI design. Unit testing on the front-end was something I lacked in
-                    understanding. So I brough in a combination of jest, and an expansion package to jest called <a href="">jest-dom</a>. To help me setup the Rest API implementation I found
-                    <a href="">SWR</a>. Which is renowed for it's declarative nature in data communications to the web api and back. Extending SWR with React hooks was another cool technique when I
-                    started to create the API layer. After the general setup and a few days working on building the front end, below is a picture of the structure right now.
-                </p>
-                <img src="../../images/ui_project_structure_860x473.png" />
-                <p class="article-paragraph">
-                    After a few planning phases on figuring out how do I want to architecture to flow. To start off very simple. I went with a landing page that will be a dashboard.
-                    The user can also check to see their projects and taskes they are a part of. They can interact with projects and tasks. For projects. They can view each project and 
-                    see all the tasks and members. For their tasks. The user can, add, update or remove a task. What I want to aim for is to start off very simple and when the architecture
-                    is in place properly. To further expand, and add new layers. Ideally, having a way to establish user creation and authorization into the application is going to be a must.
+                    The project organizer is a side project I am using to help build my skillset broadly covering the software
+                    development lifecycle.
+                    I focus on using modern technologies and see the pros and cons in my project. Along the way I intend to create a number of how to guides covering 
+                    each major implementation.
                 </p>
                 <p class="article-paragraph">
-                    To jump back into it and breakdown the backend system. I went with a .NET 7 solution that uses Entity Framework. To keep things separated I implemented the repository pattern and setup
-                    the DbContext. Then I went through a few iterations of figuring out what model structure I wanted for my migrations. Eventually I settled with the images below.
+                    Below is a number of screenshots to cover the current iteration. Currently the project is in a private repository on
+                    BitBucket. Over the coming days or weeks. I am hoping to migrate
+                    it into a public repository for others to view, and even pull into their local environment.
                 </p>
-                <img src="../../images/project_model.png" />
-                <img src="../../images/member_model.png" />
-                <img src="../../images/projecttask_model.png" />
+                <img src="../../images/project_organizer_dashboard_1920_1080.png" class="image" />
+                <img src="../../images/project_organizer_create_1920_1080.png" class="image" />
+                <img src="../../images/project_organizer_update_1920_1080.png" class="image" />
+                <img src="../../images/project_organizer_delete_1920_1080.png" class="image" />
+                <div>
+                    <img src="../../images/project_organizer_frontendstructure.png" class="image" />
+                    <img src="../../images/project_organizer_aspdotnetstructure.png" class="image" />
+                    <img src="../../images/project_organizer_swagger_apistructure.png" class="image" />
+                </div>
             </section>
             <section class="article-section">
-                <h2 class="article-section-header">After the Setup Phase</h2>
+                <h2 class="article-section-header">Project Stack</h2>
+                <hr class="my-2" />
+                <h3 class="article-section-subheader my-2">Frontend</h2>
+                <ul class="article-list">
+                    <li><span class="bold">React</span> - Frontend Architecture</li>
+                    <li><span class="bold">React Router</span> - HTTP Navigation</li>
+                    <li><span class="bold">SWR 2.0/Fetch</span> - REST Client</li>
+                    <li><span class="bold">Tailwind CSS</span> - UI</li>
+                    <li><span class="bold">MirageJS</span> - Mock API</li>
+                    <li><span class="bold">Vite/Vitest</span> - Testing Framework</li>
+                    <li><span class="bold">TypeScript</span> - Transpiler/Type Checking</li>
+                </ul>
+                <hr class="my-2" />
+                <h3 class="article-section-subheader my-2">Backend</h2>
+                <ul class="article-list">
+                    <li><span class="bold">.NET 7</span> - Backend Architecture</li>
+                    <li><span class="bold">Entity Framework 7+</span> - Code-First Database Management</li>
+                    <li><span class="bold">Swagger</span> - API Visual Testing</li>
+                </ul>
+            </section>
+            <section class="article-section">
+                <h2 class="article-section-header">Next to Implement</h2>
+                <ul class="article-list">
+                    <li><span class="bold">xUnit/AngleSharp</span> - Backend Testing/Integration</li>
+                    <li><span class="bold">JWT Authentication</span> - User Authentication</li>
+                    <li><span class="bold">Devops</span> - CI/CD, Deployment, Automation</li>
+                    <li><span class="bold">Terraform</span> - Infrastructure</li>
+                </ul>
                 <p class="article-paragraph">
-                    Once I felt like 
+                    After the above has been setup properly I am looking to expand the complexity of the application. Looking to expand the projects to where a user can be associated 
+                    to one. Other users can be apart of these projects as well.
+                </p>
+                <p class="article-paragraph">
+                    Like I mentioned above, if I can, without exposing much, I will be providing a public version of the repository.
                 </p>
             </section>
         </article>
     </main>
     <footer class="container-full text-center">
-        <p class="paragraph">© 2023, Created by <a class="link transition" href="/">Kyle Orlinski</a></p>
+        <p class="paragraph">© 2024, Created by <a class="link transition" href="/">Kyle Orlinski</a></p>
         <ul class="list-inline">
             <li class="mx-1 text text-large"><a class="link-black transition" target="_blank" rel="noopener noreferrer"
                     href="https://github.com/Mizuone"><i class="fab fa-github"></i></a></li>
             <li class="mx-1 text text-large"><a class="link-black transition" target="_blank" rel="noopener noreferrer"
                     href="https://www.linkedin.com/in/kyleorlinskideveloper/"><i class="fab fa-linkedin-in"></i></a></li>
+        </ul>
+        <ul class="list-inline">
+            <li>
+                <a class="mx-1 text link-black transition" href="../../../index.html#projects-section">
+                    Projects
+                </a>
+            </li>
+            <li>
+                <a class="mx-1 text link-black transition" href="../../../index.html#blog-section">
+                    Blog
+                </a>
+            </li>
+            <li>
+                <a class="mx-1 text link-black transition" href="../../../index.html#contact-section">
+                    Contact
+                </a>
+            </li>
         </ul>
     </footer>
 </body>

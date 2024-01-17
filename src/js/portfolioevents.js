@@ -15,6 +15,8 @@ export class PortfolioEvents {
         });
 
         interactableElement(backToTop);
+
+        console.log(scrollY);
     };
 
     static hamburgerMenuClickEvents() {

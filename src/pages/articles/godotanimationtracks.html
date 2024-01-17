@@ -24,11 +24,12 @@
 </head>
 
 <body>
-    <a href="#">
-        <div class="backtotop clickable">
+    <div class="backtotop clickable">
+        <a href="#" class="link-clean">
             <div><i class="fas fa-arrow-up"></i></div>Top
-        </div>
-    </a>
+        </a>
+    </div>
+
 
     <nav class="nav-blog">
 
@@ -49,8 +50,6 @@
 
             <div class="hamburgermenu__nav">
                 <ul class="hamburgermenu__list">
-                    <li class="hamburgermenu__item"><a href="../../../index.html#about-section"
-                            class="hamburgermenu__link">About</a></li>
                     <li class="hamburgermenu__item"><a href="../../../index.html#projects-section"
                             class="hamburgermenu__link">Projects</a></li>
                     <li class="hamburgermenu__item"><a href="../../../index.html#blog-section"
@@ -69,11 +68,6 @@
 
             <div class="desktop-navigation__card_2up">
                 <ul class="desktop-navigation__list">
-                    <a class="desktop-navigation__list-item" href="../../../index.html#about-section">
-                        <li>
-                            About
-                        </li>
-                    </a>
                     <a class="desktop-navigation__list-item" href="../../../index.html#projects-section">
                         <li>
                             Projects
@@ -93,11 +87,6 @@
             </div>
     </nav>
     <main class="article-main">
-        <a href="#">
-            <div class="backtotop">
-                <div><i class="glyphicon glyphicon-menu-up"></i></div>Top
-            </div>
-        </a>
         <article class="article">
             <section class="article-section">
                 <h1 class="article-header">
@@ -105,14 +94,10 @@
                 </h1>
                 <p>Jan 09 2024</p>
                 <h2 class="article-section-header">Setup</h2>
-                <p class="article-paragraph">
-                    My player structure. This example primarily needs to call methods from the root node. At the end I provide an
-                    example that calls methods from
-                    two different scripts in the hierarchy.
-                </p>
+                <h3 class="article-section-subheader my-2">Player Node Structure</h3>
                 <img src="../../images/godotplayerstructure.png" />
                 <p class="article-paragraph">
-                    Animation track builder, which is implemented on the root node's script called Player.gd
+                    The track builder is implemented on the Player node with a script called Player.gd
                 </p>
                 <pre class="code-block">
 @onready var animation_player: AnimationPlayer = mesh.get_node("AnimationPlayer")
@@ -146,7 +131,7 @@ func track_builder(animation: Animation, path_to_node: NodePath, timestamp: floa
     animation.track_insert_key(animation_track, timestamp, track_details)
                 </pre>
                 <p class="article-paragraph">
-                    If the call method has arguments. See this example below.
+                    An example of providing a call method with arguments.
                 </p>
                 <pre class="code-block">
 function ready_to_fire(is_ready: bool):
@@ -155,11 +140,8 @@ function ready_to_fire(is_ready: bool):
 # Usage: track_builder(wield_pistol_fire, path_to_player_node, wield_pistol_fire.length, track_key_details("ready_to_fire", [true]))
                 </pre>
                 <p class="article-paragraph">
-                    Another use case is what happens if you have a method you want to call that is not on the root node? Keep in mind,
-                    the path_to_node is the source path to the call methods you wish to add on the animation track.
-                </p>
-                <p class="article-paragraph">
-                    In a different project I abstracted the track builder methods into their own Script. Here I have two sources where I need to call methods from.
+                    Below is a track builder script that can be initialized on the root node's script. This example also
+                    has to different source paths to have methods being called on different levels of a node structure.
                 </p>
 <pre class="code-block">
 # Example is from Godot 3.5+
@@ -208,7 +190,7 @@ func one_hander_attack_first(main_hand: String):
             </section>
             <section class="article-section">
                 <h2 class="article-section-header">Key Takeaways</h2>
-                <h3 class="article-section-subheader">Requirements to Adding a Method</h2>
+                <h3 class="article-section-subheader my-2">Requirements to Adding a Method</h2>
                 <ul class="article-list">
                     <li>
                         <span class="code">path_to_player_node</span> - Node path specified from the parent node of the animation player.
@@ -248,12 +230,29 @@ func one_hander_attack_first(main_hand: String):
         </article>
     </main>
     <footer class="container-full text-center">
-        <p class="paragraph">© 2023, Created by <a class="link transition" href="/">Kyle Orlinski</a></p>
+        <p class="paragraph">© 2024, Created by <a class="link transition" href="/">Kyle Orlinski</a></p>
         <ul class="list-inline">
             <li class="mx-1 text text-large"><a class="link-black transition" target="_blank" rel="noopener noreferrer"
                     href="https://github.com/Mizuone"><i class="fab fa-github"></i></a></li>
             <li class="mx-1 text text-large"><a class="link-black transition" target="_blank" rel="noopener noreferrer"
                     href="https://www.linkedin.com/in/kyleorlinskideveloper/"><i class="fab fa-linkedin-in"></i></a></li>
+        </ul>
+        <ul class="list-inline">
+            <li>
+                <a class="mx-1 text link-black transition" href="../../../index.html#projects-section">
+                    Projects
+                </a>
+            </li>
+            <li>
+                <a class="mx-1 text link-black transition" href="../../../index.html#blog-section">
+                    Blog
+                </a>
+            </li>
+            <li>
+                <a class="mx-1 text link-black transition" href="../../../index.html#contact-section">
+                    Contact
+                </a>
+            </li>
         </ul>
     </footer>
 </body>
