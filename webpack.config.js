@@ -1,10 +1,11 @@
 const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
     mode: "development",
     entry: "./src/js/index.js",
     output: {
-        filename: "main.js",
+        filename: "main.[contenthash].js",
         path: path.resolve(__dirname, "dist")
     },
     module: {
@@ -29,5 +30,32 @@ module.exports = {
             },
         ]
     },
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: "./src/index.html", 
+            inject: "body",
+            filename: "../index.html"
+        }),
+        new HtmlWebpackPlugin({
+            template: "./src/pages/articles/godotanimationtracks.html", 
+            inject: "body",
+            filename: "../src/pages/build/godotanimationtracks.html"
+        }),
+        new HtmlWebpackPlugin({
+            template: "./src/pages/articles/godotrpggame.html", 
+            inject: "body",
+            filename: "../src/pages/build/godotrpggame.html"
+        }),
+        new HtmlWebpackPlugin({
+            template: "./src/pages/articles/projectorganizer.html", 
+            inject: "body",
+            filename: "../src/pages/build/projectorganizer.html"
+        }),
+        new HtmlWebpackPlugin({
+            template: "./src/pages/articles/swrwithreacthooks.html", 
+            inject: "body",
+            filename: "../src/pages/build/swrwithreacthooks.html"
+        })
+    ],
     watch: true
 };
