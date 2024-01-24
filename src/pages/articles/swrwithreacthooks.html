@@ -85,9 +85,9 @@
                 </ul>
             </div>
     </nav>
-    <main class="article-main">
-        <article class="article">
-            <section class="article-section">
+    <main class="article-main mobile-article-main">
+        <article class="article mobile-article">
+            <section class="article-section mobile-section">
                 <h1 class="article-header">
                     <span class="text-primary">SWR 2.0:</span> with React Hooks
                 </h1>
@@ -101,7 +101,7 @@
                 <p class="article-paragraph">
                     <span class="bold">API Layer</span>
                 </p>
-                <img src="../../images/swrreact_structure.png">
+                <img class="image" src="../../images/swrreact_structure.png">
                 <p class="article-paragraph">
                     <span class="bold">project.dto.ts</span>
                 </p>
@@ -121,7 +121,7 @@ export interface Project {
 export const ProjectsEndpoint = '/api/projects';
                 </pre>
             </section>
-            <section class="article-section">
+            <section class="article-section mobile-section">
                 <h2 class="article-section-header">Custom Hook useProjects</h2>
                 <p class="article-paragraph">
                     <span class="bold">useProjects.tsx</span>
@@ -231,7 +231,7 @@ export const sortByStartDate = (projects: Project[]) => {
 }
                 </pre>
             </section>
-            <section class="article-section">
+            <section class="article-section mobile-section">
                 <h2 class="article-section-header">useProjects Implementation</h2>
                 <p class="article-paragraph">
                     A general use would be for a list component. Which can be called ProjectList.tsx
@@ -303,7 +303,7 @@ export const ProjectList = () => {
                     configuration issues can be found online.
                 </p>
             </section>
-            <section class="article-section">
+            <section class="article-section mobile-section">
                 <h2 class="article-section-header">Why use SWR?</h2>
                 <p class="article-paragraph">
                     Setting up SWR is easy and allows the extension of using custom hooks in React, eliminating the need to use axios for setting up the REST Client.
@@ -320,7 +320,7 @@ export const ProjectList = () => {
                     into the details of setting up and testing the custom hook against a mock API.
                 </p>
             </section>
-            <section class="article-section">
+            <section class="article-section mobile-section">
                 <h2 class="article-section-header">Reference Material</h2>
                 <p class="article-paragraph">
                     Youtube: Dave Gray - <a target="_blank" rel="noopener noreferrer" href=" https://www.youtube.com/watch?v=6gb6oyO1Tyg&ab_channel=DaveGray">SWR Preload &amp; Optimistic UI</a>
@@ -334,7 +334,7 @@ export const ProjectList = () => {
             </section>
         </article>
     </main>
-    <footer class="container-full text-center">
+    <footer class="container container-content container-background no-box-shadow text-center">
         <p class="paragraph">© 2024, Created by <a class="link transition" href="/">Kyle Orlinski</a></p>
         <ul class="list-inline">
             <li class="mx-1 text text-large"><a class="link-black transition" target="_blank" rel="noopener noreferrer"

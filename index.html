@@ -87,10 +87,10 @@
 
   <main>
 
-    <header class="home-header">
+    <header class="home-header mobile-home-header">
       <div class="home-header__container">
         <h1 class="home-header__container__title">Hi, I am <span class="home-header__container__title-name">Kyle Orlinski.</span></h1>
-        <h4 class="home-header__container__description-title">Software &amp; indie game developer from Milwaukee</h4>
+        <h4 class="home-header__container__description-title">Software &amp; indie game developer</h4>
         <a href="#projects-section"><button class="btn btn-blue home-header__container__button">Know More &rarr;</button></a>
         <div class="home-header__container__socialmedia">
           <span>Join me here</span>
@@ -105,34 +105,36 @@
 
     <article>
       <section class="section mobile-section point-of-interest" id="projects-section">
-        <h2 class="secondary-header text-center"><span class="primary-underline">Side Projects</span></h2>
         <div class="container">
-          <div class="card-container flex align-items-center gap-4">
-            <div class="flex mt-2 overflow-hidden">
-              <a class="flex flex-column link-clean hover-scale-image relative" href="./src/pages/articles/godotrpggame.html">
-                <img src="./src/images/rpg_game_main_1920_1080.png" alt="Godot RPG Character Sheet Image" class="image">
-                <div class="flex justify-content-center align-items-center image-description-background">
-                  <span class="image-description">Godot RPG - Godot v3.5, Game Dev</span>
-                </div>
-              </a>
-            </div>
-            
-            <div class="flex mt-2 overflow-hidden">
-              <a class="flex flex-column link-clean hover-scale-image relative" href="./src/pages/articles/projectorganizer.html">
-                <img src="./src/images/project_organizer_1920_1080.png" alt="Project Organizer Dashboard Image" class="image">
-                <div class="flex justify-content-center align-items-center image-description-background">
-                  <span class="image-description">Project Organizer - React, .NET, EF 7+</span>
-                </div>
-              </a>
+          <h2 class="secondary-header text-center"><span class="primary-underline">Side Projects</span></h2>
+          <div>
+            <div class="card-container flex align-items-center gap-4">
+              <div class="flex mt-2 overflow-hidden">
+                <a class="flex flex-column link-clean hover-scale-image relative" href="./src/pages/articles/godotrpggame.html">
+                  <img src="./src/images/rpg_game_main_1920_1080.png" alt="Godot RPG Character Sheet Image" class="image">
+                  <div class="flex justify-content-center align-items-center image-description-background">
+                    <span class="image-description">Godot RPG - Godot v3.5, Game Dev</span>
+                  </div>
+                </a>
+              </div>
+              
+              <div class="flex mt-2 overflow-hidden">
+                <a class="flex flex-column link-clean hover-scale-image relative" href="./src/pages/articles/projectorganizer.html">
+                  <img src="./src/images/project_organizer_1920_1080.png" alt="Project Organizer Dashboard Image" class="image">
+                  <div class="flex justify-content-center align-items-center image-description-background">
+                    <span class="image-description">Project Organizer - React, .NET, EF 7+</span>
+                  </div>
+                </a>
+              </div>
             </div>
           </div>
         </div>
       </section>
     </article>
 
-    <article>
+    <article class="mt-2">
       <section class="section mobile-section" id="blog-section">
-        <div class="container container-background flex flex-column">
+        <div class="container container-content container-background flex flex-column">
           <h4 class="section-summary-title">PERSPECTIVE</h4>
           <h4 class="secondary-header">Latest From The <span class="primary-underline"><span class="text-primary">B</span>log</span></h4>
           <div class="card-container flex gap-4 justify-content-evenly align-items-center">
@@ -164,8 +166,8 @@
 
     <article>
       <section class="section mobile-section" id="contact-section">
-        <div class="container-small container-background flex justify-content-center align-items-center flex-column">
-          <h2 class="secondary-header text-center"><span class="primary-underline">Contact</span></h2>
+        <h2 class="secondary-header text-center"><span class="primary-underline">Contact</span></h2>
+        <div class="container-small container-content container-background flex justify-content-center align-items-center flex-column">
           <div>
             <h3 class="h3">Email</h3>
             <p class="paragraph">Feel free to email me <a class="link" href="mailto:orlinskikyle@gmail.com">here</a></p>
@@ -181,7 +183,7 @@
 
   </main>
 
-  <footer class="container container-background no-box-shadow text-center">
+  <footer class="container container-content container-background no-box-shadow text-center">
     <p class="paragraph">© 2024, Created by <a class="link transition" href="/">Kyle Orlinski</a></p>
     <ul class="list-inline">
       <li class="mx-1 text text-large"><a class="link-black transition" target="_blank" rel="noopener noreferrer" href="https://github.com/Mizuone"><i class="fab fa-github"></i></a></li>
