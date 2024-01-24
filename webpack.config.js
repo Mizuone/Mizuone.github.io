@@ -33,27 +33,27 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             template: "./src/index.html", 
-            inject: "body",
+            inject: "head",
             filename: "../index.html"
         }),
         new HtmlWebpackPlugin({
             template: "./src/pages/articles/godotanimationtracks.html", 
-            inject: "body",
+            inject: "head",
             filename: "../src/pages/build/godotanimationtracks.html"
         }),
         new HtmlWebpackPlugin({
             template: "./src/pages/articles/godotrpggame.html", 
-            inject: "body",
+            inject: "head",
             filename: "../src/pages/build/godotrpggame.html"
         }),
         new HtmlWebpackPlugin({
             template: "./src/pages/articles/projectorganizer.html", 
-            inject: "body",
+            inject: "head",
             filename: "../src/pages/build/projectorganizer.html"
         }),
         new HtmlWebpackPlugin({
             template: "./src/pages/articles/swrwithreacthooks.html", 
-            inject: "body",
+            inject: "head",
             filename: "../src/pages/build/swrwithreacthooks.html"
         })
     ],
