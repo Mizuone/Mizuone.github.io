@@ -1,70 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset
-      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-
-<url>
-  <loc>https://kyleorlinski.com/</loc>
-  <lastmod>2019-12-08T01:34:05+00:00</lastmod>
-  <priority>1.00</priority>
-</url>
-<url>
-  <loc>https://kyleorlinski.com/src/pages/articles/storelocator.html</loc>
-  <lastmod>2019-12-08T01:34:05+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://kyleorlinski.com/src/pages/articles/coupons.html</loc>
-  <lastmod>2019-12-08T01:34:05+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://kyleorlinski.com/src/pages/articles/megamenu.html</loc>
-  <lastmod>2019-12-08T01:34:05+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://kyleorlinski.com/src/projects/reaver/index.html</loc>
-  <lastmod>2019-12-08T01:34:05+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://kyleorlinski.com/src/projects/break/index.html</loc>
-  <lastmod>2019-12-08T01:34:05+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://kyleorlinski.com/src/projects/tictactoe/tictactoe.html</loc>
-  <lastmod>2019-12-08T01:34:05+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://kyleorlinski.com/src/projects/pong/index.html</loc>
-  <lastmod>2019-12-08T01:34:05+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://kyleorlinski.com/src/pages/articles/callbindapply.html</loc>
-  <lastmod>2019-12-08T01:34:05+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://kyleorlinski.com/src/pages/articles/closures.html</loc>
-  <lastmod>2019-12-08T01:34:05+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://kyleorlinski.com/src/pages/articles/Improvising.html</loc>
-  <lastmod>2019-12-08T01:34:05+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://kyleorlinski.com/index.html</loc>
-  <lastmod>2019-12-08T01:34:05+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-
-
+	xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+	<url>
+		<loc>https://kyleorlinski.com/</loc>
+		<lastmod>2024-01-24T22:01:58+01:00</lastmod>
+		<priority>1.0</priority>
+	</url>
+	<url>
+		<loc>https://kyleorlinski.com/src/pages/articles/godotrpggame.html</loc>
+		<lastmod>2024-01-24T22:01:58+01:00</lastmod>
+		<priority>0.4</priority>
+	</url>
+	<url>
+		<loc>https://kyleorlinski.com/src/pages/articles/projectorganizer.html</loc>
+		<lastmod>2024-01-24T22:01:58+01:00</lastmod>
+		<priority>0.4</priority>
+	</url>
+	<url>
+		<loc>https://kyleorlinski.com/src/pages/articles/swrwithreacthooks.html</loc>
+		<lastmod>2024-01-24T22:01:58+01:00</lastmod>
+		<priority>0.4</priority>
+	</url>
+	<url>
+		<loc>https://kyleorlinski.com/src/pages/articles/godotanimationtracks.html</loc>
+		<lastmod>2024-01-24T22:01:58+01:00</lastmod>
+		<priority>0.4</priority>
+	</url>
+	<url>
+		<loc>https://kyleorlinski.com/index.html</loc>
+		<lastmod>2024-01-24T22:01:58+01:00</lastmod>
+		<priority>1.0</priority>
+	</url>
 </urlset>
