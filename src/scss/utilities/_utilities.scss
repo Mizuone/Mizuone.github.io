@@ -1,0 +1,163 @@
+.display-block {
+  display: block;
+}
+
+.display-inline-block {
+  display: inline-block;
+}
+
+.display-none {
+  display: none;
+}
+
+.relative {
+  position: relative;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.transition {
+  transition: all 0.3s ease-out;
+}
+
+.content-block {
+  display: block;
+  margin-top: 2rem;
+}
+
+.mobile-block {
+  @include respond(phone-land) {
+    display: block;
+    margin-top: 2rem;
+  }
+}
+
+.width-full {
+  width: 100%;
+}
+
+.primary-backgroundcolor {
+  background-color: $color-primary;
+}
+.primary-underline {
+  display: inline-block;
+  border-bottom: 3px solid $color-primary;
+}
+
+.clickable {
+  user-select: auto;
+  cursor: pointer;
+  opacity: 1;
+  visibility: visible;
+}
+
+.not-clickable {
+  user-select: none;
+  cursor: default;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.border-b-primary-clickable {
+  border-bottom: 3px solid $color-primary;
+  transition: all .1s ease-in;
+
+  &:hover {
+    cursor: pointer;
+    border-bottom-color: $color-lightgreen;
+    color: $color-faded-black;
+  }
+}
+
+.lighter-grey-leftborder {
+  border-left: 1px solid rgba(0,0,0,0.1);
+}
+
+.color-white {
+  color: #FAFAFA;
+}
+.center-image {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.no-style-link {
+  text-decoration: none;
+  color: inherit;
+  transition: 0.15s all ease-in;
+
+  &:hover {
+    color: $color-primary;
+  }
+  &:active {
+    color: $color-lightergreen;
+  }
+}
+.portfolio-themed-link {
+    color: $color-primary;
+    transition: 0.15s all ease-in;
+
+    &:hover {
+      color: $color-lightergreen;
+    }
+    &:active {
+      color: $color-lightergreen;
+    }
+}
+
+.no-select {
+  user-select: none;
+}
+
+.no-box-shadow {
+    box-shadow: none;
+}
+
+.bottom-margin-medium {
+  margin-bottom: 4rem;
+}
+
+.py-2 {
+  padding: 2rem 0;
+}
+
+.m-1 {
+  margin: 1rem;
+}
+
+.mx-1 {
+  margin: 0 1rem;
+}
+
+.m-2 {
+  margin: 2rem;
+}
+
+.mx-2 {
+  margin: 0 2rem;
+}
+
+.my-2 {
+  margin: 2rem 0;
+}
+
+.mb-2 {
+  margin-bottom: 2rem;
+}
+
+.mt-2 {
+  margin-top: 2rem;
+}
+
+.mt-4 {
+  margin-top: 4rem;
+}
+
+.mt-6 {
+  margin-top: 6rem;
+}

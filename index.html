@@ -5,383 +5,208 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="description" content="Kyle Orlinski is a Front-End Developer that has a focus for usability and simplicity. With a strong background in Ecommerce and web development.">
-    <title>Kyle Orlinski - Front-End Developer</title>
+    <meta name="description" content="Kyle Orlinski is a Software Developer who currently focuses on full stack development. While pursuing indie game-development as a hobby.">
+    <title>Kyle Orlinski - Software Developer</title>
     <link rel="shortcut icon" type="image/x-icon" href="./src/images/little-jimmie-32x32.png">
     <script type="text/javascript" src="./dist/main.js"></script>
 
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8SQ6V0SLTT"></script>
     <script>
-        (function(i, s, o, g, r, a, m) {
-            i['GoogleAnalyticsObject'] = r;
-            i[r] = i[r] || function() {
-                (i[r].q = i[r].q || []).push(arguments)
-            }, i[r].l = 1 * new Date();
-            a = s.createElement(o),
-                m = s.getElementsByTagName(o)[0];
-            a.async = 1;
-            a.src = g;
-            m.parentNode.insertBefore(a, m)
-        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
 
-        ga('create', 'UA-83488200-1', 'auto');
-        ga('send', 'pageview');
+      gtag('config', 'G-8SQ6V0SLTT');
     </script>
 
 </head>
 
-<body lang="en">
+<body>
 
-    <a href="#">
-        <div class="backtotop">
-            <div><i class="fas fa-arrow-up"></i></div>Top</div>
-    </a>
+  <div class="backtotop clickable">
+      <a href="#" class="link-clean">
+        <div><i class="fas fa-arrow-up"></i></div>Top
+      </a>
+  </div>
 
-    <nav>
+  <nav>
 
-      <div class="nav-logo-container">
-        <a href="/">
-          <img class="nav-logo-container__logo" src="./src/images/Logo.png" alt="Kyle Orlinski Logo">
+    <div class="nav-logo-container">
+      <a href="/">
+        <img class="nav-logo-container__logo" src="./src/images/Logo.png" alt="Kyle Orlinski Logo">
+      </a>
+    </div>
+
+    <div class="hamburgermenu">
+      <input type="checkbox" class="hamburgermenu__checkbox" id="navi-toggle">
+
+      <label for="navi-toggle" class="hamburgermenu__button">
+        <span class="hamburgermenu__icon">&nbsp;</span>
+      </label>
+
+      <div class="hamburgermenu__background">&nbsp;</div>
+
+      <div class="hamburgermenu__nav">
+        <ul class="hamburgermenu__list">
+          <li class="hamburgermenu__item"><a href="#projects-section" class="hamburgermenu__link">Projects</a></li>
+          <li class="hamburgermenu__item"><a href="#blog-section" class="hamburgermenu__link">Blog</a></li>
+          <li class="hamburgermenu__item"><a href="#contact-section" class="hamburgermenu__link">Contact</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="desktop-navigation">
+      <div class="desktop-navigation__card_2up">
+
+      </div>
+
+      <div class="desktop-navigation__card_2up">
+        <ul class="desktop-navigation__list">
+          <a class="desktop-navigation__list-item" href="#projects-section">
+            <li>
+              Projects
+            </li>
+          </a>
+          <a class="desktop-navigation__list-item" href="#blog-section">
+            <li>
+              Blog
+            </li>
+          </a>
+          <a class="desktop-navigation__list-item" href="#contact-section">
+            <li>
+              Contact
+            </li>
+          </a>
+        </ul>
+      </div>
+
+    </div>
+  </nav>
+
+  <main>
+
+    <header class="home-header mobile-home-header">
+      <div class="home-header__container">
+        <h1 class="home-header__container__title">Hi, I am <span class="home-header__container__title-name">Kyle Orlinski.</span></h1>
+        <h4 class="home-header__container__description-title">Software &amp; indie game developer</h4>
+        <a href="#projects-section"><button class="btn btn-blue home-header__container__button">Know More &rarr;</button></a>
+        <div class="home-header__container__socialmedia">
+          <span>Join me here</span>
+          <ul class="home-header__container__socialmedia-list">
+            <li><a target="_blank" rel="noopener noreferrer" href="https://github.com/Mizuone"><i class="fab fa-github"></i></a></li>
+            <li><a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/kyleorlinskideveloper/"><i class="fab fa-linkedin-in"></i></a></li>
+          </ul>
+        </div>
+      </div>
+
+    </header>
+
+    <article>
+      <section class="section mobile-section point-of-interest" id="projects-section">
+        <div class="container">
+          <h2 class="secondary-header text-center"><span class="primary-underline">Side Projects</span></h2>
+          <div>
+            <div class="card-container flex align-items-center gap-4">
+              <div class="flex mt-2 overflow-hidden">
+                <a class="flex flex-column link-clean hover-scale-image relative" href="./src/pages/articles/godotrpggame.html">
+                  <img src="./src/images/rpg_game_main_1920_1080.png" alt="Godot RPG Character Sheet Image" class="image">
+                  <div class="flex justify-content-center align-items-center image-description-background">
+                    <span class="image-description">Godot RPG - Godot v3.5, Game Dev</span>
+                  </div>
+                </a>
+              </div>
+              
+              <div class="flex mt-2 overflow-hidden">
+                <a class="flex flex-column link-clean hover-scale-image relative" href="./src/pages/articles/projectorganizer.html">
+                  <img src="./src/images/project_organizer_1920_1080.png" alt="Project Organizer Dashboard Image" class="image">
+                  <div class="flex justify-content-center align-items-center image-description-background">
+                    <span class="image-description">Project Organizer - React, .NET, EF 7+</span>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </article>
+
+    <article class="mt-2">
+      <section class="section mobile-section" id="blog-section">
+        <div class="container container-content container-background flex flex-column">
+          <h4 class="section-summary-title">PERSPECTIVE</h4>
+          <h4 class="secondary-header">Latest From The <span class="primary-underline"><span class="text-primary">B</span>log</span></h4>
+          <div class="card-container flex gap-4 justify-content-evenly align-items-center">
+            <div class="card">
+              <a href="./src/pages/articles/swrwithreacthooks.html" class="link-clean">
+                <div class="highlight-band"></div>
+                <img class="card-image" src="./src/images/swrreact_hooks_article_thumbnail.png">
+                <h4 class="card-header">How to: SWR 2.0 with React hooks</h4>
+                <p class="card-paragraph">
+                  A brief guide on implementing SWR using a custom react hook.
+                </p>
+              </a>
+            </div>
+
+            <div class="card">
+              <a href="./src/pages/articles/godotanimationtracks.html" class="link-clean">
+                <div class="highlight-band"></div>
+                <img class="card-image" src="./src/images/animationloader_article_thumbnail.png">
+                <h4 class="card-header">How to: Godot Animation Track Builder</h4>
+                <p class="card-paragraph">
+                  A how to on adding call methods on an AnimationPlayer via GDScript.
+                </p>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </article>
+
+    <article>
+      <section class="section mobile-section" id="contact-section">
+        <h2 class="secondary-header text-center"><span class="primary-underline">Contact</span></h2>
+        <div class="container-small container-content container-background flex justify-content-center align-items-center flex-column">
+          <div>
+            <h3 class="h3">Email</h3>
+            <p class="paragraph">Feel free to email me <a class="link" href="mailto:orlinskikyle@gmail.com">here</a></p>
+          </div>
+          <div class="mt-2">
+            <h3 class="h3">Linkedin</h3>
+            <p class="paragraph">Reach out to my <a class="link" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/kyleorlinskideveloper/">Linkedin</a></a>
+            </p>
+          </div>
+        </div>
+      </section>
+    </article>
+
+  </main>
+
+  <footer class="container container-content container-background no-box-shadow text-center">
+    <p class="paragraph">© 2024, Created by <a class="link transition" href="/">Kyle Orlinski</a></p>
+    <ul class="list-inline">
+      <li class="mx-1 text text-large"><a class="link-black transition" target="_blank" rel="noopener noreferrer" href="https://github.com/Mizuone"><i class="fab fa-github"></i></a></li>
+      <li class="mx-1 text text-large"><a class="link-black transition" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/kyleorlinskideveloper/"><i class="fab fa-linkedin-in"></i></a></li>
+    </ul>
+    <ul class="list-inline">
+      <li>
+        <a class="mx-1 text link-black transition" href="#projects-section">
+          Projects
         </a>
-      </div>
-
-      <div class="hamburgermenu">
-        <input type="checkbox" class="hamburgermenu__checkbox" id="navi-toggle">
-
-        <label for="navi-toggle" class="hamburgermenu__button">
-          <span class="hamburgermenu__icon">&nbsp;</span>
-        </label>
-
-        <div class="hamburgermenu__background">&nbsp;</div>
-
-        <div class="hamburgermenu__nav">
-          <ul class="hamburgermenu__list">
-            <li class="hamburgermenu__item"><a href="#about-section" class="hamburgermenu__link">About</a></li>
-            <li class="hamburgermenu__item"><a href="#projects-section" class="hamburgermenu__link">Projects</a></li>
-            <li class="hamburgermenu__item"><a href="#blog-section" class="hamburgermenu__link">Blog</a></li>
-            <li class="hamburgermenu__item"><a href="#" class="hamburgermenu__link">Contact</a></li>
-          </ul>
-        </div>
-
-      </div>
-
-      <div class="desktop-navigation">
-        <div class="desktop-navigation__card_2up">
-
-        </div>
-
-        <div class="desktop-navigation__card_2up">
-          <ul class="desktop-navigation__list">
-            <a class="desktop-navigation__list-item" href="#about-section">
-              <li>
-                About
-              </li>
-            </a>
-            <a class="desktop-navigation__list-item" href="#projects-section">
-              <li>
-                Projects
-              </li>
-            </a>
-            <a class="desktop-navigation__list-item" href="#blog-section">
-              <li>
-                Blog
-              </li>
-            </a>
-            <a class="desktop-navigation__list-item" href="#">
-              <li>
-                Contact
-              </li>
-            </a>
-          </ul>
-        </div>
-
-      </div>
-    </nav>
-
-    <main>
-
-      <header class="home-header">
-        <div class="home-header__container">
-          <h1 class="home-header__container__title">Hi, I am <span class="home-header__container__title-name">Kyle Orlinski.</span></h1>
-          <h4 class="home-header__container__description-title">Software Developer from Milwaukee</h4>
-          <a href="#about-section"><button class="btn btn-blue home-header__container__button">Know More &rarr;</button></a>
-          <div class="home-header__container__socialmedia">
-            <span>Join me here</span>
-            <ul class="home-header__container__socialmedia-list">
-              <li><a target="_blank" rel="noopener noreferrer" href="https://github.com/Mizuone"><i class="fab fa-github"></i></a></li>
-              <li><a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/kyleorlinskideveloper/"><i class="fab fa-linkedin-in"></i></a></li>
-              <li><a target="_blank" rel="noopener noreferrer" href="https://twitter.com/KyleOrlinski?lang=en"><i class="fab fa-twitter"></i></a></li>
-            </ul>
-          </div>
-        </div>
-
-      </header>
-
-      <section class="experience-container" id="experience-section">
-        <div class="experience-container__inner-container">
-          <h4 class="experience-container__inner-container__section-title">PRESENT</h4>
-          <h2 class="experience-container__inner-container__header">
-            <span class="display-block">
-              <span class="text-primary">works</span>
-              at
-            </span>
-            <span class="primary-underline"><a class="no-style-link" href="https://concurrency.com">Concurrency, Inc</a></span> as a Software Developer
-          </h2>
-          <h2 class="experience-container__inner-container__current-header">
-            Current Experience - <span class="text-primary">Concurrency, Inc. (May 2018 - Present)</span>
-          </h2>
-          <span class="experience-container__inner-container__line">|</span>
-          <span class="experience-container__inner-container__line">|</span>
-          <h2 class="experience-container__inner-container__previous-header">
-            Previous Experience - Bon-Ton (Nov 2016 - May 2018)
-          </h2>
-          <span class="experience-container__inner-container__line">|</span>
-          <span class="experience-container__inner-container__line">|</span>
-          <div class="experience-container__inner-container__3up card_3up_container">
-            <div class="card_3up">
-              <a href="./src/pages/articles/storelocator.html" class="card_3up_link">
-                <img class="card_3up_image" src="./src/images/position-marker.png" />
-                <h2 class="card_3up_header">Rewriting the site's store locator</h2>
-                <h3 class="card_3up_primary">UI, Feature, PHP, JavaScript</h3>
-                <button class="btn btn-faded">Know More &rarr;</button>
-              </a>
-            </div>
-            <div class="card_3up">
-              <a href="./src/pages/articles/coupons.html" class="card_3up_link">
-                <img class="card_3up_image" src="./src/images/checkbox-tree.png"/>
-                <h2 class="card_3up_header">Simplflying Coupons and Deals</h2>
-                <h3 class="card_3up_primary">UI, Feature, JavaScript, Handlebars</h3>
-                <button class="btn btn-faded">Know More &rarr;</button>
-              </a>
-            </div>
-            <div class="card_3up">
-              <a href="./src/pages/articles/megamenu.html" class="card_3up_link">
-                <img class="card_3up_image" src="./src/images/fall-down.png"/>
-                <h2 class="card_3up_header">Mega Menu for ease of navigation</h2>
-                <h3 class="card_3up_primary">UI, Feature, JavaScript</h3>
-                <button class="btn btn-faded">Know More &rarr;</button>
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="about-container" id="about-section">
-        <div class="about-container__inner-container">
-          <div class="about-container__inner-container__2up card_2up_container">
-            <div class="card_2up color-black">
-            <img src="./src/images/picture_fuji.jpg" alt="Picture of Kyle"
-              class="about-container__inner-container__2up-image card_2up__image">
-              <p class="about-container__inner-container__2up__about-paragraph">
-                Hello, my name is Kyle Orlinski. I have specialized in front end web development for the
-                past three
-                years. Half of this time was spent at Bon-Ton, working as a JavaScript developer. Here I
-                was on
-                the E-commerce department, building new features and promotions for the website.
-                <span class="content-block">
-                  The other half is currently at Concurrency, Inc. Working as a software
-                  developer on the
-                  modern applications
-                  team. During this time I have been building web solutions for our clients. Be it in our
-                  office or
-                  working on-site a part
-                  of their development teams. 
-                  
-                  Outside of work. I am a hobbyist game developer,
-                  bodybuilder, and when I
-                  am healthy practice
-                  brazilian jiu jitsu.
-                </span>
-              </p>
-            </div>
-
-            <div class="card_2up color-white primary-backgroundcolor">
-              <h4 class="about-container__inner-container__skills-container-title">Development Skills</h4>
-              <div class="about-container__inner-container__skills-container">
-                <div class="about-container__inner-container__skills-container-proficient">
-                  <h4>Proficient Knowledge</h4>
-                  <ul>
-                    <li>JavaScript - 3 years</li>
-                    <li>HTML5/CSS3 - 3 years</li>
-                  </ul>
-                </div>
-                <div class="about-container__inner-container__skills-container-intermediate">
-                  <h4>Intermediate Knowledge</h4>
-                  <ul>
-                    <li>OOP / OOD - 3 years</li>
-                    <li>Angular - 1 year</li>
-                    <li>TypeScript - 1 year</li>
-                    <li>SCSS / SASS - 1 year</li>
-                  </ul>
-                </div>
-                <div class="about-container__inner-container__skills-container-entry">
-                  <h4>Entry-Level Knowledge</h4>
-                  <ul>
-                    <li>HTML5 Game Development - 1 year</li>
-                    <li>Azure - 6 months</li>
-                    <li>C# - 3 months</li>
-                    <li>ASP.NET - 3 months</li>
-                    <li>ReactJS + Redux - 2 month</li>
-                  </ul>
-                </div>
-                <div class="about-container__inner-container__skills-container-past">
-                  <h4>Past Knowledge</h4>
-                  <ul>
-                    <li>JQuery - 1 year</li>
-                    <li>AngularJS - 6 months</li>
-                    <li>NodeJS / Express - 6 months</li>
-                    <li>Java - 3 months</li>
-                    <li>AWS - 1 month</li>
-                  </ul>
-                </div>
-              </div>
-              <h4 class="about-container__inner-container__skills-container-title">Design Skills</h4>
-              <div class="about-container__inner-container__skills-container">
-                <div class="about-container__inner-container__skills-container-libraries">
-                  <h4>Libraries</h4>
-                  <ul>
-                    <li>Kendo UI - 1 year</li>
-                    <li>Bootstrap v1-2 - 1 year</li>
-                    <li>Materialize CSS - 1 month</li>
-                  </ul>
-                </div>
-                <div class="about-container__inner-container__skills-container-principles">
-                  <h4>Principles</h4>
-                  <ul>
-                    <li>Material Design - 1 year</li>
-                    <li>Grid - 1 year</li>
-                    <li>UX/UI - 1 year</li>
-                  </ul>
-                </div>
-                <div class="about-container__inner-container__skills-container-software">
-                  <h4>Software</h4>
-                  <ul>
-                    <li>Photoshop - Entry-Level</li>
-                    <li>Krita - Entry-Level</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      <section class="projects-container" id="projects-section">
-        <h4 class="projects-container__inner-container__section-title">Side Projects</h4>
-        <div class="projects-container__inner-container">
-          <div class="projects-container__inner-container__3up card_3up_container">
-
-            <div class="card_3up-project">
-              <a href="./src/projects/reaver/index.html">
-                <img src="./src/images/reaver.PNG" alt="Reaver Game Picture" class="card_3up_image-project">
-                <span class="project-description">Reaver - Canvas, JS, TypeScript</span>
-              </a>
-            </div>
-
-            <div class="card_3up-project">
-              <a href="https://codepen.io/mizuone/full/zRrVLJ/" rel="noreferrer" target="_blank">
-                <img src="./src/images/pomodoroclock.PNG" alt="Pomodoro Clock Picture" class="card_3up_image-project">
-                <span class="project-description">Pomodoro Clock - ES6, SCSS</span>
-              </a>
-            </div>
-
-            <div class="card_3up-project">
-              <a href="./src/projects/break/index.html">
-                <img src="./src/images/breakout.PNG" alt="Breakout Game Picture" class="card_3up_image-project">
-                <span class="project-description">BreakOut - Canvas, JavaScript</span>
-              </a>
-            </div>
-
-            <div class="card_3up-project">
-              <a href="./src/projects/tictactoe/tictactoe.html">
-                <img src="./src/images/tictactoe.PNG" alt="TicTacToe Picture" class="card_3up_image-project">
-                <span class="project-description">TicTacToe - JavaScript, JQuery, Bootstrap, CSS</span>
-              </a>
-            </div>
-
-            <div class="card_3up-project">
-              <a href="./src/projects/pong/index.html">
-                <img src="./src/images/pong.PNG" alt="Pong Game Picture" class="card_3up_image-project">
-                <span class="project-description">Pong - Canvas, JavaScript</span>
-              </a>
-            </div>
-
-
-          </div>
-        </div>
-      </section>
-
-      <section class="blog-container" id="blog-section">
-        <div class="blog-container__inner-container">
-          <div class="blog-container__inner-container__header">
-            <h4 class="blog-container__inner-container-title">PERSPECTIVE</h4>
-            <h4>Latest From The <span class="primary-underline"><span class="text-primary">B</span>log</span></h4>
-          </div>
-          <div class="blog-container__inner-container__3up card_3up_container">
-
-                <div class="card_3up-standard">
-                  <a href="./src/pages/articles/callbindapply.html" class="card_3up-standard__link">
-                    <div class="card_3up-standard__highlight-band"></div>
-                    <img class="card_3up-standard__image" src="./src/images/callbindapply.JPG">
-                    <h4 class="card_3up-standard__title">What the heck is .call, .bind, and .apply!?</h4>
-                    <p class="card_3up-standard__description">
-                      Something that I came across quite a bit in JavaScript
-                      but never really understood how it fully worked,
-                      or the usage for each method. Hopefully after my explanation and examples of each method,
-                      you and myself will be more confident when facing this beast.
-                      Now from the beginning, these three methods are a part of the Function
-                      object in JavaScript.
-                    </p>
-
-                  </a>
-                </div>
-
-              <div class="card_3up-standard">
-                <a href="./src/pages/articles/closures.html" class="card_3up-standard__link">
-
-                  <div class="card_3up-standard__highlight-band"></div>
-                  <img class="card_3up-standard__image" src="./src/images/closure.PNG">
-                  <h4 class="card_3up-standard__title">Closures everywhere...</h4>
-                  <p class="card_3up-standard__description">
-                    When I was just starting out with JavaScript and if I heard the word closure,
-                    I thought it was this magical concept that only the very brightest may fully understand.
-                    Which is the scope that gets initialized during the execution phase of the JavaScript engine.
-                  </p>
-
-                </a>
-              </div>
-
-              <div class="card_3up-standard card_3up_drop">
-                <a href="./src/pages/articles/Improvising.html" class="card_3up-standard__link">
-                  <div class="card_3up-standard__highlight-band"></div>
-                  <img class="card_3up-standard__image" src="./src/images/sackcloth.jpeg">
-                  <h4 class="card_3up-standard__title">Improvising - Strip HTML Entities</h4>
-                  <p class="card_3up-standard__description">
-                    At work we use Google tag manager to track a portion of our analytics
-                    and in some cases we send data to certain groups for marketing.
-                    We came across a problem in which special characters were being encoded in strings
-                    that were being sent to this group.
-                  </p>
-
-                </a>
-              </div>
-
-          </div>
-        </div>
-      </section>
-
-    </main>
-
-    <footer class="footer-container">
-      <span class="footer-container__copyright">© 2019, Created by <a class="portfolio-themed-link" href="/">Kyle
-          Orlinski</a></span>
-      <ul class="footer-container__socialmedia-list">
-        <li><a target="_blank" rel="noopener noreferrer" href="https://github.com/Mizuone"><i class="fab fa-github"></i></a></li>
-        <li><a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/kyleorlinskideveloper/"><i class="fab fa-linkedin-in"></i></a></li>
-        <li><a target="_blank" rel="noopener noreferrer" href="https://twitter.com/KyleOrlinski?lang=en"><i class="fab fa-twitter"></i></a></li>
-      </ul>
-    </footer>
-
+      </li>
+      <li>
+        <a class="mx-1 text link-black transition" href="#blog-section">
+          Blog
+        </a>
+      </li>
+      <li>
+        <a class="mx-1 text link-black transition" href="#contact-section">
+          Contact
+        </a>
+      </li>
+    </ul>
+  </footer>
 </body>
 
 </html>

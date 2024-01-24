@@ -7,13 +7,23 @@
 @import 'base/animation';
 @import 'base/base';
 @import 'base/typography';
-@import 'base/utilities';
 
+@import 'components/flexbox';
+@import 'components/link';
+@import 'components/container';
+@import 'components/headers';
+@import 'components/article';
+@import 'components/list';
+@import 'components/icons';
+@import 'components/checkbox';
+@import 'components/image';
 @import 'components/button';
 @import 'components/cards';
 @import 'components/top';
 @import 'components/navigation';
-@import 'components/footer';
 
 @import 'pages/home';
 @import 'pages/blog';
+
+@import 'utilities/utilities';
+@import 'mobile/mobile';

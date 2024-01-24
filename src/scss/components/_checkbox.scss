@@ -1,0 +1,69 @@
+.checkbox-toggle-1 {
+
+    ~ ul.list .checkbox-toggle-1-container .expandable {
+        position: relative;
+        max-height: 0;
+        opacity: 0;
+        z-index: 0;
+        visibility: hidden;
+        transition: all .3s ease-out;
+    }
+
+    &:not(:checked) ~ ul.list .checkbox-toggle-1-container {
+        animation: collapse .3s;
+    }
+
+    &:checked ~ ul.list .checkbox-toggle-1-container {
+        animation: expand .5s;
+    }
+
+    &:checked ~ ul.list .checkbox-toggle-1-container .expandable {
+        position: relative;
+        opacity: 1;
+        max-height: 2000px;
+        visibility: visible;
+        transition: all .3s ease-out;
+    }
+
+    &:checked ~ ul.list .checkbox-toggle-1-container label {
+        i {
+            transition: all .3s ease-out;
+            transform: rotate(180deg);
+        }
+    }
+}
+
+.checkbox-toggle-2 {
+
+    ~ ul.list .checkbox-toggle-2-container .expandable {
+        position: relative;
+        max-height: 0;
+        opacity: 0;
+        z-index: 0;
+        visibility: hidden;
+        transition: all .3s ease-out;
+    }
+
+    &:not(:checked) ~ ul.list .checkbox-toggle-2-container {
+        animation: collapse .3s;
+    }
+
+    &:checked ~ ul.list .checkbox-toggle-2-container {
+        animation: expand .5s;
+    }
+
+    &:checked ~ ul.list .checkbox-toggle-2-container .expandable {
+        position: relative;
+        opacity: 1;
+        max-height: 2000px;
+        visibility: visible;
+        transition: all .3s ease-out;
+    }
+
+    &:checked ~ ul.list .checkbox-toggle-2-container label {
+        i {
+            transition: all .3s ease-out;
+            transform: rotate(180deg);
+        }
+    }
+}

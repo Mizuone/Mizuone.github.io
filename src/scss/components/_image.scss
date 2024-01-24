@@ -1,0 +1,25 @@
+.image-large {
+    width: 55%;
+    margin: auto;
+}
+
+.image {
+    max-width: 100%;
+    max-height: 100%;
+
+    transition: all .3s ease-in-out;
+}
+
+.image-description {
+    font-size: 2rem;
+    text-align: center;
+    color: $color-white;
+}
+
+.image-description-background {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.5);
+    height: 75px;
+    width: 100%;
+    bottom: 0;
+}

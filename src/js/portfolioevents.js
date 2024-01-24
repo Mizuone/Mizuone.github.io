@@ -1,13 +1,22 @@
 export class PortfolioEvents {
     static topContainerEvent() {
-        window.addEventListener('scroll', function () {
-            if (pageYOffset > 200) {
-                document.querySelector('.backtotop').style.opacity = '1';
+        let backToTop = document.querySelector('.backtotop');
+        
+        function interactableElement(element) {
+            if (scrollY > 200) {
+                element.classList.remove('not-clickable');
             } else {
-                document.querySelector('.backtotop').style.opacity = '0';
+                element.classList.add('not-clickable');
             }
+        }
 
+        window.addEventListener('scroll', function () {            
+            interactableElement(backToTop);
         });
+
+        interactableElement(backToTop);
+
+        console.log(scrollY);
     };
 
     static hamburgerMenuClickEvents() {

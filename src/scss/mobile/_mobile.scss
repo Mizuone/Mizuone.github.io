@@ -1,0 +1,171 @@
+.mobile-article-main {
+    @include responsive(laptop) {
+        margin: 0 3rem;
+    }
+
+    @include responsive(mobile) {
+        margin: auto;
+    }
+}
+
+.mobile-home-header {
+    @include responsive(laptop) {
+        justify-content: center;
+        align-items: center;
+    }
+
+    .home-header__container {
+        @include responsive(laptop) {
+            margin: 2rem;
+            text-align: center;
+        }
+    }
+
+    .home-header__container__title {
+        @include responsive(laptop) {
+            font-size: 7rem;
+        }
+        @include responsive(mobile) {
+            font-size: 5rem;
+        }
+    }
+
+    .home-header__container__title-name {
+        @include responsive(laptop) {
+            font-size: 7rem;
+        }
+        @include responsive(mobile) {
+            font-size: 5rem;
+        }
+    }
+
+    .home-header__container__socialmedia {
+        @include responsive(laptop) {
+            justify-content: center;
+        }
+    }
+}
+
+.mobile-article {
+    @include responsive(laptop) {
+        padding: 3rem;
+        margin-top: 6rem;
+    }
+    @include responsive(mobile) {
+        padding: 1rem;
+        margin-top: 15rem;
+    }
+
+    .article-paragraph {
+        @include responsive(laptop) {
+            font-size: 1.9rem;
+        }
+        @include responsive(mobile) {
+            font-size: 1.5rem;
+        }
+    }
+
+    .article-header {
+        @include responsive(laptop) {
+            font-size: 4rem;
+        }
+        @include responsive(mobile) {
+            font-size: 3rem;
+        }
+    }
+
+    .article-section-header {
+        @include responsive(laptop) {
+            font-size: 2.5rem;
+        }
+        @include responsive(mobile) {
+            font-size: 2rem;
+        }
+    }
+}
+
+.mobile-section {
+    @include responsive(laptop) {
+        width: 75%;
+        margin: auto;
+    }
+
+    @include responsive(mobile) {
+        width: 100%;
+        margin: auto;
+    }
+
+    .mt-4 {
+        @include responsive(mobile) {
+            margin-top: 1rem;
+        }
+    }
+
+    .h3 {
+        @include responsive(mobile) {
+            font-size: 2rem;
+        }
+    }
+
+    .secondary-header {
+        @include responsive(laptop) {
+            font-size: 4rem;
+            text-align: center;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+        }
+        @include responsive(mobile) {
+            font-size: 3.5rem;
+        }
+    }
+    
+    .container {
+        @include responsive(laptop) {
+            padding: 2rem;
+        }
+        @include responsive(mobile) {
+            padding: 0;
+        }
+
+        .section-summary-title {
+            @include responsive(mobile) {
+                display: none;
+            }
+        }
+
+        .image-description-background {
+            @include responsive(laptop) {
+                height: 65px;
+            }
+            @include responsive(mobile) {
+                height: 50px;
+            }
+        }
+    }
+    .card-container {
+        @include responsive(laptop) {
+            flex-direction: column;
+        }
+    }
+
+    .card {
+        @include responsive(laptop) {
+            width: 100%;
+            justify-content: center;
+            min-height: auto;
+        }
+
+        .card-header, .card-paragraph {
+            @include responsive(mobile) {
+                text-align: center;
+            }
+        }
+    }
+
+}
+
+.mobile-text-center {
+    @include responsive(mobile) {
+        text-align: center;
+    }
+}

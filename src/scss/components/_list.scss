@@ -1,0 +1,18 @@
+.list, .list-inline {
+    list-style-type: none;
+
+    & .list-item {
+        position: relative;
+        padding: 4rem;
+    }
+}
+
+.list-inline {
+    li {
+        display: inline-block;
+    }
+}
+
+.item-shadow {
+    box-shadow: 0 0rem 0.5rem rgba(0, 0, 0, 0.19), 0 0 0 rgba(0, 0, 0, 0.13);
+}
