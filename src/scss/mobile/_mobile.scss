@@ -1,0 +1,68 @@
+.mobile-section {
+    @include responsive(laptop) {
+        margin: 0px 2rem 0 2rem;
+    }
+    @include responsive(mobile) {
+        margin: 0
+    }
+
+    .mt-4 {
+        @include responsive(mobile) {
+            margin-top: 1rem;
+        }
+    }
+    
+    .container, .container-transparent {
+        @include responsive(laptop) {
+            padding: 2rem;
+        }
+        @include responsive(mobile) {
+            padding: 0;
+        }
+
+        .secondary-header {
+            @include responsive(laptop) {
+                font-size: 4rem;
+                text-align: center;
+                margin-top: 1rem;
+                margin-bottom: 1rem;
+            }
+        }
+        .section-summary-title {
+            @include responsive(mobile) {
+                display: none;
+            }
+        }
+    }
+    .card-container {
+        @include responsive(laptop) {
+            flex-direction: column;
+        }
+    }
+
+    .card {
+        @include responsive(laptop) {
+            width: 100%;
+            justify-content: center;
+        }
+
+        .highlight-band {
+            @include responsive(laptop) {
+                display: none;
+            }
+        }
+
+        .card-header, .card-paragraph {
+            @include responsive(mobile) {
+                text-align: center;
+            }
+        }
+    }
+
+}
+
+.mobile-text-center {
+    @include responsive(mobile) {
+        text-align: center;
+    }
+}
