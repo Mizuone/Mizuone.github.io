@@ -15,19 +15,15 @@ export class PortfolioEvents {
         });
 
         interactableElement(backToTop);
-
-        console.log(scrollY);
     };
 
     static hamburgerMenuClickEvents() {
-        if (location.pathname === '/') {
-            let hamburgerNavItems = document.querySelectorAll('.hamburgermenu__link');
+        let hamburgerNavItems = document.querySelectorAll('.hamburgermenu__link');
 
-            hamburgerNavItems.forEach((navItem) => {
-                navItem.addEventListener('click', () => {
-                    document.querySelector('.hamburgermenu__checkbox').checked = false;
-                });
+        hamburgerNavItems.forEach((navItem) => {
+            navItem.addEventListener('click', () => {
+                document.querySelector('.hamburgermenu__checkbox').checked = false;
             });
-        }
+        });
     };
 }
