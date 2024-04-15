@@ -19,13 +19,16 @@
   "author": "Kyle Orlinski",
   "license": "ISC",
   "devDependencies": {
-    "css-loader": "^3.2.0",
-    "file-loader": "^4.2.0",
+    "css-loader": "3.2.0",
+    "css-minimizer-webpack-plugin": "^6.0.0",
+    "file-loader": "4.2.0",
     "html-webpack-plugin": "^4.5.0",
+    "mini-css-extract-plugin": "^2.8.1",
     "sass": "^1.66.1",
-    "sass-loader": "^7.2.0",
+    "sass-loader": "^7.3.1",
     "style-loader": "^1.0.0",
-    "webpack": "^4.39.1",
-    "webpack-cli": "^3.3.6"
+    "terser-webpack-plugin": "^5.3.10",
+    "webpack": "^5.91.0",
+    "webpack-cli": "^5.1.4"
   }
 }
