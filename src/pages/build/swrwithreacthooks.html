@@ -1,112 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="description"
-        content="SWR with React Hooks written by Kyle Orlinski">
-    <title>SWR with React Hooks - Kyle Orlinski</title>
-    <link rel="shortcut icon" type="image/x-icon" href="../../images/little-jimmie-32x32.png">
-    <script type="text/javascript" src="../../../dist/main.js"></script>
-
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8SQ6V0SLTT"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="SWR with React Hooks written by Kyle Orlinski"><title>SWR with React Hooks - Kyle Orlinski</title><link rel="shortcut icon" type="image/x-icon" href="../../images/little-jimmie-32x32.png"><script src="../../../dist/main.js"></script><script async src="https://www.googletagmanager.com/gtag/js?id=G-8SQ6V0SLTT"></script><script>window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
 
-        gtag('config', 'G-8SQ6V0SLTT');
-    </script>
-
-<script src="../../../dist/main.33a1e9a1002368b220f6.js"></script></head>
-
-<body>
-    <button class="backtotop clickable">
-        <a href="#" class="link-clean">
-            <i class="fas fa-arrow-up"></i>
-            Top
-        </a>
-    </button>
-
-    <nav class="nav-blog">
-
-        <div class="nav-logo-container-blog">
-            <a href="/">
-                <img class="nav-logo-container__logo" src="../../images/Logo.png" alt="Kyle Orlinski Logo">
-            </a>
-        </div>
-
-        <div class="hamburgermenu">
-            <input type="checkbox" class="hamburgermenu__checkbox" id="navi-toggle">
-
-            <label for="navi-toggle" class="hamburgermenu__button">
-                <span class="hamburgermenu__icon">&nbsp;</span>
-            </label>
-
-            <div class="hamburgermenu__background">&nbsp;</div>
-
-            <div class="hamburgermenu__nav">
-                <ul class="hamburgermenu__list">
-                    <li class="hamburgermenu__item"><a href="../../../index.html#projects-section"
-                            class="hamburgermenu__link">Projects</a></li>
-                    <li class="hamburgermenu__item"><a href="../../../index.html#blog-section"
-                            class="hamburgermenu__link">Blog</a></li>
-                    <li class="hamburgermenu__item"><a href="../../../index.html#contact-section"
-                            class="hamburgermenu__link">Contact</a></li>
-                </ul>
-            </div>
-
-        </div>
-
-        <div class="desktop-navigation-blog">
-            <div class="desktop-navigation__card_2up">
-
-            </div>
-
-            <div class="desktop-navigation__card_2up">
-                <ul class="desktop-navigation__list">
-                    <a class="desktop-navigation__list-item" href="../../../index.html#projects-section">
-                        <li>
-                            Projects
-                        </li>
-                    </a>
-                    <a class="desktop-navigation__list-item" href="../../../index.html#blog-section">
-                        <li>
-                            Blog
-                        </li>
-                    </a>
-                    <a class="desktop-navigation__list-item" href="../../../index.html#contact-section">
-                        <li>
-                            Contact
-                        </li>
-                    </a>
-                </ul>
-            </div>
-    </nav>
-    <main class="article-main mobile-article-main">
-        <article class="article mobile-article">
-            <section class="article-section mobile-section">
-                <h1 class="article-header">
-                    <span class="text-primary">SWR 2.0:</span> with React Hooks
-                </h1>
-                <p>Jan 08 2024</p>
-                <h3 class="article-section-subheader my-2">
-                    <a href="https://github.com/Mizuone/react-swr-project" target="_blank" rel="noopener noreferrer">Complete
-                        Example - React SWR</a>
-                </h3>
-                <h2 class="article-section-header mt-2">Setup</h2>
-                <pre class="code-block">Install SWR - npm i swr</pre>
-                <p class="article-paragraph">
-                    <span class="bold">API Layer</span>
-                </p>
-                <img class="image" src="../../images/swrreact_structure.png">
-                <p class="article-paragraph">
-                    <span class="bold">project.dto.ts</span>
-                </p>
-                <pre class="code-block">
+        gtag('config', 'G-8SQ6V0SLTT');</script><link href="../../../dist/main.e32deaeb769350a362f0.css" rel="stylesheet"><script src="../../../dist/main.bfecdd0208e7fdf64e02.js"></script></head><body><button class="backtotop clickable"><a href="#" class="link-clean"><i class="fas fa-arrow-up"></i> Top</a></button><nav class="nav-blog"><div class="nav-logo-container-blog"><a href="/"><img class="nav-logo-container__logo" src="../../images/Logo.png" alt="Kyle Orlinski Logo"></a></div><div class="hamburgermenu"><input type="checkbox" class="hamburgermenu__checkbox" id="navi-toggle"> <label for="navi-toggle" class="hamburgermenu__button"><span class="hamburgermenu__icon">&nbsp;</span></label><div class="hamburgermenu__background">&nbsp;</div><div class="hamburgermenu__nav"><ul class="hamburgermenu__list"><li class="hamburgermenu__item"><a href="../../../index.html#projects-section" class="hamburgermenu__link">Projects</a></li><li class="hamburgermenu__item"><a href="../../../index.html#blog-section" class="hamburgermenu__link">Blog</a></li><li class="hamburgermenu__item"><a href="../../../index.html#contact-section" class="hamburgermenu__link">Contact</a></li></ul></div></div><div class="desktop-navigation-blog"><div class="desktop-navigation__card_2up"></div><div class="desktop-navigation__card_2up"><ul class="desktop-navigation__list"><a class="desktop-navigation__list-item" href="../../../index.html#projects-section"><li>Projects</li></a><a class="desktop-navigation__list-item" href="../../../index.html#blog-section"><li>Blog</li></a><a class="desktop-navigation__list-item" href="../../../index.html#contact-section"><li>Contact</li></a></ul></div></div></nav><main class="article-main mobile-article-main"><article class="article mobile-article"><section class="article-section mobile-section"><h1 class="article-header"><span class="text-primary">SWR 2.0:</span> with React Hooks</h1><p>Jan 08 2024</p><h3 class="article-section-subheader my-2"><a href="https://github.com/Mizuone/react-swr-project" target="_blank" rel="noopener noreferrer">Complete Example - React SWR</a></h3><h2 class="article-section-header mt-2">Setup</h2><pre class="code-block">Install SWR - npm i swr</pre><p class="article-paragraph"><span class="bold">API Layer</span></p><img class="image" src="../../images/swrreact_structure.png"><p class="article-paragraph"><span class="bold">project.dto.ts</span></p><pre class="code-block">
 export interface Project {
     id?: string;
     name: string;
@@ -114,20 +10,9 @@ export interface Project {
     startDate: string;
     endDate: string;
 }
-                </pre>
-                <p class="article-paragraph">
-                    <span class="bold">projectsApi.ts</span>
-                </p>
-                <pre class="code-block">
+                </pre><p class="article-paragraph"><span class="bold">projectsApi.ts</span></p><pre class="code-block">
 export const ProjectsEndpoint = '/api/projects';
-                </pre>
-            </section>
-            <section class="article-section mobile-section">
-                <h2 class="article-section-header">Custom Hook useProjects</h2>
-                <p class="article-paragraph">
-                    <span class="bold">useProjects.tsx</span>
-                </p>
-                <pre class="code-block">
+                </pre></section><section class="article-section mobile-section"><h2 class="article-section-header">Custom Hook useProjects</h2><p class="article-paragraph"><span class="bold">useProjects.tsx</span></p><pre class="code-block">
 import useSWR, { Fetcher } from 'swr'
 
 import { Project } from "../../dtos/project.dto"
@@ -158,12 +43,7 @@ export const useProjects = () => {
 
     return { projects, isError: error, isLoading };
 }
-                </pre>
-                <p class="article-paragraph">
-                    To fully flush out the custom hook. Operations for <span class="bold">create, update, delete</span> are added. 
-                    In my main project, I needed to sort by a project's start date. To do this, I created a sorting function.
-                </p>
-                <pre class="code-block">
+                </pre><p class="article-paragraph">To fully flush out the custom hook. Operations for <span class="bold">create, update, delete</span> are added. In my main project, I needed to sort by a project's start date. To do this, I created a sorting function.</p><pre class="code-block">
 import { sortByStartDate } from '../../../helpers/helpers';
 
 export const useProjects = () => {
@@ -220,24 +100,13 @@ export const useProjects = () => {
 
     return { projects: sortByStartDate(projects), isError: error, isLoading, createProject, updateProject, deleteProject };
 }
-                </pre>
-                <p class="article-paragraph">
-                    sortByStartDate helper function
-                </p>
-                <pre class="code-block">
+                </pre><p class="article-paragraph">sortByStartDate helper function</p><pre class="code-block">
 // helpers/helpers.ts
 
 export const sortByStartDate = (projects: Project[]) => {
     return projects.sort((a, b) => new Date(a.startDate).getTime() - new Date(b.startDate).getTime());
 }
-                </pre>
-            </section>
-            <section class="article-section mobile-section">
-                <h2 class="article-section-header">useProjects Implementation</h2>
-                <p class="article-paragraph">
-                    A general use would be for a list component. Which can be called ProjectList.tsx
-                </p>
-                <pre class="code-block">
+                </pre></section><section class="article-section mobile-section"><h2 class="article-section-header">useProjects Implementation</h2><p class="article-paragraph">A general use would be for a list component. Which can be called ProjectList.tsx</p><pre class="code-block">
 import { AddEntity } from '../buttons/AddEntity';
 import { AddProjectModal } from './modal/AddProjectModal';
 import { EllipsisToggleItems } from '../buttons/EllipsisToggleItems';
@@ -255,7 +124,7 @@ export const ProjectList = () => {
     return (
         &lt;>
             &lt;div className="flex items-center">
-                &lt;h1 className="m-4 tile-marker text-2xl ">Projects</h1>
+                &lt;h1 className="m-4 tile-marker text-2xl ">Projects
                 &lt;AddEntity buttonText='Create Project +' modalComponent={AddProjectModal} modalSubmit={createNewProject} />
                 &lt;span>
                     {isError &&
@@ -296,71 +165,4 @@ export const ProjectList = () => {
         &lt;>
     )
 }
-                </pre>
-                <p class="article-paragraph">
-                    The CSS classes in the ProjectList component come from <a target="_blank" rel="noopener noreferrer"
-                        href="https://tailwindcss.com/docs/guides/create-react-app">Tailwind CSS</a>. Setting up Tailwind is
-                    straightforward and any weird
-                    configuration issues can be found online.
-                </p>
-            </section>
-            <section class="article-section mobile-section">
-                <h2 class="article-section-header">Why use SWR?</h2>
-                <p class="article-paragraph">
-                    Setting up SWR is easy and allows the extension of using custom hooks in React, eliminating the need to use axios for setting up the REST Client.
-                    Combining the browser's built-in Fetch with useSWR's hook gets the job done. The logic is encapsulated within a custom hook
-                    that can be imported into any React functional component.
-                </p>
-                <p class="article-paragraph">
-                    The implementation leverages SWR 2.0's functionality, primarily the optimistic UI updates. This allows
-                    instant feedback to the user, and in case of an API error, it rolls back the data to the previous state. As I
-                    continue using SWR, any new developments I will incorporate into this article.
-                </p>
-                <p class="article-paragraph">
-                    I found testing the hook to be rather simple once the configuration is understood correctly. In the future I will have an article to go 
-                    into the details of setting up and testing the custom hook against a mock API.
-                </p>
-            </section>
-            <section class="article-section mobile-section">
-                <h2 class="article-section-header">Reference Material</h2>
-                <p class="article-paragraph">
-                    Youtube: Dave Gray - <a target="_blank" rel="noopener noreferrer" href=" https://www.youtube.com/watch?v=6gb6oyO1Tyg&ab_channel=DaveGray">SWR Preload &amp; Optimistic UI</a>
-                    </br>
-                    Github - <a target="_blank" rel="noopener noreferrer" href="https://github.com/vercel/swr/discussions/1919">2.0 beta release</a>
-                    </br>
-                    SWR - <a target="_blank" rel="noopener noreferrer" href="https://swr.vercel.app/examples/optimistic-ui">Optimistic UI Example</a>
-                    </br>
-                    SWR - <a target="_blank" rel="noopener noreferrer" href="https://swr.vercel.app/docs/mutation">Mutation &amp; Revalidation</a>
-                </p>
-            </section>
-        </article>
-    </main>
-    <footer class="container container-content container-background no-box-shadow text-center">
-        <p class="paragraph">© 2024, Created by <a class="link transition" href="/">Kyle Orlinski</a></p>
-        <ul class="list-inline">
-            <li class="mx-1 text text-large"><a class="link-black transition" target="_blank" rel="noopener noreferrer"
-                    href="https://github.com/Mizuone"><i class="fab fa-github"></i></a></li>
-            <li class="mx-1 text text-large"><a class="link-black transition" target="_blank" rel="noopener noreferrer"
-                    href="https://www.linkedin.com/in/kyleorlinskideveloper/"><i class="fab fa-linkedin-in"></i></a></li>
-        </ul>
-        <ul class="list-inline">
-            <li>
-                <a class="mx-1 text link-black transition" href="../../../index.html#projects-section">
-                    Projects
-                </a>
-            </li>
-            <li>
-                <a class="mx-1 text link-black transition" href="../../../index.html#blog-section">
-                    Blog
-                </a>
-            </li>
-            <li>
-                <a class="mx-1 text link-black transition" href="../../../index.html#contact-section">
-                    Contact
-                </a>
-            </li>
-        </ul>
-    </footer>
-</body>
-
-</html>
+                </pre><p class="article-paragraph">The CSS classes in the ProjectList component come from <a target="_blank" rel="noopener noreferrer" href="https://tailwindcss.com/docs/guides/create-react-app">Tailwind CSS</a>. Setting up Tailwind is straightforward and any weird configuration issues can be found online.</p></section><section class="article-section mobile-section"><h2 class="article-section-header">Why use SWR?</h2><p class="article-paragraph">Setting up SWR is easy and allows the extension of using custom hooks in React, eliminating the need to use axios for setting up the REST Client. Combining the browser's built-in Fetch with useSWR's hook gets the job done. The logic is encapsulated within a custom hook that can be imported into any React functional component.</p><p class="article-paragraph">The implementation leverages SWR 2.0's functionality, primarily the optimistic UI updates. This allows instant feedback to the user, and in case of an API error, it rolls back the data to the previous state. As I continue using SWR, any new developments I will incorporate into this article.</p><p class="article-paragraph">I found testing the hook to be rather simple once the configuration is understood correctly. In the future I will have an article to go into the details of setting up and testing the custom hook against a mock API.</p></section><section class="article-section mobile-section"><h2 class="article-section-header">Reference Material</h2><p class="article-paragraph">Youtube: Dave Gray - <a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=6gb6oyO1Tyg&ab_channel=DaveGray">SWR Preload &amp; Optimistic UI</a><br>Github - <a target="_blank" rel="noopener noreferrer" href="https://github.com/vercel/swr/discussions/1919">2.0 beta release</a><br>SWR - <a target="_blank" rel="noopener noreferrer" href="https://swr.vercel.app/examples/optimistic-ui">Optimistic UI Example</a><br>SWR - <a target="_blank" rel="noopener noreferrer" href="https://swr.vercel.app/docs/mutation">Mutation &amp; Revalidation</a></p></section></article></main><footer class="container container-content container-background no-box-shadow text-center"><p class="paragraph">© 2024, Created by <a class="link transition" href="/">Kyle Orlinski</a></p><ul class="list-inline"><li class="mx-1 text text-large"><a class="link-black transition" target="_blank" rel="noopener noreferrer" href="https://github.com/Mizuone"><i class="fab fa-github"></i></a></li><li class="mx-1 text text-large"><a class="link-black transition" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/kyleorlinskideveloper/"><i class="fab fa-linkedin-in"></i></a></li></ul><ul class="list-inline"><li><a class="mx-1 text link-black transition" href="../../../index.html#projects-section">Projects</a></li><li><a class="mx-1 text link-black transition" href="../../../index.html#blog-section">Blog</a></li><li><a class="mx-1 text link-black transition" href="../../../index.html#contact-section">Contact</a></li></ul></footer></body></html>
