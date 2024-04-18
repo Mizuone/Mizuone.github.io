@@ -8,7 +8,7 @@ module.exports = {
     mode: "production",
     entry: "./src/js/index.js",
     output: {
-        filename: "main.[contenthash].js",
+        filename: "main.js",
         path: path.resolve(__dirname, "dist")
     },
     module: {
@@ -66,8 +66,8 @@ module.exports = {
             filename: "../src/pages/build/swrwithreacthooks.html"
         }),
         new MiniCssExtractPlugin({
-            filename: "[name].[contenthash].css",
-            chunkFilename: "[id].[contenthash].css"
+            filename: "[name].css",
+            chunkFilename: "[id].css"
         })
     ],
     watch: true

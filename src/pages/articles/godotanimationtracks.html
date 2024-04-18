@@ -9,8 +9,6 @@
         content="Godot Animation Track Loader written by Kyle Orlinski">
     <title>Godot Animation Track Loader - Kyle Orlinski</title>
     <link rel="shortcut icon" type="image/x-icon" href="../../images/little-jimmie-32x32.png">
-    <script type="text/javascript" src="../../../dist/main.js"></script>
-
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-8SQ6V0SLTT"></script>
     <script>
@@ -24,12 +22,7 @@
 </head>
 
 <body>
-    <button class="backtotop clickable">
-        <a href="#" class="link-clean">
-            <i class="fas fa-arrow-up"></i>
-            Top
-        </a>
-    </button>
+    <div id="backtotop-container"></div>
 
     <nav class="nav-blog">
 
@@ -194,7 +187,7 @@ func one_hander_attack_first(main_hand: String):
             </section>
             <section class="article-section mobile-section">
                 <h2 class="article-section-header">Key Takeaways</h2>
-                <h3 class="article-section-subheader my-2">Requirements to Adding a Method</h2>
+                <h3 class="article-section-subheader my-2">Requirements to Adding a Method</h3>
                 <ul class="article-list">
                     <li>
                         <span class="code">path_to_player_node</span> - Node path specified from the parent node of the animation player.
@@ -210,7 +203,7 @@ func one_hander_attack_first(main_hand: String):
                         the arguments. Called args in an array.
                     </li>
                 </ul>
-                <h3 class="article-section-subheader">Building the Track</h2>
+                <h3 class="article-section-subheader">Building the Track</h3>
                 <ul class="article-list">
                     <li>
                         <span class="code">animation.add_track(Animation.TYPE_METHOD)</span> - The type of track that will be added to the animation.
