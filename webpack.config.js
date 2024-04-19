@@ -3,8 +3,12 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 const OptimizeCSSAssetsPlugin = require("css-minimizer-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const TerserPlugin = require("terser-webpack-plugin");
+const OptimizeCSSAssetsPlugin = require("css-minimizer-webpack-plugin");
 
 module.exports = {
+    mode: "production",
     mode: "production",
     entry: "./src/js/index.js",
     output: {
@@ -32,6 +36,12 @@ module.exports = {
                 ]
             },
         ]
+    },
+    optimization: {
+        minimizer: [
+            new TerserPlugin(),
+            new OptimizeCSSAssetsPlugin()
+        ],
     },
     optimization: {
         minimizer: [
