@@ -14,34 +14,28 @@
         align-items: center;
     }
 
-    .home-header__container {
+    .home-header-container {
         @include responsive(laptop) {
             margin: 2rem;
             text-align: center;
         }
-    }
 
-    .home-header__container__title {
-        @include responsive(laptop) {
-            font-size: 7rem;
-        }
-        @include responsive(mobile) {
-            font-size: 5rem;
-        }
-    }
+        .home-header-title {
+            @include responsive(laptop) {
+                font-size: 7rem;
+            }
+            @include responsive(mobile) {
+                font-size: 5rem;
+            }
 
-    .home-header__container__title-name {
-        @include responsive(laptop) {
-            font-size: 7rem;
-        }
-        @include responsive(mobile) {
-            font-size: 5rem;
-        }
-    }
-
-    .home-header__container__socialmedia {
-        @include responsive(laptop) {
-            justify-content: center;
+            .home-header-name {
+                @include responsive(laptop) {
+                    font-size: 7rem;
+                }
+                @include responsive(mobile) {
+                    font-size: 5rem;
+                }
+            }
         }
     }
 }
