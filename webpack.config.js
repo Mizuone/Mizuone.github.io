@@ -3,12 +3,16 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 const OptimizeCSSAssetsPlugin = require("css-minimizer-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const TerserPlugin = require("terser-webpack-plugin");
+const OptimizeCSSAssetsPlugin = require("css-minimizer-webpack-plugin");
 
 module.exports = {
     mode: "production",
+    mode: "production",
     entry: "./src/js/index.js",
     output: {
-        filename: "main.[contenthash].js",
+        filename: "main.js",
         path: path.resolve(__dirname, "dist")
     },
     module: {
@@ -32,6 +36,12 @@ module.exports = {
                 ]
             },
         ]
+    },
+    optimization: {
+        minimizer: [
+            new TerserPlugin(),
+            new OptimizeCSSAssetsPlugin()
+        ],
     },
     optimization: {
         minimizer: [
@@ -66,8 +76,8 @@ module.exports = {
             filename: "../src/pages/build/swrwithreacthooks.html"
         }),
         new MiniCssExtractPlugin({
-            filename: "[name].[contenthash].css",
-            chunkFilename: "[id].[contenthash].css"
+            filename: "[name].css",
+            chunkFilename: "[id].css"
         })
     ],
     watch: true
