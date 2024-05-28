@@ -1,4 +1,27 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&display=swap');
+@font-face {
+    font-family: 'Open Sans';
+    src: url('src/webfonts/OpenSans-Regular.ttf') format("woff");
+    font-weight: normal;
+    font-style: normal;
+    font-optical-sizing: auto;
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    src: url('src/webfonts/OpenSans-Italic.ttf') format("woff");
+    font-weight: normal;
+    font-style: italic;
+    font-optical-sizing: auto;
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    src: url('src/webfonts/OpenSans-Bold.ttf') format("woff");
+    font-weight: bold;
+    font-style: normal;
+    font-optical-sizing: auto;
+}
+
 
 body {
   font-family: 'Open Sans', sans-serif;
@@ -8,7 +31,7 @@ body {
   font-size: 1.75rem;
   color: #333;
   flex: 1 0 auto;
-  line-height: 1.58;
+  line-height: 1.48;
   letter-spacing: -0.003em;
 }
 
@@ -18,6 +41,18 @@ body {
 
 .text-large {
   font-size: 2.5rem;
+}
+
+.text-base {
+  font-size: 1rem;
+}
+
+.text-medium {
+  font-size: 1.75rem;
+}
+
+.text-lg {
+  font-size: 2rem;
 }
 
 .text-primary {
