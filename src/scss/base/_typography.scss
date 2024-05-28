@@ -1,28 +1,3 @@
-@font-face {
-    font-family: 'Open Sans';
-    src: url('src/webfonts/OpenSans-Regular.ttf') format("woff");
-    font-weight: normal;
-    font-style: normal;
-    font-optical-sizing: auto;
-}
-
-@font-face {
-    font-family: 'Open Sans';
-    src: url('src/webfonts/OpenSans-Italic.ttf') format("woff");
-    font-weight: normal;
-    font-style: italic;
-    font-optical-sizing: auto;
-}
-
-@font-face {
-    font-family: 'Open Sans';
-    src: url('src/webfonts/OpenSans-Bold.ttf') format("woff");
-    font-weight: bold;
-    font-style: normal;
-    font-optical-sizing: auto;
-}
-
-
 body {
   font-family: 'Open Sans', sans-serif;
 }

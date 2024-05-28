@@ -29,8 +29,12 @@
 
 .hover-scale-image {
   &:hover {
-    & > img {
-      transform: scale(1.03);
-    }
+    transform: scale(1.03);
+  }
+}
+
+.hover-scale-image-large {
+  &:hover {
+    transform: scale(1.06);
   }
 }
