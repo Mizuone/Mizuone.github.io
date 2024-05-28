@@ -135,6 +135,12 @@
                 height: 50px;
             }
         }
+
+        .image-description {
+            @include responsive(mobile) {
+                font-size: 1.6rem;
+            }
+        }
     }
     .card-container {
         @include responsive(laptop) {
@@ -161,5 +167,23 @@
 .mobile-text-center {
     @include responsive(mobile) {
         text-align: center;
+    }
+}
+
+.mobile-width-0 {
+    @include responsive(laptop) {
+        width: 0;
+    }
+}
+
+.mobile-width-100 {
+    @include responsive(laptop) {
+        width: 100%;
+    }
+}
+
+.mobile-mt-0 {
+    @include responsive(mobile) {
+        margin-top: 0;
     }
 }

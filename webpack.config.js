@@ -6,7 +6,6 @@ const OptimizeCSSAssetsPlugin = require("css-minimizer-webpack-plugin");
 
 module.exports = {
     mode: "production",
-    mode: "production",
     entry: "./src/js/index.js",
     output: {
         filename: "main.js",
@@ -40,12 +39,6 @@ module.exports = {
             new OptimizeCSSAssetsPlugin()
         ],
     },
-    optimization: {
-        minimizer: [
-            new TerserPlugin(),
-            new OptimizeCSSAssetsPlugin()
-        ],
-    },
     plugins: [
         new HtmlWebpackPlugin({
             template: "./src/index.html", 
@@ -66,6 +59,11 @@ module.exports = {
             template: "./src/pages/articles/projectorganizer.html", 
             inject: "head",
             filename: "../src/pages/build/projectorganizer.html"
+        }),
+        new HtmlWebpackPlugin({
+            template: "./src/pages/articles/schedulefocuser.html",
+            inject: "head",
+            filename: "../src/pages/build/schedulefocuser.html"
         }),
         new HtmlWebpackPlugin({
             template: "./src/pages/articles/swrwithreacthooks.html", 
