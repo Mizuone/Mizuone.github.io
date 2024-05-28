@@ -3,32 +3,37 @@
 	xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 	<url>
 		<loc>https://kyleorlinski.com/</loc>
-		<lastmod>2024-01-24T22:01:58+01:00</lastmod>
-		<priority>1.0</priority>
+		<lastmod>2024-05-28T15:39:03+00:00</lastmod>
+		<priority>1.00</priority>
 	</url>
 	<url>
-		<loc>https://kyleorlinski.com/src/pages/build/godotrpggame.html</loc>
-		<lastmod>2024-01-24T22:01:58+01:00</lastmod>
-		<priority>0.4</priority>
+		<loc>https://kyleorlinski.com/src/pages/build/schedulefocuser.html</loc>
+		<lastmod>2024-05-28T15:39:03+00:00</lastmod>
+		<priority>0.80</priority>
 	</url>
 	<url>
 		<loc>https://kyleorlinski.com/src/pages/build/projectorganizer.html</loc>
-		<lastmod>2024-01-24T22:01:58+01:00</lastmod>
-		<priority>0.4</priority>
+		<lastmod>2024-05-28T15:39:03+00:00</lastmod>
+		<priority>0.80</priority>
+	</url>
+	<url>
+		<loc>https://kyleorlinski.com/src/pages/build/godotrpggame.html</loc>
+		<lastmod>2024-05-28T15:39:03+00:00</lastmod>
+		<priority>0.80</priority>
 	</url>
 	<url>
 		<loc>https://kyleorlinski.com/src/pages/build/swrwithreacthooks.html</loc>
-		<lastmod>2024-01-24T22:01:58+01:00</lastmod>
-		<priority>0.4</priority>
+		<lastmod>2024-05-28T15:39:03+00:00</lastmod>
+		<priority>0.80</priority>
 	</url>
 	<url>
 		<loc>https://kyleorlinski.com/src/pages/build/godotanimationtracks.html</loc>
-		<lastmod>2024-01-24T22:01:58+01:00</lastmod>
-		<priority>0.4</priority>
+		<lastmod>2024-05-28T15:39:03+00:00</lastmod>
+		<priority>0.80</priority>
 	</url>
 	<url>
 		<loc>https://kyleorlinski.com/index.html</loc>
-		<lastmod>2024-01-24T22:01:58+01:00</lastmod>
-		<priority>1.0</priority>
+		<lastmod>2024-05-28T15:39:03+00:00</lastmod>
+		<priority>0.64</priority>
 	</url>
 </urlset>
