@@ -40,7 +40,12 @@
     overflow: hidden;
 }
 
-.article-section {
+.portfolio-section {
+    width: 70%;
+    margin: 2rem auto;
+}
+
+.article-section, .portfolio-image-description {
     width: 50%;
     margin: 2rem auto;
 }
