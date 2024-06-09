@@ -82,56 +82,99 @@
     </nav>
     <main class="article-main mobile-article-main">
         <article class="article mobile-article">
-            <section class="article-section mobile-section">
+            <section class="portfolio-section mobile-section">
                 <h1 class="article-header">
                     <span class="text-primary">Fantasy</span> ARPG Game
                 </h1>
-                <p>Oct 14 2023</p>
-                <h2 class="article-section-header">The Start</h2>
-                <p class="article-paragraph">
-                    During mid 2020 I started to watch a youtuber called <a target="_blank" rel="noreferrer noopener" href="https://www.youtube.com/@Miziziziz/videos">Miziziziz</a>.
-                    At this time he was working on an FPS game called Wrought Flesh which was later released on Steam. To create this game,
-                    he used an engine called Godot. Curiously, I started to look into this engine and got inspired to build an FPS game. I
-                    saw he released a few courses on Udemy, which covered making an 
-                    <a target="_blank" rel="noreferrer noopener" href="https://www.udemy.com/course/how-to-make-a-retro-style-3d-fps-in-the-godot-game-engine/">FPS game in Godot</a>, and 
-                    a <a target="_blank" rel="noreferrer noopener" href="https://www.udemy.com/course/how-to-create-retro-3d-graphics/">blender 3D character creation</a> course.
-                    After I completed these courses. I started to work on observing the mechanics you see in modern FPS games like Apex
-                    Legends or Quake Champions. For example, I always enjoyed the movement mechanics behind Scalebearer in Quake Champions.
-                    And wanted to see how I could implement the instant responsive directional changes. For Apex Legends, I wanted to see
-                    how I could build a sliding mechanic into my game. Over this early period I played a ton of games that later inspired me to start creating a third person 
-                    action RPG game. Take elements I found in a number of RPG games and mold them into what I would love to play.
-                </p>
-                <p class="article-paragraph">
-                    Below is a number of screenshots to encompass the systems and some of the creation behind my game. Later I hope to either migrate over to Godot 4 or create 
-                    a playable release using the current build of the game.
-                </p>
-                <h2 class="article-section-header">2022-2023 Development</h2>
-                <h3 class="article-section-subheader my-2">Early phase of development</h3>
-                <img class="image hover-portfolio-image" alt="early development from 2022-2023" src="../../images/initial_version_860x473.png" />
-                <h3 class="article-section-subheader my-2">First main rig with IK added - Bandit Enemy</h3>
-                <img class="image hover-portfolio-image" alt="bandit enemy blender preview" src="../../images/blender_initial_860x473.png" />
-                <h3 class="article-section-subheader my-2">State Machine AI pattern for melee enemies</h3>
-                <img class="image hover-portfolio-image" alt="state machine code display" src="../../images/melee_enemy_860x473.png" />
-                <h3 class="article-section-subheader my-2">Refined bandit enemy with Auto Rig Pro</h3>
-                <img class="image hover-portfolio-image" alt="New bandit enemy display" src="../../images/woman_bandit_860x473.png" />
-                <h3 class="article-section-subheader my-2">Character creation iteration</h3>
-                <img class="image hover-portfolio-image" alt="character creator display" src="../../images/character_creation_860x473.png" />
-                <h3 class="article-section-subheader my-2">Save/Loading functionality</h3>
-                <img class="image hover-portfolio-image" alt="Saving and loading display" src="../../images/load_game_860x473.png" />
-                <h3 class="article-section-subheader my-2">Settings menu</h3>
-                <img class="image hover-portfolio-image" alt="In-game settings menu display" src="../../images/settings_menu_860x473.png" />
-                <h3 class="article-section-subheader my-2">Quest chaining UI</h3>
-                <img class="image hover-portfolio-image" alt="Quest chaining display in test world" src="../../images/town_picture_01_860x473.png" />
-                <h3 class="article-section-subheader my-2">Turn in quest</h3>
-                <img class="image hover-portfolio-image" alt="Turn in completed quest" src="../../images/town_picture_02_860x473.png" />
-                <h3 class="article-section-subheader my-2">Test World</h3>
-                <img class="image hover-portfolio-image" alt="View of test world from barracks, displaying grass, enemies and waterfall" src="../../images/world_picture_860x473.png" />
-                <h3 class="article-section-subheader my-2">Container looting mechanic</h3>
-                <img class="image hover-portfolio-image" alt="Container looting view" src="../../images/container_looting_870x473.png" />
-                <h3 class="article-section-subheader my-2">Enemy looting mechanic</h3>
-                <img class="image hover-portfolio-image" alt="Looting slain enemies" src="../../images/enemy_looting_860x473.png" />
-                <h3 class="article-section-subheader my-2">Different World Test angle</h3>
-                <img class="image hover-portfolio-image" alt="Angle of test world on top of a mountain" src="../../images/world_02_860x473.png" />
+                <p class="article-paragraph">All screenshots are from the original version built using Godot 3.5+. I am currently in the
+                    process of porting over to version 4+</p>
+                <h2 class="article-section-header mt-2">Testing town</h2>
+                <img class="image hover-portfolio-image" alt="Testing town view"
+                    src="../../images/rpg_game/fantasy_rpg_cover_alternative.jpg" />
+
+                <h2 class="article-section-header mt-6">Outside View</h2>
+                <img class="image hover-portfolio-image" alt="Outside of the town view"
+                    src="../../images/rpg_game/fantasy_rpg_cover.jpg" />
+
+                <h2 class="article-section-header mt-6">Accepting a Quest</h2>
+                <img class="image hover-portfolio-image" alt="Accepting a quest that has a follow up"
+                    src="../../images/rpg_game/fantasy_rpg_follow_up_quest.jpg" />
+
+                <h2 class="article-section-header mt-6">Quest Log View</h2>
+                <img class="image hover-portfolio-image" alt="Quest log view of the follow up quest"
+                    src="../../images/rpg_game/fantasy_rpg_enemy_weapon_quest.jpg" />
+
+                <h2 class="article-section-header mt-6">Chest Looting - Bow Item</h2>
+                <img class="image hover-portfolio-image" alt="Looting a chest that has a bow in it"
+                    src="../../images/rpg_game/fantasy_rpg_container_looting.jpg" />
+
+                <h2 class="article-section-header mt-6">Bow Equip &amp; UI State Updates</h2>
+                <img class="image hover-portfolio-image" alt="Equipping the looted bow and seeing the UI change"
+                    src="../../images/rpg_game/fantasy_rpg_bow_equip.jpg" />
+
+                <h2 class="article-section-header mt-6">Vendor View</h2>
+                <img class="image hover-portfolio-image" alt="View of talking with a vendor in the game"
+                    src="../../images/rpg_game/fantasy_rpg_blacksmith.jpg" />
+
+                <h2 class="article-section-header mt-6">Vendor Item ToolTip</h2>
+                <img class="image hover-portfolio-image" alt="Tooltip of one of the items that are being sold"
+                    src="../../images/rpg_game/fantasy_rpg_vendor.jpg" />
+
+                <h2 class="article-section-header mt-6">Looting slain enemies - Pulls in all nearby loot</h2>
+                <img class="image hover-portfolio-image" alt="Looting slain eneimes, shows a pair of gaunlets to pick up"
+                    src="../../images/rpg_game/fantasy_rpg_looting_enemy.jpg" />
+
+                <h2 class="article-section-header mt-6">Graphics Settings</h2>
+                <img class="image hover-portfolio-image" alt="Ingame Graphics Settings View"
+                    src="../../images/rpg_game/fantasy_rpg_graphics.jpg" />
+
+                <h2 class="article-section-header mt-6">Controls &amp; Input Settings</h2>
+                <img class="image hover-portfolio-image" alt="Ingame Controls and Inputs View"
+                    src="../../images/rpg_game/fantasy_rpg_controlst.jpg" />
+
+                <h2 class="article-section-header mt-6">Ingame Pause Menu</h2>
+                <img class="image hover-portfolio-image" alt="Ingame Pause Menu View"
+                    src="../../images/rpg_game/fantasy_rpg_pause.jpg" />
+
+                <h2 class="article-section-header mt-6">Saving &amp; Loading</h2>
+                <img class="image hover-portfolio-image" alt="Loading view from saving in game"
+                    src="../../images/rpg_game/fantasy_rpg_saves.jpg" />
+
+                <h2 class="article-section-header mt-6">Character Class Selection</h2>
+                <img class="image hover-portfolio-image" alt="Character Class Selection View"
+                    src="../../images/rpg_game/fantasy_rpg_game_character_class.jpg" />
+
+                <h2 class="article-section-header mt-6">Character Finalize</h2>
+                <img class="image hover-portfolio-image" alt="Finalizing a character"
+                    src="../../images/rpg_game/fantasy_rpg_character_creation_finalize.jpg" />
+
+                <h2 class="article-section-header mt-6">Save Game Logic</h2>
+                <img class="image hover-portfolio-image" alt="Save game logic on the ranger script"
+                    src="../../images/rpg_game/fantasy_rpg_save_game.png" />
+
+                <h2 class="article-section-header mt-6">Target Cycling</h2>
+                <img class="image hover-portfolio-image" alt="Target cycling logic or tab targetting"
+                    src="../../images/rpg_game/fantasy_rpg_tab_targeting_logic.png" />
+
+                <h2 class="article-section-header mt-6">Thread Management - Processing Complex Calculations</h2>
+                <img class="image hover-portfolio-image"
+                    alt="Semaphore managment to coordinate threads - Logic taking another viewport that looks at the terrain and calculates what footstep sound to play"
+                    src="../../images/rpg_game/fantasy_rpg_terrain_reader_logic.png" />
+                <img class="image hover-portfolio-image" alt="Additional view of the semaphore, posting a thread to the semaphore and stopping it"
+                    src="../../images/rpg_game/fantasy_rpg_terrain_reader.png" />
+
+                <h2 class="article-section-header mt-6">Looting Sequence Logic</h2>
+                <img class="image hover-portfolio-image" alt="Looting logic for nearby lootable containers"
+                    src="../../images/rpg_game/fantasy_rpg_game_looting_logic.png" />
+
+                <h2 class="article-section-header mt-6">Attack Input Logic</h2>
+                <img class="image hover-portfolio-image" alt="Logic for basic attacking"
+                    src="../../images/rpg_game/fantasy_rpg_attack_input.png" />
+
+                <h2 class="article-section-header mt-6">Auto Melee on Attack Input</h2>
+                <img class="image hover-portfolio-image" alt="Logic to figure out the closest enemy"
+                    src="../../images/rpg_game/fantasy_rpg_closest_enemy.png" />
+
             </section>
             <section class="article-section mobile-section">
                 <h2 class="article-section-header">Summary of Systems</h2>
@@ -157,13 +200,6 @@
                 </ul>
                 <p class="article-paragraph">An extensive amount of 3D modeling was done as well, mainly towards character creation and animation.</p>
             </section>
-            <section class="article-section mobile-section">
-                <h2 class="article-section-header">Next Steps</h2>
-                <p class="article-paragraph">My intensions for the short term is to work towards making the game be presentable for others to download and play as is. 
-                    Long term, I look to migrate this project to Godot 4 and implement things like multiplayer and tighten up the scope. This long term idea, may just be a grand goal
-                    type game. I will see as time goes on.
-                </p>
-            </section>
         </article>
     </main>
     <footer class="container container-content container-background no-box-shadow text-center">
@@ -175,6 +211,11 @@
                     href="https://www.linkedin.com/in/kyleorlinskideveloper/"><i class="fab fa-linkedin-in"></i></a></li>
         </ul>
         <ul class="list-inline">
+            <li>
+                <a class="mx-1 text link-black transition" href="../../../index.html#about-section">
+                    About
+                </a>
+            </li>
             <li>
                 <a class="mx-1 text link-black transition" href="../../../index.html#projects-section">
                     Projects

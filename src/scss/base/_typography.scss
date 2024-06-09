@@ -1,13 +1,16 @@
 body {
   font-family: 'Open Sans', sans-serif;
+  color: #222;
 }
 
-.paragraph, .text {
+h1, h2, h3, h4 {
+  line-height: 1.2;
+}
+
+p, .paragraph, .text {
   font-size: 1.75rem;
-  color: #333;
   flex: 1 0 auto;
-  line-height: 1.48;
-  letter-spacing: -0.003em;
+  line-height: 1.6;
 }
 
 .text-center {
@@ -28,6 +31,10 @@ body {
 
 .text-lg {
   font-size: 2rem;
+}
+
+.text-xl {
+  font-size: 3rem;
 }
 
 .text-primary {

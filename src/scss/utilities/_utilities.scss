@@ -42,6 +42,10 @@
   width: 75%;
 }
 
+.width-55 {
+  width: 55%;
+}
+
 .width-25 {
   width: 25%;
 }
@@ -134,12 +138,20 @@
   padding: 2rem 0;
 }
 
+.p-2 {
+  padding: 2rem;
+}
+
 .m-1 {
   margin: 1rem;
 }
 
 .mx-1 {
   margin: 0 1rem;
+}
+
+.mx-auto {
+  margin: 0 auto;
 }
 
 .m-2 {
@@ -152,6 +164,10 @@
 
 .my-2 {
   margin: 2rem 0;
+}
+
+.mb-1 {
+  margin-bottom: 1rem;
 }
 
 .mb-2 {

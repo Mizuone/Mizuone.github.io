@@ -4,7 +4,7 @@
     }
 
     @include responsive(mobile) {
-        margin: auto;
+        margin: 0 auto;
     }
 }
 
@@ -81,12 +81,11 @@
 .mobile-section {
     @include responsive(laptop) {
         width: 75%;
-        margin: auto;
+        margin: 1rem 0;
     }
 
     @include responsive(mobile) {
         width: 100%;
-        margin: auto;
     }
 
     .mt-4 {
@@ -100,13 +99,21 @@
             font-size: 2rem;
         }
     }
+    .portfolio-section, .portfolio-image-description, .portfolio-wide-description {
+        @include responsive(laptop) {
+            width: 75%;
+            margin: 1rem 0;
+        }
+        @include responsive(mobile) {
+            width: 100%;
+        }
+    }
 
     .secondary-header {
         @include responsive(laptop) {
             font-size: 4rem;
             text-align: center;
             margin-top: 1rem;
-            margin-bottom: 1rem;
         }
         @include responsive(mobile) {
             font-size: 3.5rem;
@@ -141,6 +148,15 @@
                 font-size: 1.6rem;
             }
         }
+
+        .paragraph {
+            @include responsive(laptop) {
+                font-size: 1.7rem;
+            }
+            @include responsive(mobile) {
+                font-size: 1.5rem;
+            }
+        }
     }
     .card-container {
         @include responsive(laptop) {
@@ -162,6 +178,18 @@
         }
     }
 
+}
+
+.mobile-p-2 {
+    @include responsive(mobile) {
+        padding: 2rem;
+    }
+}
+
+.mobile-mb-2 {
+    @include responsive(mobile) {
+        margin-bottom: 2rem;
+    }
 }
 
 .mobile-text-center {
