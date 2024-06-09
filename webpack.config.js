@@ -42,32 +42,32 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             template: "./src/index.html", 
-            inject: "head",
+            inject: "body",
             filename: "../index.html"
         }),
         new HtmlWebpackPlugin({
             template: "./src/pages/articles/godotanimationtracks.html", 
-            inject: "head",
+            inject: "body",
             filename: "../src/pages/build/godotanimationtracks.html"
         }),
         new HtmlWebpackPlugin({
             template: "./src/pages/articles/godotrpggame.html", 
-            inject: "head",
+            inject: "body",
             filename: "../src/pages/build/godotrpggame.html"
         }),
         new HtmlWebpackPlugin({
             template: "./src/pages/articles/projectorganizer.html", 
-            inject: "head",
+            inject: "body",
             filename: "../src/pages/build/projectorganizer.html"
         }),
         new HtmlWebpackPlugin({
             template: "./src/pages/articles/schedulefocuser.html",
-            inject: "head",
+            inject: "body",
             filename: "../src/pages/build/schedulefocuser.html"
         }),
         new HtmlWebpackPlugin({
             template: "./src/pages/articles/swrwithreacthooks.html", 
-            inject: "head",
+            inject: "body",
             filename: "../src/pages/build/swrwithreacthooks.html"
         }),
         new MiniCssExtractPlugin({

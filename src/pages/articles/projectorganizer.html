@@ -86,20 +86,41 @@
                 <h1 class="article-header text-center">
                     <span class="text-primary">Side Project:</span> Project Organizer
                 </h1>
-                <p class="article-paragraph portfolio-image-description mx-auto mt-4 mb-2">Custom SWR hook is called to load all
-                    projects onto the dashboard from a .NET Web API that queries from a local database</p>
-                <img class="image hover-portfolio-image" src="../../images/project_organizer_dashboard_1920_1080.png" alt="Project Organizer Dashboard View" />
-                <img class="image hover-portfolio-image" src="../../images/project_organizer_create_1920_1080.png" alt="Project Organizer Add Project" />
-                <img class="image hover-portfolio-image" src="../../images/project_organizer_update_1920_1080.png" alt="Project Organizer Update Project" />
-                <img class="image hover-portfolio-image" src="../../images/project_organizer_delete_1920_1080.png" alt="Project Organizer Delete Project" />
+                <div class="portfolio-wide-description">
+                    <a class="link-black transition text-medium" target="_blank" rel="noopener noreferrer"
+                        href="https://github.com/Mizuone/project-organizer">
+                        Project Organizer - Repository
+                    </a>
+                    <hr class="my-2" />
+                    <h2 class="article-section-header mb-1">Adding a New Project</h2>
+                    <p class="article-paragraph mx-auto mb-2">A create project request will call the .NET web API, populate the projects table with the new project, and update the
+                    SWR projects cache and backend in-memory caching systems.</p>
+                </div>
+
+                <img class="image hover-portfolio-image" src="../../images/project_organizer/project_organizer_add-project.jpg" alt="Project Organizer Dashboard View" />
+
+                <div class="portfolio-wide-description">
+                    <h2 class="article-section-header mb-1">Updating the New Project</h2>
+                    <p class="article-paragraph mx-auto mb-2">Upon the update request, a similar cascade of events takes place, except that the SWR cache needs to take extra steps.
+                    These steps involve finding the old project in the cache, removing it, and pulling in the new project from the API.</p>
+                </div>
+                <img class="image hover-portfolio-image" src="../../images/project_organizer/project_organizer_update-project.jpg" alt="Project Organizer Update newly created project" />
+                <div class="portfolio-wide-description">
+                    <h2 class="article-section-header mb-1">Deletion of the Project</h2>
+                    <p class="article-paragraph mx-auto mb-2">
+                        The deletion request is straightforward. It removes the requested project by ID from the table and caching systems.
+                    </p>
+                </div>
+                <img class="image hover-portfolio-image" src="../../images/project_organizer/project_organizer_delete-project.jpg" alt="Project Organizer Delete newly created project" />
+                <img class="image hover-portfolio-image" src="../../images/project_organizer/project_organizer_dashboard.png" alt="Project Organizer dashboard view" />
             </section>
             <section class="article-section mobile-section">
                 <div>
-                    <img class="image" src="../../images/project_organizer_frontendstructure.png"
+                    <img class="image" src="../../images/project_organizer/project_organizer_frontendstructure.png"
                         alt="React Frontend Architecture View" />
-                    <img class="image" src="../../images/project_organizer_aspdotnetstructure.png"
+                    <img class="image" src="../../images/project_organizer/project_organizer_aspdotnetstructure.png"
                         alt="ASP.NET Backend Architecture View" />
-                    <img class="image" src="../../images/project_organizer_swagger_apistructure.png" alt=".NET Swagger View" />
+                    <img class="image" src="../../images/project_organizer/project_organizer_swagger_apistructure.png" alt=".NET Swagger View" />
                 </div>
                 <h2 class="article-section-header">Project Stack</h2>
                 <hr class="my-2" />
@@ -131,11 +152,16 @@
             <section class="article-section mobile-section">
                 <h2 class="article-section-header">Reasoning Behind this Project</h2>
                 <p class="article-paragraph">
-                    The project organizer is a side project I am using to help build my skillset broadly covering the software
-                    development lifecycle.
-                    I focus on using modern technologies and see the pros and cons in my project. Along the way I intend to create a
-                    number of how to guides covering
-                    each major implementation.
+                    The project organizer was a project I built to introduce myself to some of the latest technologies in the .NET and
+                    React
+                    ecosystems. This project allowed me to figure out which packages I enjoy using for testing, mocking and data
+                    mutation.
+                    I decided to pick React for the frontend because I find it the most enjoyable. It casues the least amount of
+                    resistance when building UI
+                    components. And the ecosystem of React is gigantic, providing many different tools for me to explore and find the best ones for my needs.
+                    As for the backend system and database, I find using .NET and Entity Framework to be a great combination. I absolutely despise
+                    managing migrations with EF, other than
+                    this gripe, it was very straightforward to build this project.
                 </p>
             </section>
         </article>
@@ -149,6 +175,11 @@
                     href="https://www.linkedin.com/in/kyleorlinskideveloper/"><i class="fab fa-linkedin-in"></i></a></li>
         </ul>
         <ul class="list-inline">
+            <li>
+                <a class="mx-1 text link-black transition" href="../../../index.html#about-section">
+                    About
+                </a>
+            </li>
             <li>
                 <a class="mx-1 text link-black transition" href="../../../index.html#projects-section">
                     Projects

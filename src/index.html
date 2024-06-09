@@ -45,6 +45,7 @@
 
       <div class="hamburgermenu__nav">
         <ul class="hamburgermenu__list">
+          <li class="hamburgermenu__item"><a href="#about-section" class="hamburgermenu__link">About</a></li>
           <li class="hamburgermenu__item"><a href="#projects-section" class="hamburgermenu__link">Projects</a></li>
           <li class="hamburgermenu__item"><a href="#blog-section" class="hamburgermenu__link">Blog</a></li>
           <li class="hamburgermenu__item"><a href="#contact-section" class="hamburgermenu__link">Contact</a></li>
@@ -60,6 +61,11 @@
 
       <div class="desktop-navigation__card_2up">
         <ul class="desktop-navigation__list">
+          <a class="desktop-navigation__list-item" href="#about-section">
+            <li>
+              About
+            </li>
+          </a>
           <a class="desktop-navigation__list-item" href="#projects-section">
             <li>
               Projects
@@ -95,7 +101,45 @@
     </header>
 
     <article>
-      <section class="section mobile-section point-of-interest" id="projects-section">
+      <section class="section mobile-section mb-1" id="about-section">
+        <h2 class="secondary-header text-center"><span class="primary-underline">About</span></h2>
+        <div class="container container-content container-background flex flex-column mobile-container">
+          <div class="width-55 mx-auto mobile-width-100 mobile-p-2">
+            <h3 class="h3">Career</h3>
+            <p class="paragraph my-2">
+              My career began at Boston Store initially as a contractor in late 2016, as a JavaScript developer to build a mega menu
+              navigation system for their E-commerce platform. Sometime in 2017, I was hired and continued building site features. The
+              features I am most proud of in the building were a store locator, coupon automation checkout, mega menu navigation, and
+              a promotional video player.</p>
+            <p class="paragraph my-2">
+              After close to two years, I found a great opportunity at Concurrency, Inc. To start as an
+              associate software developer on their modern apps team. During this time, I worked alongside many great developers to
+              learn and gain new skills to aid in building enterprise software. My specialization was in Angular, Azure and
+              TypeScript. In late 2019, I got promoted to software developer. I have expanded my tool set to include .NET, React, and
+              many supporting technologies to assist in building and contributing to many diverse web applications, including SaaS,
+              B2B, B2C, and Fintech.
+            </p>
+            
+            <p class="paragraph my-2">
+              For the past year, I have stepped away to address personal events and figure out where I want to
+              take my career further. Currently, I am actively looking for and applying to companies that best fit my future career.
+              My day-to-day now has mainly been working on software projects and exploring hobbies of mine like game development.
+            </p>
+            <div class="mt-2">
+              <h3 class="h3">Personal</h3>
+              <p class="paragraph my-2">
+                My personal life revolves around a number of hobbies that range from weightlifting to MMA. And when I am recovering, I
+                tend to focus on building my RPG game or planning a trip. Other than this, I dabble in many other things that are
+                prompted by my curiosity.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </article>
+
+    <article>
+      <section class="section mobile-section" id="projects-section">
         <div class="container">
           <h2 class="secondary-header text-center"><span class="primary-underline">Software Projects</span></h2>
           <div>
@@ -112,7 +156,7 @@
 
               <div class="flex mt-2 overflow-hidden">
                 <a class="flex flex-column link-clean relative" href="./src/pages/build/projectorganizer.html">
-                  <img src="./src/images/project_organizer_1920_1080.png" alt="Project Organizer Dashboard Image" class="image hover-scale-image">
+                  <img src="./src/images/project_organizer/project_organizer_add-project.jpg" alt="Project Organizer Dashboard Image" class="image hover-scale-image">
                   <div class="flex justify-content-center align-items-center image-description-background">
                     <span class="image-description">Project Organizer - React, .NET, EF 7+</span>
                   </div>
@@ -145,7 +189,7 @@
       </section>
     </article>
 
-    <article class="mt-2">
+    <article>
       <section class="section mobile-section" id="blog-section">
         <div class="container container-content container-background flex flex-column">
           <h4 class="section-summary-title">PERSPECTIVE</h4>
@@ -155,7 +199,7 @@
             <div class="card">
               <a href="./src/pages/build/swrwithreacthooks.html" class="link-clean">
                 <div class="highlight-band"></div>
-                <img class="card-image" alt="Image showing an SWR custom react hook" src="./src/images/swrreact_hooks_article_thumbnail.png">
+                <img class="card-image" alt="Image showing an SWR custom react hook" src="./src/images/react_swr_article/swrreact_hooks_article_thumbnail.png">
                 <h4 class="card-header">How to: SWR 2.0 with React hooks</h4>
                 <p class="card-paragraph">
                   A brief guide on implementing SWR using a custom react hook.
@@ -166,7 +210,7 @@
             <div class="card">
               <a href="./src/pages/build/godotanimationtracks.html" class="link-clean">
                 <div class="highlight-band"></div>
-                <img class="card-image" alt="Image displaying an animation track in Godot" src="./src/images/animationloader_article_thumbnail.png">
+                <img class="card-image" alt="Image displaying an animation track in Godot" src="./src/images/godot_animation_loader/animationloader_article_thumbnail.png">
                 <h4 class="card-header">How to: Godot Animation Track Builder</h4>
                 <p class="card-paragraph">
                   A how to on adding call methods on an AnimationPlayer via GDScript.
@@ -208,6 +252,11 @@
           href="https://www.linkedin.com/in/kyleorlinskideveloper/"><i class="fab fa-linkedin-in"></i></a></li>
     </ul>
     <ul class="list-inline">
+      <li>
+        <a class="mx-1 text link-black transition" href="#about-section">
+          About
+        </a>
+      </li>
       <li>
         <a class="mx-1 text link-black transition" href="#projects-section">
           Projects
