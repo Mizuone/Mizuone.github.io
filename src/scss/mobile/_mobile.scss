@@ -81,7 +81,7 @@
 .mobile-section {
     @include responsive(laptop) {
         width: 75%;
-        margin: 1rem 0;
+        margin: 1rem auto;
     }
 
     @include responsive(mobile) {
