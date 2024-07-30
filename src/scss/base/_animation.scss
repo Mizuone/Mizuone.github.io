@@ -18,6 +18,16 @@
     }
 }
 
+a:hover {
+  .hover-scale-image {
+    transform: scale(1.06);
+  }
+
+  .hover-portfolio-image {
+    transform: scale(1.1);
+  }
+}
+
 .hover-scale-image {
   &:hover {
     transform: scale(1.06);

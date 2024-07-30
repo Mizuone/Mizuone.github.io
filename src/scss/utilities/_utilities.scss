@@ -34,6 +34,14 @@
   }
 }
 
+.font-size-buff {
+  font-size: 155%;
+}
+
+.dark-faded-background {
+  background: rgba(34, 34, 34, 0.8);
+}
+
 .width-full {
   width: 100%;
 }
@@ -162,8 +170,16 @@
   margin: 0 2rem;
 }
 
+.my-1 {
+  margin: 1rem 0;
+}
+
 .my-2 {
   margin: 2rem 0;
+}
+
+.mr-4 {
+  margin-right: 4rem;
 }
 
 .mb-1 {
@@ -172,6 +188,10 @@
 
 .mb-2 {
   margin-bottom: 2rem;
+}
+
+.mt-1 {
+  margin-top: 1rem;
 }
 
 .mt-2 {
