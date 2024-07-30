@@ -1,0 +1,14 @@
+canvas {
+    -webkit-user-select: none;
+    -moz-user-select: -moz-none;
+    -ms-user-select: none;
+        user-select: none;
+    box-shadow: 0 0 5px black;
+    border-radius: 5px;
+
+    // !important is used to override JavaScript canvas width/style on canvas creation
+    @include responsive(mobile) {
+        width: 100% !important;
+        height: 100% !important;
+    }
+}

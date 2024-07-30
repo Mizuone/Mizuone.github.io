@@ -56,6 +56,11 @@ module.exports = {
             filename: "../src/pages/build/godotrpggame.html"
         }),
         new HtmlWebpackPlugin({
+            template: "./src/pages/articles/canvasrpggame.html",
+            inject: "body",
+            filename: "../src/pages/build/canvasrpggame.html"
+        }),
+        new HtmlWebpackPlugin({
             template: "./src/pages/articles/projectorganizer.html", 
             inject: "body",
             filename: "../src/pages/build/projectorganizer.html"
