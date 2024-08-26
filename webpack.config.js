@@ -71,6 +71,11 @@ module.exports = {
             filename: "../src/pages/build/schedulefocuser.html"
         }),
         new HtmlWebpackPlugin({
+            template: "./src/pages/articles/countdowntimer.html",
+            inject: "body",
+            filename: "../src/pages/build/countdowntimer.html"
+        }),
+        new HtmlWebpackPlugin({
             template: "./src/pages/articles/swrwithreacthooks.html", 
             inject: "body",
             filename: "../src/pages/build/swrwithreacthooks.html"
