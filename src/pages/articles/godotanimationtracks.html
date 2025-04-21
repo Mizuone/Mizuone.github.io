@@ -94,7 +94,8 @@
                 </h1>
                 <p>Jan 09 2024</p>
                 <h3 class="article-section-subheader my-2">
-                    <a href="https://github.com/Mizuone/godot-animation-track-builder" target="_blank" rel="noopener noreferrer">Complete
+                    <a class="link-black transition"
+                        href="https://github.com/Mizuone/godot-animation-track-builder" target="_blank" rel="noopener noreferrer">Complete
                         Example - Animation Track Loader</a>
                 </h3>
                 <h2 class="article-section-header">Setup</h2>
@@ -213,32 +214,38 @@ func one_hander_attack_first(main_hand: String):
                 <h3 class="article-section-subheader">Building the Track</h3>
                 <ul class="article-list">
                     <li>
-                        <span class="code">animation.add_track(Animation.TYPE_METHOD)</span> - The type of track that will be added to the animation.
+                        <span class="code">animation.add_track(Animation.TYPE_METHOD)</span>
                     </li>
                     <li>
-                        <span class="code">animation.track_set_path(animation_track, path_to_node)</span> - Sets the track path to the source node.
+                        <span class="code">animation.track_set_path(animation_track, path_to_node)</span>
                     </li>
                     <li>
                         <span class="code">animation.track_insert_key(animation_track, timestamp, track_details)</span> - Where to insert the newly created track on the animation.
                     </li>
                 </ul>
                 <p class="article-paragraph">
-                    The main use case is to bypass the manual approach of adding the method call tracks yourself. This proves to be
-                    tedious, especially for rapid animation prototyping.
-                    My animation workflow is done through Blender using Auto Rig Pro as the export process. To manually export the
-                    animations yourself on a rig. This <a target="_blank" rel="noopener noreferrer" href="https://youtu.be/wEJ-ex4_gYc?si=zrX8qsQlYubOiryW&t=59">video</a>
-                    covers it well.
+                    This implementation adds a modular way of quickly prototyping call methods on an animation. I don't like going down the manual approach because
+                    the GUI is more time consuming and if you wanted to make changes rapidly. It proves to be tedious. You can continue refactoring the implementation further 
+                    allowing a possible dictionary structure with keys associated to each script that will be called during a certain frame. 
+                </p>
+                <p class="article-paragraph">
+                    Things to keep in mind, adding a track
+                    during runtime will persist until the application is exited out. Meaning, if you have multiple characters and this
+                    track loader gets called in the ready function.
+                    It will overlap the call methods on the animation. So if an enemy attacks and has call methods that are suppose to fire
+                    during a frame, it will call multiple times depending
+                    on how many characters have spawned or respawned that called the track loader.
                 </p>
                 <p class="article-paragraph">
                     To better understand how to add tracks to an animation player. You can visit the latest documentation for Godot on
-                    the topic <a target="_blank" rel="noopener noreferrer"
+                    the topic <a target="_blank" rel="noopener noreferrer" class="link-black transition"
                         href="https://docs.godotengine.org/en/stable/classes/class_animation.html#class-animation-method-add-track">here</a>.
                 </p>
             </section>
         </article>
     </main>
     <footer class="container container-content container-background no-box-shadow text-center">
-        <p class="paragraph">© 2024, Created by <a class="link transition" href="/">Kyle Orlinski</a></p>
+        <p class="paragraph">© 2025, Created by <a class="link transition" href="/">Kyle Orlinski</a></p>
         <ul class="list-inline">
             <li class="mx-1 text text-large"><a class="link-black transition" target="_blank" rel="noopener noreferrer"
                     href="https://github.com/Mizuone"><i class="fab fa-github"></i></a></li>

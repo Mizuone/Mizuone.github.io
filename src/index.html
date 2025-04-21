@@ -93,7 +93,7 @@
       <div class="home-header-container">
         <h1 class="home-header-title">Hi, I am <span class="home-header-name">Kyle
             Orlinski.</span></h1>
-        <h4 class="home-header-description">Software Developer</h4>
+        <h4 class="home-header-description">Software &amp; Indie Game Developer</h4>
         <a href="#about-section"><button class="btn btn-secondary-color home-header-button">Know More
             &rarr;</button></a>
       </div>
@@ -102,12 +102,12 @@
 
     <article>
       <section class="section mobile-section mb-1" id="about-section">
-        <h2 class="secondary-header text-center"><span class="primary-underline">About</span></h2>
-        <div class="container container-content container-background flex flex-column mobile-container mt-2">
-          <div class="width-55 mx-auto mobile-width-100 mobile-p-2">
+        <h2 class="secondary-header text-center"><span class="accent-underline">About</span></h2>
+        <div class="container container-content container-large flex flex-column mobile-container mt-2">
+          <div class="mx-auto mobile-width-100 mobile-p-2">
             <h3 class="h3">Career</h3>
             <p class="paragraph my-2">
-              My career began in late 2016 as a contractor at Boston Store, where I worked as a JavaScript developer to create a mega
+              It began in late 2016 as a contractor at Boston Store, where I worked as a JavaScript developer to create a mega
               menu navigation system for their E-commerce platform. In 2017, I was hired full-time and continued developing site
               features, including a store locator, coupon automation checkout, and a promotional video player.
             </p>
@@ -143,10 +143,10 @@
     <article>
       <section class="section mobile-section" id="projects-section">
         <div class="container">
-          <h2 class="secondary-header text-center"><span class="primary-underline">Software Projects</span></h2>
+          <h2 class="secondary-header text-center"><span class="accent-underline">Software Projects</span></h2>
           <div>
             <div class="card-container flex align-items-center gap-4">
-              <div class="flex mt-2 overflow-hidden">
+              <div class="flex mt-2 overflow-hidden interactable-container transition">
                 <a class="flex flex-column link-clean relative" href="./src/pages/build/schedulefocuser.html">
                   <img src="./src/images/schedule_focuser/schedule_focuser_dashboard.png" alt="Schedule Focuser Dashboard Image"
                     class="image hover-scale-image">
@@ -156,7 +156,7 @@
                 </a>
               </div>
 
-              <div class="flex mt-2 overflow-hidden">
+              <div class="flex mt-2 overflow-hidden interactable-container transition">
                 <a class="flex flex-column link-clean relative" href="./src/pages/build/projectorganizer.html">
                   <img src="./src/images/project_organizer/project_organizer_add-project.jpg" alt="Project Organizer Dashboard Image" class="image hover-scale-image">
                   <div class="flex justify-content-center align-items-center image-description-background">
@@ -168,7 +168,7 @@
           </div>
           <div>
             <div class="card-container flex align-items-center gap-4">
-              <div class="flex mt-2 overflow-hidden width-50 mobile-width-100">
+              <div class="flex mt-2 overflow-hidden width-50 mobile-width-100 interactable-container transition">
                 <a class="flex flex-column link-clean relative" href="./src/pages/build/countdowntimer.html">
                   <img src="./src/images/countdown_timer/countdown_timer.png" alt="Countdown Timer Image"
                     class="image hover-scale-image">
@@ -185,9 +185,9 @@
           </div>
         </div>
         <div class="container mobile-mt-0 mt-2">
-          <h2 class="secondary-header text-center"><span class="primary-underline">Game Projects</span></h2>
+          <h2 class="secondary-header text-center"><span class="accent-underline">Game Projects</span></h2>
             <div class="card-container flex align-items-center gap-4">
-              <div class="flex mt-2 overflow-hidden">
+              <div class="flex mt-2 overflow-hidden interactable-container transition">
                 <a class="flex flex-column link-clean relative" href="./src/pages/build/godotrpggame.html">
                   <img src="./src/images/rpg_game/fantasy_rpg_cover_02.jpg" alt="Godot RPG Character Sheet Image"
                     class="image hover-scale-image">
@@ -196,7 +196,7 @@
                   </div>
                 </a>
               </div>
-              <a class="flex flex-column link-clean width-full dark-faded-background mt-2" href="./src/pages/build/canvasrpggame.html">
+              <a class="flex flex-column link-clean width-full interactable-container transition dark-faded-background mt-2" href="./src/pages/build/canvasrpggame.html">
                 <div class="flex overflow-hidden relative justify-content-center">
                   <img src="./src/images/reaver/game_start.png" alt="Reaver RPG Game Image"
                     class="image hover-scale-image my-1">
@@ -214,13 +214,13 @@
       <section class="section mobile-section" id="blog-section">
         <div class="container container-content container-background flex flex-column">
           <h4 class="section-summary-title">PERSPECTIVE</h4>
-          <h4 class="secondary-header">Latest From The <span class="primary-underline"><span
-                class="text-primary">B</span>log</span></h4>
+          <h4 class="secondary-header">Latest From The <span class="accent-underline"><span
+                class="text-secondary">B</span>log</span></h4>
           <div class="card-container flex gap-4 justify-content-evenly align-items-center">
             <div class="card">
               <a href="./src/pages/build/swrwithreacthooks.html" class="link-clean">
                 <div class="highlight-band"></div>
-                <img class="card-image" alt="Image showing an SWR custom react hook" src="./src/images/react_swr_article/swrreact_hooks_article_thumbnail.png">
+                <img class="card-image hover-scale-image transition" alt="Image showing an SWR custom react hook" src="./src/images/react_swr_article/swrreact_hooks_article_thumbnail.png">
                 <h4 class="card-header">How to: SWR 2.0 with React hooks</h4>
                 <p class="card-paragraph">
                   A brief guide on implementing SWR using a custom react hook.
@@ -231,7 +231,7 @@
             <div class="card">
               <a href="./src/pages/build/godotanimationtracks.html" class="link-clean">
                 <div class="highlight-band"></div>
-                <img class="card-image" alt="Image displaying an animation track in Godot" src="./src/images/godot_animation_loader/animationloader_article_thumbnail.png">
+                <img class="card-image hover-scale-image transition" alt="Image displaying an animation track in Godot" src="./src/images/godot_animation_loader/animationloader_article_thumbnail.png">
                 <h4 class="card-header">How to: Godot Animation Track Builder</h4>
                 <p class="card-paragraph">
                   A how to on adding call methods on an AnimationPlayer via GDScript.
@@ -245,7 +245,7 @@
 
     <article>
       <section class="section mobile-section" id="contact-section">
-        <h2 class="secondary-header text-center"><span class="primary-underline">Contact</span></h2>
+        <h2 class="secondary-header text-center"><span class="accent-underline">Contact</span></h2>
         <div
           class="container-small container-content container-background flex justify-content-center align-items-center flex-column">
           <div>
@@ -264,8 +264,8 @@
 
   </main>
 
-  <footer class="container container-content container-background no-box-shadow text-center mt-4">
-    <p class="paragraph">© 2024, Created by <a class="link transition" href="/">Kyle Orlinski</a></p>
+  <footer class="container container-content border-container no-box-shadow text-center mt-4">
+    <p class="paragraph">© 2025, Created by <a class="link transition" href="/">Kyle Orlinski</a></p>
     <ul class="list-inline">
       <li class="mx-1 text text-large"><a class="link-black transition github-icon" target="_blank" rel="noopener noreferrer"
           href="https://github.com/Mizuone"><i class="fab fa-github"></i></a></li>
