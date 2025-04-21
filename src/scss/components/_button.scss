@@ -9,7 +9,7 @@
   transition: 0.15s ease-in all;
 
   &:hover {
-    background-color: $color-lightergreen;
+    background-color: $color-secondary;
   }
 
   &:active {
@@ -19,7 +19,7 @@
 }
 
 .btn-secondary-color {
-  background-color: $color-lightgreen;
+  background-color: $color-ternary;
 }
 
 .btn-faded {

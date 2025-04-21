@@ -93,7 +93,7 @@
         content: '';
       }
       &:hover {
-        color: #000;
+        color: $color-ternary;
       }
       &:active {
         color: $color-white;
@@ -154,7 +154,7 @@
     position: fixed;
     top: 6.5rem;
     right: 6.5rem;
-    background-image: radial-gradient($color-lightgreen, $color-primary);
+    background-image: radial-gradient($color-ternary, $color-primary);
     z-index: 1000;
 
     transition: transform .8s;

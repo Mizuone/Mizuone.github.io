@@ -66,9 +66,15 @@
 .primary-backgroundcolor {
   background-color: $color-primary;
 }
+
 .primary-underline {
   display: inline-block;
   border-bottom: 3px solid $color-primary;
+}
+
+.accent-underline {
+  display: inline-block;
+  border-bottom: 3px solid $color-secondary;
 }
 
 .clickable {
@@ -91,7 +97,7 @@
 
   &:hover {
     cursor: pointer;
-    border-bottom-color: $color-lightgreen;
+    border-bottom-color: $color-ternary;
     color: $color-faded-black;
   }
 }
@@ -120,7 +126,7 @@
     color: $color-primary;
   }
   &:active {
-    color: $color-lightergreen;
+    color: $color-secondary;
   }
 }
 .portfolio-themed-link {
@@ -128,10 +134,10 @@
     transition: 0.15s all ease-in;
 
     &:hover {
-      color: $color-lightergreen;
+      color: $color-secondary;
     }
     &:active {
-      color: $color-lightergreen;
+      color: $color-secondary;
     }
 }
 
