@@ -109,7 +109,7 @@
         }
     }
 
-    .secondary-header {
+    .secondary-header, .section-header {
         @include responsive(laptop) {
             font-size: 4rem;
             text-align: center;

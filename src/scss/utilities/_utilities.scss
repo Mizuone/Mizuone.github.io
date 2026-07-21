@@ -69,12 +69,12 @@
 
 .primary-underline {
   display: inline-block;
-  border-bottom: 3px solid $color-primary;
+  border-bottom: 2px solid $color-primary;
 }
 
 .accent-underline {
   display: inline-block;
-  border-bottom: 3px solid $color-secondary;
+  border-bottom: 2px solid $color-secondary;
 }
 
 .clickable {
@@ -92,7 +92,7 @@
 }
 
 .border-b-primary-clickable {
-  border-bottom: 3px solid $color-primary;
+  border-bottom: 2px solid $color-primary;
   transition: all .1s ease-in;
 
   &:hover {
