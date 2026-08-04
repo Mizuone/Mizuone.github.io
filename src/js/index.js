@@ -40,11 +40,11 @@ const PortfolioFeatures = (function () {
         backToTopContainer.appendChild(_createBackToTopButton());
     }
     function _hamburgerMenuClickEvents() {
-        const hamburgerNavItems = document.querySelectorAll('.hamburgermenu__link');
+        const hamburgerNavItems = document.querySelectorAll('.menu-link');
 
         hamburgerNavItems.forEach((navItem) => {
             navItem.addEventListener('click', () => {
-                document.querySelector('.hamburgermenu__checkbox').checked = false;
+                document.querySelector('.menu-checkbox').checked = false;
             });
         });
     }

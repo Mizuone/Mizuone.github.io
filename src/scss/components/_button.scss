@@ -1,5 +1,5 @@
 .btn {
-  color: $color-white;
+  color: $button-color;
   font-size: 1.5rem;
   border-radius: 1rem;
   padding: 1rem;
@@ -10,6 +10,7 @@
 
   &:hover {
     background-color: $color-secondary;
+	color: $color-white;
   }
 
   &:active {
