@@ -33,11 +33,7 @@
 	width: 100%;
 	z-index: 4;
 
-	&__card_2up {
-		width: 50%;
-	}
-
-	&__list {
+	.navigation-list {
 		display: inline-block;
 		position: relative;
 		left: 10%;

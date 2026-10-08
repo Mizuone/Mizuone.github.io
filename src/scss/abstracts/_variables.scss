@@ -1,17 +1,18 @@
 $color-primary: #2E6F40; 
 $color-secondary: #141414;
-$color-ternary: #f7f7f7;
+$color-ternary: #fafafa;
 
 $color-white: #f3f3f3;
 $color-faded-black: #1f1f1f;
 $color-black: #000;
+$color-grey: #707070;
 
 $container-border: 1px solid rgba(200, 200, 200, 0.05);
 $container-box-shadow: 0 2px 5px rgba(155, 155, 155, 0.2), 0 2px 5px rgba(155, 155, 155, 0.05);
 
 $navigation-underline: $color-faded-black;
 
-$secondary-header-color: $color-faded-black;
+$secondary-header-color: $color-ternary;
 $section-header-color: $color-faded-black;
 
 $card-paragraph-color: $color-faded-black;
