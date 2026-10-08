@@ -16,9 +16,9 @@
 }
 
 .link-black {
-    color: $color-black;
+    color: $color-faded-black;
 
     &:hover {
-        color: $color-secondary;
+        color: $color-grey;
     }
 }

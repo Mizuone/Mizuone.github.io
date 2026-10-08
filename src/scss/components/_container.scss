@@ -20,7 +20,7 @@
 
 .container-background, .container-large, .container-medium, .container-small, .border-container {
     background-color: $color-ternary;
-    color: $color-white;
+    color: $color-faded-black;
     border-radius: 1rem;
     box-shadow: $container-box-shadow;
     border: $container-border;
@@ -56,4 +56,8 @@
     &:active {
         border-color: $color-secondary;
     }
+}
+
+.card-2up {
+	width: 50%;
 }

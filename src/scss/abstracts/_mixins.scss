@@ -3,23 +3,15 @@
 0 - 425px: Phone Small
 0 - 600px: Phone
 601px - 700px: Phone landscape
-600 - 900px: Tablet portrait
-901 - 1000px: Tablet Small
 900 - 1200px: Tablet landscape
 1400px: Laptop
-(1200-1800): Normal Styling
-1800 + : Big Desktop
 
 $breakpoint arguement choices:
 - phone-small
 - phone
 - phone-land
-- tab-port
-- small-height
 - tab-land
 - laptop
-- medium-desktop
-- big-desktop
 */
 
 @mixin respond($breakpoint) {
@@ -32,38 +24,11 @@ $breakpoint arguement choices:
   @if $breakpoint == phone-land {
     @media (max-width: 43.75em) { @content };
   }
-  @if $breakpoint == tab-port {
-    @media (max-width: 56.25em) { @content };
-  }
-  @if $breakpoint == tab-small {
-    @media (max-width: 62.5em) { @content };
-  }
   @if $breakpoint == tab-land {
     @media (max-width: 75em) { @content };
   }
-  @if $breakpoint == greater-than-tab-land {
-    @media (min-width: 75em) { @content };
-  }
   @if $breakpoint == laptop {
     @media (max-width: 87.5em) { @content };
-  }
-  @if $breakpoint == medium-desktop {
-    @media (max-width: 100em) { @content };
-  }
-  @if $breakpoint == large-desktop {
-    @media (max-width: 106.25em) { @content };
-  }
-  @if $breakpoint == big-desktop {
-    @media (min-width: 112.5em) { @content };
-  }
-  @if $breakpoint == small-height {
-    @media (max-height: 38.06em) { @content };
-  }
-  @if $breakpoint == tiny-height {
-    @media (max-height: 32.81em) { @content };
-  }
-  @if $breakpoint == ant-height {
-    @media (max-height: 25em) { @content };
   }
 }
 

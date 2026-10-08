@@ -8,9 +8,10 @@ h1, h2, h3, h4 {
 }
 
 p, .paragraph, .text {
-  font-size: 1.75rem;
+  font-size: 2rem;
   flex: 1 0 auto;
-  line-height: 1.6;
+  line-height: 32px;
+  letter-spacing: -0.003em;
 }
 
 .text-center {
