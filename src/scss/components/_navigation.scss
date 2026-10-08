@@ -39,6 +39,10 @@
 		left: 10%;
 		margin-top: 5.5rem;
 
+		@include responsive(laptop) {
+			margin-top: 2.5rem;
+		}
+
 		a {
 			display: inline-block;
 			margin: 3rem;

@@ -40,6 +40,19 @@
     }
 }
 
+.mobile-flex {
+	@include responsive(laptop)  {
+		flex-direction: column;
+	}
+}
+
+.mobile-container {
+	@include responsive(mobile) {
+		width: 100%;
+		max-width: 100%;
+	}
+}
+
 .mobile-article {
     @include responsive(laptop) {
         padding: 3rem;
